@@ -10,7 +10,7 @@ interface NavSegment {
 
 const navSegments: NavSegment[] = [
   {
-    label: "Public Classes",
+    label: "Public",
     path: "/classes",
     children: [
       { label: "In Person", path: "/classes" },
@@ -32,7 +32,7 @@ const navSegments: NavSegment[] = [
     ],
   },
   {
-    label: "Private Classes",
+    label: "Friends",
     path: "/classes",
     children: [
       { label: "Kids Party", path: "/classes" },
