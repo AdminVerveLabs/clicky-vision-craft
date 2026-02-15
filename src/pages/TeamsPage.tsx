@@ -1,36 +1,136 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
 
 const occasions = [
-  { id: "team-events", sidebarLabel: "Team Building", tag: "MOST POPULAR", title: "Team Building Events", description: "Get your team cooking (literally). Hands-on, collaborative, and way more fun than trust falls. Perfect for teams of 8-30.", groupSize: "8–30 people", duration: "2.5 hours", icon: "👨‍🍳", path: "/teams/team-events" },
-  { id: "all-hands", sidebarLabel: "All-Hands", tag: "VIRTUAL + IN-PERSON", title: "All-Hands & Townhalls", description: "Make your next company gathering unforgettable. Live cooking demos, interactive challenges, and food that brings people together across offices.", groupSize: "20–200 people", duration: "1.5–2 hours", icon: "🎤", path: "/teams/all-hands" },
-  { id: "onboarding", sidebarLabel: "Onboarding", tag: "NEW HIRE FAVORITE", title: "Onboarding & Culture", description: "Welcome new team members with an experience they'll actually remember. Set the tone for your culture from day one.", groupSize: "5–25 people", duration: "2 hours", icon: "🌱", path: "/teams/onboarding" },
-  { id: "client-entertainment", sidebarLabel: "Client Entertainment", tag: "IMPRESS & CONNECT", title: "Client Entertainment", description: "Skip the steakhouse. Host clients in an interactive environment that breaks down walls and builds real relationships.", groupSize: "6–20 people", duration: "2.5 hours", icon: "🤝", path: "/teams/client-entertainment" },
-  { id: "holiday", sidebarLabel: "Holiday", tag: "SEASONAL", title: "Holiday & Celebrations", description: "Year-end party? Summer kickoff? We create seasonal menus and themed experiences that feel special without the planning headache.", groupSize: "10–50 people", duration: "2–3 hours", icon: "🎉", path: "/teams/holiday" },
-  { id: "custom", sidebarLabel: "Custom Experiences", tag: "TAILORED TO YOU", title: "Custom Experiences", description: "Have something specific in mind? We'll design a bespoke culinary experience around your goals, dietary needs, and team size.", groupSize: "Any size", duration: "Flexible", icon: "✨", path: "/teams/custom" },
+  {
+    id: "team-events", sidebarLabel: "Team Building", tag: "MOST POPULAR", title: "Team Building Events",
+    description: "Get your team cooking (literally). Hands-on, collaborative, and way more fun than trust falls. Perfect for teams of 8-30.",
+    groupSize: "8–30 people", duration: "2.5 hours", icon: "👨‍🍳", path: "/teams/team-events",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "2.5 hours of hands-on cooking", color: "purple" },
+      { icon: "👥", label: "Group Size", value: "8–30 people per session", color: "orange" },
+      { icon: "🍽️", label: "Cuisine", value: "Creole-inspired collaborative menus", color: "sage" },
+      { icon: "📍", label: "Location", value: "Our Kitchen · Your Office · Virtual", color: "purple" },
+      { icon: "🎯", label: "Format", value: "Teams cook together in small groups", color: "orange" },
+      { icon: "✅", label: "Includes", value: "All ingredients, equipment, and recipes", color: "sage" },
+    ],
+    highlights: [
+      "Break down silos with hands-on collaboration",
+      "No cooking experience required — Chef Joey guides every step",
+      "Teams compete in friendly cooking challenges",
+      "Everyone eats what they cook together",
+      "Custom menus for dietary restrictions",
+    ],
+  },
+  {
+    id: "all-hands", sidebarLabel: "All-Hands", tag: "VIRTUAL + IN-PERSON", title: "All-Hands & Townhalls",
+    description: "Make your next company gathering unforgettable. Live cooking demos, interactive challenges, and food that brings people together across offices.",
+    groupSize: "20–200 people", duration: "1.5–2 hours", icon: "🎤", path: "/teams/all-hands",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "1.5–3 hours, flexible to your agenda", color: "purple" },
+      { icon: "👥", label: "Group Size", value: "20–200+ people", color: "orange" },
+      { icon: "💻", label: "Format", value: "In-person, virtual, or hybrid", color: "sage" },
+      { icon: "📍", label: "Location", value: "Your office, event venue, or online", color: "purple" },
+      { icon: "🎯", label: "Activities", value: "Live demos, cooking challenges, team competitions", color: "orange" },
+      { icon: "📦", label: "Virtual Kit", value: "Ingredient kits shipped to each participant", color: "sage" },
+    ],
+    highlights: [
+      "Breaks down silos between departments and offices",
+      "Works for both in-person and remote employees",
+      "Interactive format keeps everyone engaged",
+      "Creates shared memories beyond the usual slides",
+      "Scales from 20 to 200+ without losing the magic",
+    ],
+  },
+  {
+    id: "onboarding", sidebarLabel: "Onboarding", tag: "NEW HIRE FAVORITE", title: "Onboarding & Culture",
+    description: "Welcome new team members with an experience they'll actually remember. Set the tone for your culture from day one.",
+    groupSize: "5–25 people", duration: "2 hours", icon: "🌱", path: "/teams/onboarding",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "2 hours of team bonding", color: "purple" },
+      { icon: "👥", label: "Group Size", value: "5–25 people", color: "orange" },
+      { icon: "🎯", label: "Focus", value: "Icebreaking, culture building, connection", color: "sage" },
+      { icon: "📍", label: "Location", value: "Our Kitchen · Your Office", color: "purple" },
+      { icon: "🍽️", label: "Menu", value: "Collaborative dishes that require teamwork", color: "orange" },
+      { icon: "✅", label: "Includes", value: "Welcome kits, name tags, recipe cards", color: "sage" },
+    ],
+    highlights: [
+      "New hires connect with teammates naturally",
+      "Sets a culture-first tone from day one",
+      "Low-pressure environment for authentic bonding",
+      "Works for both small cohorts and large classes",
+      "Customizable to reflect your company values",
+    ],
+  },
+  {
+    id: "client-entertainment", sidebarLabel: "Client Entertainment", tag: "IMPRESS & CONNECT", title: "Client Entertainment",
+    description: "Skip the steakhouse. Host clients in an interactive environment that breaks down walls and builds real relationships.",
+    groupSize: "6–20 people", duration: "2.5 hours", icon: "🤝", path: "/teams/client-entertainment",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "2.5 hours of premium experience", color: "purple" },
+      { icon: "👥", label: "Group Size", value: "6–20 people", color: "orange" },
+      { icon: "🍷", label: "Add-ons", value: "Wine pairings, cocktail stations available", color: "sage" },
+      { icon: "📍", label: "Location", value: "Our Kitchen · Private venues", color: "purple" },
+      { icon: "🎯", label: "Focus", value: "Relationship building in a relaxed setting", color: "orange" },
+      { icon: "✅", label: "Includes", value: "Premium ingredients, personal chef attention", color: "sage" },
+    ],
+    highlights: [
+      "More memorable than a dinner reservation",
+      "Breaks down formality barriers naturally",
+      "Clients become collaborators in the kitchen",
+      "Photo-worthy moments for social sharing",
+      "Personalized menus to impress",
+    ],
+  },
+  {
+    id: "holiday", sidebarLabel: "Holiday", tag: "SEASONAL", title: "Holiday & Celebrations",
+    description: "Year-end party? Summer kickoff? We create seasonal menus and themed experiences that feel special without the planning headache.",
+    groupSize: "10–50 people", duration: "2–3 hours", icon: "🎉", path: "/teams/holiday",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "2.5–3 hours of cooking and celebration", color: "purple" },
+      { icon: "👥", label: "Group Size", value: "10–50+ people", color: "orange" },
+      { icon: "🍽️", label: "Menus", value: "Seasonal and themed menus for every occasion", color: "sage" },
+      { icon: "📍", label: "Location", value: "Our Kitchen · Your Venue · Virtual", color: "purple" },
+      { icon: "🎄", label: "Themes", value: "Holiday, summer, spring, cultural celebrations", color: "orange" },
+      { icon: "🎁", label: "Extras", value: "Décor, music, team competitions, prizes", color: "sage" },
+    ],
+    highlights: [
+      "Holiday party — festive menus and team competitions",
+      "Summer kickoff — light, fresh, outdoor-friendly",
+      "Year-end celebration — reflect and feast together",
+      "Cultural celebrations — Lunar New Year, Diwali, and more",
+      "Milestone events — anniversaries, launches, achievements",
+    ],
+  },
+  {
+    id: "custom", sidebarLabel: "Custom Experiences", tag: "TAILORED TO YOU", title: "Custom Experiences",
+    description: "Have something specific in mind? We'll design a bespoke culinary experience around your goals, dietary needs, and team size.",
+    groupSize: "Any size", duration: "Flexible", icon: "✨", path: "/teams/custom",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "Flexible — tailored to your schedule", color: "purple" },
+      { icon: "👥", label: "Group Size", value: "Any size, from 4 to 200+", color: "orange" },
+      { icon: "🎯", label: "Goals", value: "Tell us your objectives and we'll design around them", color: "sage" },
+      { icon: "📍", label: "Location", value: "Anywhere — we come to you", color: "purple" },
+      { icon: "🍽️", label: "Menu", value: "Fully custom menus and dietary accommodations", color: "orange" },
+      { icon: "✅", label: "Includes", value: "Everything — just show up and cook", color: "sage" },
+    ],
+    highlights: [
+      "100% tailored to your team's goals",
+      "Any cuisine, any dietary requirement",
+      "Combine multiple formats in one event",
+      "Dedicated event coordinator assigned",
+      "From concept to execution, we handle it all",
+    ],
+  },
 ];
 
 const TeamsPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
   const [activeId, setActiveId] = useState(occasions[0].id);
-
-  useEffect(() => {
-    const els = occasions.map((o) => document.getElementById(o.id)).filter(Boolean) as HTMLElement[];
-    if (!els.length) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible.length) setActiveId(visible[0].target.id);
-      },
-      { threshold: 0.35, rootMargin: "-10% 0px -50% 0px" }
-    );
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
   return (
     <div>
       {/* Hero */}
@@ -74,13 +174,30 @@ const TeamsPage = () => {
         </div>
       </section>
 
-      {/* Use Cases – Scroll Spy */}
+      {/* Use Cases – Tab Style */}
       <section className="py-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <SectionTag>Perfect For</SectionTag>
             <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
             <p className="font-sans text-base text-gray mt-3 max-w-[520px] mx-auto">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
+          </div>
+
+          {/* Mobile pill bar */}
+          <div className="flex md:hidden gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+            {occasions.map((o) => (
+              <button
+                key={o.id}
+                onClick={() => setActiveId(o.id)}
+                className={`whitespace-nowrap px-4 py-2 rounded-full font-sans text-[13px] font-semibold border transition-colors duration-200 shrink-0 ${
+                  activeId === o.id
+                    ? "bg-purple text-white border-purple"
+                    : "bg-white text-gray border-border hover:border-purple hover:text-purple"
+                }`}
+              >
+                {o.sidebarLabel}
+              </button>
+            ))}
           </div>
 
           <div className="flex gap-10">
@@ -91,7 +208,7 @@ const TeamsPage = () => {
                 {occasions.map((o) => (
                   <li key={o.id}>
                     <button
-                      onClick={() => document.getElementById(o.id)?.scrollIntoView({ behavior: "smooth", block: "center" })}
+                      onClick={() => setActiveId(o.id)}
                       className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
                         activeId === o.id
                           ? "border-purple text-purple font-semibold"
@@ -105,29 +222,72 @@ const TeamsPage = () => {
               </ul>
             </nav>
 
-            {/* Cards */}
-            <div className="flex-1 space-y-8">
-              {occasions.map((o) => (
-                <div key={o.id} id={o.id} className="bg-white rounded-[32px] overflow-hidden border border-border flex flex-col md:flex-row transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)]">
-                  {/* Icon area */}
-                  <div className="md:w-[260px] shrink-0 bg-gradient-to-br from-purple-pale to-purple/[0.06] flex items-center justify-center py-12 md:py-0">
-                    <div className="w-24 h-24 rounded-full bg-purple/10 flex items-center justify-center text-5xl">{o.icon}</div>
-                  </div>
-                  {/* Content */}
-                  <div className="p-8 md:p-10 flex flex-col justify-center">
-                    <span className="inline-block self-start font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-purple bg-purple-pale px-3 py-1 rounded-full mb-3">{o.tag}</span>
-                    <h3 className="font-serif text-[26px] font-bold text-dark leading-tight mb-2">{o.title}</h3>
-                    <p className="font-sans text-[15px] text-gray leading-[1.7] mb-5 max-w-[460px]">{o.description}</p>
-                    <div className="flex flex-wrap items-center gap-3 mb-5">
-                      <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">👥 {o.groupSize}</span>
-                      <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">⏱ {o.duration}</span>
+            {/* Content Panel */}
+            <div className="flex-1">
+              {(() => {
+                const o = occasions.find((x) => x.id === activeId)!;
+                return (
+                  <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
+                    {/* Header */}
+                    <div className="bg-gradient-to-br from-purple-pale to-purple/[0.06] p-8 md:p-10 flex items-center gap-6">
+                      <div className="w-20 h-20 rounded-full bg-purple/10 flex items-center justify-center text-5xl shrink-0">{o.icon}</div>
+                      <div>
+                        <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-purple bg-white/70 px-3 py-1 rounded-full mb-2">{o.tag}</span>
+                        <h3 className="font-serif text-[28px] md:text-[32px] font-bold text-dark leading-tight">{o.title}</h3>
+                      </div>
                     </div>
-                    <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-orange hover:underline self-start cursor-pointer">
-                      Learn More →
-                    </button>
+
+                    {/* Body */}
+                    <div className="p-8 md:p-10">
+                      <p className="font-sans text-[16px] text-gray leading-[1.7] mb-8 max-w-[560px]">{o.description}</p>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Details */}
+                        <div>
+                          <h4 className="font-serif text-[20px] font-bold text-dark mb-5">Experience Details</h4>
+                          {o.details.map((d, i) => (
+                            <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
+                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
+                                d.color === "purple" ? "bg-purple/10" : d.color === "orange" ? "bg-orange/10" : "bg-sage/10"
+                              }`}>{d.icon}</div>
+                              <div>
+                                <p className={`font-sans text-[12px] font-bold uppercase tracking-[1px] mb-0.5 ${
+                                  d.color === "purple" ? "text-purple" : d.color === "orange" ? "text-orange" : "text-sage"
+                                }`}>{d.label}</p>
+                                <p className="font-sans text-[14px] text-dark leading-snug">{d.value}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Highlights */}
+                        <div>
+                          <h4 className="font-serif text-[20px] font-bold text-dark mb-5">What to Expect</h4>
+                          <div className="bg-cream rounded-2xl p-6 border border-border">
+                            {o.highlights.map((h, i) => (
+                              <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
+                                <div className="w-6 h-6 rounded-full bg-purple-pale flex items-center justify-center text-[11px] font-bold text-purple font-sans shrink-0 mt-0.5">✓</div>
+                                <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Footer */}
+                      <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-border">
+                        <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">👥 {o.groupSize}</span>
+                        <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">⏱ {o.duration}</span>
+                        <div className="flex-1" />
+                        <CTAButton variant="primary" size="md">Book a Call</CTAButton>
+                        <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-orange hover:underline cursor-pointer">
+                          Learn More →
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })()}
             </div>
           </div>
         </div>
