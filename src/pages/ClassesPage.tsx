@@ -2,16 +2,119 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
-import ServiceCard from "@/components/chef/ServiceCard";
 import ClassModal from "@/components/chef/ClassModal";
 import NewsletterBanner from "@/components/chef/NewsletterBanner";
 import Footer from "@/components/chef/Footer";
 import { CLASS_DATA, FOOD_IMAGES, ClassData } from "@/data/classData";
 
+const classExperiences = [
+  {
+    id: "public-classes", sidebarLabel: "Public Classes", tag: "OPEN", title: "Public Classes",
+    description: "Join a group of fellow food lovers for a hands-on class. New menus every week. Perfect for date nights, solo adventures, or grabbing a friend.",
+    icon: "🍳", path: "/classes/open-classes", price: "From $89/person",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "2–3 hours of hands-on cooking", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "8–16 people per class", color: "sage" },
+      { icon: "🍽️", label: "Cuisine", value: "Creole, Italian, Vietnamese & more", color: "orange" },
+      { icon: "📍", label: "Location", value: "YW Calgary Community Kitchen, Inglewood", color: "sage" },
+      { icon: "🎯", label: "Format", value: "Hands-on cooking with Chef Joey", color: "orange" },
+      { icon: "✅", label: "Includes", value: "All ingredients, equipment, aprons & recipe cards", color: "sage" },
+    ],
+    highlights: [
+      "New menus every week — never the same class twice",
+      "No experience needed — Chef Joey guides every step",
+      "Perfect for date nights, solo, or with friends",
+      "You eat everything you cook at the end",
+      "BYOB welcome at all evening classes",
+    ],
+  },
+  {
+    id: "private-parties", sidebarLabel: "Private Parties", tag: "CELEBRATIONS", title: "Private Parties",
+    description: "Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast.",
+    icon: "🎉", path: "/classes/private-events", price: "From $125/person",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "2.5–3 hours, tailored to your event", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "6–30 people", color: "sage" },
+      { icon: "🍽️", label: "Menu", value: "Fully customized to your preferences", color: "orange" },
+      { icon: "📍", label: "Location", value: "Our Kitchen · Your Place · Any Venue", color: "sage" },
+      { icon: "🎯", label: "Vibe", value: "We match the energy to your celebration", color: "orange" },
+      { icon: "✅", label: "Includes", value: "Custom menu, décor options, all supplies", color: "sage" },
+    ],
+    highlights: [
+      "Birthdays, anniversaries, bachelorettes & more",
+      "Custom menus designed around your guest of honor",
+      "We handle setup and cleanup — you just celebrate",
+      "Photo-worthy plating and presentation",
+      "Dietary accommodations always included",
+    ],
+  },
+  {
+    id: "kids-cooking", sidebarLabel: "Kids Cooking", tag: "AGES 4–15", title: "Kids Cooking",
+    description: "Build kitchen confidence and creativity. Kids learn real skills in a safe, fun environment. Birthday parties and drop-in sessions available.",
+    icon: "👧", path: "/classes/kids-party", price: "From $65/kid",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "1.5–2 hours of hands-on fun", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "6–20 kids per session", color: "sage" },
+      { icon: "🍽️", label: "Menus", value: "Pizza, pasta, tacos, desserts & more", color: "orange" },
+      { icon: "📍", label: "Location", value: "Our Kitchen · Your Home", color: "sage" },
+      { icon: "🎂", label: "Parties", value: "Birthday party packages available", color: "orange" },
+      { icon: "✅", label: "Includes", value: "Chef hat, apron, recipe card to keep", color: "sage" },
+    ],
+    highlights: [
+      "Real cooking skills in a safe, supervised kitchen",
+      "Age-appropriate tasks for every skill level",
+      "Birthday party packages with custom themes",
+      "Kids eat everything they make",
+      "Builds confidence, creativity, and independence",
+    ],
+  },
+  {
+    id: "signature-sessions", sidebarLabel: "Signature Sessions", tag: "LIMITED", title: "Signature Sessions",
+    description: "Special themed experiences: 'Off to College' survival cooking, 'Basic Skills Bootcamp', 'Date Night: Creole Edition', and seasonal specials.",
+    icon: "⭐", path: "/classes/special-occasions", price: "From $99/person",
+    details: [
+      { icon: "⏱️", label: "Duration", value: "2.5–3 hours of immersive cooking", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "8–20 people", color: "sage" },
+      { icon: "🍽️", label: "Themes", value: "Seasonal specials, skill bootcamps, date nights", color: "orange" },
+      { icon: "📍", label: "Location", value: "YW Calgary Community Kitchen", color: "sage" },
+      { icon: "🔥", label: "Limited", value: "Special editions — book before they sell out", color: "orange" },
+      { icon: "✅", label: "Includes", value: "All ingredients, wine pairings (adult classes)", color: "sage" },
+    ],
+    highlights: [
+      "'Off to College' — survival cooking for young adults",
+      "'Basic Skills Bootcamp' — knife skills, sauces, timing",
+      "'Date Night: Creole Edition' — cook with your partner",
+      "Seasonal menus that rotate quarterly",
+      "Limited availability — these sell out fast",
+    ],
+  },
+  {
+    id: "gift-certificates", sidebarLabel: "Gift Certificates", tag: "PERFECT GIFT", title: "Gift Certificates",
+    description: "Give the gift of a great time. Available for any class or experience. Never expires. Because nobody wants another candle.",
+    icon: "🎁", path: "/classes/open-classes", price: "From $65",
+    details: [
+      { icon: "🎫", label: "Options", value: "Any class, any experience, any amount", color: "orange" },
+      { icon: "📧", label: "Delivery", value: "Instant digital or printed gift card", color: "sage" },
+      { icon: "📅", label: "Validity", value: "Never expires — use anytime", color: "orange" },
+      { icon: "🔄", label: "Flexible", value: "Recipient chooses their own class", color: "sage" },
+      { icon: "💝", label: "Personal", value: "Add a custom message and wrapping", color: "orange" },
+      { icon: "✅", label: "Includes", value: "Full class experience — nothing extra to pay", color: "sage" },
+    ],
+    highlights: [
+      "Perfect for birthdays, holidays, thank-yous",
+      "Recipient picks their own class and date",
+      "Never expires — no pressure to book immediately",
+      "Digital delivery for last-minute gifting",
+      "Corporate bulk options available",
+    ],
+  },
+];
+
 const ClassesPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
   const [selectedClass, setSelectedClass] = useState<ClassData | null>(null);
+  const [activeExpId, setActiveExpId] = useState(classExperiences[0].id);
   const [calMonth, setCalMonth] = useState(1);
   const monthNames = ["January", "February", "March"];
 
@@ -59,21 +162,120 @@ const ClassesPage = () => {
         </div>
       </section>
 
-      {/* Experience Types */}
+      {/* Experience Types – Tab Style */}
       <section className="py-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <SectionTag variant="orange">Experiences</SectionTag>
             <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Find your flavor</h2>
+            <p className="font-sans text-base text-gray mt-3 max-w-[520px] mx-auto">From open enrollment classes to private celebrations, find the perfect culinary experience for you.</p>
           </div>
-          <div className="grid grid-cols-3 gap-6">
-            <ServiceCard title="Public Classes" subtitle="Open Enrollment" description="Join a group of fellow food lovers for a hands-on class. New menus every week. Perfect for date nights, solo adventures, or grabbing a friend." price="From $89/person" tag="OPEN" accentColor="orange" onClick={() => go("/classes/open-classes")} />
-            <ServiceCard title="Private Parties" subtitle="Adults & Celebrations" description="Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast." price="From $125/person" accentColor="orange" onClick={() => go("/classes/private-events")} />
-            <ServiceCard title="Kids Cooking" subtitle="Ages 4–15" description="Build kitchen confidence and creativity. Kids learn real skills in a safe, fun environment. Birthday parties and drop-in sessions available." price="From $65/kid" accentColor="orange" onClick={() => go("/classes/kids-party")} />
+
+          {/* Mobile pill bar */}
+          <div className="flex md:hidden gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+            {classExperiences.map((o) => (
+              <button
+                key={o.id}
+                onClick={() => setActiveExpId(o.id)}
+                className={`whitespace-nowrap px-4 py-2 rounded-full font-sans text-[13px] font-semibold border transition-colors duration-200 shrink-0 ${
+                  activeExpId === o.id
+                    ? "bg-orange text-white border-orange"
+                    : "bg-white text-gray border-border hover:border-orange hover:text-orange"
+                }`}
+              >
+                {o.sidebarLabel}
+              </button>
+            ))}
           </div>
-          <div className="grid grid-cols-2 gap-6 mt-6">
-            <ServiceCard title="Signature Sessions" subtitle="Limited Edition" description="Special themed experiences: 'Off to College' survival cooking, 'Basic Skills Bootcamp', 'Date Night: Creole Edition', and seasonal specials." price="From $99/person" tag="LIMITED" onClick={() => go("/classes/special-occasions")} />
-            <ServiceCard title="Gift Certificates" subtitle="The Perfect Gift" description="Give the gift of a great time. Available for any class or experience. Never expires. Because nobody wants another candle." accentColor="sage" onClick={() => go("/classes/open-classes")} />
+
+          <div className="flex gap-10">
+            {/* Sidebar */}
+            <nav className="hidden md:block w-[220px] shrink-0 sticky top-32 self-start">
+              <p className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gray mb-4">Categories</p>
+              <ul className="space-y-1">
+                {classExperiences.map((o) => (
+                  <li key={o.id}>
+                    <button
+                      onClick={() => setActiveExpId(o.id)}
+                      className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
+                        activeExpId === o.id
+                          ? "border-orange text-orange font-semibold"
+                          : "border-transparent text-gray hover:text-orange"
+                      }`}
+                    >
+                      {o.sidebarLabel}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* Content Panel */}
+            <div className="flex-1">
+              {(() => {
+                const o = classExperiences.find((x) => x.id === activeExpId)!;
+                return (
+                  <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
+                    {/* Header */}
+                    <div className="bg-gradient-to-br from-orange-pale to-orange/[0.06] p-8 md:p-10 flex items-center gap-6">
+                      <div className="w-20 h-20 rounded-full bg-orange/10 flex items-center justify-center text-5xl shrink-0">{o.icon}</div>
+                      <div>
+                        <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-orange bg-white/70 px-3 py-1 rounded-full mb-2">{o.tag}</span>
+                        <h3 className="font-serif text-[28px] md:text-[32px] font-bold text-dark leading-tight">{o.title}</h3>
+                      </div>
+                    </div>
+
+                    {/* Body */}
+                    <div className="p-8 md:p-10">
+                      <p className="font-sans text-[16px] text-gray leading-[1.7] mb-8 max-w-[560px]">{o.description}</p>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Details */}
+                        <div>
+                          <h4 className="font-serif text-[20px] font-bold text-dark mb-5">Experience Details</h4>
+                          {o.details.map((d, i) => (
+                            <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
+                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
+                                d.color === "orange" ? "bg-orange/10" : "bg-sage/10"
+                              }`}>{d.icon}</div>
+                              <div>
+                                <p className={`font-sans text-[12px] font-bold uppercase tracking-[1px] mb-0.5 ${
+                                  d.color === "orange" ? "text-orange" : "text-sage"
+                                }`}>{d.label}</p>
+                                <p className="font-sans text-[14px] text-dark leading-snug">{d.value}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Highlights */}
+                        <div>
+                          <h4 className="font-serif text-[20px] font-bold text-dark mb-5">What to Expect</h4>
+                          <div className="bg-cream rounded-2xl p-6 border border-border">
+                            {o.highlights.map((h, i) => (
+                              <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
+                                <div className="w-6 h-6 rounded-full bg-orange-pale flex items-center justify-center text-[11px] font-bold text-orange font-sans shrink-0 mt-0.5">✓</div>
+                                <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Footer */}
+                      <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-border">
+                        <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">💰 {o.price}</span>
+                        <div className="flex-1" />
+                        <CTAButton variant="orange" size="md">Book Now</CTAButton>
+                        <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-orange hover:underline cursor-pointer">
+                          Learn More →
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
           </div>
         </div>
       </section>
