@@ -1,19 +1,30 @@
 
 
-# Update Hero Banner Purple Color
+# Update "Choose Your Experience" Section
 
 ## Change
-Update the purple color used in the hero banner gradient to `#430073` (HSL: 275 100% 22.5%).
+Replace the current 2-card layout with a 3-card layout matching the reference image style. The cards should have:
+- A gray placeholder image area at the top (with a colored tag badge in the top-right corner)
+- A category label with icon below the image
+- Bold serif title
+- Description text
+- "VIEW DETAILS" link at the bottom
 
-## Technical Details
-The hero banner in `src/pages/HomePage.tsx` uses an inline style gradient referencing CSS custom properties `--purple-dark` and `--purple`:
+## Cards
+1. **Public Classes** — Tag: "PUBLIC", Category: "BOOKABLE", Description: "Join a community of foodies. Perfect for solo cooks, couples, or small groups wanting to learn new skills." Links to `/classes`
+2. **Team Building** — Tag: "FOR TEAMS", Category: "BUILDERS", Description: "Interactive challenges and collaborative cooking to bring your corporate team closer together." Links to `/teams`
+3. **Private Classes** — Tag: "PRIVATE", Category: "CUSTOM", Description: "Organize your own personalized experience with Chef Joey. Great for friends, events, special occasions, and anything else that calls for fun." Links to `/classes` (or a future private page)
 
-```
-background: linear-gradient(165deg, hsl(var(--purple-dark)) 0%, hsl(var(--purple)) 35%, hsl(var(--dark)) 100%)
-```
-
-Rather than changing the global CSS variables (which would affect the entire site), I will update the hero section's inline gradient to use the new hex color `#430073` directly, keeping the rest of the site unchanged.
+## Design Details (from reference)
+- 3-column grid
+- Cards have rounded corners, light border/shadow, white background
+- Image placeholder area is ~280px tall, light gray background
+- Tag badge: purple pill in top-right of image area
+- Category label: purple text with small icon, uppercase, spaced tracking
+- Title: bold serif font
+- Description: gray body text
+- "VIEW DETAILS →" link in purple at bottom, uppercase
 
 ## File Modified
-- `src/pages/HomePage.tsx` — Update the hero `style` prop gradient to replace the purple stops with `#430073`.
+- `src/pages/HomePage.tsx` — Replace the "Choose Your Experience" section's 2-card grid with a 3-card grid matching the new design
 
