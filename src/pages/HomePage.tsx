@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import chefJoeyHero from "@/assets/chef-joey-hero.png";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import TestimonialCard from "@/components/chef/TestimonialCard";
@@ -56,9 +57,8 @@ const HomePage = () => {
 
             {/* Hero visual */}
             <div className="relative">
-              <div className="w-full aspect-[4/5] rounded-3xl border border-white/10 flex flex-col items-center justify-center gap-4 relative overflow-hidden" style={{ background: "linear-gradient(180deg, rgba(139,92,246,0.2) 0%, rgba(232,89,12,0.15) 100%)" }}>
-                <div className="text-7xl">👨‍🍳</div>
-                <p className="font-sans text-sm text-white/50 text-center">[Hero image: Chef Joey in action]</p>
+              <div className="w-full aspect-[4/5] rounded-3xl border border-white/10 relative overflow-hidden">
+                <img src={chefJoeyHero} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-5 -left-8 bg-white rounded-2xl px-5 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.15)] flex items-center gap-3">
                 <div className="w-11 h-11 rounded-xl bg-orange-pale flex items-center justify-center text-xl">🌶️</div>
