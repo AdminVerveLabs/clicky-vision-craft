@@ -59,12 +59,12 @@ const TeamsPage = () => {
             <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
           </div>
           <div className="grid grid-cols-3 gap-6">
-            <ServiceCard title="Team Building Events" subtitle="Most Popular" description="Get your team cooking (literally). Hands-on, collaborative, and way more fun than trust falls. Perfect for teams of 8-30." tag="POPULAR" onClick={() => go("/team-building")} />
-            <ServiceCard title="All-Hands & Townhalls" subtitle="Virtual + In-Person" description="Make your next company gathering unforgettable. Live cooking demos, interactive challenges, and food that brings people together across offices." onClick={() => go("/team-building")} />
-            <ServiceCard title="Onboarding & Culture" subtitle="New Hire Favorite" description="Welcome new team members with an experience they'll actually remember. Set the tone for your culture from day one." onClick={() => go("/team-building")} />
-            <ServiceCard title="Client Entertainment" subtitle="Impress & Connect" description="Skip the steakhouse. Host clients in an interactive environment that breaks down walls and builds real relationships." onClick={() => {}} />
-            <ServiceCard title="Holiday & Celebrations" subtitle="Seasonal" description="Year-end party? Summer kickoff? We create seasonal menus and themed experiences that feel special without the planning headache." onClick={() => {}} />
-            <ServiceCard title="Custom Experiences" subtitle="Tailored to You" description="Have something specific in mind? We'll design a bespoke culinary experience around your goals, dietary needs, and team size." onClick={() => {}} />
+            <ServiceCard title="Team Building Events" subtitle="Most Popular" description="Get your team cooking (literally). Hands-on, collaborative, and way more fun than trust falls. Perfect for teams of 8-30." tag="POPULAR" onClick={() => go("/teams/team-events")} />
+            <ServiceCard title="All-Hands & Townhalls" subtitle="Virtual + In-Person" description="Make your next company gathering unforgettable. Live cooking demos, interactive challenges, and food that brings people together across offices." onClick={() => go("/teams/all-hands")} />
+            <ServiceCard title="Onboarding & Culture" subtitle="New Hire Favorite" description="Welcome new team members with an experience they'll actually remember. Set the tone for your culture from day one." onClick={() => go("/teams/onboarding")} />
+            <ServiceCard title="Client Entertainment" subtitle="Impress & Connect" description="Skip the steakhouse. Host clients in an interactive environment that breaks down walls and builds real relationships." onClick={() => go("/teams/client-entertainment")} />
+            <ServiceCard title="Holiday & Celebrations" subtitle="Seasonal" description="Year-end party? Summer kickoff? We create seasonal menus and themed experiences that feel special without the planning headache." onClick={() => go("/teams/holiday")} />
+            <ServiceCard title="Custom Experiences" subtitle="Tailored to You" description="Have something specific in mind? We'll design a bespoke culinary experience around your goals, dietary needs, and team size." onClick={() => go("/teams/custom")} />
           </div>
         </div>
       </section>

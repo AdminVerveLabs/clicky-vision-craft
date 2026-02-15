@@ -12,6 +12,23 @@ import PublicClassesPage from "./pages/PublicClassesPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 
+// Classes sub-pages
+import OpenClassesPage from "./pages/classes/OpenClassesPage";
+import PrivateEventsPage from "./pages/classes/PrivateEventsPage";
+import SpecialOccasionsPage from "./pages/classes/SpecialOccasionsPage";
+import FriendsPage from "./pages/classes/FriendsPage";
+import KidsPartyPage from "./pages/classes/KidsPartyPage";
+import CateringPage from "./pages/classes/CateringPage";
+
+// Teams sub-pages
+import TeamEventsPage from "./pages/teams/TeamEventsPage";
+import AllHandsPage from "./pages/teams/AllHandsPage";
+import OnboardingPage from "./pages/teams/OnboardingPage";
+import ClientEntertainmentPage from "./pages/teams/ClientEntertainmentPage";
+import HolidayPage from "./pages/teams/HolidayPage";
+import CustomExperiencesPage from "./pages/teams/CustomExperiencesPage";
+import CateringTeamsPage from "./pages/teams/CateringTeamsPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -29,6 +46,24 @@ const App = () => (
             <Route path="/team-building" element={<TeamBuildingPage />} />
             <Route path="/public-classes" element={<PublicClassesPage />} />
             <Route path="/about" element={<AboutPage />} />
+
+            {/* Classes sub-pages */}
+            <Route path="/classes/open-classes" element={<OpenClassesPage />} />
+            <Route path="/classes/private-events" element={<PrivateEventsPage />} />
+            <Route path="/classes/special-occasions" element={<SpecialOccasionsPage />} />
+            <Route path="/classes/friends" element={<FriendsPage />} />
+            <Route path="/classes/kids-party" element={<KidsPartyPage />} />
+            <Route path="/classes/catering" element={<CateringPage />} />
+
+            {/* Teams sub-pages */}
+            <Route path="/teams/team-events" element={<TeamEventsPage />} />
+            <Route path="/teams/all-hands" element={<AllHandsPage />} />
+            <Route path="/teams/onboarding" element={<OnboardingPage />} />
+            <Route path="/teams/client-entertainment" element={<ClientEntertainmentPage />} />
+            <Route path="/teams/holiday" element={<HolidayPage />} />
+            <Route path="/teams/custom" element={<CustomExperiencesPage />} />
+            <Route path="/teams/catering" element={<CateringTeamsPage />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
