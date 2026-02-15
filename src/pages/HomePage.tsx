@@ -83,46 +83,28 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8">
-            {/* Teams */}
-            <div onClick={() => go("/teams")} className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 border border-border relative hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(107,33,168,0.1)]">
-              <div className="h-[280px] bg-gradient-to-br from-purple-pale to-purple/[0.05] flex items-center justify-center relative">
-                <span className="text-7xl">🏢</span>
-                <div className="absolute top-5 right-5 bg-purple text-white text-xs font-bold px-3.5 py-1.5 rounded-full font-sans">For Teams</div>
-              </div>
-              <div className="p-8">
-                <h3 className="font-serif text-[28px] font-bold text-dark mb-3">Corporate & Teams</h3>
-                <p className="font-sans text-[15px] text-gray leading-[1.7] mb-6">
-                  Team building events, all-hands experiences, onboarding activities, and culture-building moments that actually get people talking. Virtual or in-person.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {["Team Events", "All-Hands", "Onboarding", "Virtual"].map((tag) => (
-                    <span key={tag} className="bg-purple-pale text-purple text-xs font-semibold px-3 py-1 rounded-full font-sans">{tag}</span>
-                  ))}
+          <div className="grid grid-cols-3 gap-8">
+            {[
+              { title: "Public Classes", tag: "PUBLIC", category: "BOOKABLE", icon: "📅", desc: "Join a community of foodies. Perfect for solo cooks, couples, or small groups wanting to learn new skills.", link: "/classes" },
+              { title: "Team Building", tag: "FOR TEAMS", category: "BUILDERS", icon: "🏢", desc: "Interactive challenges and collaborative cooking to bring your corporate team closer together.", link: "/teams" },
+              { title: "Private Classes", tag: "PRIVATE", category: "CUSTOM", icon: "🎉", desc: "Organize your own personalized experience with Chef Joey. Great for friends, events, special occasions, and anything else that calls for fun.", link: "/classes" },
+            ].map((card) => (
+              <div key={card.title} onClick={() => go(card.link)} className="bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border border-border hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+                <div className="h-[280px] bg-gray-light relative flex items-center justify-center">
+                  <span className="text-6xl opacity-30">📷</span>
+                  <div className="absolute top-4 right-4 bg-purple text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full tracking-wide font-sans">{card.tag}</div>
                 </div>
-                <span className="text-purple font-sans text-[15px] font-semibold">Explore Team Experiences →</span>
-              </div>
-            </div>
-
-            {/* Classes */}
-            <div onClick={() => go("/classes")} className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 border border-border relative hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(232,89,12,0.1)]">
-              <div className="h-[280px] bg-gradient-to-br from-orange-pale to-orange/[0.05] flex items-center justify-center relative">
-                <span className="text-7xl">🎉</span>
-                <div className="absolute top-5 right-5 bg-orange text-white text-xs font-bold px-3.5 py-1.5 rounded-full font-sans">For Foodies</div>
-              </div>
-              <div className="p-8">
-                <h3 className="font-serif text-[28px] font-bold text-dark mb-3">Classes & Events</h3>
-                <p className="font-sans text-[15px] text-gray leading-[1.7] mb-6">
-                  Public classes, private parties, kids cooking adventures, and signature sessions. Learn real skills while having the time of your life.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {["Public Classes", "Private Parties", "Kids", "Signature"].map((tag) => (
-                    <span key={tag} className="bg-orange-pale text-orange text-xs font-semibold px-3 py-1 rounded-full font-sans">{tag}</span>
-                  ))}
+                <div className="p-7">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-sm">{card.icon}</span>
+                    <span className="font-sans text-[11px] font-bold text-purple uppercase tracking-[2px]">{card.category}</span>
+                  </div>
+                  <h3 className="font-serif text-[24px] font-bold text-dark mb-3 leading-tight">{card.title}</h3>
+                  <p className="font-sans text-sm text-gray leading-[1.7] mb-6">{card.desc}</p>
+                  <span className="text-purple font-sans text-[13px] font-bold uppercase tracking-[1.5px]">View Details →</span>
                 </div>
-                <span className="text-orange font-sans text-[15px] font-semibold">Browse Classes & Events →</span>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
