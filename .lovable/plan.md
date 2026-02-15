@@ -1,44 +1,48 @@
 
 
-# Redesign "Pick Your Occasion" to Tab-Style Sidebar Navigation
+# Redesign "Find Your Flavor" to Tab-Style Sidebar Navigation
 
 ## Overview
-Replace the current scroll-spy layout (where all 6 cards are stacked and you scroll through them) with a **tab-style pattern**: clicking a sidebar item swaps the content in the main area to show a detailed, full-size panel for that event type. Only one event is visible at a time.
+Replace the current 3+2 grid of `ServiceCard` components in the "Find your flavor" section on the Classes page with the same tab-style sidebar navigation pattern used on the Teams page "Pick your occasion" section.
 
-## How It Works
+## What Changes
 
-1. **Sidebar stays the same** -- left-hand sticky nav with the 6 event categories, active state highlighted with purple left border
-2. **Clicking a sidebar item** sets `activeId` state (no more scrolling/IntersectionObserver) and the right-side content area updates to show a detailed panel for that event
-3. **Each panel** shows richer content than the current cards -- pulling from the detail data already used on each sub-page (experience details list, "what to expect" / "why it works" items, icon, description, CTAs)
-4. **"Learn More"** button at the bottom of each panel still navigates to the full dedicated landing page (e.g., `/teams/team-events`)
+The existing grid of 5 service cards (lines 62-78 in `ClassesPage.tsx`) will be replaced with:
 
-## Content Panel Layout (Right Side)
+1. **Sticky sidebar on the left** with 5 category links: Public Classes, Private Parties, Kids Cooking, Signature Sessions, Gift Certificates
+2. **Single content panel on the right** that swaps when a sidebar item is clicked, showing detailed info for that experience type (description, experience details grid, highlights, CTAs)
+3. **Mobile pill bar** replacing the sidebar on small screens
+4. **"Learn More"** button on each panel navigating to the existing sub-page
 
-Each panel will be a single large container with rounded corners (32px) containing:
+## Data Structure
+A `classExperiences` array with 5 items, each containing:
+- `id`, `sidebarLabel`, `tag`, `title`, `description`, `icon`, `path`
+- `details[]` -- 6 items with icon, label, value, color (duration, group size, cuisine, location, format, includes)
+- `highlights[]` -- 5 bullet points for "What to Expect"
+- `price` -- shown in the footer pills
 
-- **Header area**: Tag pill, title (Playfair Display), and description paragraph
-- **Two-column detail grid**:
-  - Left column: Experience details list (duration, group size, cuisine/format, location, included items, dietary) with colored icon badges
-  - Right column: "What to Expect" / "Why It Works" numbered or checkmark list in a white card
-- **Footer area**: Metadata pills (group size, duration) and two CTAs -- "Book a Call" (primary) and "Learn More" (orange text link to sub-page)
-- Smooth fade/slide transition when switching between panels
+Content is pulled from the existing `ServiceCard` text and expanded with richer detail matching each sub-page.
 
-## Mobile Behavior
-
-On mobile (below `md`), the sidebar is hidden. Instead, the 6 occasions render as a horizontal scrollable pill bar or simple stacked accordion/cards that can be tapped to expand.
+## Design Adaptation
+- Uses **orange** accent color instead of purple (matching the Classes page theme) -- orange left border on active sidebar, orange tag pills, orange accent on detail labels
+- Same card structure: gradient header with icon, two-column body (details + highlights), footer with pills and CTAs
+- `rounded-[32px]` cards, `animate-fade-in` transitions, same font hierarchy
 
 ## Technical Details
 
-### File Modified: `src/pages/TeamsPage.tsx`
+### File Modified: `src/pages/ClassesPage.tsx`
 
-1. **Remove** the `useEffect` with `IntersectionObserver` -- no longer needed since content swaps on click rather than scroll
-2. **Expand the `occasions` array** to include detail data for each event (experience details items, highlights/steps list, CTA labels) -- pulling content from the existing sub-pages
-3. **Sidebar `onClick`** now just calls `setActiveId(o.id)` instead of `scrollIntoView`
-4. **Replace the cards loop** with a single content panel that reads from `occasions.find(o => o.id === activeId)` and renders the full detail view
-5. **Add a transition** (e.g., opacity + translateY with a key-based remount or CSS transition) when switching active panels
-6. **"Learn More"** link at the bottom still calls `go(activeOccasion.path)` to navigate to the dedicated sub-page
+1. **Add `classExperiences` array** above the component (5 experience objects with full detail data)
+2. **Add state**: `const [activeExpId, setActiveExpId] = useState(classExperiences[0].id)`
+3. **Replace lines 62-78** (the Experience Types section) with the tab-style layout:
+   - Section header (SectionTag + heading + subtitle)
+   - Mobile pill bar (horizontal scrollable buttons, hidden on `md+`)
+   - Flex container with sticky sidebar nav (hidden below `md`) + content panel
+   - Content panel renders the active experience with header, details grid, highlights, and footer CTAs
+4. **"Learn More"** calls `go(activeExperience.path)` to navigate to the sub-page
+5. **CTA button** says "Book Now" (orange variant) instead of "Book a Call"
 
 ### No other files change
-- The individual sub-pages (`TeamEventsPage.tsx`, `AllHandsPage.tsx`, etc.) remain unchanged and are still accessible via their routes
-- Nav component unchanged
-- Routing unchanged
+- Sub-pages remain as-is
+- `ServiceCard` component is no longer imported (can be removed from imports)
+
