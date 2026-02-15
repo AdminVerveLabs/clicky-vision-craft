@@ -1,65 +1,44 @@
 
 
-# Redesign "Pick Your Occasion" Section with Scroll Spy
+# Redesign "Pick Your Occasion" to Tab-Style Sidebar Navigation
 
 ## Overview
-Replace the current 3x2 grid of `ServiceCard` components in the "Pick your occasion" section of `/teams` with an editorial-style scroll spy layout featuring a sticky sidebar navigation and large horizontal content cards.
+Replace the current scroll-spy layout (where all 6 cards are stacked and you scroll through them) with a **tab-style pattern**: clicking a sidebar item swaps the content in the main area to show a detailed, full-size panel for that event type. Only one event is visible at a time.
 
-## Layout
+## How It Works
 
-**Desktop (md+):**
-- Section header at top (tag + heading + subtitle, centered)
-- Below: two-column split -- sticky sidebar (left, ~220px) and scrollable content cards (right)
-- Sidebar stays fixed as user scrolls through the 6 event cards
+1. **Sidebar stays the same** -- left-hand sticky nav with the 6 event categories, active state highlighted with purple left border
+2. **Clicking a sidebar item** sets `activeId` state (no more scrolling/IntersectionObserver) and the right-side content area updates to show a detailed panel for that event
+3. **Each panel** shows richer content than the current cards -- pulling from the detail data already used on each sub-page (experience details list, "what to expect" / "why it works" items, icon, description, CTAs)
+4. **"Learn More"** button at the bottom of each panel still navigates to the full dedicated landing page (e.g., `/teams/team-events`)
 
-**Mobile (<md):**
-- Sidebar hidden entirely
-- Cards stack vertically in a simple list
+## Content Panel Layout (Right Side)
 
-## Scroll Spy Mechanics
-- Each content card is wrapped in a `<div>` with a unique `id` (e.g., `team-events`, `all-hands`, etc.)
-- A `useEffect` sets up an `IntersectionObserver` watching all 6 section elements
-- When a section enters the viewport (threshold ~0.3-0.5), the `activeId` state updates
-- The sidebar highlights the matching link with a left purple border and purple text
-- Clicking a sidebar link calls `scrollIntoView({ behavior: "smooth" })` on the target section
+Each panel will be a single large container with rounded corners (32px) containing:
 
-## Card Design (per reference image)
-Each card is a large horizontal layout with rounded corners (32px):
-- **Left side:** Purple-tinted background area with a centered icon/emoji (similar to current ServiceCard icon area)
-- **Right side:** Tag label (e.g., "MOST POPULAR"), title in Playfair Display, description text, metadata pills (group size, duration), and a "Learn More" link that navigates to the sub-page
+- **Header area**: Tag pill, title (Playfair Display), and description paragraph
+- **Two-column detail grid**:
+  - Left column: Experience details list (duration, group size, cuisine/format, location, included items, dietary) with colored icon badges
+  - Right column: "What to Expect" / "Why It Works" numbered or checkmark list in a white card
+- **Footer area**: Metadata pills (group size, duration) and two CTAs -- "Book a Call" (primary) and "Learn More" (orange text link to sub-page)
+- Smooth fade/slide transition when switching between panels
 
-## Sidebar Design
-- "CATEGORIES" label at the top in small uppercase tracking
-- List of 6 links, each with left border indicator
-- Active link: solid purple left border + purple text
-- Inactive links: transparent border + gray text
-- On hover: text turns purple
+## Mobile Behavior
 
-## Data Structure
-An array of 6 occasion objects drives both sidebar and cards:
-```
-{ id, sidebarLabel, tag, title, description, groupSize, duration, icon, path }
-```
+On mobile (below `md`), the sidebar is hidden. Instead, the 6 occasions render as a horizontal scrollable pill bar or simple stacked accordion/cards that can be tapped to expand.
 
 ## Technical Details
 
 ### File Modified: `src/pages/TeamsPage.tsx`
 
-1. Add `useState`, `useEffect`, `useRef` imports from React
-2. Define the `occasions` data array with all 6 events (Team Building, All-Hands, Onboarding, Client Entertainment, Holiday, Custom Experiences)
-3. Replace the current "Use Cases" section (lines 54-70) with:
-   - Same `SectionTag` + heading, plus a new subtitle paragraph
-   - A flex container with:
-     - Sticky sidebar nav (hidden on mobile via `hidden md:block`, `sticky top-32`)
-     - Scrollable content area with 6 large horizontal cards
-4. Add `useEffect` with `IntersectionObserver` logic:
-   - Observe each section by `id`
-   - Update `activeId` state when sections enter viewport
-   - Cleanup observer on unmount
-5. Each card uses the `go()` helper on its "Learn More" link to navigate to the sub-page
+1. **Remove** the `useEffect` with `IntersectionObserver` -- no longer needed since content swaps on click rather than scroll
+2. **Expand the `occasions` array** to include detail data for each event (experience details items, highlights/steps list, CTA labels) -- pulling content from the existing sub-pages
+3. **Sidebar `onClick`** now just calls `setActiveId(o.id)` instead of `scrollIntoView`
+4. **Replace the cards loop** with a single content panel that reads from `occasions.find(o => o.id === activeId)` and renders the full detail view
+5. **Add a transition** (e.g., opacity + translateY with a key-based remount or CSS transition) when switching active panels
+6. **"Learn More"** link at the bottom still calls `go(activeOccasion.path)` to navigate to the dedicated sub-page
 
-### No other files need changes
-- The `useIsMobile` hook already exists but won't be needed -- CSS `hidden md:block` handles responsiveness
-- Tailwind config already has `font-serif` (Playfair Display) and the purple/orange color tokens
-- The existing `ServiceCard` component remains unchanged (used elsewhere)
-
+### No other files change
+- The individual sub-pages (`TeamEventsPage.tsx`, `AllHandsPage.tsx`, etc.) remain unchanged and are still accessible via their routes
+- Nav component unchanged
+- Routing unchanged
