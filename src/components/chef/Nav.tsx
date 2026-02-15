@@ -10,16 +10,19 @@ interface NavSegment {
 
 const navSegments: NavSegment[] = [
   {
-    label: "Public",
+    label: "Classes & Events",
     path: "/classes",
     children: [
-      { label: "In Person", path: "/classes" },
-      { label: "Remote", path: "/classes" },
-      { label: "Special Events", path: "/classes" },
+      { label: "Open Classes", path: "/classes" },
+      { label: "Private Events", path: "/classes" },
+      { label: "Special Occasions", path: "/classes" },
+      { label: "Friends", path: "/classes" },
+      { label: "Kids Party", path: "/classes" },
+      { label: "Catering", path: "/classes" },
     ],
   },
   {
-    label: "Teams",
+    label: "For Teams",
     path: "/teams",
     children: [
       { label: "Team Events", path: "/teams" },
@@ -29,16 +32,6 @@ const navSegments: NavSegment[] = [
       { label: "Holiday & Celebrations", path: "/teams" },
       { label: "Custom Experiences", path: "/teams" },
       { label: "Catering", path: "/teams" },
-    ],
-  },
-  {
-    label: "Friends",
-    path: "/classes",
-    children: [
-      { label: "Kids Party", path: "/classes" },
-      { label: "Friends Party", path: "/classes" },
-      { label: "Special Events", path: "/classes" },
-      { label: "Catering", path: "/classes" },
     ],
   },
   { label: "About Joey", path: "/about" },
