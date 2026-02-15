@@ -1,30 +1,46 @@
 
-
-# Update "Choose Your Experience" Section
+# Update Navigation Bar with Dropdown Menus
 
 ## Change
-Replace the current 2-card layout with a 3-card layout matching the reference image style. The cards should have:
-- A gray placeholder image area at the top (with a colored tag badge in the top-right corner)
-- A category label with icon below the image
-- Bold serif title
-- Description text
-- "VIEW DETAILS" link at the bottom
+Replace the current flat nav items with three new segments, each featuring a dropdown menu with sub-items. The "About Joey" link remains as-is (no dropdown).
 
-## Cards
-1. **Public Classes** — Tag: "PUBLIC", Category: "BOOKABLE", Description: "Join a community of foodies. Perfect for solo cooks, couples, or small groups wanting to learn new skills." Links to `/classes`
-2. **Team Building** — Tag: "FOR TEAMS", Category: "BUILDERS", Description: "Interactive challenges and collaborative cooking to bring your corporate team closer together." Links to `/teams`
-3. **Private Classes** — Tag: "PRIVATE", Category: "CUSTOM", Description: "Organize your own personalized experience with Chef Joey. Great for friends, events, special occasions, and anything else that calls for fun." Links to `/classes` (or a future private page)
+## New Navigation Structure
 
-## Design Details (from reference)
-- 3-column grid
-- Cards have rounded corners, light border/shadow, white background
-- Image placeholder area is ~280px tall, light gray background
-- Tag badge: purple pill in top-right of image area
-- Category label: purple text with small icon, uppercase, spaced tracking
-- Title: bold serif font
-- Description: gray body text
-- "VIEW DETAILS →" link in purple at bottom, uppercase
+1. **Public Classes** (replaces "Classes & Events")
+   - In Person
+   - Remote
+   - Special Events
+
+2. **Teams** (replaces "For Teams")
+   - Team Events
+   - All Hands & Townhalls
+   - Onboarding & Culture
+   - Client Entertainment
+   - Holiday & Celebrations
+   - Custom Experiences
+   - Catering
+
+3. **Private Classes** (new segment)
+   - Kids Party
+   - Friends Party
+   - Special Events
+   - Catering
+
+4. **About Joey** (unchanged, no dropdown)
+
+## Design Details
+- Each segment label shows a small chevron-down icon indicating a dropdown
+- On hover, a white dropdown panel appears below the nav item with the sub-items listed vertically
+- Dropdown has solid white background, rounded corners, subtle shadow, and high z-index (no transparency issues)
+- Text color adapts to scroll state (white on transparent hero, dark on scrolled white nav) -- same as current behavior
+- Dropdown links are placeholder navigation for now (all route to their parent page, e.g. `/classes`, `/teams`) since this is a clickable prototype
+- "Book a Class" CTA button remains unchanged
+
+## Technical Approach
+- Add hover-based open/close state for each dropdown using `useState` and `onMouseEnter`/`onMouseLeave` on wrapper divs
+- Each nav item wrapper contains the label + a positioned dropdown panel
+- Dropdown items styled with padding, hover highlight, and the same font styling
+- Keep it self-contained in `src/components/chef/Nav.tsx` (no new files needed)
 
 ## File Modified
-- `src/pages/HomePage.tsx` — Replace the "Choose Your Experience" section's 2-card grid with a 3-card grid matching the new design
-
+- `src/components/chef/Nav.tsx` — Rewrite nav items to support dropdown menus with the new segment/sub-segment structure
