@@ -67,13 +67,13 @@ const ClassesPage = () => {
             <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Find your flavor</h2>
           </div>
           <div className="grid grid-cols-3 gap-6">
-            <ServiceCard title="Public Classes" subtitle="Open Enrollment" description="Join a group of fellow food lovers for a hands-on class. New menus every week. Perfect for date nights, solo adventures, or grabbing a friend." price="From $89/person" tag="OPEN" accentColor="orange" onClick={() => go("/public-classes")} />
-            <ServiceCard title="Private Parties" subtitle="Adults & Celebrations" description="Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast." price="From $125/person" accentColor="orange" onClick={() => go("/public-classes")} />
-            <ServiceCard title="Kids Cooking" subtitle="Ages 4–15" description="Build kitchen confidence and creativity. Kids learn real skills in a safe, fun environment. Birthday parties and drop-in sessions available." price="From $65/kid" accentColor="orange" onClick={() => go("/public-classes")} />
+            <ServiceCard title="Public Classes" subtitle="Open Enrollment" description="Join a group of fellow food lovers for a hands-on class. New menus every week. Perfect for date nights, solo adventures, or grabbing a friend." price="From $89/person" tag="OPEN" accentColor="orange" onClick={() => go("/classes/open-classes")} />
+            <ServiceCard title="Private Parties" subtitle="Adults & Celebrations" description="Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast." price="From $125/person" accentColor="orange" onClick={() => go("/classes/private-events")} />
+            <ServiceCard title="Kids Cooking" subtitle="Ages 4–15" description="Build kitchen confidence and creativity. Kids learn real skills in a safe, fun environment. Birthday parties and drop-in sessions available." price="From $65/kid" accentColor="orange" onClick={() => go("/classes/kids-party")} />
           </div>
           <div className="grid grid-cols-2 gap-6 mt-6">
-            <ServiceCard title="Signature Sessions" subtitle="Limited Edition" description="Special themed experiences: 'Off to College' survival cooking, 'Basic Skills Bootcamp', 'Date Night: Creole Edition', and seasonal specials." price="From $99/person" tag="LIMITED" onClick={() => {}} />
-            <ServiceCard title="Gift Certificates" subtitle="The Perfect Gift" description="Give the gift of a great time. Available for any class or experience. Never expires. Because nobody wants another candle." accentColor="sage" onClick={() => {}} />
+            <ServiceCard title="Signature Sessions" subtitle="Limited Edition" description="Special themed experiences: 'Off to College' survival cooking, 'Basic Skills Bootcamp', 'Date Night: Creole Edition', and seasonal specials." price="From $99/person" tag="LIMITED" onClick={() => go("/classes/special-occasions")} />
+            <ServiceCard title="Gift Certificates" subtitle="The Perfect Gift" description="Give the gift of a great time. Available for any class or experience. Never expires. Because nobody wants another candle." accentColor="sage" onClick={() => go("/classes/open-classes")} />
           </div>
         </div>
       </section>
