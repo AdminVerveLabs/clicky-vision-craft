@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ["'Playfair Display'", "serif"],
+        sans: ["'DM Sans'", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +51,27 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        purple: {
+          DEFAULT: "hsl(var(--purple))",
+          light: "hsl(var(--purple-light))",
+          pale: "hsl(var(--purple-pale))",
+          dark: "hsl(var(--purple-dark))",
+        },
+        orange: {
+          DEFAULT: "hsl(var(--orange))",
+          light: "hsl(var(--orange-light))",
+          pale: "hsl(var(--orange-pale))",
+        },
+        cream: "hsl(var(--cream))",
+        sage: {
+          DEFAULT: "hsl(var(--sage))",
+          pale: "hsl(var(--sage-pale))",
+        },
+        dark: "hsl(var(--dark))",
+        gray: {
+          DEFAULT: "hsl(var(--gray))",
+          light: "hsl(var(--gray-light))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -62,23 +87,17 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "2xl": "20px",
+        "3xl": "24px",
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
