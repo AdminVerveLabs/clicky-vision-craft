@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import chefJoeyHero from "@/assets/chef-joey-hero.png";
+import publicClassesImg from "@/assets/public-classes.png";
+import teamBuildingImg from "@/assets/team-building.png";
+import privateClassesImg from "@/assets/private-classes.jpg";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import TestimonialCard from "@/components/chef/TestimonialCard";
@@ -81,13 +84,13 @@ const HomePage = () => {
 
           <div className="grid grid-cols-3 gap-8">
             {[
-              { title: "Public Classes", tag: "PUBLIC", category: "BOOKABLE", icon: "📅", desc: "Join a community of foodies. Perfect for solo cooks, couples, or small groups wanting to learn new skills.", link: "/classes" },
-              { title: "Team Building", tag: "FOR TEAMS", category: "BUILDERS", icon: "🏢", desc: "Interactive challenges and collaborative cooking to bring your corporate team closer together.", link: "/teams" },
-              { title: "Private Classes", tag: "PRIVATE", category: "CUSTOM", icon: "🎉", desc: "Organize your own personalized experience with Chef Joey. Great for friends, events, special occasions, and anything else that calls for fun.", link: "/classes" },
+              { title: "Public Classes", tag: "PUBLIC", category: "BOOKABLE", icon: "📅", desc: "Join a community of foodies. Perfect for solo cooks, couples, or small groups wanting to learn new skills.", link: "/classes", image: publicClassesImg },
+              { title: "Team Building", tag: "FOR TEAMS", category: "BUILDERS", icon: "🏢", desc: "Interactive challenges and collaborative cooking to bring your corporate team closer together.", link: "/teams", image: teamBuildingImg },
+              { title: "Private Classes", tag: "PRIVATE", category: "CUSTOM", icon: "🎉", desc: "Organize your own personalized experience with Chef Joey. Great for friends, events, special occasions, and anything else that calls for fun.", link: "/classes", image: privateClassesImg },
             ].map((card) => (
               <div key={card.title} onClick={() => go(card.link)} className="bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border border-border hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
                 <div className="h-[280px] bg-gray-light relative flex items-center justify-center">
-                  <span className="text-6xl opacity-30">📷</span>
+                  <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
                   <div className="absolute top-4 right-4 bg-purple text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full tracking-wide font-sans">{card.tag}</div>
                 </div>
                 <div className="p-7">
