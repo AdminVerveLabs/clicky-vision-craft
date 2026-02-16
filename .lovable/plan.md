@@ -1,31 +1,31 @@
 
 
-# Add Photos to "Choose Your Experience" Cards on Homepage
+# Add Chef Joey Photo to "Meet the Chef" Section
 
 ## Overview
-Replace the placeholder camera emoji icons in the three experience cards with the uploaded photos.
-
-## Image Assignments
-- **Public Classes** card: `image-4.png` (girl with hands up in kitchen)
-- **Team Building** card: `image-5.png` (people seated at table)
-- **Private Classes** card: `Kim_Stubbs_with_Chef_Joey-116.jpg` (large group photo)
+Replace the emoji placeholder in the "Meet the Chef" section on the homepage with the uploaded photo of Chef Joey cooking in the kitchen.
 
 ## Steps
 
-1. **Copy the 3 uploaded images** into `src/assets/` with descriptive filenames:
-   - `user-uploads://image-4.png` -> `src/assets/public-classes.png`
-   - `user-uploads://image-5.png` -> `src/assets/team-building.png`
-   - `user-uploads://Kim_Stubbs_with_Chef_Joey-116.jpg` -> `src/assets/private-classes.jpg`
+1. **Copy the uploaded image** into `src/assets/`:
+   - `user-uploads://YWCA_-_KITCHEN_-_006.jpg` -> `src/assets/chef-joey-kitchen.jpg`
 
 2. **Update `src/pages/HomePage.tsx`**:
-   - Add 3 image imports at the top of the file
-   - Add an `image` property to each card object in the array (lines 84-86)
-   - Replace the placeholder `<span>` camera emoji (line 90) with an `<img>` tag using `object-cover` to fill the 280px container
+   - Import the new image
+   - Replace the current placeholder div (emoji + gradient background, around line 106) with an `<img>` tag using `object-cover`
 
-### Technical Detail
-The card image area (line 89) currently shows a gray background with a camera emoji. It will be replaced with:
+### Current placeholder code being replaced:
 ```tsx
-<img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+<div className="aspect-square rounded-3xl bg-gradient-to-br from-purple-pale to-orange-pale flex items-center justify-center relative overflow-hidden">
+  <span className="text-[80px]">👨‍🍳</span>
+  <p className="absolute bottom-5 font-sans text-[13px] text-gray">[Photo: Joey in his element]</p>
+</div>
 ```
-The tag badge overlay stays positioned absolutely on top of the image.
+
+### Replaced with:
+```tsx
+<div className="aspect-square rounded-3xl relative overflow-hidden">
+  <img src={chefJoeyKitchen} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
+</div>
+```
 
