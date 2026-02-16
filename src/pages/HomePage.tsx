@@ -72,6 +72,33 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* About Joey Quick */}
+      <section className="py-24 px-6 bg-cream">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-2 gap-16 items-center">
+            <div className="aspect-square rounded-3xl relative overflow-hidden">
+              <img src={chefJoeyKitchen} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <SectionTag>Meet the Chef</SectionTag>
+              <h2 className="font-serif text-[42px] font-extrabold text-dark mt-4 mb-4 leading-[1.15]">
+                Cooking should be fun. <span className="text-orange italic">Be brave</span> and try something new.
+              </h2>
+              <p className="font-sans text-base text-gray leading-[1.8] mb-6">
+                I have a passion for food and I'd love to share that with you. I don't take myself too seriously and
+                neither should you. Whether it's a corporate team event or a Saturday night with friends, my goal is
+                simple: good food, good energy, and memories you'll actually remember.
+              </p>
+              <p className="font-sans text-base text-gray leading-[1.8] mb-8">
+                Born and raised on creole flavors and southern hospitality, I bring that warmth to every class. Expect bold
+                spices, big laughs, and zero pretension.
+              </p>
+              <CTAButton variant="primary" onClick={() => go("/about")}>More About Joey</CTAButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Two-path section */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
@@ -105,33 +132,6 @@ const HomePage = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Joey Quick */}
-      <section className="py-24 px-6 bg-cream">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-2 gap-16 items-center">
-            <div className="aspect-square rounded-3xl relative overflow-hidden">
-              <img src={chefJoeyKitchen} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
-            </div>
-            <div>
-              <SectionTag>Meet the Chef</SectionTag>
-              <h2 className="font-serif text-[42px] font-extrabold text-dark mt-4 mb-4 leading-[1.15]">
-                Cooking should be fun. <span className="text-orange italic">Be brave</span> and try something new.
-              </h2>
-              <p className="font-sans text-base text-gray leading-[1.8] mb-6">
-                I have a passion for food and I'd love to share that with you. I don't take myself too seriously and
-                neither should you. Whether it's a corporate team event or a Saturday night with friends, my goal is
-                simple: good food, good energy, and memories you'll actually remember.
-              </p>
-              <p className="font-sans text-base text-gray leading-[1.8] mb-8">
-                Born and raised on creole flavors and southern hospitality, I bring that warmth to every class. Expect bold
-                spices, big laughs, and zero pretension.
-              </p>
-              <CTAButton variant="primary" onClick={() => go("/about")}>More About Joey</CTAButton>
-            </div>
           </div>
         </div>
       </section>
