@@ -3,6 +3,7 @@ import chefJoeyHero from "@/assets/chef-joey-hero.png";
 import publicClassesImg from "@/assets/public-classes.png";
 import teamBuildingImg from "@/assets/team-building.png";
 import privateClassesImg from "@/assets/private-classes.jpg";
+import chefJoeyKitchen from "@/assets/chef-joey-kitchen.jpg";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import TestimonialCard from "@/components/chef/TestimonialCard";
@@ -112,9 +113,8 @@ const HomePage = () => {
       <section className="py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-2 gap-16 items-center">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-purple-pale to-orange-pale flex items-center justify-center relative overflow-hidden">
-              <span className="text-[80px]">👨‍🍳</span>
-              <p className="absolute bottom-5 font-sans text-[13px] text-gray">[Photo: Joey in his element]</p>
+            <div className="aspect-square rounded-3xl relative overflow-hidden">
+              <img src={chefJoeyKitchen} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
             </div>
             <div>
               <SectionTag>Meet the Chef</SectionTag>
