@@ -99,6 +99,32 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* How it Works - Compact */}
+      <section className="py-12 px-6 bg-gray-light">
+        <div className="max-w-[1000px] mx-auto">
+          <div className="text-center mb-8">
+            <SectionTag>How It Works</SectionTag>
+            <h2 className="font-serif text-[28px] font-extrabold text-dark mt-4">Three steps to a great time</h2>
+          </div>
+          <div className="grid grid-cols-3 gap-8">
+            {[
+              { step: "01", icon: "📞", title: "Pick Your Vibe", desc: "Choose a public class, book a private event, or tell us what your team needs. We'll customize it." },
+              { step: "02", icon: "🔪", title: "Cook Together", desc: "Roll up your sleeves for a hands-on experience. In-person, virtual, or at your location. Your call." },
+              { step: "03", icon: "🍽️", title: "Feast & Celebrate", desc: "Sit down and enjoy what you've made. Take home skills, recipes, and stories worth sharing." },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mx-auto mb-4 text-2xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] relative">
+                  {item.icon}
+                  <span className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-purple text-white text-[10px] font-bold flex items-center justify-center font-sans">{item.step}</span>
+                </div>
+                <h3 className="font-serif text-[18px] font-bold text-dark mb-1.5">{item.title}</h3>
+                <p className="font-sans text-sm text-gray leading-[1.7]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Two-path section */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
@@ -147,32 +173,6 @@ const HomePage = () => {
             <TestimonialCard quote="Amazing!! So delicious and we can't wait to join the next one!! Chef Joey made it so fun and easy." name="Michelle G." role="Public Class Attendee" />
             <TestimonialCard quote="Our team hasn't stopped talking about it. Best team building event we've ever done, hands down." name="Sarah T." role="People Ops, Tech Startup" />
             <TestimonialCard quote="My kids were engaged the entire time. They've been cooking dinner every night since. Life changing!" name="David R." role="Parent & Foodie" />
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works */}
-      <section className="py-24 px-6 bg-gray-light">
-        <div className="max-w-[1000px] mx-auto">
-          <div className="text-center mb-16">
-            <SectionTag>How It Works</SectionTag>
-            <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Three steps to a great time</h2>
-          </div>
-          <div className="grid grid-cols-3 gap-10">
-            {[
-              { step: "01", icon: "📞", title: "Pick Your Vibe", desc: "Choose a public class, book a private event, or tell us what your team needs. We'll customize it." },
-              { step: "02", icon: "🔪", title: "Cook Together", desc: "Roll up your sleeves for a hands-on experience. In-person, virtual, or at your location. Your call." },
-              { step: "03", icon: "🍽️", title: "Feast & Celebrate", desc: "Sit down and enjoy what you've made. Take home skills, recipes, and stories worth sharing." },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mx-auto mb-5 text-4xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] relative">
-                  {item.icon}
-                  <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-purple text-white text-[11px] font-bold flex items-center justify-center font-sans">{item.step}</span>
-                </div>
-                <h3 className="font-serif text-[22px] font-bold text-dark mb-2">{item.title}</h3>
-                <p className="font-sans text-sm text-gray leading-[1.7]">{item.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
