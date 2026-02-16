@@ -163,7 +163,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-6 bg-white">
+      <section className="pt-16 pb-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
             <SectionTag>What People Say</SectionTag>
