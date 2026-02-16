@@ -30,10 +30,6 @@ const HomePage = () => {
                 <span className="text-orange-light">Good times.</span><br />
                 Real skills.
               </h1>
-              <p className="font-sans text-lg text-white/70 leading-[1.7] max-w-[440px] mb-9">
-                Interactive cooking experiences with a creole twist. Whether you're building team culture or hosting a party,
-                we bring the flavor—you bring the appetite.
-              </p>
               <div className="flex gap-4 flex-wrap">
                 <CTAButton variant="orange" size="lg" onClick={() => go("/classes")}>Explore Classes</CTAButton>
                 <CTAButton variant="ghost" size="lg" onClick={() => go("/teams")}>For Teams & Corporate</CTAButton>
