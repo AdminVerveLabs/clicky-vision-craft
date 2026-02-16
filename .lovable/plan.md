@@ -1,31 +1,29 @@
 
 
-# Add Chef Joey Photo to "Meet the Chef" Section
+# Move "Meet the Chef" Section Above "Choose Your Experience"
 
 ## Overview
-Replace the emoji placeholder in the "Meet the Chef" section on the homepage with the uploaded photo of Chef Joey cooking in the kitchen.
+Reorder the sections on the homepage so "Meet the Chef" appears directly after the Hero, before "Choose Your Experience."
 
-## Steps
+## Current order
+1. Hero
+2. Choose Your Experience (lines 75-110)
+3. Meet the Chef (lines 112-137)
+4. Testimonials
+5. How It Works
+6. Newsletter + Footer
 
-1. **Copy the uploaded image** into `src/assets/`:
-   - `user-uploads://YWCA_-_KITCHEN_-_006.jpg` -> `src/assets/chef-joey-kitchen.jpg`
+## New order
+1. Hero
+2. **Meet the Chef** (moved up)
+3. **Choose Your Experience** (moved down)
+4. Testimonials
+5. How It Works
+6. Newsletter + Footer
 
-2. **Update `src/pages/HomePage.tsx`**:
-   - Import the new image
-   - Replace the current placeholder div (emoji + gradient background, around line 106) with an `<img>` tag using `object-cover`
+## Technical Detail
 
-### Current placeholder code being replaced:
-```tsx
-<div className="aspect-square rounded-3xl bg-gradient-to-br from-purple-pale to-orange-pale flex items-center justify-center relative overflow-hidden">
-  <span className="text-[80px]">👨‍🍳</span>
-  <p className="absolute bottom-5 font-sans text-[13px] text-gray">[Photo: Joey in his element]</p>
-</div>
-```
-
-### Replaced with:
-```tsx
-<div className="aspect-square rounded-3xl relative overflow-hidden">
-  <img src={chefJoeyKitchen} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
-</div>
-```
+### File: `src/pages/HomePage.tsx`
+- Cut the "About Joey Quick" section (lines 112-137) and paste it between the Hero section (ends at line 73) and the "Two-path section" (starts at line 75)
+- No content changes -- just reordering the two `<section>` blocks
 
