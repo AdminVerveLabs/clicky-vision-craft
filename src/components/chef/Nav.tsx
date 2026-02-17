@@ -133,6 +133,13 @@ const Nav = () => {
                 {hasChildren && openDropdown === segment.label && (
                   <div className="absolute top-full left-0 pt-2 z-[1100]">
                     <div className="bg-white rounded-lg shadow-lg border border-border py-2 min-w-[220px]">
+                      <div
+                        onClick={() => go(segment.path)}
+                        className="px-4 py-2.5 text-sm font-semibold cursor-pointer transition-colors duration-150 hover:bg-purple-pale border-b border-border"
+                        style={{ color: "hsl(var(--purple))" }}
+                      >
+                        View All {segment.label}
+                      </div>
                       {segment.children!.map((child) => (
                         <div
                           key={child.label}
@@ -210,6 +217,13 @@ const Nav = () => {
                     </div>
                     {hasChildren && isExpanded && (
                       <div className="ml-3 border-l-2 border-border pl-3 mb-2">
+                        <button
+                          onClick={() => go(segment.path)}
+                          className="block w-full text-left px-3 py-2.5 font-sans text-[14px] font-semibold rounded-lg hover:bg-gray-light transition-colors"
+                          style={{ color: "hsl(var(--purple))" }}
+                        >
+                          View All {segment.label}
+                        </button>
                         {segment.children!.map((child) => (
                           <button
                             key={child.label}
