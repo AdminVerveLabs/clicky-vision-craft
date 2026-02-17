@@ -28,7 +28,7 @@ const FriendsPage = () => {
                 friend groups, girls' night, couples' night, or just because.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="orange" size="lg">Book for Friends</CTAButton>
+                <CTAButton variant="orange" size="lg">Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">See Options</CTAButton>
               </div>
             </div>
@@ -80,7 +80,7 @@ const FriendsPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Round up your crew</h2>
           <p className="font-sans text-base text-white/70 mb-8">Pick a date, pick a menu, and we'll handle the rest. It's that easy.</p>
-          <CTAButton variant="primary" size="lg">Book Now →</CTAButton>
+          <CTAButton variant="primary" size="lg">Chat with Joey</CTAButton>
         </div>
       </section>
 

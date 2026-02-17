@@ -147,7 +147,7 @@ const Nav = () => {
           })}
 
           <CTAButton variant="orange" size="sm" onClick={() => go("/classes")}>
-            Book a Class
+            Chat with Joey
           </CTAButton>
         </div>
       </div>

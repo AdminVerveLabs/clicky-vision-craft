@@ -31,7 +31,7 @@ const ClientEntertainmentPage = () => {
                 Way more memorable than another business dinner.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
+                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">Request Proposal</CTAButton>
               </div>
             </div>
@@ -83,7 +83,7 @@ const ClientEntertainmentPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Impress your most important clients</h2>
           <p className="font-sans text-base text-white/70 mb-8">Let's create an experience that strengthens your client relationships.</p>
-          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Book a Free Call →</CTAButton>
+          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
         </div>
       </section>
 

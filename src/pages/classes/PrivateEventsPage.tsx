@@ -28,7 +28,7 @@ const PrivateEventsPage = () => {
                 experience. You show up ready to celebrate.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="orange" size="lg">Plan My Event</CTAButton>
+                <CTAButton variant="orange" size="lg">Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">Request Pricing</CTAButton>
               </div>
             </div>
@@ -80,7 +80,7 @@ const PrivateEventsPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Let's plan your perfect event</h2>
           <p className="font-sans text-base text-white/70 mb-8">Tell us about your occasion and we'll create a custom experience your guests will love.</p>
-          <CTAButton variant="primary" size="lg">Start Planning →</CTAButton>
+          <CTAButton variant="primary" size="lg">Chat with Joey</CTAButton>
         </div>
       </section>
 
