@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import chefJoeyLogo from "@/assets/chef-joey-logo.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import CTAButton from "./CTAButton";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -83,9 +84,7 @@ const Nav = () => {
     >
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
         <div onClick={() => go("/")} className="cursor-pointer flex items-center gap-2.5">
-          <div className="w-10 h-10 rounded-full bg-purple flex items-center justify-center text-white font-serif font-extrabold text-lg">
-            CJ
-          </div>
+          <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
           <span
             className="font-serif font-bold text-[22px] transition-colors duration-300"
             style={{
@@ -172,9 +171,7 @@ const Nav = () => {
           <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           <div className="p-6 pt-8">
             <div className="flex items-center gap-2.5 mb-8">
-              <div className="w-10 h-10 rounded-full bg-purple flex items-center justify-center text-white font-serif font-extrabold text-lg">
-                CJ
-              </div>
+              <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
               <span className="font-serif font-bold text-[20px] text-dark">Chef Joey</span>
             </div>
 

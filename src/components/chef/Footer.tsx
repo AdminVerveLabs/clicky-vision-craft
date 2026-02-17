@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import chefJoeyLogo from "@/assets/chef-joey-logo.png";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -39,9 +40,7 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-12">
         <div>
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-10 h-10 rounded-full bg-purple flex items-center justify-center text-lg font-serif font-extrabold">
-              CJ
-            </div>
+            <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
             <span className="font-serif font-bold text-xl">Chef Joey</span>
           </div>
           <p className="font-sans text-sm text-white/60 leading-[1.7] max-w-[300px]">
