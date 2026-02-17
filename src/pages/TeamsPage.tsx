@@ -201,7 +201,7 @@ const TeamsPage = () => {
 
           <div className="flex gap-10">
             {/* Sidebar */}
-            <nav className="hidden md:block w-[220px] shrink-0 sticky top-32 self-start">
+            <nav className="hidden md:block w-[220px] shrink-0 sticky top-32 self-start pt-[180px]">
               <p className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gray mb-4">Categories</p>
               <ul className="space-y-1">
                 {occasions.map((o) => (
