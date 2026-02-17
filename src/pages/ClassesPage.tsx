@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import ClassModal from "@/components/chef/ClassModal";
+import PrivateEventPackagesModal from "@/components/chef/PrivateEventPackagesModal";
+import PrivateEventBookingFormModal from "@/components/chef/PrivateEventBookingFormModal";
 import NewsletterBanner from "@/components/chef/NewsletterBanner";
 import Footer from "@/components/chef/Footer";
 import { CLASS_DATA, FOOD_IMAGES, ClassData } from "@/data/classData";
@@ -122,6 +124,8 @@ const ClassesPage = () => {
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
   const [selectedClass, setSelectedClass] = useState<ClassData | null>(null);
   const [activeExpId, setActiveExpId] = useState(classExperiences[0].id);
+  const [showPackages, setShowPackages] = useState(false);
+  const [showBookingForm, setShowBookingForm] = useState(false);
   const [calMonth, setCalMonth] = useState(1);
   const monthNames = ["January", "February", "March"];
 
@@ -165,7 +169,7 @@ const ClassesPage = () => {
               </p>
               <div className="flex gap-4 justify-center md:justify-start">
                 <CTAButton variant="orange" size="lg" onClick={() => document.getElementById('class-calendar')?.scrollIntoView({ behavior: 'smooth' })}>Browse Upcoming Classes</CTAButton>
-                <CTAButton variant="secondary" size="lg" onClick={() => go("/public-classes")}>Chat with Joey</CTAButton>
+                <CTAButton variant="secondary" size="lg" onClick={() => setShowPackages(true)}>Private Event</CTAButton>
               </div>
             </div>
             <div className="hidden md:block aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
@@ -407,6 +411,16 @@ const ClassesPage = () => {
           </div>
         </div>
       </section>
+
+      <PrivateEventPackagesModal
+        isOpen={showPackages}
+        onClose={() => setShowPackages(false)}
+        onGetInTouch={() => { setShowPackages(false); setShowBookingForm(true); }}
+      />
+      <PrivateEventBookingFormModal
+        isOpen={showBookingForm}
+        onClose={() => setShowBookingForm(false)}
+      />
 
       <NewsletterBanner />
       <Footer />
