@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CLASS_DATA } from "@/data/classData";
+import ClassModal from "@/components/chef/ClassModal";
 import chefJoeyHero from "@/assets/chef-joey-hero.png";
 import publicClassesImg from "@/assets/public-classes.png";
 import teamBuildingImg from "@/assets/team-building.png";
@@ -12,6 +15,7 @@ import Footer from "@/components/chef/Footer";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [showClassModal, setShowClassModal] = useState(false);
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
 
   return (
@@ -60,7 +64,7 @@ const HomePage = () => {
               <div className="w-full aspect-[4/5] rounded-3xl border border-white/10 relative overflow-hidden">
                 <img src={chefJoeyHero} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-5 -left-8 bg-white rounded-2xl px-5 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.15)] flex items-center gap-3">
+              <div onClick={() => setShowClassModal(true)} className="absolute -bottom-5 -left-8 bg-white rounded-2xl px-5 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.15)] flex items-center gap-3 cursor-pointer hover:-translate-y-1 transition-transform">
                 <div className="w-11 h-11 rounded-xl bg-orange-pale flex items-center justify-center text-xl">🌶️</div>
                 <div>
                   <p className="font-sans font-bold text-sm text-dark">Next Class: Sat Feb 21</p>
@@ -179,6 +183,9 @@ const HomePage = () => {
 
       <NewsletterBanner />
       <Footer />
+      {showClassModal && (
+        <ClassModal cls={CLASS_DATA[0]} onClose={() => setShowClassModal(false)} />
+      )}
     </div>
   );
 };
