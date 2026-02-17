@@ -182,10 +182,13 @@ const TeamsPage = () => {
       {/* Use Cases – Tab Style */}
       <section className="py-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-16">
-            <SectionTag>Perfect For</SectionTag>
-            <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
-            <p className="font-sans text-base text-gray mt-3 max-w-[520px] mx-auto">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
+          <div className="flex gap-10 mb-16">
+            <div className="hidden md:block w-[220px] shrink-0" />
+            <div className="flex-1 text-center">
+              <SectionTag>Perfect For</SectionTag>
+              <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
+              <p className="font-sans text-base text-gray mt-3 max-w-[520px] mx-auto">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
+            </div>
           </div>
 
           {/* Mobile pill bar */}
