@@ -1,23 +1,47 @@
 
 
-# Hide Scrollbars on Class Modal
+# Add Overview Page Links to Nav Dropdowns
 
-## What Changes
-Hide the visible scrollbar on the `ClassModal` component while keeping scroll functionality intact. This is a single-line CSS class change.
+## Problem
+- **Mobile:** Tapping "Classes & Events" or "Teams" only toggles the dropdown -- there's no way to reach the overview pages (`/classes`, `/teams`).
+- **Desktop:** Users may not realize the parent label is clickable to navigate to the overview page.
+
+## Solution
+Add a "View All" link as the first item in each dropdown (both desktop and mobile), styled slightly differently to stand out.
 
 ## File Changed
 
-**`src/components/chef/ClassModal.tsx`** (line 16)
+**`src/components/chef/Nav.tsx`**
 
-Change `overflow-auto` to `overflow-auto scrollbar-hide` and add a small CSS utility.
+### Desktop dropdown (lines ~131-140)
+Inside the dropdown `<div>` that renders `segment.children`, prepend a "View All" item before mapping the children:
 
-Since Tailwind does not include a `scrollbar-hide` utility by default, the cleanest approach is to add the hiding styles directly via a Tailwind arbitrary property or add a small global CSS rule.
-
-**Approach:** Add `[scrollbar-width:none]` (Firefox) and a `[&::-webkit-scrollbar]:hidden` class (Chrome/Safari) to the modal's inner container on line 16:
-
+```tsx
+<div
+  onClick={() => go(segment.path)}
+  className="px-4 py-2.5 text-sm font-semibold cursor-pointer transition-colors duration-150 hover:bg-purple-pale border-b border-border"
+  style={{ color: "hsl(var(--purple))" }}
+>
+  View All {segment.label}
+</div>
+{segment.children!.map((child) => ( ... ))}
 ```
-overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+
+### Mobile drawer (lines ~174-185)
+Inside the expanded children section, prepend the same "View All" link before mapping children:
+
+```tsx
+<button
+  onClick={() => go(segment.path)}
+  className="block w-full text-left px-3 py-2.5 font-sans text-[14px] font-semibold rounded-lg hover:bg-gray-light transition-colors"
+  style={{ color: "hsl(var(--purple))" }}
+>
+  View All {segment.label}
+</button>
+{segment.children!.map((child) => ( ... ))}
 ```
 
-This keeps the modal scrollable but hides the scrollbar across all browsers. Only one file needs updating since `ClassModal` is the shared component used on both the homepage and the calendar page.
-
+## Result
+- Both desktop hover dropdowns and mobile expandable sections will show "View All Classes & Events" / "View All Teams" as the first option, clearly linking to the overview pages.
+- Existing behavior (hover to open on desktop, tap to expand on mobile) remains unchanged.
+- The "View All" items are visually distinct with purple text and semibold weight.
