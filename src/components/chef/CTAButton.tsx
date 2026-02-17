@@ -17,9 +17,9 @@ const CTAButton = ({ children, variant = "primary", size = "md", onClick }: CTAB
   };
 
   const sizes = {
-    sm: "px-5 py-2.5 text-[13px]",
-    md: "px-8 py-3.5 text-[15px]",
-    lg: "px-10 py-4 text-base",
+    sm: "px-4 py-2 text-[12px]",
+    md: "px-6 py-2.5 text-[13px]",
+    lg: "px-8 py-3 text-[14px]",
   };
 
   return (
