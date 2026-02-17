@@ -13,7 +13,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
   >
     <div
       onClick={(e) => e.stopPropagation()}
-      className="bg-white rounded-3xl max-w-[820px] w-full max-h-[90vh] overflow-auto relative shadow-[0_40px_80px_rgba(0,0,0,0.25)]"
+      className="bg-white rounded-3xl max-w-[820px] w-full max-h-[90vh] overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden relative shadow-[0_40px_80px_rgba(0,0,0,0.25)]"
       style={{ animation: "slideUp 0.3s ease" }}
     >
       {/* Header */}
