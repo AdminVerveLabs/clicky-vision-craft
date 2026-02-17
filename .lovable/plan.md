@@ -1,36 +1,23 @@
 
 
-# Make "Next Class" Card Open Class Modal
+# Hide Scrollbars on Class Modal
 
 ## What Changes
-When clicking the "Next Class: Sat Feb 21" floating card on the homepage hero, it will open the same `ClassModal` used on the Classes & Events calendar, pre-populated with the "Creole Comfort Classics" class data.
+Hide the visible scrollbar on the `ClassModal` component while keeping scroll functionality intact. This is a single-line CSS class change.
 
 ## File Changed
 
-**`src/pages/HomePage.tsx`**
+**`src/components/chef/ClassModal.tsx`** (line 16)
 
-1. Import `useState` from React
-2. Import `CLASS_DATA` from `@/data/classData`
-3. Import `ClassModal` from `@/components/chef/ClassModal`
-4. Add state: `const [showClassModal, setShowClassModal] = useState(false)`
-5. Make the "Next Class" card clickable by adding `onClick={() => setShowClassModal(true)}` and `cursor-pointer`
-6. Render `ClassModal` conditionally at the bottom of the component, passing `CLASS_DATA[0]` (Creole Comfort Classics) as the class data
+Change `overflow-auto` to `overflow-auto scrollbar-hide` and add a small CSS utility.
 
-## Technical Detail
+Since Tailwind does not include a `scrollbar-hide` utility by default, the cleanest approach is to add the hiding styles directly via a Tailwind arbitrary property or add a small global CSS rule.
 
-The floating card (lines 63-69) becomes:
-```tsx
-<div
-  onClick={() => setShowClassModal(true)}
-  className="absolute -bottom-5 -left-8 bg-white rounded-2xl px-5 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.15)] flex items-center gap-3 cursor-pointer hover:-translate-y-1 transition-transform"
->
-  ...
-</div>
+**Approach:** Add `[scrollbar-width:none]` (Firefox) and a `[&::-webkit-scrollbar]:hidden` class (Chrome/Safari) to the modal's inner container on line 16:
+
+```
+overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
 ```
 
-And right before the closing `</div>` of the component:
-```tsx
-{showClassModal && (
-  <ClassModal cls={CLASS_DATA[0]} onClose={() => setShowClassModal(false)} />
-)}
-```
+This keeps the modal scrollable but hides the scrollbar across all browsers. Only one file needs updating since `ClassModal` is the shared component used on both the homepage and the calendar page.
+
