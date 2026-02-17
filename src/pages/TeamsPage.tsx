@@ -160,7 +160,7 @@ const TeamsPage = () => {
                 flavors, real collaboration, and genuinely memorable moments.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" size="lg">Book a Call</CTAButton>
+                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
                 <CTAButton variant="secondary" size="lg" onClick={() => setShowPackages(true)}>View Packages</CTAButton>
               </div>
               <div className="flex gap-8 mt-10 pt-8 border-t border-border">
@@ -292,7 +292,7 @@ const TeamsPage = () => {
                         <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">👥 {o.groupSize}</span>
                         <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">⏱ {o.duration}</span>
                         <div className="flex-1" />
-                        <CTAButton variant="primary" size="md">Book a Call</CTAButton>
+                        <CTAButton variant="primary" size="md" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
                         <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-orange hover:underline cursor-pointer">
                           Learn More →
                         </button>
@@ -337,7 +337,7 @@ const TeamsPage = () => {
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Ready to spice up your next team event?</h2>
           <p className="font-sans text-base text-white/70 mb-8">Book a free 15-minute call. We'll help you pick the perfect experience for your team.</p>
           <div className="flex gap-4 justify-center">
-            <CTAButton variant="orange" size="lg">Book a Call</CTAButton>
+            <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
             <CTAButton variant="ghost" size="lg">Request a Proposal</CTAButton>
           </div>
         </div>

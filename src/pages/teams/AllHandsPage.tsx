@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
 import heroImg from "@/assets/ywca-kitchen-074.jpg";
 
 const AllHandsPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const [showBookingForm, setShowBookingForm] = useState(false);
 
   return (
     <div>
@@ -28,7 +31,7 @@ const AllHandsPage = () => {
                 people together across offices—virtual or in person.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" size="lg">Book a Call</CTAButton>
+                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
                 <CTAButton variant="secondary" size="lg">Learn More</CTAButton>
               </div>
             </div>
@@ -80,11 +83,16 @@ const AllHandsPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Make your next all-hands one to remember</h2>
           <p className="font-sans text-base text-white/70 mb-8">We'll work with your team to design the perfect experience for your company gathering.</p>
-          <CTAButton variant="orange" size="lg">Book a Free Call →</CTAButton>
+          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Book a Free Call →</CTAButton>
         </div>
       </section>
 
       <Footer />
+
+      <TeamBookingFormModal
+        isOpen={showBookingForm}
+        onClose={() => setShowBookingForm(false)}
+      />
     </div>
   );
 };

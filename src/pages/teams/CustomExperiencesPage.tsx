@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
 import heroImg from "@/assets/chef-joey-85.jpg";
 
 const CustomExperiencesPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const [showBookingForm, setShowBookingForm] = useState(false);
 
   return (
     <div>
@@ -28,7 +31,7 @@ const CustomExperiencesPage = () => {
                 dietary needs, team size, and vibe. If you can dream it, we can cook it.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" size="lg">Share Your Vision</CTAButton>
+                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Share Your Vision</CTAButton>
                 <CTAButton variant="secondary" size="lg">See Examples</CTAButton>
               </div>
             </div>
@@ -80,11 +83,16 @@ const CustomExperiencesPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Let's create something unique</h2>
           <p className="font-sans text-base text-white/70 mb-8">Share your vision and we'll bring it to life with food, fun, and flair.</p>
-          <CTAButton variant="orange" size="lg">Start the Conversation →</CTAButton>
+          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Start the Conversation →</CTAButton>
         </div>
       </section>
 
       <Footer />
+
+      <TeamBookingFormModal
+        isOpen={showBookingForm}
+        onClose={() => setShowBookingForm(false)}
+      />
     </div>
   );
 };
