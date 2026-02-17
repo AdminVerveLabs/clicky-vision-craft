@@ -1,36 +1,30 @@
 
 
-# Rename Booking CTAs to "Chat with Joey"
+# Replace "CJ" Logo with Uploaded Image
 
 ## What Changes
-Replace all "Book a Class", "Book Now", "Book a Call", "Book a Free Call", "Book for Friends", "Book a Kids Party", "Book a Party", "Plan My Event", and "Start Planning" CTA button labels with "Chat with Joey" across the entire site.
+Replace the circular purple "CJ" text placeholder with the uploaded logo image in all three locations where it appears.
 
-## Files Changed (14 files)
+## Steps
 
-### Navigation
-- **`src/components/chef/Nav.tsx`** (line 150): "Book a Class" -> "Chat with Joey"
+1. **Copy the uploaded image** into `src/assets/chef-joey-logo.png`
+2. **Update `src/components/chef/Nav.tsx`** (2 locations):
+   - Line 86-88 (desktop nav): Replace the `<div>CJ</div>` with an `<img>` tag importing the logo
+   - Line 175-177 (mobile drawer): Same replacement
+3. **Update `src/components/chef/Footer.tsx`** (1 location):
+   - Line 42-44: Replace the `<div>CJ</div>` with the same `<img>` tag
 
-### Main Pages
-- **`src/pages/AboutPage.tsx`** (line 38): "Book a Class" -> "Chat with Joey"
-- **`src/pages/ClassesPage.tsx`** (line 168): "Book a Private Event" -> "Chat with Joey" | (line 286): "Book Now" -> "Chat with Joey"
-- **`src/pages/TeamsPage.tsx`** (lines 163, 295, 340): all "Book a Call" -> "Chat with Joey"
-- **`src/pages/TeamBuildingPage.tsx`** (line 35): "Book a Call" -> "Chat with Joey" | (line 113): "Book a Free Call" -> "Chat with Joey"
-- **`src/pages/PublicClassesPage.tsx`** (line 58): "Book Now" -> "Chat with Joey"
+## Technical Details
 
-### Class Sub-pages
-- **`src/pages/classes/FriendsPage.tsx`** (line 31): "Book for Friends" -> "Chat with Joey" | (line 83): "Book Now" -> "Chat with Joey"
-- **`src/pages/classes/PrivateEventsPage.tsx`** (line 31): "Plan My Event" -> "Chat with Joey" | (line 83): "Start Planning" -> "Chat with Joey"
-- **`src/pages/classes/KidsPartyPage.tsx`** (line 31): "Book a Kids Party" -> "Chat with Joey" | (line 83): "Book a Party" -> "Chat with Joey"
+- Import the image as an ES6 module: `import chefJoeyLogo from "@/assets/chef-joey-logo.png"`
+- Replace each `<div className="w-10 h-10 rounded-full bg-purple ...">CJ</div>` with:
+  ```tsx
+  <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
+  ```
+- The image is already circular with a purple background, so the `rounded-full` class will match seamlessly.
 
-### Team Sub-pages
-- **`src/pages/teams/TeamEventsPage.tsx`** (line 34): "Book a Call" -> "Chat with Joey" | (line 86): "Book a Free Call" -> "Chat with Joey"
-- **`src/pages/teams/AllHandsPage.tsx`** (line 34): "Book a Call" -> "Chat with Joey" | (line 86): "Book a Free Call" -> "Chat with Joey"
-- **`src/pages/teams/ClientEntertainmentPage.tsx`** (line 34): "Book a Call" -> "Chat with Joey" | (line 86): "Book a Free Call" -> "Chat with Joey"
-- **`src/pages/teams/OnboardingPage.tsx`** (line 34): "Book a Call" -> "Chat with Joey" | (line 86): "Book a Free Call" -> "Chat with Joey"
-
-### Modal
-- **`src/components/chef/ClassModal.tsx`** (line 115): "Book Now" -> "Chat with Joey"
-
-### Not Changed (intentionally)
-- Buttons with different intent like "Get a Quote", "Request a Quote", "Share Your Vision", "Start the Conversation", "View Schedule", "Browse Upcoming Classes" -- these are not booking CTAs per the request. Let me know if you want those changed too.
+## Files Changed (2 files + 1 asset copy)
+- `src/assets/chef-joey-logo.png` (new -- copied from upload)
+- `src/components/chef/Nav.tsx` (lines 86-88, 175-177)
+- `src/components/chef/Footer.tsx` (lines 42-44)
 
