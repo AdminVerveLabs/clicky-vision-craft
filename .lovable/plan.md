@@ -1,72 +1,46 @@
 
 
-# Replace Emoji Placeholders with Real Photos on All Sub-Segment Pages
+# Fix "Pick your occasion" / "Find your flavor" Header Alignment
 
-## Overview
-All 14 sub-segment pages currently show emoji placeholders in their hero sections. Each will get a real photograph from the existing asset library, using the same `aspect-[4/3] rounded-3xl overflow-hidden` pattern already established on the About and main landing pages.
+## The Problem
+The section header (tag + title + description) sits with `pl-[230px]`, floating awkwardly between the sidebar and content. It doesn't feel anchored to anything.
 
-## Photo Assignments
+## Three Options
 
-### Classes & Events (6 pages)
-| Page | File | Photo |
-|------|------|-------|
-| Open Classes | `OpenClassesPage.tsx` | `chef-joey-38.jpg` |
-| Private Events | `PrivateEventsPage.tsx` | `private-classes.jpg` |
-| Special Occasions | `SpecialOccasionsPage.tsx` | `chef-joey-101.jpg` |
-| Friends | `FriendsPage.tsx` | `chef-joey-61.jpg` |
-| Kids Party | `KidsPartyPage.tsx` | `chef-joey-83.jpg` |
-| Catering | `CateringPage.tsx` | `chef-joey-106.jpg` |
+### Option 1 -- Inline Header Inside the Content Panel (Recommended)
+Move the header text (SectionTag, h2, description) inside the content panel itself -- place it at the top of the white rounded card, above the photo header. This way the header is visually part of the content it describes, and the sidebar + content start at the same vertical position.
 
-### Teams & Corporate (7 pages)
-| Page | File | Photo |
-|------|------|-------|
-| Team Events | `TeamEventsPage.tsx` | `team-building.png` |
-| All Hands | `AllHandsPage.tsx` | `ywca-kitchen-074.jpg` |
-| Onboarding | `OnboardingPage.tsx` | `chef-joey-79.jpg` |
-| Client Entertainment | `ClientEntertainmentPage.tsx` | `chef-joey-113.jpg` |
-| Holiday | `HolidayPage.tsx` | `chef-joey-114.jpg` |
-| Custom Experiences | `CustomExperiencesPage.tsx` | `chef-joey-85.jpg` |
-| Catering (Teams) | `CateringTeamsPage.tsx` | `ywca-kitchen-056.jpg` |
+**Layout:**
+- Remove the separate header div entirely
+- The sidebar ("Categories" list) and content panel start at the same top edge
+- The content panel begins with the SectionTag, title, and description inside a padded area above the photo
+- Then the current card content (photo, details, highlights) follows below
 
-### Other
-| Page | File | Photo |
-|------|------|-------|
-| Team Building | `TeamBuildingPage.tsx` | `chef-joey-66.jpg` |
+**Result:** Clean two-column layout with no orphaned header. The sidebar and content are peers.
 
-## Change per File (identical pattern, repeated 14 times)
+### Option 2 -- Full-Width Header Spanning the Entire Section
+Make the header span the full width of the 1200px container (no left padding). Place it as a standard full-width section intro, centered or left-aligned to the page edge -- the same alignment as the hero section above.
 
-For each page:
-1. Add an import for the assigned photo at the top
-2. Replace the gradient placeholder div:
+**Layout:**
+- Remove `pl-[230px]`
+- Left-align the header to the container edge (matching the hero text alignment above)
+- Add a clear visual separator (extra spacing or a subtle divider) between the header and the sidebar+content below
 
-**Before:**
-```tsx
-<div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-purple-pale to-orange/10 flex items-center justify-center">
-  <span className="text-7xl">EMOJI</span>
-</div>
-```
+**Result:** The header reads as a standalone section intro. The sidebar+content below it feels like a separate interactive area.
 
-**After:**
-```tsx
-<div className="aspect-[4/3] rounded-3xl overflow-hidden">
-  <img src={heroImg} alt="Page title" className="w-full h-full object-cover" />
-</div>
-```
+### Option 3 -- Merge Header into the Sidebar
+Move the SectionTag and title into the top of the sidebar column itself, making it the sidebar's "header". The description moves below the title in the sidebar.
+
+**Layout:**
+- The sidebar starts with the SectionTag ("Perfect For"), then the h2 ("Pick your occasion"), then the description paragraph, then "CATEGORIES" label and the nav items
+- The content panel sits to the right, starting at the same top edge
+- Remove the separate header div
+
+**Result:** Everything is in two columns from the start. The sidebar owns the context-setting text, and the content panel is purely the interactive card.
+
+## Recommendation
+**Option 1** is the cleanest solution. It eliminates the alignment problem entirely by removing the separate header row. The title becomes contextually connected to the content it describes.
 
 ## Files Modified
-- `src/pages/classes/OpenClassesPage.tsx`
-- `src/pages/classes/PrivateEventsPage.tsx`
-- `src/pages/classes/SpecialOccasionsPage.tsx`
-- `src/pages/classes/FriendsPage.tsx`
-- `src/pages/classes/KidsPartyPage.tsx`
-- `src/pages/classes/CateringPage.tsx`
-- `src/pages/teams/TeamEventsPage.tsx`
-- `src/pages/teams/AllHandsPage.tsx`
-- `src/pages/teams/OnboardingPage.tsx`
-- `src/pages/teams/ClientEntertainmentPage.tsx`
-- `src/pages/teams/HolidayPage.tsx`
-- `src/pages/teams/CustomExperiencesPage.tsx`
-- `src/pages/teams/CateringTeamsPage.tsx`
-- `src/pages/TeamBuildingPage.tsx`
-
-No new files created. No dependencies added.
+- `src/pages/TeamsPage.tsx` -- restructure the "Pick your occasion" section
+- `src/pages/ClassesPage.tsx` -- same restructure for the "Find your flavor" section
