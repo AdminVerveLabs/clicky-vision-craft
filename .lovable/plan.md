@@ -1,68 +1,44 @@
 
-# "View Packages" Modal + Multi-Step Booking Form on Teams Page
 
-## Overview
-Wire the "View Packages" CTA button in the Teams hero to open a packages modal. That modal contains a "Get in Touch!" CTA that opens a second, multi-step booking form modal. Both are styled to match the site's purple/orange/cream brand palette.
+# Make Packages Modal Fit Without Scrolling on Desktop
 
-## Flow
-1. User clicks **"View Packages"** in the Teams hero
-2. **Packages Modal** opens -- shows 4 pricing tiers (Essentials, Classic, Premium, VIP), optional add-ons, and a "Get in Touch!" CTA
-3. User clicks **"Get in Touch!"**
-4. **Booking Form Modal** opens (packages modal stays behind the overlay) -- 4-step wizard with left sidebar showing a chef photo + step progress, and right side with form fields
-5. Steps: Basics -> Details -> Package -> Confirm
-6. On final step, user clicks "Book My Chat" which shows a toast confirmation and closes both modals
+## Problem
+The modal currently uses `max-h-[90vh] overflow-y-auto` with generous padding and spacing, causing it to overflow and scroll on many desktop screens.
 
-## New Files
+## Solution
+Tighten spacing, reduce font sizes slightly, and shrink padding so everything fits within the viewport. Remove `overflow-y-auto` and `max-h-[90vh]` on desktop (keep scroll fallback for mobile).
 
-### `src/components/chef/TeamPackagesModal.tsx`
-A full-screen overlay modal containing:
-- **Header**: "Team Experience Packages" + subtitle
-- **4 pricing cards** in a row:
-  - Essentials ($50/person) -- Hands-on cooking, all ingredients, chef-led, shared meal
-  - Classic ($95/person) -- "Most Popular" badge with purple border highlight. Everything in Essentials + welcome drinks, recipe cards, team photo
-  - Premium ($150/person) -- Everything in Classic + wine pairing, premium ingredients, custom menu consultation
-  - VIP ($225/person) -- Everything in Premium + dedicated private chef, branded experience, post-event highlight reel
-- **Optional Add-Ons** section: 3 cards (Event Videography $350 flat, Extended Catering $25/pp, Custom Aprons and Swag $18/pp)
-- **"Get in Touch!" CTA** button (orange, rounded-full) that opens the booking form
-- **Subtitle**: "Tell us about your event and we'll send a tailored proposal."
-- Close (X) button top-right
+## Changes to `src/components/chef/TeamPackagesModal.tsx`
 
-**Styling**: White background, rounded-3xl, purple accents for "Most Popular" badge/border, checkmarks in purple, card borders in border color, cream background for add-on cards.
+### Container
+- Change `max-h-[90vh] overflow-y-auto` to `md:max-h-none md:overflow-visible max-h-[90vh] overflow-y-auto` (scroll only on mobile)
 
-### `src/components/chef/TeamBookingFormModal.tsx`
-A full-screen overlay modal with a two-panel layout:
+### Inner padding
+- Reduce `p-8 md:p-12` to `p-6 md:p-8`
 
-**Left Panel (~40% width)**:
-- Purple gradient overlay on top of `chef-joey-kitchen.jpg`
-- Vertical step indicator with 4 steps: Basics, Details, Package, Confirm
-- Each step shows an icon circle + label; active step shows sub-label; completed steps get a filled style
-- Bottom: "Chef Joey" name + "Crafting unforgettable culinary experiences" tagline
+### Header section
+- Reduce `mb-10` to `mb-6`
+- Reduce title from `text-[32px] md:text-[38px]` to `text-[26px] md:text-[30px]`
+- Reduce `mb-4` on tag to `mb-2`
+- Reduce description `mt-2` stays, keep it tight
 
-**Right Panel (~60% width)**:
-- Header: "Book a Chat with Chef Joey" + "Step X of 4 -- [step subtitle]"
-- **Step 1 (Basics)**: Name*, Email*, Company, Phone fields
-- **Step 2 (Details)**: Occasion* (select dropdown with occasion options), Estimated Group Size*, Preferred Date (date input), Location Preference* (select: Our Kitchen, Your Office, Your Venue, Virtual)
-- **Step 3 (Package)**: Package Tier* (select: Essentials/Classic/Premium/VIP), Add-Ons (checkboxes for the 3 add-ons), Special Requests (textarea)
-- **Step 4 (Confirm)**: "Review Your Inquiry" -- summary table showing all entered data; CTA changes to "Book My Chat" with a chat icon
-- Navigation: Back/Next buttons; progress bar at bottom showing 25/50/75/100% complete
-- Close (X) button top-right
+### Pricing cards grid
+- Reduce `mb-12` to `mb-6`
+- Reduce card padding from `p-6` to `p-5`
+- Reduce price font from `text-[36px]` to `text-[28px]`
+- Reduce `mb-5` (below price) to `mb-3`
+- Reduce feature list `space-y-3` to `space-y-2`
+- Reduce feature text from `text-[13px]` to `text-[12px]`
+- Reduce check icon container from `w-5 h-5` to `w-4 h-4` and icon from `w-3 h-3` to `w-2.5 h-2.5`
 
-**Styling**: Form inputs use existing Input component styles with rounded-lg borders. Select dropdowns use native HTML selects styled with the site's font and purple focus ring. Progress bar uses purple fill. Next/Book My Chat buttons are purple rounded-full. Back button is outlined.
+### Add-Ons section
+- Reduce `mb-10` to `mb-6`
+- Reduce `mb-5` (below "Optional Add-Ons" heading) to `mb-3`
+- Reduce add-on card padding from `p-5` to `p-4`
+- Reduce icon container from `w-11 h-11` to `w-9 h-9`
 
-## Modified Files
+### CTA section
+- Reduce button padding from `px-10 py-4` to `px-8 py-3`
+- Reduce `mt-3` to `mt-2`
 
-### `src/pages/TeamsPage.tsx`
-- Import both new modal components
-- Add state: `showPackages` (boolean), `showBookingForm` (boolean)
-- Wire "View Packages" button `onClick` to set `showPackages(true)`
-- Render `TeamPackagesModal` when `showPackages` is true, passing `onClose` and `onGetInTouch` (which sets `showBookingForm(true)`)
-- Render `TeamBookingFormModal` when `showBookingForm` is true, passing `onClose` (which closes both modals)
-
-## Technical Details
-
-- Both modals use `fixed inset-0 z-[9999]` overlay pattern (matching existing ClassModal)
-- Form state managed with useState (no react-hook-form needed for this simple wizard)
-- Basic client-side validation: required fields checked before allowing "Next"
-- No backend integration -- the "Book My Chat" button shows a sonner toast ("We'll be in touch within 24 hours!") and closes
-- Occasion dropdown populated from the existing `occasions` array labels
-- The booking form modal renders on top of the packages modal (higher z-index or packages modal stays visible behind the dark overlay)
+These reductions collectively save ~150-200px of vertical space, fitting comfortably in a 768px+ tall viewport without any scrolling.
