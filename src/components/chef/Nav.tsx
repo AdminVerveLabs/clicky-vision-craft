@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import CTAButton from "./CTAButton";
 import { ChevronDown } from "lucide-react";
 
 interface NavSegment {
@@ -145,12 +146,9 @@ const Nav = () => {
             );
           })}
 
-          <button
-            onClick={() => go("/classes")}
-            className="bg-orange text-white border-none px-6 py-2.5 rounded-full font-semibold text-sm cursor-pointer font-sans transition-all duration-200 shadow-[0_2px_8px_hsl(var(--orange)/0.3)] hover:-translate-y-0.5"
-          >
+          <CTAButton variant="orange" size="sm" onClick={() => go("/classes")}>
             Book a Class
-          </button>
+          </CTAButton>
         </div>
       </div>
     </nav>
