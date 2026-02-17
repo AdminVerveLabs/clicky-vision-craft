@@ -168,7 +168,21 @@ const ClassesPage = () => {
                 From open classes to private celebrations, we've got the perfect culinary adventure. No experience needed—just bring your appetite and a sense of fun.
               </p>
               <div className="flex gap-4 justify-center md:justify-start">
-                <CTAButton variant="orange" size="lg" onClick={() => document.getElementById('class-calendar')?.scrollIntoView({ behavior: 'smooth' })}>Browse Upcoming Classes</CTAButton>
+                <CTAButton variant="orange" size="lg" onClick={() => {
+                  const el = document.getElementById('class-calendar');
+                  if (!el) return;
+                  const start = window.scrollY;
+                  const end = el.getBoundingClientRect().top + start;
+                  const duration = 1800;
+                  const startTime = performance.now();
+                  const ease = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                  const animate = (now: number) => {
+                    const t = Math.min((now - startTime) / duration, 1);
+                    window.scrollTo(0, start + (end - start) * ease(t));
+                    if (t < 1) requestAnimationFrame(animate);
+                  };
+                  requestAnimationFrame(animate);
+                }}>Browse Upcoming Classes</CTAButton>
                 <CTAButton variant="secondary" size="lg" onClick={() => setShowPackages(true)}>Private Event</CTAButton>
               </div>
             </div>
