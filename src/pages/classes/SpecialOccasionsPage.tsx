@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import heroImg from "@/assets/chef-joey-101.jpg";
 
 const SpecialOccasionsPage = () => {
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ const SpecialOccasionsPage = () => {
                 <CTAButton variant="secondary" size="lg">Request Custom</CTAButton>
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-orange-pale to-purple/10 flex items-center justify-center">
-              <span className="text-7xl">✨🍳</span>
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+              <img src={heroImg} alt="Special Occasions" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
