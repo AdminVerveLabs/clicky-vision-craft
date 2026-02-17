@@ -164,7 +164,7 @@ const ClassesPage = () => {
                 From open classes to private celebrations, we've got the perfect culinary adventure. No experience needed—just bring your appetite and a sense of fun.
               </p>
               <div className="flex gap-4 justify-center md:justify-start">
-                <CTAButton variant="orange" size="lg">Browse Upcoming Classes</CTAButton>
+                <CTAButton variant="orange" size="lg" onClick={() => document.getElementById('class-calendar')?.scrollIntoView({ behavior: 'smooth' })}>Browse Upcoming Classes</CTAButton>
                 <CTAButton variant="secondary" size="lg" onClick={() => go("/public-classes")}>Chat with Joey</CTAButton>
               </div>
             </div>
@@ -298,7 +298,7 @@ const ClassesPage = () => {
       </section>
 
       {/* Calendar */}
-      <section className="py-24 px-6 bg-white">
+      <section id="class-calendar" className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
             <SectionTag variant="orange">Schedule</SectionTag>
