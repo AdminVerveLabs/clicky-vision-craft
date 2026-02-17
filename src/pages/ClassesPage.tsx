@@ -168,8 +168,8 @@ const ClassesPage = () => {
                 <CTAButton variant="secondary" size="lg" onClick={() => go("/public-classes")}>Book a Private Event</CTAButton>
               </div>
             </div>
-            <div className="hidden md:block">
-              <img src={publicClassesImg} alt="Public cooking class with Chef Joey" className="w-full h-[500px] rounded-2xl object-cover shadow-xl" />
+            <div className="hidden md:block aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
+              <img src={publicClassesImg} alt="Public cooking class with Chef Joey" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
