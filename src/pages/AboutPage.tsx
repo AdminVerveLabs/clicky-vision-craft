@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import joeyPortrait from "@/assets/chef-joey-kitchen.jpg";
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -12,9 +13,8 @@ const AboutPage = () => {
       <section className="pt-[120px] pb-24 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-2 gap-16 items-center">
-            <div className="aspect-[3/4] rounded-3xl bg-gradient-to-b from-purple-pale to-orange-pale flex items-center justify-center relative">
-              <span className="text-[80px]">👨‍🍳</span>
-              <p className="absolute bottom-5 font-sans text-[13px] text-gray">[Photo: Chef Joey portrait]</p>
+            <div className="aspect-[3/4] rounded-3xl overflow-hidden">
+              <img src={joeyPortrait} alt="Chef Joey in the kitchen" className="w-full h-full object-cover" />
             </div>
             <div>
               <SectionTag>About</SectionTag>
