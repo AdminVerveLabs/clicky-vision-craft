@@ -302,7 +302,7 @@ const ClassesPage = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
             <SectionTag variant="orange">Schedule</SectionTag>
-            <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4 mb-2">What's cooking this month</h2>
+            <h2 className="font-serif text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-2">What's cooking this month</h2>
             <p className="font-sans text-base text-gray max-w-[480px] mx-auto">Click any class to see the full menu, details, and book your spot.</p>
           </div>
 
@@ -314,7 +314,8 @@ const ClassesPage = () => {
           </div>
 
           {/* Calendar Grid */}
-          <div className="border border-border rounded-2xl overflow-hidden bg-white">
+          <div className="overflow-x-auto -mx-6 px-6">
+          <div className="border border-border rounded-2xl overflow-hidden bg-white min-w-[700px]">
             <div className="grid grid-cols-7 border-b border-border">
               {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((d) => (
                 <div key={d} className="py-3.5 px-2 text-center font-sans text-[11px] font-bold tracking-[1.5px] text-gray bg-cream">{d}</div>
@@ -364,6 +365,7 @@ const ClassesPage = () => {
               </div>
             ))}
           </div>
+          </div>
 
           {/* Legend */}
           <div className="flex gap-6 justify-center mt-5 flex-wrap">
@@ -388,9 +390,9 @@ const ClassesPage = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <SectionTag variant="orange">How to Join</SectionTag>
-            <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Cook wherever suits you</h2>
+            <h2 className="font-serif text-[28px] md:text-[38px] font-extrabold text-dark mt-4">Cook wherever suits you</h2>
           </div>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { icon: "🏠", title: "At Our Kitchen", desc: "YW Calgary Community Kitchen in Inglewood. All ingredients, equipment, and aprons provided. Just show up hungry." },
               { icon: "📍", title: "At Your Place", desc: "We bring everything to you. Perfect for private parties at your home, a rented venue, or wherever the celebration is." },

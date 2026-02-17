@@ -26,7 +26,7 @@ const BlogPage = () => {
 
       {/* Category Navigation */}
       <div className="max-w-[800px] mx-auto px-6 mb-16">
-        <div className="flex justify-center gap-8 border-b border-border">
+        <div className="flex justify-center gap-4 md:gap-8 border-b border-border overflow-x-auto scrollbar-hide">
           {categories.map((cat) => (
             <button
               key={cat.label}

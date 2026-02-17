@@ -13,7 +13,7 @@ const TeamBuildingPage = () => {
 
   return (
     <div>
-      <section className="pt-[120px] pb-20 bg-white">
+      <section className="pt-[100px] md:pt-[120px] pb-16 md:pb-20 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="mb-2">
             <span onClick={() => go("/teams")} className="font-sans text-[13px] text-gray cursor-pointer">For Teams</span>
@@ -21,22 +21,22 @@ const TeamBuildingPage = () => {
             <span className="font-sans text-[13px] text-purple font-semibold">Team Building Events</span>
           </div>
 
-          <div className="grid grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
               <SectionTag>Team Building</SectionTag>
-              <h1 className="font-serif text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
+              <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 Team building that doesn't feel like <span className="text-purple italic">team building</span>
               </h1>
-              <p className="font-sans text-[17px] text-gray leading-[1.7] mb-8">
+              <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8">
                 No trust falls. No awkward icebreakers. Just great food, real conversations, and a shared experience your
                 team will actually enjoy. Teams cook together, problem-solve together, and feast together.
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap">
                 <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">Request Pricing</CTAButton>
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+            <div className="hidden md:block aspect-[4/3] rounded-3xl overflow-hidden">
               <img src={heroImg} alt="Team Building" className="w-full h-full object-cover" />
             </div>
           </div>
@@ -44,11 +44,11 @@ const TeamBuildingPage = () => {
       </section>
 
       {/* Details */}
-      <section className="py-24 px-6 bg-cream">
+      <section className="py-16 md:py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
             <div>
-              <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">Experience Details</h2>
+              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Experience Details</h2>
               {[
                 { icon: "⏱️", label: "Duration", value: "2.5 – 3 hours of hands-on cooking + dining", color: "purple" as const },
                 { icon: "👥", label: "Group Size", value: "8 – 30 people (larger groups available on request)", color: "orange" as const },
@@ -72,8 +72,8 @@ const TeamBuildingPage = () => {
             </div>
 
             <div>
-              <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">What to Expect</h2>
-              <div className="bg-white rounded-2xl p-8 border border-border mb-6">
+              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">What to Expect</h2>
+              <div className="bg-white rounded-2xl p-6 md:p-8 border border-border mb-6">
                 {[
                   "Arrive and get settled with drinks and introductions",
                   "Chef Joey walks you through the menu and divides into cooking stations",
@@ -106,10 +106,10 @@ const TeamBuildingPage = () => {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-br from-purple to-purple-dark text-center">
+      <section className="py-16 md:py-20 px-6 bg-gradient-to-br from-purple to-purple-dark text-center">
         <div className="max-w-[600px] mx-auto">
-          <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Let's cook up something great for your team</h2>
-          <p className="font-sans text-base text-white/70 mb-8">Every event is custom. Book a quick call so we can learn about your team and build the perfect experience.</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Let's cook up something great for your team</h2>
+          <p className="font-sans text-sm md:text-base text-white/70 mb-8">Every event is custom. Book a quick call so we can learn about your team and build the perfect experience.</p>
           <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
         </div>
       </section>

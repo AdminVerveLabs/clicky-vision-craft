@@ -47,10 +47,10 @@ const OpenClassesPage = () => {
             <span className="text-gray mx-2">›</span>
             <span className="font-sans text-[13px] text-orange font-semibold">Open Classes</span>
           </div>
-          <div className="grid grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
               <SectionTag variant="orange">Open Classes</SectionTag>
-              <h1 className="font-serif text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
+              <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 Join the table, learn the <span className="text-orange italic">flavors</span>
               </h1>
               <p className="font-sans text-[17px] text-gray leading-[1.7] mb-8">
@@ -62,7 +62,7 @@ const OpenClassesPage = () => {
                 <CTAButton variant="secondary" size="lg">Gift a Class</CTAButton>
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+            <div className="hidden md:block aspect-[4/3] rounded-3xl overflow-hidden">
               <img src={heroImg} alt="Open Classes" className="w-full h-full object-cover" />
             </div>
           </div>
@@ -72,7 +72,7 @@ const OpenClassesPage = () => {
       {/* Class Details & What to Expect */}
       <section className="py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
             <div>
               <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">Class Details</h2>
               {[
@@ -130,7 +130,8 @@ const OpenClassesPage = () => {
           </div>
 
           {/* Calendar Grid */}
-          <div className="border border-border rounded-2xl overflow-hidden bg-white">
+          <div className="overflow-x-auto -mx-6 px-6">
+          <div className="border border-border rounded-2xl overflow-hidden bg-white min-w-[700px]">
             <div className="grid grid-cols-7 border-b border-border">
               {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((d) => (
                 <div key={d} className="py-3.5 px-2 text-center font-sans text-[11px] font-bold tracking-[1.5px] text-gray bg-cream">{d}</div>
@@ -179,6 +180,7 @@ const OpenClassesPage = () => {
                 })}
               </div>
             ))}
+          </div>
           </div>
 
           {/* Legend */}
