@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import TeamPackagesModal from "@/components/chef/TeamPackagesModal";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
 
 import teamImg1 from "@/assets/chef-joey-41.jpg";
 import teamImg2 from "@/assets/chef-joey-114.jpg";
@@ -139,6 +141,8 @@ const TeamsPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
   const [activeId, setActiveId] = useState(occasions[0].id);
+  const [showPackages, setShowPackages] = useState(false);
+  const [showBookingForm, setShowBookingForm] = useState(false);
   return (
     <div>
       {/* Hero */}
@@ -157,7 +161,7 @@ const TeamsPage = () => {
               </p>
               <div className="flex gap-4">
                 <CTAButton variant="primary" size="lg">Book a Call</CTAButton>
-                <CTAButton variant="secondary" size="lg">View Packages</CTAButton>
+                <CTAButton variant="secondary" size="lg" onClick={() => setShowPackages(true)}>View Packages</CTAButton>
               </div>
               <div className="flex gap-8 mt-10 pt-8 border-t border-border">
                 {[
@@ -340,6 +344,16 @@ const TeamsPage = () => {
       </section>
 
       <Footer />
+
+      <TeamPackagesModal
+        isOpen={showPackages}
+        onClose={() => setShowPackages(false)}
+        onGetInTouch={() => setShowBookingForm(true)}
+      />
+      <TeamBookingFormModal
+        isOpen={showBookingForm}
+        onClose={() => { setShowBookingForm(false); setShowPackages(false); }}
+      />
     </div>
   );
 };
