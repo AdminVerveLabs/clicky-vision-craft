@@ -22,7 +22,7 @@ const navSegments: NavSegment[] = [
     ],
   },
   {
-    label: "For Teams",
+    label: "Teams",
     path: "/teams",
     children: [
       { label: "Team Events", path: "/teams/team-events" },
