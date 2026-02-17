@@ -8,11 +8,17 @@ import NewsletterBanner from "@/components/chef/NewsletterBanner";
 import Footer from "@/components/chef/Footer";
 import { CLASS_DATA, FOOD_IMAGES, ClassData } from "@/data/classData";
 
+import classImg1 from "@/assets/chef-joey-116.jpg";
+import classImg2 from "@/assets/chef-joey-106.jpg";
+import classImg3 from "@/assets/chef-joey-58.jpg";
+import classImg4 from "@/assets/chef-joey-85.jpg";
+import classImg5 from "@/assets/chef-joey-83.jpg";
+
 const classExperiences = [
   {
     id: "public-classes", sidebarLabel: "Public Classes", tag: "OPEN", title: "Public Classes",
     description: "Join a group of fellow food lovers for a hands-on class. New menus every week. Perfect for date nights, solo adventures, or grabbing a friend.",
-    icon: "🍳", path: "/classes/open-classes", price: "From $89/person",
+    icon: "🍳", path: "/classes/open-classes", price: "From $89/person", image: classImg1,
     details: [
       { icon: "⏱️", label: "Duration", value: "2–3 hours of hands-on cooking", color: "orange" },
       { icon: "👥", label: "Group Size", value: "8–16 people per class", color: "sage" },
@@ -32,7 +38,7 @@ const classExperiences = [
   {
     id: "private-parties", sidebarLabel: "Private Parties", tag: "CELEBRATIONS", title: "Private Parties",
     description: "Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast.",
-    icon: "🎉", path: "/classes/private-events", price: "From $125/person",
+    icon: "🎉", path: "/classes/private-events", price: "From $125/person", image: classImg2,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5–3 hours, tailored to your event", color: "orange" },
       { icon: "👥", label: "Group Size", value: "6–30 people", color: "sage" },
@@ -52,7 +58,7 @@ const classExperiences = [
   {
     id: "kids-cooking", sidebarLabel: "Kids Cooking", tag: "AGES 4–15", title: "Kids Cooking",
     description: "Build kitchen confidence and creativity. Kids learn real skills in a safe, fun environment. Birthday parties and drop-in sessions available.",
-    icon: "👧", path: "/classes/kids-party", price: "From $65/kid",
+    icon: "👧", path: "/classes/kids-party", price: "From $65/kid", image: classImg3,
     details: [
       { icon: "⏱️", label: "Duration", value: "1.5–2 hours of hands-on fun", color: "orange" },
       { icon: "👥", label: "Group Size", value: "6–20 kids per session", color: "sage" },
@@ -72,7 +78,7 @@ const classExperiences = [
   {
     id: "signature-sessions", sidebarLabel: "Signature Sessions", tag: "LIMITED", title: "Signature Sessions",
     description: "Special themed experiences: 'Off to College' survival cooking, 'Basic Skills Bootcamp', 'Date Night: Creole Edition', and seasonal specials.",
-    icon: "⭐", path: "/classes/special-occasions", price: "From $99/person",
+    icon: "⭐", path: "/classes/special-occasions", price: "From $99/person", image: classImg4,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5–3 hours of immersive cooking", color: "orange" },
       { icon: "👥", label: "Group Size", value: "8–20 people", color: "sage" },
@@ -92,7 +98,7 @@ const classExperiences = [
   {
     id: "gift-certificates", sidebarLabel: "Gift Certificates", tag: "PERFECT GIFT", title: "Gift Certificates",
     description: "Give the gift of a great time. Available for any class or experience. Never expires. Because nobody wants another candle.",
-    icon: "🎁", path: "/classes/open-classes", price: "From $65",
+    icon: "🎁", path: "/classes/open-classes", price: "From $65", image: classImg5,
     details: [
       { icon: "🎫", label: "Options", value: "Any class, any experience, any amount", color: "orange" },
       { icon: "📧", label: "Delivery", value: "Instant digital or printed gift card", color: "sage" },
@@ -222,15 +228,19 @@ const ClassesPage = () => {
               {(() => {
                 const o = classExperiences.find((x) => x.id === activeExpId)!;
                 return (
-                  <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
-                    {/* Header */}
-                    <div className="bg-gradient-to-br from-orange-pale to-orange/[0.06] p-8 md:p-10 flex items-center gap-6">
-                      <div className="w-20 h-20 rounded-full bg-orange/10 flex items-center justify-center text-5xl shrink-0">{o.icon}</div>
-                      <div>
-                        <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-orange bg-white/70 px-3 py-1 rounded-full mb-2">{o.tag}</span>
-                        <h3 className="font-serif text-[28px] md:text-[32px] font-bold text-dark leading-tight">{o.title}</h3>
+                    <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
+                      {/* Photo Header */}
+                      <div className="relative h-[220px] md:h-[260px] overflow-hidden">
+                        <img src={o.image} alt={o.title} className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                        <div className="absolute bottom-0 left-0 p-8 md:p-10 flex items-end gap-5">
+                          <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-4xl shrink-0">{o.icon}</div>
+                          <div>
+                            <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-orange/80 px-3 py-1 rounded-full mb-2">{o.tag}</span>
+                            <h3 className="font-serif text-[28px] md:text-[32px] font-bold text-white leading-tight drop-shadow-lg">{o.title}</h3>
+                          </div>
+                        </div>
                       </div>
-                    </div>
 
                     {/* Body */}
                     <div className="p-8 md:p-10">

@@ -4,11 +4,18 @@ import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
 
+import teamImg1 from "@/assets/chef-joey-41.jpg";
+import teamImg2 from "@/assets/chef-joey-114.jpg";
+import teamImg3 from "@/assets/chef-joey-36.jpg";
+import teamImg4 from "@/assets/chef-joey-113.jpg";
+import teamImg5 from "@/assets/chef-joey-61.jpg";
+import teamImg6 from "@/assets/ywca-kitchen-080.jpg";
+
 const occasions = [
   {
     id: "team-events", sidebarLabel: "Team Building", tag: "MOST POPULAR", title: "Team Building Events",
     description: "Get your team cooking (literally). Hands-on, collaborative, and way more fun than trust falls. Perfect for teams of 8-30.",
-    groupSize: "8–30 people", duration: "2.5 hours", icon: "👨‍🍳", path: "/teams/team-events",
+    groupSize: "8–30 people", duration: "2.5 hours", icon: "👨‍🍳", path: "/teams/team-events", image: teamImg1,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5 hours of hands-on cooking", color: "purple" },
       { icon: "👥", label: "Group Size", value: "8–30 people per session", color: "orange" },
@@ -28,7 +35,7 @@ const occasions = [
   {
     id: "all-hands", sidebarLabel: "All-Hands", tag: "VIRTUAL + IN-PERSON", title: "All-Hands & Townhalls",
     description: "Make your next company gathering unforgettable. Live cooking demos, interactive challenges, and food that brings people together across offices.",
-    groupSize: "20–200 people", duration: "1.5–2 hours", icon: "🎤", path: "/teams/all-hands",
+    groupSize: "20–200 people", duration: "1.5–2 hours", icon: "🎤", path: "/teams/all-hands", image: teamImg2,
     details: [
       { icon: "⏱️", label: "Duration", value: "1.5–3 hours, flexible to your agenda", color: "purple" },
       { icon: "👥", label: "Group Size", value: "20–200+ people", color: "orange" },
@@ -48,7 +55,7 @@ const occasions = [
   {
     id: "onboarding", sidebarLabel: "Onboarding", tag: "NEW HIRE FAVORITE", title: "Onboarding & Culture",
     description: "Welcome new team members with an experience they'll actually remember. Set the tone for your culture from day one.",
-    groupSize: "5–25 people", duration: "2 hours", icon: "🌱", path: "/teams/onboarding",
+    groupSize: "5–25 people", duration: "2 hours", icon: "🌱", path: "/teams/onboarding", image: teamImg3,
     details: [
       { icon: "⏱️", label: "Duration", value: "2 hours of team bonding", color: "purple" },
       { icon: "👥", label: "Group Size", value: "5–25 people", color: "orange" },
@@ -68,7 +75,7 @@ const occasions = [
   {
     id: "client-entertainment", sidebarLabel: "Client Entertainment", tag: "IMPRESS & CONNECT", title: "Client Entertainment",
     description: "Skip the steakhouse. Host clients in an interactive environment that breaks down walls and builds real relationships.",
-    groupSize: "6–20 people", duration: "2.5 hours", icon: "🤝", path: "/teams/client-entertainment",
+    groupSize: "6–20 people", duration: "2.5 hours", icon: "🤝", path: "/teams/client-entertainment", image: teamImg4,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5 hours of premium experience", color: "purple" },
       { icon: "👥", label: "Group Size", value: "6–20 people", color: "orange" },
@@ -88,7 +95,7 @@ const occasions = [
   {
     id: "holiday", sidebarLabel: "Holiday", tag: "SEASONAL", title: "Holiday & Celebrations",
     description: "Year-end party? Summer kickoff? We create seasonal menus and themed experiences that feel special without the planning headache.",
-    groupSize: "10–50 people", duration: "2–3 hours", icon: "🎉", path: "/teams/holiday",
+    groupSize: "10–50 people", duration: "2–3 hours", icon: "🎉", path: "/teams/holiday", image: teamImg5,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5–3 hours of cooking and celebration", color: "purple" },
       { icon: "👥", label: "Group Size", value: "10–50+ people", color: "orange" },
@@ -108,7 +115,7 @@ const occasions = [
   {
     id: "custom", sidebarLabel: "Custom Experiences", tag: "TAILORED TO YOU", title: "Custom Experiences",
     description: "Have something specific in mind? We'll design a bespoke culinary experience around your goals, dietary needs, and team size.",
-    groupSize: "Any size", duration: "Flexible", icon: "✨", path: "/teams/custom",
+    groupSize: "Any size", duration: "Flexible", icon: "✨", path: "/teams/custom", image: teamImg6,
     details: [
       { icon: "⏱️", label: "Duration", value: "Flexible — tailored to your schedule", color: "purple" },
       { icon: "👥", label: "Group Size", value: "Any size, from 4 to 200+", color: "orange" },
@@ -228,12 +235,16 @@ const TeamsPage = () => {
                 const o = occasions.find((x) => x.id === activeId)!;
                 return (
                   <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
-                    {/* Header */}
-                    <div className="bg-gradient-to-br from-purple-pale to-purple/[0.06] p-8 md:p-10 flex items-center gap-6">
-                      <div className="w-20 h-20 rounded-full bg-purple/10 flex items-center justify-center text-5xl shrink-0">{o.icon}</div>
-                      <div>
-                        <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-purple bg-white/70 px-3 py-1 rounded-full mb-2">{o.tag}</span>
-                        <h3 className="font-serif text-[28px] md:text-[32px] font-bold text-dark leading-tight">{o.title}</h3>
+                    {/* Photo Header */}
+                    <div className="relative h-[220px] md:h-[260px] overflow-hidden">
+                      <img src={o.image} alt={o.title} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                      <div className="absolute bottom-0 left-0 p-8 md:p-10 flex items-end gap-5">
+                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-4xl shrink-0">{o.icon}</div>
+                        <div>
+                          <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-purple/80 px-3 py-1 rounded-full mb-2">{o.tag}</span>
+                          <h3 className="font-serif text-[28px] md:text-[32px] font-bold text-white leading-tight drop-shadow-lg">{o.title}</h3>
+                        </div>
                       </div>
                     </div>
 
