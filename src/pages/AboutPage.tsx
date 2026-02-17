@@ -35,7 +35,7 @@ const AboutPage = () => {
                 culture, to families celebrating milestones, to solo foodies who just want to learn something new.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" onClick={() => go("/classes")}>Book a Class</CTAButton>
+                <CTAButton variant="primary" onClick={() => go("/classes")}>Chat with Joey</CTAButton>
                 <CTAButton variant="secondary">Get in Touch</CTAButton>
               </div>
             </div>

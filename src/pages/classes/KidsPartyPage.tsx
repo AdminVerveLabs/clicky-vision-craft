@@ -28,7 +28,7 @@ const KidsPartyPage = () => {
                 and drop-in sessions that build confidence and creativity.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="orange" size="lg">Book a Kids Party</CTAButton>
+                <CTAButton variant="orange" size="lg">Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">See Classes</CTAButton>
               </div>
             </div>
@@ -80,7 +80,7 @@ const KidsPartyPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Give them a party they'll never forget</h2>
           <p className="font-sans text-base text-white/70 mb-8">Book a kids cooking party and watch their faces light up.</p>
-          <CTAButton variant="primary" size="lg">Book a Party →</CTAButton>
+          <CTAButton variant="primary" size="lg">Chat with Joey</CTAButton>
         </div>
       </section>
 

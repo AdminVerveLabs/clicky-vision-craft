@@ -31,7 +31,7 @@ const AllHandsPage = () => {
                 people together across offices—virtual or in person.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
+                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">Learn More</CTAButton>
               </div>
             </div>
@@ -83,7 +83,7 @@ const AllHandsPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Make your next all-hands one to remember</h2>
           <p className="font-sans text-base text-white/70 mb-8">We'll work with your team to design the perfect experience for your company gathering.</p>
-          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Book a Free Call →</CTAButton>
+          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
         </div>
       </section>
 

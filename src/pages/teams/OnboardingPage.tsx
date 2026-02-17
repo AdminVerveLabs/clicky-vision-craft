@@ -31,7 +31,7 @@ const OnboardingPage = () => {
                 connect with colleagues and feel at home before they even find the coffee machine.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
+                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">Learn More</CTAButton>
               </div>
             </div>
@@ -83,7 +83,7 @@ const OnboardingPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Make onboarding unforgettable</h2>
           <p className="font-sans text-base text-white/70 mb-8">Let's design an onboarding experience that sets the tone for your company culture.</p>
-          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Book a Free Call →</CTAButton>
+          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
         </div>
       </section>
 

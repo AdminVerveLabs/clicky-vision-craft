@@ -55,7 +55,7 @@ const PublicClassesPage = () => {
                   <p className="font-sans text-sm text-gray leading-relaxed mb-4">{cls.desc}</p>
                   <div className="flex justify-between items-center">
                     <span className="font-sans text-xl font-bold text-dark">{cls.price}</span>
-                    <button className="bg-orange text-white border-none px-5 py-2 rounded-full text-[13px] font-semibold cursor-pointer font-sans">Book Now</button>
+                    <button className="bg-orange text-white border-none px-5 py-2 rounded-full text-[13px] font-semibold cursor-pointer font-sans">Chat with Joey</button>
                   </div>
                 </div>
               </div>
