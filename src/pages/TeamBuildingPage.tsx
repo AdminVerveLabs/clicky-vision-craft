@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
 import heroImg from "@/assets/chef-joey-66.jpg";
 
 const TeamBuildingPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const [showBookingForm, setShowBookingForm] = useState(false);
 
   return (
     <div>
@@ -29,7 +32,7 @@ const TeamBuildingPage = () => {
                 team will actually enjoy. Teams cook together, problem-solve together, and feast together.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" size="lg">Book a Call</CTAButton>
+                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
                 <CTAButton variant="secondary" size="lg">Request Pricing</CTAButton>
               </div>
             </div>
@@ -103,16 +106,20 @@ const TeamBuildingPage = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-br from-purple to-purple-dark text-center">
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Let's cook up something great for your team</h2>
           <p className="font-sans text-base text-white/70 mb-8">Every event is custom. Book a quick call so we can learn about your team and build the perfect experience.</p>
-          <CTAButton variant="orange" size="lg">Book a Free Call →</CTAButton>
+          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Book a Free Call →</CTAButton>
         </div>
       </section>
 
       <Footer />
+
+      <TeamBookingFormModal
+        isOpen={showBookingForm}
+        onClose={() => setShowBookingForm(false)}
+      />
     </div>
   );
 };

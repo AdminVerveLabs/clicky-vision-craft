@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
 import heroImg from "@/assets/ywca-kitchen-056.jpg";
 
 const CateringTeamsPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const [showBookingForm, setShowBookingForm] = useState(false);
 
   return (
     <div>
@@ -28,7 +31,7 @@ const CateringTeamsPage = () => {
                 workplace. Full-service or drop-off, for 10 to 500+.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" size="lg">Get a Quote</CTAButton>
+                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Get a Quote</CTAButton>
                 <CTAButton variant="secondary" size="lg">View Menus</CTAButton>
               </div>
             </div>
@@ -80,11 +83,16 @@ const CateringTeamsPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Feed your team right</h2>
           <p className="font-sans text-base text-white/70 mb-8">Get a custom quote for your corporate catering needs.</p>
-          <CTAButton variant="orange" size="lg">Request a Quote →</CTAButton>
+          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Request a Quote →</CTAButton>
         </div>
       </section>
 
       <Footer />
+
+      <TeamBookingFormModal
+        isOpen={showBookingForm}
+        onClose={() => setShowBookingForm(false)}
+      />
     </div>
   );
 };

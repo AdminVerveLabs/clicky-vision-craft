@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
 import heroImg from "@/assets/chef-joey-114.jpg";
 
 const HolidayPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const [showBookingForm, setShowBookingForm] = useState(false);
 
   return (
     <div>
@@ -28,7 +31,7 @@ const HolidayPage = () => {
                 without the planning headache.
               </p>
               <div className="flex gap-4">
-                <CTAButton variant="primary" size="lg">Plan Our Party</CTAButton>
+                <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Plan Our Party</CTAButton>
                 <CTAButton variant="secondary" size="lg">See Themes</CTAButton>
               </div>
             </div>
@@ -80,11 +83,16 @@ const HolidayPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Let's make this season unforgettable</h2>
           <p className="font-sans text-base text-white/70 mb-8">Tell us about your celebration and we'll handle the rest.</p>
-          <CTAButton variant="orange" size="lg">Start Planning →</CTAButton>
+          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Start Planning →</CTAButton>
         </div>
       </section>
 
       <Footer />
+
+      <TeamBookingFormModal
+        isOpen={showBookingForm}
+        onClose={() => setShowBookingForm(false)}
+      />
     </div>
   );
 };
