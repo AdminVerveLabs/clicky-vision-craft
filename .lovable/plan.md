@@ -1,66 +1,24 @@
 
 
-# Wire Booking Form Modal to All Teams Sub-Pages
+# Restyle Primary CTAs to "Culinary Stamp" Style
 
-## Overview
-The multi-step booking form modal (`TeamBookingFormModal`) currently only lives on the main Teams page. Every teams sub-page has "Book a Call" / "Book a Free Call" / equivalent CTAs in two places (hero section and bottom CTA section) that do nothing. We'll wire all of them to open the booking form modal.
+## What Changes
+Update the `CTAButton` component to use asymmetric rounding (like a stamp -- more rounded on some corners, less on others) instead of `rounded-full`. On hover, the button lifts further with a deeper shadow, creating a "pop out" effect.
 
-## Pages to Update (8 total)
+## Visual Details (from reference images)
+- **Default**: Asymmetric border radius (e.g., `rounded-tl-2xl rounded-tr-lg rounded-bl-lg rounded-br-2xl`), purple background, white uppercase text, moderate shadow offset
+- **Hover**: Button translates up further (`-translate-y-1.5`) and shadow grows deeper/wider, giving the "pops out from black" effect
 
-### Main Teams page: `src/pages/TeamsPage.tsx`
-- Already has the modal imported and state wired
-- Wire the 3 remaining unconnected "Book a Call" CTAs (hero button on line 163, occasion panel button on line 295, bottom CTA on line 340) to `setShowBookingForm(true)`
+## File Changed
 
-### 7 Sub-pages (same pattern for each):
-Each sub-page needs:
-1. Import `TeamBookingFormModal` and add `useState`
-2. Add `showBookingForm` state
-3. Wire the hero CTA and bottom CTA `onClick` handlers
-4. Render `<TeamBookingFormModal>` at the bottom
+### `src/components/chef/CTAButton.tsx`
+- Replace `rounded-full` in base styles with asymmetric rounding: `rounded-tl-2xl rounded-tr-lg rounded-bl-lg rounded-br-2xl`
+- Add uppercase + tracking to base: `uppercase tracking-widest`
+- Update hover from `hover:-translate-y-0.5 hover:opacity-90` to `hover:-translate-y-1.5` (no opacity change)
+- Update primary variant shadow to use a darker, offset shadow that grows on hover: `shadow-[0_4px_0_hsl(var(--dark))] hover:shadow-[0_8px_0_hsl(var(--dark))]`
+- Apply similar shadow treatment to orange variant
+- Keep secondary and ghost variants with their current rounded-full style (only primary and orange get the stamp look)
 
-| File | Hero CTA Text | Bottom CTA Text |
-|------|--------------|-----------------|
-| `TeamEventsPage.tsx` | "Book a Call" | "Book a Free Call" |
-| `AllHandsPage.tsx` | "Book a Call" | "Book a Free Call" |
-| `OnboardingPage.tsx` | "Book a Call" | "Book a Free Call" |
-| `ClientEntertainmentPage.tsx` | "Book a Call" | "Book a Free Call" |
-| `HolidayPage.tsx` | "Plan Our Party" | "Start Planning" |
-| `CustomExperiencesPage.tsx` | "Share Your Vision" | "Start the Conversation" |
-| `CateringTeamsPage.tsx` | "Get a Quote" | "Request a Quote" |
+### Approach
+Since the stamp style only applies to `primary` and `orange` variants, we'll split the rounding logic: primary/orange get asymmetric rounding, secondary/ghost keep `rounded-full`. The hover shadow "pop" effect uses a hard black box-shadow that extends on hover, matching the reference images.
 
-Also: `src/pages/TeamBuildingPage.tsx` -- "Book a Call" + "Book a Free Call"
-
-## Technical Pattern (same for every sub-page)
-
-```tsx
-// Add imports
-import { useState } from "react";
-import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
-
-// Add state inside component
-const [showBookingForm, setShowBookingForm] = useState(false);
-
-// Wire onClick on hero + bottom CTAs
-<CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
-// ...
-<CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Book a Free Call →</CTAButton>
-
-// Render modal before closing </div>
-<TeamBookingFormModal
-  isOpen={showBookingForm}
-  onClose={() => setShowBookingForm(false)}
-/>
-```
-
-## Files Modified
-- `src/pages/TeamsPage.tsx` (wire 3 existing CTAs)
-- `src/pages/teams/TeamEventsPage.tsx`
-- `src/pages/teams/AllHandsPage.tsx`
-- `src/pages/teams/OnboardingPage.tsx`
-- `src/pages/teams/ClientEntertainmentPage.tsx`
-- `src/pages/teams/HolidayPage.tsx`
-- `src/pages/teams/CustomExperiencesPage.tsx`
-- `src/pages/teams/CateringTeamsPage.tsx`
-- `src/pages/TeamBuildingPage.tsx`
-
-No new files or dependencies needed -- just importing and using the existing `TeamBookingFormModal` component across all teams pages.
