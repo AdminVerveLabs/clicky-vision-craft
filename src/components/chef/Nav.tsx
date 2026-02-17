@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import CTAButton from "./CTAButton";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 
 interface NavSegment {
   label: string;
@@ -42,6 +43,8 @@ const navSegments: NavSegment[] = [
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const currentPage = location.pathname;
@@ -58,6 +61,7 @@ const Nav = () => {
     navigate(path);
     window.scrollTo({ top: 0, behavior: "smooth" });
     setOpenDropdown(null);
+    setMobileOpen(false);
   };
 
   const getTextColor = (isActive: boolean) => {
@@ -92,7 +96,8 @@ const Nav = () => {
           </span>
         </div>
 
-        <div className="flex items-center gap-6 font-sans text-[15px] font-medium">
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-6 font-sans text-[15px] font-medium">
           {navSegments.map((segment) => {
             const isActive = currentPage === segment.path;
             const hasChildren = segment.children && segment.children.length > 0;
@@ -150,7 +155,88 @@ const Nav = () => {
             Chat with Joey
           </CTAButton>
         </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden p-2 rounded-lg transition-colors"
+          onClick={() => setMobileOpen(true)}
+          style={{ color: scrolled ? "hsl(var(--dark))" : isHome ? "white" : "hsl(var(--dark))" }}
+        >
+          <Menu size={24} />
+        </button>
       </div>
+
+      {/* Mobile Sheet */}
+      <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+        <SheetContent side="right" className="w-[300px] p-0 overflow-y-auto">
+          <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+          <div className="p-6 pt-8">
+            <div className="flex items-center gap-2.5 mb-8">
+              <div className="w-10 h-10 rounded-full bg-purple flex items-center justify-center text-white font-serif font-extrabold text-lg">
+                CJ
+              </div>
+              <span className="font-serif font-bold text-[20px] text-dark">Chef Joey</span>
+            </div>
+
+            <div className="space-y-1">
+              {navSegments.map((segment) => {
+                const hasChildren = segment.children && segment.children.length > 0;
+                const isExpanded = mobileExpanded === segment.label;
+
+                return (
+                  <div key={segment.label}>
+                    <div className="flex items-center justify-between">
+                      <button
+                        onClick={() => {
+                          if (hasChildren) {
+                            setMobileExpanded(isExpanded ? null : segment.label);
+                          } else {
+                            go(segment.path);
+                          }
+                        }}
+                        className="flex-1 text-left px-3 py-3 font-sans text-[15px] font-semibold text-dark rounded-lg hover:bg-gray-light transition-colors"
+                      >
+                        {segment.label}
+                      </button>
+                      {hasChildren && (
+                        <button
+                          onClick={() => setMobileExpanded(isExpanded ? null : segment.label)}
+                          className="p-2 text-gray"
+                        >
+                          <ChevronDown
+                            size={16}
+                            className="transition-transform duration-200"
+                            style={{ transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)" }}
+                          />
+                        </button>
+                      )}
+                    </div>
+                    {hasChildren && isExpanded && (
+                      <div className="ml-3 border-l-2 border-border pl-3 mb-2">
+                        {segment.children!.map((child) => (
+                          <button
+                            key={child.label}
+                            onClick={() => go(child.path)}
+                            className="block w-full text-left px-3 py-2.5 font-sans text-[14px] text-gray rounded-lg hover:bg-gray-light hover:text-dark transition-colors"
+                          >
+                            {child.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-border">
+              <CTAButton variant="orange" size="md" onClick={() => go("/classes")}>
+                Chat with Joey
+              </CTAButton>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
     </nav>
   );
 };

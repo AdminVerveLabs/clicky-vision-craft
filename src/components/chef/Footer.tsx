@@ -35,8 +35,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-dark text-white py-20 px-6">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-[2fr_1fr_1fr_1fr] gap-12">
+    <footer className="bg-dark text-white py-16 md:py-20 px-6">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-12">
         <div>
           <div className="flex items-center gap-2.5 mb-4">
             <div className="w-10 h-10 rounded-full bg-purple flex items-center justify-center text-lg font-serif font-extrabold">
@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
         ))}
       </div>
-      <div className="max-w-[1200px] mx-auto mt-14 pt-6 border-t border-white/10 flex justify-between items-center">
+      <div className="max-w-[1200px] mx-auto mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="font-sans text-[13px] text-white/40">© 2026 Chef Joey. All rights reserved.</p>
         <div className="flex gap-6">
           {["Terms", "Privacy", "Blog"].map((item) => (

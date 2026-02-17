@@ -17,30 +17,30 @@ const HomePage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="min-h-screen flex items-center relative overflow-hidden px-6 pt-[120px] pb-20" style={{ background: "linear-gradient(165deg, #430073 0%, #430073 35%, hsl(var(--dark)) 100%)" }}>
+      <section className="min-h-screen flex items-center relative overflow-hidden px-6 pt-[100px] md:pt-[120px] pb-16 md:pb-20" style={{ background: "linear-gradient(165deg, #430073 0%, #430073 35%, hsl(var(--dark)) 100%)" }}>
         <div className="absolute top-[10%] right-[5%] w-[400px] h-[400px] rounded-full" style={{ background: "radial-gradient(circle, rgba(232,89,12,0.15) 0%, transparent 70%)" }} />
         <div className="absolute bottom-[5%] left-[10%] w-[300px] h-[300px] rounded-full" style={{ background: "radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%)" }} />
         <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
         <div className="max-w-[1200px] mx-auto w-full relative">
-          <div className="grid grid-cols-2 gap-16 items-center">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div className="text-center md:text-left">
               <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 pl-2 mb-7 border border-white/15">
                 <span className="text-sm">🔥</span>
                 <span className="font-sans text-[13px] font-semibold text-white/80">Calgary's Creole Cooking Experience</span>
               </div>
-              <h1 className="font-serif text-[62px] font-extrabold text-white leading-[1.08] mb-6">
+              <h1 className="font-serif text-[38px] md:text-[62px] font-extrabold text-white leading-[1.08] mb-6">
                 Soul food.<br />
                 <span className="text-orange-light">Good times.</span><br />
                 Real skills.
               </h1>
-              <div className="flex gap-4 flex-wrap">
+              <div className="flex gap-4 flex-wrap justify-center md:justify-start">
                 <CTAButton variant="orange" size="lg" onClick={() => go("/classes")}>Explore Classes</CTAButton>
                 <CTAButton variant="ghost" size="lg" onClick={() => go("/teams")}>For Teams & Corporate</CTAButton>
               </div>
 
               {/* Social proof */}
-              <div className="flex items-center gap-5 mt-12 pt-8 border-t border-white/10">
+              <div className="flex items-center gap-5 mt-12 pt-8 border-t border-white/10 justify-center md:justify-start">
                 <div className="flex">
                   {[0, 1, 2, 3].map((i) => (
                     <div key={i} className="w-9 h-9 rounded-full border-2 border-white/30 flex items-center justify-center text-sm" style={{ background: `hsl(${30 + i * 25}, 70%, ${60 + i * 5}%)`, marginLeft: i > 0 ? -10 : 0 }}>😊</div>
@@ -56,7 +56,7 @@ const HomePage = () => {
             </div>
 
             {/* Hero visual */}
-            <div className="relative">
+            <div className="relative hidden md:block">
               <div className="w-full aspect-[4/5] rounded-3xl border border-white/10 relative overflow-hidden">
                 <img src={chefJoeyHero} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
               </div>
@@ -73,15 +73,15 @@ const HomePage = () => {
       </section>
 
       {/* About Joey Quick */}
-      <section className="py-24 px-6 bg-cream">
+      <section className="py-16 md:py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="aspect-square rounded-3xl relative overflow-hidden">
               <img src={chefJoeyKitchen} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
             </div>
             <div>
               <SectionTag>Meet the Chef</SectionTag>
-              <h2 className="font-serif text-[42px] font-extrabold text-dark mt-4 mb-4 leading-[1.15]">
+              <h2 className="font-serif text-[28px] md:text-[42px] font-extrabold text-dark mt-4 mb-4 leading-[1.15]">
                 Cooking should be fun. <span className="text-orange italic">Be brave</span> and try something new.
               </h2>
               <p className="font-sans text-base text-gray leading-[1.8] mb-6">
@@ -104,9 +104,9 @@ const HomePage = () => {
         <div className="max-w-[1000px] mx-auto">
           <div className="text-center mb-8">
             <SectionTag>How It Works</SectionTag>
-            <h2 className="font-serif text-[28px] font-extrabold text-dark mt-4">Three steps to a great time</h2>
+            <h2 className="font-serif text-[24px] md:text-[28px] font-extrabold text-dark mt-4">Three steps to a great time</h2>
           </div>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
               { step: "01", icon: "📞", title: "Pick Your Vibe", desc: "Choose a public class, book a private event, or tell us what your team needs. We'll customize it." },
               { step: "02", icon: "🔪", title: "Cook Together", desc: "Roll up your sleeves for a hands-on experience. In-person, virtual, or at your location. Your call." },
@@ -126,33 +126,33 @@ const HomePage = () => {
       </section>
 
       {/* Two-path section */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-16 md:py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <SectionTag>Choose Your Experience</SectionTag>
-            <h2 className="font-serif text-[42px] font-extrabold text-dark mt-4 mb-3">What are you cookin' up?</h2>
-            <p className="font-sans text-[17px] text-gray max-w-[500px] mx-auto leading-relaxed">
+            <h2 className="font-serif text-[28px] md:text-[42px] font-extrabold text-dark mt-4 mb-3">What are you cookin' up?</h2>
+            <p className="font-sans text-[15px] md:text-[17px] text-gray max-w-[500px] mx-auto leading-relaxed">
               From team-building to birthday bashes, we've got the perfect culinary experience for every occasion.
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               { title: "Public Classes", tag: "PUBLIC", category: "BOOKABLE", icon: "📅", desc: "Join a community of foodies. Perfect for solo cooks, couples, or small groups wanting to learn new skills.", link: "/classes", image: publicClassesImg },
               { title: "Team Building", tag: "FOR TEAMS", category: "BUILDERS", icon: "🏢", desc: "Interactive challenges and collaborative cooking to bring your corporate team closer together.", link: "/teams", image: teamBuildingImg },
               { title: "Private Classes", tag: "PRIVATE", category: "CUSTOM", icon: "🎉", desc: "Organize your own personalized experience with Chef Joey. Great for friends, events, special occasions, and anything else that calls for fun.", link: "/classes", image: privateClassesImg },
             ].map((card) => (
               <div key={card.title} onClick={() => go(card.link)} className="bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border border-border hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
-                <div className="h-[280px] bg-gray-light relative flex items-center justify-center">
+                <div className="h-[220px] md:h-[280px] bg-gray-light relative flex items-center justify-center">
                   <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
                   <div className="absolute top-4 right-4 bg-purple text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full tracking-wide font-sans">{card.tag}</div>
                 </div>
-                <div className="p-7">
+                <div className="p-6 md:p-7">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-sm">{card.icon}</span>
                     <span className="font-sans text-[11px] font-bold text-purple uppercase tracking-[2px]">{card.category}</span>
                   </div>
-                  <h3 className="font-serif text-[24px] font-bold text-dark mb-3 leading-tight">{card.title}</h3>
+                  <h3 className="font-serif text-[20px] md:text-[24px] font-bold text-dark mb-3 leading-tight">{card.title}</h3>
                   <p className="font-sans text-sm text-gray leading-[1.7] mb-6">{card.desc}</p>
                   <span className="text-purple font-sans text-[13px] font-bold uppercase tracking-[1.5px]">View Details →</span>
                 </div>
@@ -163,13 +163,13 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="pt-16 pb-24 px-6 bg-gray-light">
+      <section className="pt-16 pb-20 md:pb-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10 md:mb-12">
             <SectionTag>What People Say</SectionTag>
-            <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Don't take our word for it</h2>
+            <h2 className="font-serif text-[28px] md:text-[38px] font-extrabold text-dark mt-4">Don't take our word for it</h2>
           </div>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <TestimonialCard quote="Amazing!! So delicious and we can't wait to join the next one!! Chef Joey made it so fun and easy." name="Michelle G." role="Public Class Attendee" />
             <TestimonialCard quote="Our team hasn't stopped talking about it. Best team building event we've ever done, hands down." name="Sarah T." role="People Ops, Tech Startup" />
             <TestimonialCard quote="My kids were engaged the entire time. They've been cooking dinner every night since. Life changing!" name="David R." role="Parent & Foodie" />

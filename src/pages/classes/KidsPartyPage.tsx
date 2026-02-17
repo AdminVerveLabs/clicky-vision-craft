@@ -10,40 +10,40 @@ const KidsPartyPage = () => {
 
   return (
     <div>
-      <section className="pt-[120px] pb-20 bg-white">
+      <section className="pt-[100px] md:pt-[120px] pb-16 md:pb-20 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="mb-2">
             <span onClick={() => go("/classes")} className="font-sans text-[13px] text-gray cursor-pointer">Classes & Events</span>
             <span className="text-gray mx-2">›</span>
             <span className="font-sans text-[13px] text-orange font-semibold">Kids Party</span>
           </div>
-          <div className="grid grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
               <SectionTag variant="orange">Kids Party</SectionTag>
-              <h1 className="font-serif text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
+              <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 The coolest birthday party <span className="text-orange italic">ever</span>
               </h1>
-              <p className="font-sans text-[17px] text-gray leading-[1.7] mb-8">
+              <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8">
                 Forget bounce houses. Kids ages 4–15 learn real cooking skills in a safe, fun environment. Birthday parties
                 and drop-in sessions that build confidence and creativity.
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap">
                 <CTAButton variant="orange" size="lg">Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">See Classes</CTAButton>
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+            <div className="hidden md:block aspect-[4/3] rounded-3xl overflow-hidden">
               <img src={heroImg} alt="Kids Party" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-cream">
+      <section className="py-16 md:py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
             <div>
-              <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">Party Details</h2>
+              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Party Details</h2>
               {[
                 { icon: "⏱️", label: "Duration", value: "1.5 – 2 hours of hands-on fun", color: "orange" as const },
                 { icon: "👧", label: "Ages", value: "4 – 15 years old", color: "purple" as const },
@@ -62,8 +62,8 @@ const KidsPartyPage = () => {
               ))}
             </div>
             <div>
-              <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">Why Kids Love It</h2>
-              <div className="bg-white rounded-2xl p-8 border border-border">
+              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Why Kids Love It</h2>
+              <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
                 {["They get to cook real food (not just decorate cupcakes)", "Hands-on and interactive — every kid participates", "Safe, supervised kitchen environment", "They eat what they make — and they're proud of it", "Take-home recipe cards to recreate at home"].map((item, i) => (
                   <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
                     <div className="w-7 h-7 rounded-full bg-orange/10 flex items-center justify-center text-xs font-bold text-orange font-sans shrink-0">⭐</div>
@@ -76,10 +76,10 @@ const KidsPartyPage = () => {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-br from-orange to-orange-dark text-center">
+      <section className="py-16 md:py-20 px-6 bg-gradient-to-br from-orange to-orange-dark text-center">
         <div className="max-w-[600px] mx-auto">
-          <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Give them a party they'll never forget</h2>
-          <p className="font-sans text-base text-white/70 mb-8">Book a kids cooking party and watch their faces light up.</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Give them a party they'll never forget</h2>
+          <p className="font-sans text-sm md:text-base text-white/70 mb-8">Book a kids cooking party and watch their faces light up.</p>
           <CTAButton variant="primary" size="lg">Chat with Joey</CTAButton>
         </div>
       </section>

@@ -146,24 +146,24 @@ const TeamsPage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="pt-[120px] pb-20 bg-white relative overflow-hidden">
+      <section className="pt-[100px] md:pt-[120px] pb-16 md:pb-20 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[40%] h-full bg-gradient-to-b from-purple-pale to-transparent opacity-50" />
         <div className="max-w-[1200px] mx-auto px-6 relative">
-          <div className="grid grid-cols-2 gap-16 items-center">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div className="text-center md:text-left">
               <SectionTag>For Teams & Corporate</SectionTag>
-              <h1 className="font-serif text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
+              <h1 className="font-serif text-[32px] md:text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 Build culture,<br />not just <span className="text-purple italic">lunch plans</span>
               </h1>
-              <p className="font-sans text-[17px] text-gray leading-[1.7] mb-8 max-w-[460px]">
+              <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8 max-w-[460px] mx-auto md:mx-0">
                 Ditch the awkward icebreakers. Our interactive cooking experiences bring teams together through creole
                 flavors, real collaboration, and genuinely memorable moments.
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center md:justify-start">
                 <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg" onClick={() => setShowPackages(true)}>View Packages</CTAButton>
               </div>
-              <div className="flex gap-8 mt-10 pt-8 border-t border-border">
+              <div className="flex gap-8 mt-10 pt-8 border-t border-border justify-center md:justify-start">
                 {[
                   { num: "200+", label: "Events hosted" },
                   { num: "50+", label: "Companies" },
@@ -176,7 +176,7 @@ const TeamsPage = () => {
                 ))}
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
+            <div className="hidden md:block aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
               <img src={teamHeroImg} alt="Team cooking experience with Chef Joey" className="w-full h-full object-cover" />
             </div>
           </div>
@@ -311,10 +311,10 @@ const TeamsPage = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <SectionTag>Flexible Formats</SectionTag>
-            <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4 mb-3">Your kitchen or ours</h2>
+            <h2 className="font-serif text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-3">Your kitchen or ours</h2>
             <p className="font-sans text-base text-gray max-w-[500px] mx-auto">Every experience is available in the format that works best for your team.</p>
           </div>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { icon: "🏠", title: "At Our Kitchen", desc: "Join us at the YW Calgary Community Kitchen in Inglewood. All equipment and ingredients provided.", detail: "Up to 20 people · 2.5 hours" },
               { icon: "🏢", title: "At Your Location", desc: "We bring the full experience to your office, venue, or chosen space. Chef Joey comes to you.", detail: "Up to 50 people · Flexible timing" },
@@ -334,7 +334,7 @@ const TeamsPage = () => {
       {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-br from-purple to-purple-dark text-center">
         <div className="max-w-[600px] mx-auto">
-          <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Ready to spice up your next team event?</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to spice up your next team event?</h2>
           <p className="font-sans text-base text-white/70 mb-8">Book a free 15-minute call. We'll help you pick the perfect experience for your team.</p>
           <div className="flex gap-4 justify-center">
             <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>

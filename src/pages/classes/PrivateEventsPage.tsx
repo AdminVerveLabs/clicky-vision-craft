@@ -10,40 +10,40 @@ const PrivateEventsPage = () => {
 
   return (
     <div>
-      <section className="pt-[120px] pb-20 bg-white">
+      <section className="pt-[100px] md:pt-[120px] pb-16 md:pb-20 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="mb-2">
             <span onClick={() => go("/classes")} className="font-sans text-[13px] text-gray cursor-pointer">Classes & Events</span>
             <span className="text-gray mx-2">›</span>
             <span className="font-sans text-[13px] text-orange font-semibold">Private Events</span>
           </div>
-          <div className="grid grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
               <SectionTag variant="orange">Private Events</SectionTag>
-              <h1 className="font-serif text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
+              <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 Your party, your <span className="text-orange italic">menu</span>
               </h1>
-              <p className="font-sans text-[17px] text-gray leading-[1.7] mb-8">
+              <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8">
                 Birthday bash? Anniversary dinner? Just because? We customize everything—the menu, the vibe, the whole
                 experience. You show up ready to celebrate.
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap">
                 <CTAButton variant="orange" size="lg">Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">Request Pricing</CTAButton>
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+            <div className="hidden md:block aspect-[4/3] rounded-3xl overflow-hidden">
               <img src={heroImg} alt="Private Events" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-cream">
+      <section className="py-16 md:py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
             <div>
-              <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">Event Details</h2>
+              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Event Details</h2>
               {[
                 { icon: "⏱️", label: "Duration", value: "2.5 – 3 hours including cooking and dining", color: "orange" as const },
                 { icon: "👥", label: "Group Size", value: "6 – 30 guests", color: "purple" as const },
@@ -62,8 +62,8 @@ const PrivateEventsPage = () => {
               ))}
             </div>
             <div>
-              <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">Popular Occasions</h2>
-              <div className="bg-white rounded-2xl p-8 border border-border">
+              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Popular Occasions</h2>
+              <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
                 {["Birthday celebrations", "Anniversary dinners", "Bachelorette & bachelor parties", "Girls' night out", "Retirement parties"].map((item, i) => (
                   <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
                     <div className="w-7 h-7 rounded-full bg-orange/10 flex items-center justify-center text-xs font-bold text-orange font-sans shrink-0">🎈</div>
@@ -76,10 +76,10 @@ const PrivateEventsPage = () => {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-br from-orange to-orange-dark text-center">
+      <section className="py-16 md:py-20 px-6 bg-gradient-to-br from-orange to-orange-dark text-center">
         <div className="max-w-[600px] mx-auto">
-          <h2 className="font-serif text-4xl font-extrabold text-white mb-4">Let's plan your perfect event</h2>
-          <p className="font-sans text-base text-white/70 mb-8">Tell us about your occasion and we'll create a custom experience your guests will love.</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Let's plan your perfect event</h2>
+          <p className="font-sans text-sm md:text-base text-white/70 mb-8">Tell us about your occasion and we'll create a custom experience your guests will love.</p>
           <CTAButton variant="primary" size="lg">Chat with Joey</CTAButton>
         </div>
       </section>
