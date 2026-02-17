@@ -1,27 +1,59 @@
 
 
-# Replace Collage with Vertical Split Hero
+# Add Blog Page to Chef Joey's Website
 
 ## Overview
-Remove the scattered collage images and replace them with a clean split layout -- text on the left, a large hero image on the right -- matching the pattern used on the homepage.
+Create a new Blog page that follows the layout structure shown in the reference screenshots, rebranded to match Chef Joey's purple/orange visual identity with Playfair Display headings and DM Sans body text.
 
-## Changes (File: `src/pages/ClassesPage.tsx`)
+## Page Structure
 
-### 1. Remove collage images
-Delete all 6 absolutely positioned collage `<img>` elements (lines 153-159).
+The blog page will have four sections:
 
-### 2. Restructure hero layout to a two-column grid
-Replace the single centered text block with a `grid grid-cols-1 md:grid-cols-2` layout:
-- **Left column**: SectionTag, heading, paragraph, and CTA buttons (left-aligned instead of centered)
-- **Right column**: A large rounded image (using one of the existing imports, e.g. `publicClassesImg` or `chefKitchenImg`) with `rounded-2xl object-cover shadow-xl`
+### 1. Blog Header
+- "FROM THE KITCHEN" section tag (purple, using existing SectionTag component)
+- "Chef Joey's *Blog*" as the main heading (Playfair Display, with "Blog" in italic)
+- Subtitle: "Recipes, tips, and stories from behind the apron."
 
-### 3. Responsive behavior
-- On mobile: single column, text first, image below
-- On desktop (md+): side-by-side split with `items-center` vertical alignment and a `gap-12` between columns
+### 2. Category Navigation
+- Horizontal tab bar with categories: Recipes, Tips, Stories, Events
+- Each with a subtitle (e.g., "Mains & Sides", "Techniques & Hacks")
+- Purple underline on active/hover, matching brand style
 
-### 4. Clean up unused imports
-Remove imports for images no longer used (keep only the one chosen for the hero). The remaining imports (`privateClassesImg`, `teamBuildingImg`, etc.) may still be used elsewhere in the file, so only remove those that are truly unused.
+### 3. Featured Post Section (two-column layout)
+- Left: Large featured image (using chef-joey-116.jpg) with "FEATURED" badge and date overlay
+- Right: "Cooking Tips" sidebar card with 3 tips (Mise en Place, Seasoning Layers, Rest Your Meat) and a "More Tips" link in purple
+- Below the image: Post title (Playfair Display serif heading) and excerpt text
 
-### 5. Adjust text alignment
-Change the text wrapper from `text-center` to `text-left` (on md+) so it reads naturally in a split layout, keeping `text-center` on mobile.
+### 4. Recent Posts List
+- "RECENT POSTS" section tag
+- List of posts as minimal cards with:
+  - Category badge (purple pill), read time
+  - Post title (Playfair Display bold)
+  - One-line excerpt (DM Sans, gray)
+  - Divider between posts
+
+## Technical Details
+
+### New Files
+1. **`src/pages/BlogPage.tsx`** -- Main blog page component with static/hardcoded blog content (no backend needed)
+2. **`src/data/blogData.ts`** -- Blog post data and cooking tips data extracted into a data file for clean separation
+
+### Modified Files
+3. **`src/App.tsx`** -- Add route: `/blog` pointing to BlogPage
+4. **`src/components/chef/Nav.tsx`** -- Add "Blog" as a new top-level nav item (no dropdown children), positioned before "About Joey"
+
+### Styling Approach
+- Reuse existing brand tokens: purple for accents, orange for featured badge, cream background
+- Use SectionTag component for labels
+- Playfair Display for headings, DM Sans for body
+- Featured image uses existing uploaded photo (chef-joey-116.jpg)
+- Rounded corners, subtle shadows, and spacing consistent with other pages
+- Footer and NewsletterBanner included at the bottom
+
+### Blog Post Data (Static)
+Four sample posts will be hardcoded:
+1. **Featured**: "The Art of Cooking Together: Why Shared Meals Build Stronger Bonds" (Story)
+2. "Creole Shrimp & Grits: A Southern Classic Elevated" (Recipe, 8 min read)
+3. "Inside Our Holiday Team-Building Cook-Off" (Event Recap, 4 min read)
+4. "Why I Left Fine Dining to Cook With People" (Story, 8 min read)
 
