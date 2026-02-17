@@ -1,4 +1,5 @@
 import { useState } from "react";
+import teamHeroImg from "@/assets/chef-joey-116.jpg";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
@@ -171,11 +172,8 @@ const TeamsPage = () => {
                 ))}
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-purple-pale to-purple/[0.05] flex items-center justify-center">
-              <div className="text-center">
-                <span className="text-7xl">👥🍳</span>
-                <p className="font-sans text-[13px] text-gray mt-2">[Photo: Team cooking together]</p>
-              </div>
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
+              <img src={teamHeroImg} alt="Team cooking experience with Chef Joey" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
