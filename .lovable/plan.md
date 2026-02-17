@@ -1,59 +1,72 @@
 
 
-# Add Blog Page to Chef Joey's Website
+# Replace Emoji Placeholders with Real Photos on All Sub-Segment Pages
 
 ## Overview
-Create a new Blog page that follows the layout structure shown in the reference screenshots, rebranded to match Chef Joey's purple/orange visual identity with Playfair Display headings and DM Sans body text.
+All 14 sub-segment pages currently show emoji placeholders in their hero sections. Each will get a real photograph from the existing asset library, using the same `aspect-[4/3] rounded-3xl overflow-hidden` pattern already established on the About and main landing pages.
 
-## Page Structure
+## Photo Assignments
 
-The blog page will have four sections:
+### Classes & Events (6 pages)
+| Page | File | Photo |
+|------|------|-------|
+| Open Classes | `OpenClassesPage.tsx` | `chef-joey-38.jpg` |
+| Private Events | `PrivateEventsPage.tsx` | `private-classes.jpg` |
+| Special Occasions | `SpecialOccasionsPage.tsx` | `chef-joey-101.jpg` |
+| Friends | `FriendsPage.tsx` | `chef-joey-61.jpg` |
+| Kids Party | `KidsPartyPage.tsx` | `chef-joey-83.jpg` |
+| Catering | `CateringPage.tsx` | `chef-joey-106.jpg` |
 
-### 1. Blog Header
-- "FROM THE KITCHEN" section tag (purple, using existing SectionTag component)
-- "Chef Joey's *Blog*" as the main heading (Playfair Display, with "Blog" in italic)
-- Subtitle: "Recipes, tips, and stories from behind the apron."
+### Teams & Corporate (7 pages)
+| Page | File | Photo |
+|------|------|-------|
+| Team Events | `TeamEventsPage.tsx` | `team-building.png` |
+| All Hands | `AllHandsPage.tsx` | `ywca-kitchen-074.jpg` |
+| Onboarding | `OnboardingPage.tsx` | `chef-joey-79.jpg` |
+| Client Entertainment | `ClientEntertainmentPage.tsx` | `chef-joey-113.jpg` |
+| Holiday | `HolidayPage.tsx` | `chef-joey-114.jpg` |
+| Custom Experiences | `CustomExperiencesPage.tsx` | `chef-joey-85.jpg` |
+| Catering (Teams) | `CateringTeamsPage.tsx` | `ywca-kitchen-056.jpg` |
 
-### 2. Category Navigation
-- Horizontal tab bar with categories: Recipes, Tips, Stories, Events
-- Each with a subtitle (e.g., "Mains & Sides", "Techniques & Hacks")
-- Purple underline on active/hover, matching brand style
+### Other
+| Page | File | Photo |
+|------|------|-------|
+| Team Building | `TeamBuildingPage.tsx` | `chef-joey-66.jpg` |
 
-### 3. Featured Post Section (two-column layout)
-- Left: Large featured image (using chef-joey-116.jpg) with "FEATURED" badge and date overlay
-- Right: "Cooking Tips" sidebar card with 3 tips (Mise en Place, Seasoning Layers, Rest Your Meat) and a "More Tips" link in purple
-- Below the image: Post title (Playfair Display serif heading) and excerpt text
+## Change per File (identical pattern, repeated 14 times)
 
-### 4. Recent Posts List
-- "RECENT POSTS" section tag
-- List of posts as minimal cards with:
-  - Category badge (purple pill), read time
-  - Post title (Playfair Display bold)
-  - One-line excerpt (DM Sans, gray)
-  - Divider between posts
+For each page:
+1. Add an import for the assigned photo at the top
+2. Replace the gradient placeholder div:
 
-## Technical Details
+**Before:**
+```tsx
+<div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-purple-pale to-orange/10 flex items-center justify-center">
+  <span className="text-7xl">EMOJI</span>
+</div>
+```
 
-### New Files
-1. **`src/pages/BlogPage.tsx`** -- Main blog page component with static/hardcoded blog content (no backend needed)
-2. **`src/data/blogData.ts`** -- Blog post data and cooking tips data extracted into a data file for clean separation
+**After:**
+```tsx
+<div className="aspect-[4/3] rounded-3xl overflow-hidden">
+  <img src={heroImg} alt="Page title" className="w-full h-full object-cover" />
+</div>
+```
 
-### Modified Files
-3. **`src/App.tsx`** -- Add route: `/blog` pointing to BlogPage
-4. **`src/components/chef/Nav.tsx`** -- Add "Blog" as a new top-level nav item (no dropdown children), positioned before "About Joey"
+## Files Modified
+- `src/pages/classes/OpenClassesPage.tsx`
+- `src/pages/classes/PrivateEventsPage.tsx`
+- `src/pages/classes/SpecialOccasionsPage.tsx`
+- `src/pages/classes/FriendsPage.tsx`
+- `src/pages/classes/KidsPartyPage.tsx`
+- `src/pages/classes/CateringPage.tsx`
+- `src/pages/teams/TeamEventsPage.tsx`
+- `src/pages/teams/AllHandsPage.tsx`
+- `src/pages/teams/OnboardingPage.tsx`
+- `src/pages/teams/ClientEntertainmentPage.tsx`
+- `src/pages/teams/HolidayPage.tsx`
+- `src/pages/teams/CustomExperiencesPage.tsx`
+- `src/pages/teams/CateringTeamsPage.tsx`
+- `src/pages/TeamBuildingPage.tsx`
 
-### Styling Approach
-- Reuse existing brand tokens: purple for accents, orange for featured badge, cream background
-- Use SectionTag component for labels
-- Playfair Display for headings, DM Sans for body
-- Featured image uses existing uploaded photo (chef-joey-116.jpg)
-- Rounded corners, subtle shadows, and spacing consistent with other pages
-- Footer and NewsletterBanner included at the bottom
-
-### Blog Post Data (Static)
-Four sample posts will be hardcoded:
-1. **Featured**: "The Art of Cooking Together: Why Shared Meals Build Stronger Bonds" (Story)
-2. "Creole Shrimp & Grits: A Southern Classic Elevated" (Recipe, 8 min read)
-3. "Inside Our Holiday Team-Building Cook-Off" (Event Recap, 4 min read)
-4. "Why I Left Fine Dining to Cook With People" (Story, 8 min read)
-
+No new files created. No dependencies added.
