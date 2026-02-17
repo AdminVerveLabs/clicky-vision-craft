@@ -1,8 +1,5 @@
 import { useState } from "react";
 import publicClassesImg from "@/assets/public-classes.png";
-import privateClassesImg from "@/assets/private-classes.jpg";
-import chefKitchenImg from "@/assets/chef-joey-kitchen.jpg";
-import teamBuildingImg from "@/assets/team-building.png";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
@@ -150,26 +147,23 @@ const ClassesPage = () => {
       <section className="pt-[120px] pb-24 bg-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-b from-orange-pale to-transparent opacity-50" />
 
-        {/* Collage images */}
-        <img src={publicClassesImg} alt="" className="absolute top-24 left-[5%] w-[150px] h-[150px] rounded-2xl object-cover opacity-70 shadow-lg hidden md:block" style={{ transform: "rotate(-6deg)" }} />
-        <img src={privateClassesImg} alt="" className="absolute top-20 right-[6%] w-[140px] h-[140px] rounded-2xl object-cover opacity-70 shadow-lg hidden md:block" style={{ transform: "rotate(4deg)" }} />
-        <img src={chefKitchenImg} alt="" className="absolute bottom-16 left-[8%] w-[130px] h-[130px] rounded-2xl object-cover opacity-65 shadow-lg hidden md:block" style={{ transform: "rotate(3deg)" }} />
-        <img src={teamBuildingImg} alt="" className="absolute bottom-12 right-[7%] w-[160px] h-[160px] rounded-2xl object-cover opacity-65 shadow-lg hidden md:block" style={{ transform: "rotate(-5deg)" }} />
-        <img src={publicClassesImg} alt="" className="absolute top-[55%] left-[2%] w-[100px] h-[100px] rounded-xl object-cover opacity-50 shadow-md hidden lg:block" style={{ transform: "rotate(8deg)" }} />
-        <img src={chefKitchenImg} alt="" className="absolute top-[50%] right-[2%] w-[110px] h-[110px] rounded-xl object-cover opacity-50 shadow-md hidden lg:block" style={{ transform: "rotate(-7deg)" }} />
-
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
-          <div className="max-w-[700px] mx-auto text-center">
-            <SectionTag variant="orange">Classes & Events</SectionTag>
-            <h1 className="font-serif text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
-              Your next great meal starts <span className="text-orange italic">here</span>
-            </h1>
-            <p className="font-sans text-lg text-gray leading-[1.7] mb-8">
-              From open classes to private celebrations, we've got the perfect culinary adventure. No experience needed—just bring your appetite and a sense of fun.
-            </p>
-            <div className="flex gap-4 justify-center">
-              <CTAButton variant="orange" size="lg">Browse Upcoming Classes</CTAButton>
-              <CTAButton variant="secondary" size="lg" onClick={() => go("/public-classes")}>Book a Private Event</CTAButton>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="text-center md:text-left">
+              <SectionTag variant="orange">Classes & Events</SectionTag>
+              <h1 className="font-serif text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
+                Your next great meal starts <span className="text-orange italic">here</span>
+              </h1>
+              <p className="font-sans text-lg text-gray leading-[1.7] mb-8">
+                From open classes to private celebrations, we've got the perfect culinary adventure. No experience needed—just bring your appetite and a sense of fun.
+              </p>
+              <div className="flex gap-4 justify-center md:justify-start">
+                <CTAButton variant="orange" size="lg">Browse Upcoming Classes</CTAButton>
+                <CTAButton variant="secondary" size="lg" onClick={() => go("/public-classes")}>Book a Private Event</CTAButton>
+              </div>
+            </div>
+            <div className="hidden md:block">
+              <img src={publicClassesImg} alt="Public cooking class with Chef Joey" className="w-full h-[500px] rounded-2xl object-cover shadow-xl" />
             </div>
           </div>
         </div>
