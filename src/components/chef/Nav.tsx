@@ -34,6 +34,7 @@ const navSegments: NavSegment[] = [
       { label: "Catering", path: "/teams/catering" },
     ],
   },
+  { label: "Blog", path: "/blog" },
   { label: "About Joey", path: "/about" },
 ];
 

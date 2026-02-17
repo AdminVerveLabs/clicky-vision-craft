@@ -10,6 +10,7 @@ import ClassesPage from "./pages/ClassesPage";
 import TeamBuildingPage from "./pages/TeamBuildingPage";
 import PublicClassesPage from "./pages/PublicClassesPage";
 import AboutPage from "./pages/AboutPage";
+import BlogPage from "./pages/BlogPage";
 import NotFound from "./pages/NotFound";
 
 // Classes sub-pages
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/team-building" element={<TeamBuildingPage />} />
             <Route path="/public-classes" element={<PublicClassesPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/blog" element={<BlogPage />} />
 
             {/* Classes sub-pages */}
             <Route path="/classes/open-classes" element={<OpenClassesPage />} />
