@@ -1,39 +1,27 @@
 
 
-# Add Image Collage to Classes & Events Hero
+# Replace Collage with Vertical Split Hero
 
 ## Overview
-Add a scattered arrangement of small food/class photos behind and around the centered hero text, creating visual interest without overwhelming the copy.
+Remove the scattered collage images and replace them with a clean split layout -- text on the left, a large hero image on the right -- matching the pattern used on the homepage.
 
-## Approach
-Place 4-6 small circular or rounded-rectangle images at various positions around the hero text using absolute positioning. Images will have slight rotations, soft shadows, and reduced opacity so the text remains the focal point.
+## Changes (File: `src/pages/ClassesPage.tsx`)
 
-## Technical Details (File: `src/pages/ClassesPage.tsx`)
+### 1. Remove collage images
+Delete all 6 absolutely positioned collage `<img>` elements (lines 153-159).
 
-### 1. Import existing images
-Use the available assets: `public-classes.png`, `private-classes.jpg`, `chef-joey-kitchen.jpg`, `team-building.png`.
+### 2. Restructure hero layout to a two-column grid
+Replace the single centered text block with a `grid grid-cols-1 md:grid-cols-2` layout:
+- **Left column**: SectionTag, heading, paragraph, and CTA buttons (left-aligned instead of centered)
+- **Right column**: A large rounded image (using one of the existing imports, e.g. `publicClassesImg` or `chefKitchenImg`) with `rounded-2xl object-cover shadow-xl`
 
-### 2. Add positioned image elements
-Inside the hero `<section>`, add 5-6 absolutely positioned `<img>` elements scattered around the text:
-- Top-left area: one image, rotated -6deg
-- Top-right area: one image, rotated 4deg  
-- Bottom-left: one image, rotated 3deg
-- Bottom-right: one image, rotated -5deg
-- Far left/right edges: smaller accent images
+### 3. Responsive behavior
+- On mobile: single column, text first, image below
+- On desktop (md+): side-by-side split with `items-center` vertical alignment and a `gap-12` between columns
 
-Each image will be:
-- `w-[140px] h-[140px]` to `w-[180px] h-[180px]` (varying sizes)
-- `rounded-2xl` with `object-cover`
-- `opacity-80` with `shadow-lg`
-- Slight rotation via inline `transform: rotate()`
-- `hidden md:block` so they hide on mobile where space is tight
+### 4. Clean up unused imports
+Remove imports for images no longer used (keep only the one chosen for the hero). The remaining imports (`privateClassesImg`, `teamBuildingImg`, etc.) may still be used elsewhere in the file, so only remove those that are truly unused.
 
-### 3. Adjust hero padding
-Increase the hero section's minimum height slightly to give room for the collage without crowding the text. Change `pb-20` to `pb-24`.
-
-### 4. Z-index layering
-- Collage images: `z-0`
-- Text content: `z-10` (add `relative z-10` to the text wrapper)
-
-This keeps all existing text and buttons fully readable on top of the decorative images.
+### 5. Adjust text alignment
+Change the text wrapper from `text-center` to `text-left` (on md+) so it reads naturally in a split layout, keeping `text-center` on mobile.
 
