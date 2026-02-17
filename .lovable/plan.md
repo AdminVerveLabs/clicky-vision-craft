@@ -1,44 +1,66 @@
 
 
-# Make Packages Modal Fit Without Scrolling on Desktop
+# Wire Booking Form Modal to All Teams Sub-Pages
 
-## Problem
-The modal currently uses `max-h-[90vh] overflow-y-auto` with generous padding and spacing, causing it to overflow and scroll on many desktop screens.
+## Overview
+The multi-step booking form modal (`TeamBookingFormModal`) currently only lives on the main Teams page. Every teams sub-page has "Book a Call" / "Book a Free Call" / equivalent CTAs in two places (hero section and bottom CTA section) that do nothing. We'll wire all of them to open the booking form modal.
 
-## Solution
-Tighten spacing, reduce font sizes slightly, and shrink padding so everything fits within the viewport. Remove `overflow-y-auto` and `max-h-[90vh]` on desktop (keep scroll fallback for mobile).
+## Pages to Update (8 total)
 
-## Changes to `src/components/chef/TeamPackagesModal.tsx`
+### Main Teams page: `src/pages/TeamsPage.tsx`
+- Already has the modal imported and state wired
+- Wire the 3 remaining unconnected "Book a Call" CTAs (hero button on line 163, occasion panel button on line 295, bottom CTA on line 340) to `setShowBookingForm(true)`
 
-### Container
-- Change `max-h-[90vh] overflow-y-auto` to `md:max-h-none md:overflow-visible max-h-[90vh] overflow-y-auto` (scroll only on mobile)
+### 7 Sub-pages (same pattern for each):
+Each sub-page needs:
+1. Import `TeamBookingFormModal` and add `useState`
+2. Add `showBookingForm` state
+3. Wire the hero CTA and bottom CTA `onClick` handlers
+4. Render `<TeamBookingFormModal>` at the bottom
 
-### Inner padding
-- Reduce `p-8 md:p-12` to `p-6 md:p-8`
+| File | Hero CTA Text | Bottom CTA Text |
+|------|--------------|-----------------|
+| `TeamEventsPage.tsx` | "Book a Call" | "Book a Free Call" |
+| `AllHandsPage.tsx` | "Book a Call" | "Book a Free Call" |
+| `OnboardingPage.tsx` | "Book a Call" | "Book a Free Call" |
+| `ClientEntertainmentPage.tsx` | "Book a Call" | "Book a Free Call" |
+| `HolidayPage.tsx` | "Plan Our Party" | "Start Planning" |
+| `CustomExperiencesPage.tsx` | "Share Your Vision" | "Start the Conversation" |
+| `CateringTeamsPage.tsx` | "Get a Quote" | "Request a Quote" |
 
-### Header section
-- Reduce `mb-10` to `mb-6`
-- Reduce title from `text-[32px] md:text-[38px]` to `text-[26px] md:text-[30px]`
-- Reduce `mb-4` on tag to `mb-2`
-- Reduce description `mt-2` stays, keep it tight
+Also: `src/pages/TeamBuildingPage.tsx` -- "Book a Call" + "Book a Free Call"
 
-### Pricing cards grid
-- Reduce `mb-12` to `mb-6`
-- Reduce card padding from `p-6` to `p-5`
-- Reduce price font from `text-[36px]` to `text-[28px]`
-- Reduce `mb-5` (below price) to `mb-3`
-- Reduce feature list `space-y-3` to `space-y-2`
-- Reduce feature text from `text-[13px]` to `text-[12px]`
-- Reduce check icon container from `w-5 h-5` to `w-4 h-4` and icon from `w-3 h-3` to `w-2.5 h-2.5`
+## Technical Pattern (same for every sub-page)
 
-### Add-Ons section
-- Reduce `mb-10` to `mb-6`
-- Reduce `mb-5` (below "Optional Add-Ons" heading) to `mb-3`
-- Reduce add-on card padding from `p-5` to `p-4`
-- Reduce icon container from `w-11 h-11` to `w-9 h-9`
+```tsx
+// Add imports
+import { useState } from "react";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
 
-### CTA section
-- Reduce button padding from `px-10 py-4` to `px-8 py-3`
-- Reduce `mt-3` to `mt-2`
+// Add state inside component
+const [showBookingForm, setShowBookingForm] = useState(false);
 
-These reductions collectively save ~150-200px of vertical space, fitting comfortably in a 768px+ tall viewport without any scrolling.
+// Wire onClick on hero + bottom CTAs
+<CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Book a Call</CTAButton>
+// ...
+<CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Book a Free Call →</CTAButton>
+
+// Render modal before closing </div>
+<TeamBookingFormModal
+  isOpen={showBookingForm}
+  onClose={() => setShowBookingForm(false)}
+/>
+```
+
+## Files Modified
+- `src/pages/TeamsPage.tsx` (wire 3 existing CTAs)
+- `src/pages/teams/TeamEventsPage.tsx`
+- `src/pages/teams/AllHandsPage.tsx`
+- `src/pages/teams/OnboardingPage.tsx`
+- `src/pages/teams/ClientEntertainmentPage.tsx`
+- `src/pages/teams/HolidayPage.tsx`
+- `src/pages/teams/CustomExperiencesPage.tsx`
+- `src/pages/teams/CateringTeamsPage.tsx`
+- `src/pages/TeamBuildingPage.tsx`
+
+No new files or dependencies needed -- just importing and using the existing `TeamBookingFormModal` component across all teams pages.
