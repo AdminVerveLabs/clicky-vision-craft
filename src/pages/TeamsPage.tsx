@@ -182,12 +182,6 @@ const TeamsPage = () => {
       {/* Use Cases – Tab Style */}
       <section className="py-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
-          <div className="mb-16 pl-[230px]">
-            <SectionTag>Perfect For</SectionTag>
-            <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
-            <p className="font-sans text-base text-gray mt-3 max-w-[520px]">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
-          </div>
-
           {/* Mobile pill bar */}
           <div className="flex md:hidden gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
             {occasions.map((o) => (
@@ -233,6 +227,12 @@ const TeamsPage = () => {
                 const o = occasions.find((x) => x.id === activeId)!;
                 return (
                   <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
+                    {/* Section Header */}
+                    <div className="p-8 md:p-10 pb-0">
+                      <SectionTag>Perfect For</SectionTag>
+                      <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
+                      <p className="font-sans text-base text-gray mt-3 max-w-[520px] mb-8">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
+                    </div>
                     {/* Photo Header */}
                     <div className="relative h-[220px] md:h-[260px] overflow-hidden">
                       <img src={o.image} alt={o.title} className="w-full h-full object-cover" />
