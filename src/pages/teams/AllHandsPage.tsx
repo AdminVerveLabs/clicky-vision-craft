@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import heroImg from "@/assets/ywca-kitchen-074.jpg";
 
 const AllHandsPage = () => {
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ const AllHandsPage = () => {
                 <CTAButton variant="secondary" size="lg">Learn More</CTAButton>
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-purple-pale to-orange/10 flex items-center justify-center">
-              <span className="text-7xl">🏢🍳</span>
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+              <img src={heroImg} alt="All Hands & Townhalls" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import heroImg from "@/assets/chef-joey-83.jpg";
 
 const KidsPartyPage = () => {
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ const KidsPartyPage = () => {
                 <CTAButton variant="secondary" size="lg">See Classes</CTAButton>
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-orange-pale to-sage/10 flex items-center justify-center">
-              <span className="text-7xl">👧🧁</span>
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+              <img src={heroImg} alt="Kids Party" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

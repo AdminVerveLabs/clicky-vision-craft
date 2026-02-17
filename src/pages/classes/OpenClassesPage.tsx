@@ -5,6 +5,7 @@ import CTAButton from "@/components/chef/CTAButton";
 import ClassModal from "@/components/chef/ClassModal";
 import Footer from "@/components/chef/Footer";
 import { CLASS_DATA, FOOD_IMAGES, ClassData } from "@/data/classData";
+import heroImg from "@/assets/chef-joey-38.jpg";
 
 const OpenClassesPage = () => {
   const navigate = useNavigate();
@@ -61,8 +62,8 @@ const OpenClassesPage = () => {
                 <CTAButton variant="secondary" size="lg">Gift a Class</CTAButton>
               </div>
             </div>
-            <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-orange-pale to-purple/10 flex items-center justify-center">
-              <span className="text-7xl">👨‍🍳🔥</span>
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+              <img src={heroImg} alt="Open Classes" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
