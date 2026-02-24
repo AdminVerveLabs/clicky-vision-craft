@@ -152,7 +152,7 @@ const TeamsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="text-center md:text-left">
               <SectionTag>For Teams & Corporate</SectionTag>
-              <h1 className="font-serif text-[32px] md:text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
+              <h1 className="font-sans text-[32px] md:text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 Build culture,<br />not just <span className="text-purple italic">lunch plans</span>
               </h1>
               <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8 max-w-[460px] mx-auto md:mx-0">
@@ -170,7 +170,7 @@ const TeamsPage = () => {
                   { num: "5.0", label: "Avg rating" },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="font-serif text-3xl font-extrabold text-dark">{s.num}</p>
+                    <p className="font-sans text-3xl font-extrabold text-dark">{s.num}</p>
                     <p className="font-sans text-sm text-gray">{s.label}</p>
                   </div>
                 ))}
@@ -234,7 +234,7 @@ const TeamsPage = () => {
                     {/* Section Header */}
                     <div className="p-8 md:p-10 pb-0">
                       <SectionTag>Perfect For</SectionTag>
-                      <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
+                      <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
                       <p className="font-sans text-base text-gray mt-3 max-w-[520px] mb-8">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
                     </div>
                     {/* Photo Header */}
@@ -245,7 +245,7 @@ const TeamsPage = () => {
                         <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-4xl shrink-0">{o.icon}</div>
                         <div>
                           <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-purple/80 px-3 py-1 rounded-full mb-2">{o.tag}</span>
-                          <h3 className="font-serif text-[28px] md:text-[32px] font-bold text-white leading-tight drop-shadow-lg">{o.title}</h3>
+                          <h3 className="font-sans text-[28px] md:text-[32px] font-bold text-white leading-tight drop-shadow-lg">{o.title}</h3>
                         </div>
                       </div>
                     </div>
@@ -257,7 +257,7 @@ const TeamsPage = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Details */}
                         <div>
-                          <h4 className="font-serif text-[20px] font-bold text-dark mb-5">Experience Details</h4>
+                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">Experience Details</h4>
                           {o.details.map((d, i) => (
                             <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
                               <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
@@ -275,7 +275,7 @@ const TeamsPage = () => {
 
                         {/* Highlights */}
                         <div>
-                          <h4 className="font-serif text-[20px] font-bold text-dark mb-5">What to Expect</h4>
+                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">What to Expect</h4>
                           <div className="bg-cream rounded-2xl p-6 border border-border">
                             {o.highlights.map((h, i) => (
                               <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
@@ -311,7 +311,7 @@ const TeamsPage = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <SectionTag>Flexible Formats</SectionTag>
-            <h2 className="font-serif text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-3">Your kitchen or ours</h2>
+            <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-3">Your kitchen or ours</h2>
             <p className="font-sans text-base text-gray max-w-[500px] mx-auto">Every experience is available in the format that works best for your team.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -322,7 +322,7 @@ const TeamsPage = () => {
             ].map((f) => (
               <div key={f.title} className="bg-cream rounded-2xl p-8 text-center border border-border transition-all duration-300 hover:border-purple">
                 <div className="text-5xl mb-4">{f.icon}</div>
-                <h3 className="font-serif text-[22px] font-bold text-dark mb-2">{f.title}</h3>
+                <h3 className="font-sans text-[22px] font-bold text-dark mb-2">{f.title}</h3>
                 <p className="font-sans text-sm text-gray leading-[1.7] mb-4">{f.desc}</p>
                 <span className="font-sans text-[13px] font-semibold text-purple bg-purple-pale px-3.5 py-1 rounded-full">{f.detail}</span>
               </div>
@@ -334,7 +334,7 @@ const TeamsPage = () => {
       {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-br from-purple to-purple-dark text-center">
         <div className="max-w-[600px] mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to spice up your next team event?</h2>
+          <h2 className="font-sans text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to spice up your next team event?</h2>
           <p className="font-sans text-base text-white/70 mb-8">Book a free 15-minute call. We'll help you pick the perfect experience for your team.</p>
           <div className="flex gap-4 justify-center">
             <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>

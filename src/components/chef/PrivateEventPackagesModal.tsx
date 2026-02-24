@@ -57,7 +57,7 @@ const PrivateEventPackagesModal = ({ isOpen, onClose, onGetInTouch }: PrivateEve
             <span className="inline-block font-sans text-xs font-bold tracking-[2px] uppercase text-orange bg-orange-pale px-4 py-1.5 rounded-full mb-2">
               Packages
             </span>
-            <h2 className="font-serif text-[26px] md:text-[30px] font-extrabold text-dark">
+            <h2 className="font-sans text-[26px] md:text-[30px] font-extrabold text-dark">
               Private Event Packages
             </h2>
             <p className="font-sans text-base text-gray mt-2 max-w-[480px] mx-auto">
@@ -81,9 +81,9 @@ const PrivateEventPackagesModal = ({ isOpen, onClose, onGetInTouch }: PrivateEve
                     {pkg.badge}
                   </span>
                 )}
-                <h3 className="font-serif text-[22px] font-bold text-dark mb-1">{pkg.name}</h3>
+                <h3 className="font-sans text-[22px] font-bold text-dark mb-1">{pkg.name}</h3>
                 <div className="flex items-baseline gap-0.5 mb-3">
-                  <span className="font-serif text-[28px] font-extrabold text-dark">{pkg.price}</span>
+                  <span className="font-sans text-[28px] font-extrabold text-dark">{pkg.price}</span>
                   <span className="font-sans text-sm text-gray">{pkg.unit}</span>
                 </div>
                 <ul className="space-y-2">
@@ -102,7 +102,7 @@ const PrivateEventPackagesModal = ({ isOpen, onClose, onGetInTouch }: PrivateEve
 
           {/* Add-Ons */}
           <div className="mb-6">
-            <h3 className="font-serif text-[22px] font-bold text-dark mb-3 text-center">Optional Add-Ons</h3>
+            <h3 className="font-sans text-[22px] font-bold text-dark mb-3 text-center">Optional Add-Ons</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {addOns.map((a) => (
                 <div key={a.name} className="bg-cream rounded-xl p-4 border border-border flex items-center gap-4">

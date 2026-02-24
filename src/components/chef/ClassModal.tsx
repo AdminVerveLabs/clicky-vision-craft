@@ -38,7 +38,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
             )}
           </div>
           <div className="text-5xl mb-3">{cls.emoji}</div>
-          <h2 className="font-serif text-4xl font-extrabold text-white leading-tight mb-2">{cls.title}</h2>
+          <h2 className="font-sans text-4xl font-extrabold text-white leading-tight mb-2">{cls.title}</h2>
           <p className="font-sans text-[15px] text-white/70">February {cls.day}, 2026 · {cls.time}</p>
         </div>
       </div>
@@ -75,7 +75,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
 
         {/* Menu */}
         <div className="bg-gray-light rounded-2xl p-6 mb-8">
-          <h3 className="font-serif text-xl font-bold text-dark mb-4">On the Menu</h3>
+          <h3 className="font-sans text-xl font-bold text-dark mb-4">On the Menu</h3>
           <div className="grid grid-cols-2 gap-2.5">
             {cls.menu.map((item, i) => (
               <div key={i} className="flex items-center gap-2.5 bg-white rounded-[10px] px-3.5 py-2.5">
@@ -98,7 +98,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
         {/* CTA */}
         <div className="flex gap-3 items-center justify-between pt-6 border-t border-gray-light">
           <div>
-            <span className="font-serif text-[28px] font-extrabold text-dark">{cls.price}</span>
+            <span className="font-sans text-[28px] font-extrabold text-dark">{cls.price}</span>
             <span className="font-sans text-sm text-gray ml-1">/ person</span>
           </div>
           <div className="flex gap-3">

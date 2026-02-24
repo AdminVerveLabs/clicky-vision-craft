@@ -161,7 +161,7 @@ const ClassesPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="text-center md:text-left">
               <SectionTag variant="orange">Classes & Events</SectionTag>
-              <h1 className="font-serif text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
+              <h1 className="font-sans text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 Your next great meal starts <span className="text-orange italic">here</span>
               </h1>
               <p className="font-sans text-lg text-gray leading-[1.7] mb-8">
@@ -244,7 +244,7 @@ const ClassesPage = () => {
                       {/* Section Header */}
                       <div className="p-8 md:p-10 pb-0">
                         <SectionTag variant="orange">Experiences</SectionTag>
-                        <h2 className="font-serif text-[38px] font-extrabold text-dark mt-4">Find your flavor</h2>
+                        <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Find your flavor</h2>
                         <p className="font-sans text-base text-gray mt-3 max-w-[520px] mb-8">From open enrollment classes to private celebrations, find the perfect culinary experience for you.</p>
                       </div>
                       {/* Photo Header */}
@@ -255,7 +255,7 @@ const ClassesPage = () => {
                           <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-4xl shrink-0">{o.icon}</div>
                           <div>
                             <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-orange/80 px-3 py-1 rounded-full mb-2">{o.tag}</span>
-                            <h3 className="font-serif text-[28px] md:text-[32px] font-bold text-white leading-tight drop-shadow-lg">{o.title}</h3>
+                            <h3 className="font-sans text-[28px] md:text-[32px] font-bold text-white leading-tight drop-shadow-lg">{o.title}</h3>
                           </div>
                         </div>
                       </div>
@@ -267,7 +267,7 @@ const ClassesPage = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Details */}
                         <div>
-                          <h4 className="font-serif text-[20px] font-bold text-dark mb-5">Experience Details</h4>
+                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">Experience Details</h4>
                           {o.details.map((d, i) => (
                             <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
                               <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
@@ -285,7 +285,7 @@ const ClassesPage = () => {
 
                         {/* Highlights */}
                         <div>
-                          <h4 className="font-serif text-[20px] font-bold text-dark mb-5">What to Expect</h4>
+                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">What to Expect</h4>
                           <div className="bg-cream rounded-2xl p-6 border border-border">
                             {o.highlights.map((h, i) => (
                               <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
@@ -320,14 +320,14 @@ const ClassesPage = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
             <SectionTag variant="orange">Schedule</SectionTag>
-            <h2 className="font-serif text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-2">What's cooking this month</h2>
+            <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-2">What's cooking this month</h2>
             <p className="font-sans text-base text-gray max-w-[480px] mx-auto">Click any class to see the full menu, details, and book your spot.</p>
           </div>
 
           {/* Month Nav */}
           <div className="flex items-center justify-center gap-8 mb-8">
             <button onClick={() => setCalMonth(Math.max(0, calMonth - 1))} className={`w-10 h-10 rounded-full border border-border bg-white flex items-center justify-center text-lg transition-all ${calMonth > 0 ? "cursor-pointer opacity-100" : "cursor-default opacity-30"}`}>‹</button>
-            <h3 className="font-serif text-[28px] font-bold text-dark min-w-[220px] text-center">{monthNames[calMonth]} 2026</h3>
+            <h3 className="font-sans text-[28px] font-bold text-dark min-w-[220px] text-center">{monthNames[calMonth]} 2026</h3>
             <button onClick={() => setCalMonth(Math.min(2, calMonth + 1))} className={`w-10 h-10 rounded-full border border-border bg-white flex items-center justify-center text-lg transition-all ${calMonth < 2 ? "cursor-pointer opacity-100" : "cursor-default opacity-30"}`}>›</button>
           </div>
 
@@ -408,7 +408,7 @@ const ClassesPage = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <SectionTag variant="orange">How to Join</SectionTag>
-            <h2 className="font-serif text-[28px] md:text-[38px] font-extrabold text-dark mt-4">Cook wherever suits you</h2>
+            <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4">Cook wherever suits you</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
@@ -418,7 +418,7 @@ const ClassesPage = () => {
             ].map((f) => (
               <div key={f.title} className="bg-white rounded-2xl p-8 text-center border border-border">
                 <div className="text-5xl mb-4">{f.icon}</div>
-                <h3 className="font-serif text-[22px] font-bold text-dark mb-2">{f.title}</h3>
+                <h3 className="font-sans text-[22px] font-bold text-dark mb-2">{f.title}</h3>
                 <p className="font-sans text-sm text-gray leading-[1.7]">{f.desc}</p>
               </div>
             ))}

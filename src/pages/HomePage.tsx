@@ -33,7 +33,7 @@ const HomePage = () => {
                 <span className="text-sm">🔥</span>
                 <span className="font-sans text-[13px] font-semibold text-white/80">Calgary's Creole Cooking Experience</span>
               </div>
-              <h1 className="font-serif text-[38px] md:text-[62px] font-extrabold text-white leading-[1.08] mb-6">
+              <h1 className="font-sans text-[38px] md:text-[62px] font-extrabold text-white leading-[1.08] mb-6">
                 Soul food.<br />
                 <span className="text-orange-light">Good times.</span><br />
                 Real skills.
@@ -85,7 +85,7 @@ const HomePage = () => {
             </div>
             <div>
               <SectionTag>Meet the Chef</SectionTag>
-              <h2 className="font-serif text-[28px] md:text-[42px] font-extrabold text-dark mt-4 mb-4 leading-[1.15]">
+              <h2 className="font-sans text-[28px] md:text-[42px] font-extrabold text-dark mt-4 mb-4 leading-[1.15]">
                 Cooking should be fun. <span className="text-orange italic">Be brave</span> and try something new.
               </h2>
               <p className="font-sans text-base text-gray leading-[1.8] mb-6">
@@ -108,7 +108,7 @@ const HomePage = () => {
         <div className="max-w-[1000px] mx-auto">
           <div className="text-center mb-8">
             <SectionTag>How It Works</SectionTag>
-            <h2 className="font-serif text-[24px] md:text-[28px] font-extrabold text-dark mt-4">Three steps to a great time</h2>
+            <h2 className="font-sans text-[24px] md:text-[28px] font-extrabold text-dark mt-4">Three steps to a great time</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
@@ -121,7 +121,7 @@ const HomePage = () => {
                   {item.icon}
                   <span className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-purple text-white text-[10px] font-bold flex items-center justify-center font-sans">{item.step}</span>
                 </div>
-                <h3 className="font-serif text-[18px] font-bold text-dark mb-1.5">{item.title}</h3>
+                <h3 className="font-sans text-[18px] font-bold text-dark mb-1.5">{item.title}</h3>
                 <p className="font-sans text-sm text-gray leading-[1.7]">{item.desc}</p>
               </div>
             ))}
@@ -134,7 +134,7 @@ const HomePage = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <SectionTag>Choose Your Experience</SectionTag>
-            <h2 className="font-serif text-[28px] md:text-[42px] font-extrabold text-dark mt-4 mb-3">What are you cookin' up?</h2>
+            <h2 className="font-sans text-[28px] md:text-[42px] font-extrabold text-dark mt-4 mb-3">What are you cookin' up?</h2>
             <p className="font-sans text-[15px] md:text-[17px] text-gray max-w-[500px] mx-auto leading-relaxed">
               From team-building to birthday bashes, we've got the perfect culinary experience for every occasion.
             </p>
@@ -156,7 +156,7 @@ const HomePage = () => {
                     <span className="text-sm">{card.icon}</span>
                     <span className="font-sans text-[11px] font-bold text-purple uppercase tracking-[2px]">{card.category}</span>
                   </div>
-                  <h3 className="font-serif text-[20px] md:text-[24px] font-bold text-dark mb-3 leading-tight">{card.title}</h3>
+                  <h3 className="font-sans text-[20px] md:text-[24px] font-bold text-dark mb-3 leading-tight">{card.title}</h3>
                   <p className="font-sans text-sm text-gray leading-[1.7] mb-6">{card.desc}</p>
                   <span className="text-purple font-sans text-[13px] font-bold uppercase tracking-[1.5px]">View Details →</span>
                 </div>
@@ -171,7 +171,7 @@ const HomePage = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-10 md:mb-12">
             <SectionTag>What People Say</SectionTag>
-            <h2 className="font-serif text-[28px] md:text-[38px] font-extrabold text-dark mt-4">Don't take our word for it</h2>
+            <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4">Don't take our word for it</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <TestimonialCard quote="Amazing!! So delicious and we can't wait to join the next one!! Chef Joey made it so fun and easy." name="Michelle G." role="Public Class Attendee" />

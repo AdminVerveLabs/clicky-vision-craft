@@ -7,7 +7,7 @@ const NewsletterBanner = () => (
     <div className="absolute -bottom-16 -left-16 w-[200px] h-[200px] rounded-full bg-white/[0.03]" />
     <div className="max-w-[600px] mx-auto relative">
       <SectionTag variant="orange">Stay in the loop</SectionTag>
-      <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mt-4 mb-3 leading-tight">
+      <h2 className="font-sans text-3xl md:text-4xl font-extrabold text-white mt-4 mb-3 leading-tight">
         Get first dibs on new classes
       </h2>
       <p className="font-sans text-sm md:text-base text-white/70 mb-8 leading-relaxed">
