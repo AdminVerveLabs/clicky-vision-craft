@@ -1,49 +1,64 @@
 
 
-# Add Private Event Packages Modal to Classes & Events Page
+# Replace All Serif Fonts with Sans-Serif
 
-## What Changes
+## Scope
 
-1. **Rename the hero CTA** from "Chat with Joey" to "Private Event" on the Classes & Events page.
-2. **Create a new `PrivateEventPackagesModal`** component, modeled after `TeamPackagesModal`, with private-event-specific packages and add-ons, using orange accent colors (instead of purple).
-3. **Create a new `PrivateEventBookingFormModal`** component, modeled after `TeamBookingFormModal`, as a 4-step inquiry wizard tailored for private events (occasion types like birthdays, anniversaries, etc.).
-4. **Wire up the flow** on `ClassesPage.tsx`: clicking "Private Event" opens the packages modal; clicking the CTA inside that modal opens the multi-step booking form.
+574 occurrences of `font-serif` across 30 `.tsx` files, plus the font configuration in CSS and Tailwind.
 
-## New Files
+## Changes
 
-### `src/components/chef/PrivateEventPackagesModal.tsx`
-- Same structure as `TeamPackagesModal` but with private-event pricing:
-  - **Intimate** ($125/person): Up to 10 guests, custom menu, chef-led experience, shared dining
-  - **Celebration** ($165/person, "Most Popular"): Up to 20 guests, welcome cocktails, recipe cards, event photos
-  - **Grand** ($200/person): Up to 30 guests, wine pairing, premium ingredients, custom decor
-- Add-ons: Custom cake ($150 flat), Wine upgrade ($20/person), Decor package ($250 flat)
-- Orange accent color scheme instead of purple
-- CTA button "Plan My Event" triggers `onGetInTouch` callback
+### 1. `src/index.css` (line 1)
+Remove `Playfair Display` from the Google Fonts import. Keep only `DM Sans`.
 
-### `src/components/chef/PrivateEventBookingFormModal.tsx`
-- 4-step wizard matching the `TeamBookingFormModal` pattern:
-  1. **Basics**: Name, email, phone
-  2. **Details**: Occasion type (Birthday, Anniversary, Bachelorette, Girls' Night, Retirement, Other), guest count, preferred date, location
-  3. **Package**: Select tier + add-ons
-  4. **Confirm**: Review & submit
-- Orange accent colors to match the Classes & Events branding
-- Uses same UI components (Input, Textarea, Checkbox, Progress)
+### 2. `tailwind.config.ts` (line ~23)
+Remove or repurpose the `serif` font family entry. Optionally point `serif` to `DM Sans` as well (so any missed references still render sans-serif), or remove it entirely.
 
-## File Modified
+### 3. All 30 component/page files
+Global find-and-replace: `font-serif` → `font-sans` across every `.tsx` file. The affected files are:
 
-### `src/pages/ClassesPage.tsx`
-- Import `useState`, both new modals
-- Add state: `showPackages`, `showBookingForm`
-- Change line 168 button text from "Chat with Joey" to "Private Event", wire `onClick` to open packages modal
-- Render both modals at the bottom, with the packages modal's CTA transitioning to the booking form (same pattern as TeamsPage)
+- `src/pages/ClassesPage.tsx`
+- `src/pages/HomePage.tsx`
+- `src/pages/AboutPage.tsx`
+- `src/pages/BlogPage.tsx`
+- `src/pages/PublicClassesPage.tsx`
+- `src/pages/TeamBuildingPage.tsx`
+- `src/pages/TeamsPage.tsx`
+- `src/pages/teams/AllHandsPage.tsx`
+- `src/pages/teams/CateringTeamsPage.tsx`
+- `src/pages/teams/ClientEntertainmentPage.tsx`
+- `src/pages/teams/CustomExperiencesPage.tsx`
+- `src/pages/teams/HolidayPage.tsx`
+- `src/pages/teams/OnboardingPage.tsx`
+- `src/pages/teams/TeamEventsPage.tsx`
+- `src/pages/classes/CateringPage.tsx`
+- `src/pages/classes/FriendsPage.tsx`
+- `src/pages/classes/KidsPartyPage.tsx`
+- `src/pages/classes/OpenClassesPage.tsx`
+- `src/pages/classes/PrivateEventsPage.tsx`
+- `src/pages/classes/SpecialOccasionsPage.tsx`
+- `src/components/chef/Nav.tsx`
+- `src/components/chef/Footer.tsx`
+- `src/components/chef/ServiceCard.tsx`
+- `src/components/chef/TestimonialCard.tsx`
+- `src/components/chef/ClassModal.tsx`
+- `src/components/chef/NewsletterBanner.tsx`
+- `src/components/chef/TeamPackagesModal.tsx`
+- `src/components/chef/TeamBookingFormModal.tsx`
+- `src/components/chef/PrivateEventPackagesModal.tsx`
+- `src/components/chef/PrivateEventBookingFormModal.tsx`
 
-## Flow
+Every `font-serif` class becomes `font-sans`. No other styling changes.
 
+### 4. Safety net
+Update `tailwind.config.ts` to map `serif` → `DM Sans` so any overlooked references still render correctly:
+```ts
+fontFamily: {
+  serif: ["'DM Sans'", "sans-serif"],  // redirected to sans
+  sans: ["'DM Sans'", "sans-serif"],
+},
 ```
-"Private Event" button (hero)
-  --> PrivateEventPackagesModal (pricing tiers + add-ons)
-    --> "Plan My Event" CTA
-      --> PrivateEventBookingFormModal (4-step wizard)
-        --> Submit --> toast confirmation
-```
+
+## Result
+All headings and body text across the entire site will render in DM Sans (sans-serif). No visual layout changes beyond the typeface swap.
 
