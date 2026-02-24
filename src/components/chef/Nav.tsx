@@ -161,7 +161,7 @@ const Nav = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center">
           <CTAButton variant="orange" size="sm" onClick={() => go("/classes")}>
-            Book Now
+            Get Started
           </CTAButton>
         </div>
 
@@ -245,7 +245,7 @@ const Nav = () => {
 
             <div className="mt-8 pt-6 border-t border-border">
               <CTAButton variant="orange" size="md" onClick={() => go("/classes")}>
-                Book Now
+                Get Started
               </CTAButton>
             </div>
           </div>
