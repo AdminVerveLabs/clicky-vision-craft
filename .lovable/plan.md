@@ -1,20 +1,39 @@
 
 
-# Move "Calgary's Creole Cooking Experience" Pill Below Google Reviews
+# Hero Section: Two-Image Layout
 
-## Single file change: `src/pages/HomePage.tsx`
+## Change: `src/pages/HomePage.tsx`
 
-### Current order (lines 31-59):
-1. Pill badge ("Calgary's Creole Cooking Experience") — lines 32-35
-2. H1 headline — lines 36-40
-3. CTA buttons — lines 41-44
-4. Social proof / Google Reviews — lines 47-59
+Replace the single hero image (lines 64-75) with a two-image layout matching the reference — two rounded images side by side, left image slightly taller/offset from the right, similar to the uploaded reference.
 
-### New order:
-1. H1 headline
-2. CTA buttons
-3. Social proof / Google Reviews
-4. Pill badge (moved here, with adjusted spacing: remove `mb-7`, add `mt-6`)
+### Images
+- Left image: `chef-joey-61.jpg` (already in `src/assets`)
+- Right image: `chef-joey-106.jpg` (already in `src/assets`)
 
-The pill's `mb-7` margin-bottom gets replaced with `mt-6` margin-top since it now sits below the reviews block instead of above the headline. All other styling stays identical.
+### New imports (add at top)
+```tsx
+import chefJoey61 from "@/assets/chef-joey-61.jpg";
+import chefJoey106 from "@/assets/chef-joey-106.jpg";
+```
+
+Remove unused `chefJoeyHero` import.
+
+### New hero visual markup (replacing lines 64-75)
+Two images in a flex row with a gap. Left image has `aspect-[3/4]` and is slightly shifted down; right image has `aspect-[3/4]` and is slightly shifted up — creating the staggered look from the reference. Both have `rounded-2xl` with `overflow-hidden`.
+
+The "Next Class" floating card stays, repositioned to `absolute -bottom-5 left-0` (anchored to the bottom-left of the container, overlapping the left image area).
+
+### Layout detail
+```text
+┌──────────────────────────────┐
+│  [Image 1]      [Image 2]   │
+│  chef-joey-61   chef-joey-106│
+│  shifted down   shifted up   │
+│                              │
+│  ┌─Next Class Card─┐        │
+│  └─────────────────┘        │
+└──────────────────────────────┘
+```
+
+Single file edit, no new files needed.
 
