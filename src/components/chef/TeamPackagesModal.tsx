@@ -51,7 +51,6 @@ const TeamPackagesModal = ({ isOpen, onClose, onGetInTouch }: TeamPackagesModalP
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-dark/60 backdrop-blur-sm" onClick={onClose} />
       <div className="relative bg-white rounded-3xl max-w-[1100px] w-full max-h-[90vh] overflow-y-auto md:max-h-none md:overflow-visible shadow-2xl">
-        {/* Close */}
         <button
           onClick={onClose}
           className="absolute top-5 right-5 z-10 w-10 h-10 rounded-full bg-gray-light flex items-center justify-center text-gray hover:text-dark transition-colors"
@@ -65,7 +64,7 @@ const TeamPackagesModal = ({ isOpen, onClose, onGetInTouch }: TeamPackagesModalP
             <span className="inline-block font-sans text-xs font-bold tracking-[2px] uppercase text-purple bg-purple-pale px-4 py-1.5 rounded-full mb-2">
               Packages
             </span>
-            <h2 className="font-serif text-[26px] md:text-[30px] font-extrabold text-dark">
+            <h2 className="font-sans text-[26px] md:text-[30px] font-extrabold text-dark">
               Team Experience Packages
             </h2>
             <p className="font-sans text-base text-gray mt-2 max-w-[480px] mx-auto">
@@ -89,9 +88,9 @@ const TeamPackagesModal = ({ isOpen, onClose, onGetInTouch }: TeamPackagesModalP
                     {pkg.badge}
                   </span>
                 )}
-                <h3 className="font-serif text-[22px] font-bold text-dark mb-1">{pkg.name}</h3>
+                <h3 className="font-sans text-[22px] font-bold text-dark mb-1">{pkg.name}</h3>
                 <div className="flex items-baseline gap-0.5 mb-3">
-                  <span className="font-serif text-[28px] font-extrabold text-dark">{pkg.price}</span>
+                  <span className="font-sans text-[28px] font-extrabold text-dark">{pkg.price}</span>
                   <span className="font-sans text-sm text-gray">{pkg.unit}</span>
                 </div>
                 <ul className="space-y-2">
@@ -110,7 +109,7 @@ const TeamPackagesModal = ({ isOpen, onClose, onGetInTouch }: TeamPackagesModalP
 
           {/* Add-Ons */}
           <div className="mb-6">
-            <h3 className="font-serif text-[22px] font-bold text-dark mb-3 text-center">Optional Add-Ons</h3>
+            <h3 className="font-sans text-[22px] font-bold text-dark mb-3 text-center">Optional Add-Ons</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {addOns.map((a) => (
                 <div key={a.name} className="bg-cream rounded-xl p-4 border border-border flex items-center gap-4">

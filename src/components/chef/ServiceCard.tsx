@@ -34,7 +34,7 @@ const ServiceCard = ({ title, subtitle, description, price, tag, onClick, accent
         {subtitle && (
           <p className={`font-sans text-xs font-semibold ${a.text} uppercase tracking-[1.5px] mb-1.5`}>{subtitle}</p>
         )}
-        <h3 className="font-serif text-[22px] font-bold text-dark mb-2 leading-tight">{title}</h3>
+        <h3 className="font-sans text-[22px] font-bold text-dark mb-2 leading-tight">{title}</h3>
         <p className="font-sans text-sm text-gray leading-relaxed mb-4">{description}</p>
         <div className="flex items-center justify-between">
           {price && <span className="font-sans text-lg font-bold text-dark">{price}</span>}

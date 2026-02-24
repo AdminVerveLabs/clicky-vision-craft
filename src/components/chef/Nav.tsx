@@ -86,7 +86,7 @@ const Nav = () => {
         <div onClick={() => go("/")} className="cursor-pointer flex items-center gap-2.5">
           <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
           <span
-            className="font-serif font-bold text-[22px] transition-colors duration-300"
+            className="font-sans font-bold text-[22px] transition-colors duration-300"
             style={{
               color: scrolled ? "hsl(var(--dark))" : isHome ? "white" : "hsl(var(--dark))",
             }}
@@ -179,7 +179,7 @@ const Nav = () => {
           <div className="p-6 pt-8">
             <div className="flex items-center gap-2.5 mb-8">
               <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
-              <span className="font-serif font-bold text-[20px] text-dark">Chef Joey</span>
+              <span className="font-sans font-bold text-[20px] text-dark">Chef Joey</span>
             </div>
 
             <div className="space-y-1">

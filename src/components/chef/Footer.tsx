@@ -41,7 +41,7 @@ const Footer = () => {
         <div>
           <div className="flex items-center gap-2.5 mb-4">
             <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
-            <span className="font-serif font-bold text-xl">Chef Joey</span>
+            <span className="font-sans font-bold text-xl">Chef Joey</span>
           </div>
           <p className="font-sans text-sm text-white/60 leading-[1.7] max-w-[300px]">
             Bringing creole soul and southern heart to Calgary kitchens. Interactive cooking experiences for foodies,
