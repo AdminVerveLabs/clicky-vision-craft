@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CLASS_DATA } from "@/data/classData";
 import ClassModal from "@/components/chef/ClassModal";
-import chefJoeyHero from "@/assets/chef-joey-hero.png";
+import chefJoey61 from "@/assets/chef-joey-61.jpg";
+import chefJoey106 from "@/assets/chef-joey-106.jpg";
 import publicClassesImg from "@/assets/public-classes.png";
 import teamBuildingImg from "@/assets/team-building.png";
 import privateClassesImg from "@/assets/private-classes.jpg";
@@ -60,12 +61,21 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Hero visual */}
+            {/* Hero visual — two staggered images */}
             <div className="relative hidden md:block">
-              <div className="w-full aspect-[4/5] rounded-3xl border border-white/10 relative overflow-hidden">
-                <img src={chefJoeyHero} alt="Chef Joey cooking in kitchen" className="w-full h-full object-cover" />
+              <div className="flex gap-4 items-center">
+                <div className="w-1/2 translate-y-6 rounded-2xl overflow-hidden border border-white/10">
+                  <div className="aspect-[3/4]">
+                    <img src={chefJoey61} alt="Chef Joey preparing a dish" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+                <div className="w-1/2 -translate-y-6 rounded-2xl overflow-hidden border border-white/10">
+                  <div className="aspect-[3/4]">
+                    <img src={chefJoey106} alt="Chef Joey cooking class" className="w-full h-full object-cover" />
+                  </div>
+                </div>
               </div>
-              <div onClick={() => setShowClassModal(true)} className="absolute -bottom-5 -left-8 bg-white rounded-2xl px-5 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.15)] flex items-center gap-3 cursor-pointer hover:-translate-y-1 transition-transform">
+              <div onClick={() => setShowClassModal(true)} className="absolute -bottom-5 left-0 bg-white rounded-2xl px-5 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.15)] flex items-center gap-3 cursor-pointer hover:-translate-y-1 transition-transform z-10">
                 <div className="w-11 h-11 rounded-xl bg-orange-pale flex items-center justify-center text-xl">🌶️</div>
                 <div>
                   <p className="font-sans font-bold text-sm text-dark">Next Class: Sat Feb 21</p>
