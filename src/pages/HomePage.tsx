@@ -45,7 +45,7 @@ const HomePage = () => {
               </div>
 
               {/* Social proof */}
-              <div className="flex items-center gap-5 mt-8 pt-5 border-t border-white/10 justify-center md:justify-start">
+              <div className="flex items-center gap-5 mt-10 pt-5 border-t border-white/10 justify-center md:justify-start">
                 <div className="flex">
                   {[0, 1, 2, 3].map((i) => (
                     <div key={i} className="w-9 h-9 rounded-full border-2 border-white/30 flex items-center justify-center text-sm" style={{ background: `hsl(${30 + i * 25}, 70%, ${60 + i * 5}%)`, marginLeft: i > 0 ? -10 : 0 }}>😊</div>
