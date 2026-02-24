@@ -22,7 +22,7 @@ const HomePage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="flex items-center relative overflow-hidden px-6 pt-[100px] md:pt-[120px] pb-12 md:pb-16" style={{ background: "linear-gradient(165deg, #430073 0%, #430073 35%, hsl(var(--dark)) 100%)" }}>
+      <section className="flex items-center relative overflow-hidden px-6 pt-[120px] md:pt-[144px] pb-[67px] md:pb-[90px]" style={{ background: "linear-gradient(165deg, #430073 0%, #430073 35%, hsl(var(--dark)) 100%)" }}>
         <div className="absolute top-[10%] right-[5%] w-[400px] h-[400px] rounded-full" style={{ background: "radial-gradient(circle, rgba(232,89,12,0.15) 0%, transparent 70%)" }} />
         <div className="absolute bottom-[5%] left-[10%] w-[300px] h-[300px] rounded-full" style={{ background: "radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%)" }} />
         <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
