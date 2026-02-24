@@ -22,15 +22,15 @@ const HomePage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="min-h-screen flex items-center relative overflow-hidden px-6 pt-[100px] md:pt-[120px] pb-16 md:pb-20" style={{ background: "linear-gradient(165deg, #430073 0%, #430073 35%, hsl(var(--dark)) 100%)" }}>
+      <section className="flex items-center relative overflow-hidden px-6 pt-[100px] md:pt-[120px] pb-12 md:pb-16" style={{ background: "linear-gradient(165deg, #430073 0%, #430073 35%, hsl(var(--dark)) 100%)" }}>
         <div className="absolute top-[10%] right-[5%] w-[400px] h-[400px] rounded-full" style={{ background: "radial-gradient(circle, rgba(232,89,12,0.15) 0%, transparent 70%)" }} />
         <div className="absolute bottom-[5%] left-[10%] w-[300px] h-[300px] rounded-full" style={{ background: "radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%)" }} />
         <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
         <div className="max-w-[1200px] mx-auto w-full relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.3fr] gap-8 md:gap-10 items-center">
             <div className="text-center md:text-left">
-              <h1 className="font-sans text-[38px] md:text-[62px] font-extrabold text-white leading-[1.08] mb-6">
+              <h1 className="font-sans text-[32px] md:text-[46px] font-extrabold text-white leading-[1.05] mb-5">
                 Soul food.<br />
                 <span className="text-orange-light">Good times.</span><br />
                 Real skills.
@@ -41,7 +41,7 @@ const HomePage = () => {
               </div>
 
               {/* Social proof */}
-              <div className="flex items-center gap-5 mt-12 pt-8 border-t border-white/10 justify-center md:justify-start">
+              <div className="flex items-center gap-5 mt-6 pt-5 border-t border-white/10 justify-center md:justify-start">
                 <div className="flex">
                   {[0, 1, 2, 3].map((i) => (
                     <div key={i} className="w-9 h-9 rounded-full border-2 border-white/30 flex items-center justify-center text-sm" style={{ background: `hsl(${30 + i * 25}, 70%, ${60 + i * 5}%)`, marginLeft: i > 0 ? -10 : 0 }}>😊</div>
@@ -55,7 +55,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 pl-2 mt-6 border border-white/15">
+              <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 pl-2 mt-4 border border-white/15">
                 <span className="text-sm">🔥</span>
                 <span className="font-sans text-[13px] font-semibold text-white/80">Calgary's Creole Cooking Experience</span>
               </div>
@@ -63,19 +63,19 @@ const HomePage = () => {
 
             {/* Hero visual — two staggered images */}
             <div className="relative hidden md:block">
-              <div className="flex gap-4 items-center">
-                <div className="w-1/2 translate-y-6 rounded-2xl overflow-hidden border border-white/10">
+              <div className="flex gap-3 items-center">
+                <div className="w-1/2 translate-y-8 rounded-2xl overflow-hidden border border-white/10">
                   <div className="aspect-[3/4]">
                     <img src={chefJoey61} alt="Chef Joey preparing a dish" className="w-full h-full object-cover" />
                   </div>
                 </div>
-                <div className="w-1/2 -translate-y-6 rounded-2xl overflow-hidden border border-white/10">
+                <div className="w-1/2 -translate-y-8 rounded-2xl overflow-hidden border border-white/10">
                   <div className="aspect-[3/4]">
                     <img src={chefJoey106} alt="Chef Joey cooking class" className="w-full h-full object-cover" />
                   </div>
                 </div>
               </div>
-              <div onClick={() => setShowClassModal(true)} className="absolute -bottom-5 left-0 bg-white rounded-2xl px-5 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.15)] flex items-center gap-3 cursor-pointer hover:-translate-y-1 transition-transform z-10">
+              <div onClick={() => setShowClassModal(true)} className="absolute -bottom-6 -left-8 bg-white rounded-2xl px-5 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.15)] flex items-center gap-3 cursor-pointer hover:-translate-y-1 transition-transform z-10">
                 <div className="w-11 h-11 rounded-xl bg-orange-pale flex items-center justify-center text-xl">🌶️</div>
                 <div>
                   <p className="font-sans font-bold text-sm text-dark">Next Class: Sat Feb 21</p>
