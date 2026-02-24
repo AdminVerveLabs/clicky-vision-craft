@@ -1,39 +1,42 @@
 
 
-# Hero Section: Two-Image Layout
+# Hero Section Layout Refinements
 
-## Change: `src/pages/HomePage.tsx`
+## Single file change: `src/pages/HomePage.tsx`
 
-Replace the single hero image (lines 64-75) with a two-image layout matching the reference — two rounded images side by side, left image slightly taller/offset from the right, similar to the uploaded reference.
+### 1. Reduce headline size and tighten spacing (line 33)
+- Desktop: `text-[62px]` → `text-[46px]`
+- Mobile: `text-[38px]` → `text-[32px]`
+- Leading: `leading-[1.08]` → `leading-[1.05]`
+- Bottom margin: `mb-6` → `mb-5`
 
-### Images
-- Left image: `chef-joey-61.jpg` (already in `src/assets`)
-- Right image: `chef-joey-106.jpg` (already in `src/assets`)
+### 2. Reduce hero section height and vertical spacing
+- Section (line 25): Remove `min-h-screen`, replace with `min-h-[auto]`. Reduce bottom padding: `pb-16 md:pb-20` → `pb-12 md:pb-16`. Keep top padding as-is for nav clearance.
+- Grid gap (line 31): `gap-10 md:gap-16` → `gap-8 md:gap-10`
 
-### New imports (add at top)
-```tsx
-import chefJoey61 from "@/assets/chef-joey-61.jpg";
-import chefJoey106 from "@/assets/chef-joey-106.jpg";
-```
+### 3. Tighten social proof closer to CTAs (line 44)
+- Change `mt-12 pt-8` → `mt-6 pt-5` to pull the trust signals up right below the buttons, forming a tight action cluster.
+- "Calgary's Creole" pill (line 58): `mt-6` → `mt-4`
 
-Remove unused `chefJoeyHero` import.
+### 4. Make images significantly larger
+- Widen image column by changing the grid from `md:grid-cols-2` to `md:grid-cols-[1fr_1.3fr]` so the image side gets ~55% of the width.
+- Increase stagger offset: `translate-y-6` → `translate-y-8`, `-translate-y-6` → `-translate-y-8`
+- Remove the `gap-4` between images, use `gap-3` for a tighter pair.
 
-### New hero visual markup (replacing lines 64-75)
-Two images in a flex row with a gap. Left image has `aspect-[3/4]` and is slightly shifted down; right image has `aspect-[3/4]` and is slightly shifted up — creating the staggered look from the reference. Both have `rounded-2xl` with `overflow-hidden`.
+### 5. Reposition "Next Class" floating card
+- Move it from `absolute -bottom-5 left-0` (between/below images) to `absolute -bottom-6 -left-8` so it anchors at the bottom-left, overlapping the left image edge rather than sitting awkwardly between images. This creates a clear conversion nudge without obscuring image content.
 
-The "Next Class" floating card stays, repositioned to `absolute -bottom-5 left-0` (anchored to the bottom-left of the container, overlapping the left image area).
-
-### Layout detail
+### Layout summary
 ```text
-┌──────────────────────────────┐
-│  [Image 1]      [Image 2]   │
-│  chef-joey-61   chef-joey-106│
-│  shifted down   shifted up   │
-│                              │
-│  ┌─Next Class Card─┐        │
-│  └─────────────────┘        │
-└──────────────────────────────┘
+ ┌─────────────────────────────────────────┐
+ │  [Smaller headline]   [LARGER IMAGE 1]  │
+ │  [CTAs]                [LARGER IMAGE 2] │
+ │  [Social proof]         ↑ staggered     │
+ │  [Creole pill]                          │
+ │                    ┌─Next Class─┐       │
+ │                    └────────────┘       │
+ └─────────────────────────────────────────┘
 ```
 
-Single file edit, no new files needed.
+All changes in a single file edit to `src/pages/HomePage.tsx`, lines 25–86.
 
