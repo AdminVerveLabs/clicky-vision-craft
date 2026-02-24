@@ -29,10 +29,6 @@ const HomePage = () => {
         <div className="max-w-[1200px] mx-auto w-full relative">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 pl-2 mb-7 border border-white/15">
-                <span className="text-sm">🔥</span>
-                <span className="font-sans text-[13px] font-semibold text-white/80">Calgary's Creole Cooking Experience</span>
-              </div>
               <h1 className="font-sans text-[38px] md:text-[62px] font-extrabold text-white leading-[1.08] mb-6">
                 Soul food.<br />
                 <span className="text-orange-light">Good times.</span><br />
@@ -56,6 +52,11 @@ const HomePage = () => {
                   </div>
                   <span className="font-sans text-[13px] text-white/60">5.0 from 200+ Google Reviews</span>
                 </div>
+              </div>
+
+              <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 pl-2 mt-6 border border-white/15">
+                <span className="text-sm">🔥</span>
+                <span className="font-sans text-[13px] font-semibold text-white/80">Calgary's Creole Cooking Experience</span>
               </div>
             </div>
 
