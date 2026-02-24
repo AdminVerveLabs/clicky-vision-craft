@@ -1,64 +1,30 @@
 
 
-# Replace All Serif Fonts with Sans-Serif
+# Navbar Layout Update
 
-## Scope
+## Changes to `src/components/chef/Nav.tsx`
 
-574 occurrences of `font-serif` across 30 `.tsx` files, plus the font configuration in CSS and Tailwind.
+1. **Layout**: Move nav links to center between logo (left) and CTA button (right) using a 3-column flex layout: `justify-between` with logo left, links center, CTA right.
 
-## Changes
+2. **Label changes**:
+   - "Teams" → "Teams & Corporate"
+   - "About Joey" → "About"
 
-### 1. `src/index.css` (line 1)
-Remove `Playfair Display` from the Google Fonts import. Keep only `DM Sans`.
+3. **CTA button**: Change "Chat with Joey" to "Book Now" (matching the reference image). Keep the existing purple/orange styling.
 
-### 2. `tailwind.config.ts` (line ~23)
-Remove or repurpose the `serif` font family entry. Optionally point `serif` to `DM Sans` as well (so any missed references still render sans-serif), or remove it entirely.
+4. **Structure**: The desktop nav currently has logo on the left and all links + CTA grouped on the right. We need to split it so links are visually centered in the navbar and the CTA is pushed to the far right.
 
-### 3. All 30 component/page files
-Global find-and-replace: `font-serif` → `font-sans` across every `.tsx` file. The affected files are:
+## Specific edits in `navSegments` array:
+- Change `label: "Teams"` to `label: "Teams & Corporate"`
+- Change `label: "About Joey"` to `label: "About"`
 
-- `src/pages/ClassesPage.tsx`
-- `src/pages/HomePage.tsx`
-- `src/pages/AboutPage.tsx`
-- `src/pages/BlogPage.tsx`
-- `src/pages/PublicClassesPage.tsx`
-- `src/pages/TeamBuildingPage.tsx`
-- `src/pages/TeamsPage.tsx`
-- `src/pages/teams/AllHandsPage.tsx`
-- `src/pages/teams/CateringTeamsPage.tsx`
-- `src/pages/teams/ClientEntertainmentPage.tsx`
-- `src/pages/teams/CustomExperiencesPage.tsx`
-- `src/pages/teams/HolidayPage.tsx`
-- `src/pages/teams/OnboardingPage.tsx`
-- `src/pages/teams/TeamEventsPage.tsx`
-- `src/pages/classes/CateringPage.tsx`
-- `src/pages/classes/FriendsPage.tsx`
-- `src/pages/classes/KidsPartyPage.tsx`
-- `src/pages/classes/OpenClassesPage.tsx`
-- `src/pages/classes/PrivateEventsPage.tsx`
-- `src/pages/classes/SpecialOccasionsPage.tsx`
-- `src/components/chef/Nav.tsx`
-- `src/components/chef/Footer.tsx`
-- `src/components/chef/ServiceCard.tsx`
-- `src/components/chef/TestimonialCard.tsx`
-- `src/components/chef/ClassModal.tsx`
-- `src/components/chef/NewsletterBanner.tsx`
-- `src/components/chef/TeamPackagesModal.tsx`
-- `src/components/chef/TeamBookingFormModal.tsx`
-- `src/components/chef/PrivateEventPackagesModal.tsx`
-- `src/components/chef/PrivateEventBookingFormModal.tsx`
+## Desktop nav container change:
+- Current: logo left, `<div>` with links + CTA right
+- New: logo left (flex item), centered links (flex item with `absolute` or `flex-1 justify-center`), CTA right (flex item)
 
-Every `font-serif` class becomes `font-sans`. No other styling changes.
+## Mobile nav:
+- Same label updates apply
+- Layout stays as-is (drawer)
 
-### 4. Safety net
-Update `tailwind.config.ts` to map `serif` → `DM Sans` so any overlooked references still render correctly:
-```ts
-fontFamily: {
-  serif: ["'DM Sans'", "sans-serif"],  // redirected to sans
-  sans: ["'DM Sans'", "sans-serif"],
-},
-```
-
-## Result
-All headings and body text across the entire site will render in DM Sans (sans-serif). No visual layout changes beyond the typeface swap.
+No new files needed. Single file edit to `src/components/chef/Nav.tsx`.
 
