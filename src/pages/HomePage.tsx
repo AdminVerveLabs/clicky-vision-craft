@@ -37,7 +37,7 @@ const HomePage = () => {
               </h1>
               <div className="flex gap-4 flex-wrap justify-center md:justify-start">
                 <CTAButton variant="orange" size="lg" onClick={() => go("/classes")}>Classes & Events</CTAButton>
-                <CTAButton variant="ghost" size="lg" onClick={() => go("/teams")}>For Teams & Corporate</CTAButton>
+                <CTAButton variant="ghost" size="lg" onClick={() => go("/teams")}>Teams & Corporate</CTAButton>
               </div>
 
               {/* Social proof */}
