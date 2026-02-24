@@ -25,7 +25,7 @@ const navSegments: NavSegment[] = [
     ],
   },
   {
-    label: "Teams",
+    label: "Teams & Corporate",
     path: "/teams",
     children: [
       { label: "Team Events", path: "/teams/team-events" },
@@ -38,7 +38,7 @@ const navSegments: NavSegment[] = [
     ],
   },
   { label: "Blog", path: "/blog" },
-  { label: "About Joey", path: "/about" },
+  { label: "About", path: "/about" },
 ];
 
 const Nav = () => {
@@ -95,7 +95,7 @@ const Nav = () => {
           </span>
         </div>
 
-        {/* Desktop nav */}
+        {/* Desktop nav - centered links */}
         <div className="hidden md:flex items-center gap-6 font-sans text-[15px] font-medium">
           {navSegments.map((segment) => {
             const isActive = currentPage === segment.path;
@@ -110,7 +110,7 @@ const Nav = () => {
               >
                 <span
                   onClick={() => go(segment.path)}
-                  className="cursor-pointer transition-colors duration-300 pb-1 flex items-center gap-1"
+                  className="cursor-pointer transition-colors duration-300 pb-1 flex items-center gap-1 whitespace-nowrap"
                   style={{
                     color: getTextColor(isActive),
                     borderBottom: isActive
@@ -156,9 +156,12 @@ const Nav = () => {
               </div>
             );
           })}
+        </div>
 
+        {/* Desktop CTA */}
+        <div className="hidden md:flex items-center">
           <CTAButton variant="orange" size="sm" onClick={() => go("/classes")}>
-            Chat with Joey
+            Book Now
           </CTAButton>
         </div>
 
@@ -242,7 +245,7 @@ const Nav = () => {
 
             <div className="mt-8 pt-6 border-t border-border">
               <CTAButton variant="orange" size="md" onClick={() => go("/classes")}>
-                Chat with Joey
+                Book Now
               </CTAButton>
             </div>
           </div>
