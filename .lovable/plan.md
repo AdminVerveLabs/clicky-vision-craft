@@ -1,30 +1,20 @@
 
 
-# Navbar Layout Update
+# Move "Calgary's Creole Cooking Experience" Pill Below Google Reviews
 
-## Changes to `src/components/chef/Nav.tsx`
+## Single file change: `src/pages/HomePage.tsx`
 
-1. **Layout**: Move nav links to center between logo (left) and CTA button (right) using a 3-column flex layout: `justify-between` with logo left, links center, CTA right.
+### Current order (lines 31-59):
+1. Pill badge ("Calgary's Creole Cooking Experience") — lines 32-35
+2. H1 headline — lines 36-40
+3. CTA buttons — lines 41-44
+4. Social proof / Google Reviews — lines 47-59
 
-2. **Label changes**:
-   - "Teams" → "Teams & Corporate"
-   - "About Joey" → "About"
+### New order:
+1. H1 headline
+2. CTA buttons
+3. Social proof / Google Reviews
+4. Pill badge (moved here, with adjusted spacing: remove `mb-7`, add `mt-6`)
 
-3. **CTA button**: Change "Chat with Joey" to "Book Now" (matching the reference image). Keep the existing purple/orange styling.
-
-4. **Structure**: The desktop nav currently has logo on the left and all links + CTA grouped on the right. We need to split it so links are visually centered in the navbar and the CTA is pushed to the far right.
-
-## Specific edits in `navSegments` array:
-- Change `label: "Teams"` to `label: "Teams & Corporate"`
-- Change `label: "About Joey"` to `label: "About"`
-
-## Desktop nav container change:
-- Current: logo left, `<div>` with links + CTA right
-- New: logo left (flex item), centered links (flex item with `absolute` or `flex-1 justify-center`), CTA right (flex item)
-
-## Mobile nav:
-- Same label updates apply
-- Layout stays as-is (drawer)
-
-No new files needed. Single file edit to `src/components/chef/Nav.tsx`.
+The pill's `mb-7` margin-bottom gets replaced with `mt-6` margin-top since it now sits below the reviews block instead of above the headline. All other styling stays identical.
 
