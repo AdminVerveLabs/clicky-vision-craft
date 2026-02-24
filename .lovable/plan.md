@@ -1,20 +1,10 @@
 
 
-## Increase Hero Section Padding
+## Increase Social Proof Bottom Margin in Hero
 
-### File: `src/pages/HomePage.tsx` (line 25)
+### File: `src/pages/HomePage.tsx` (line 48)
 
-Current padding: `pt-[100px] md:pt-[120px] pb-12 md:pb-16`
+The social proof container currently has `mt-8`. Increasing by 25% → `mt-10` (2.5rem, up from 2rem).
 
-**Top padding (+20%):**
-- Mobile: `100px × 1.2 = 120px`
-- Desktop: `120px × 1.2 = 144px`
-
-**Bottom padding (+40%):**
-- Mobile: `pb-12` (3rem / 48px) → `pb-[67px]` (~48 × 1.4)
-- Desktop: `pb-16` (4rem / 64px) → `pb-[90px]` (~64 × 1.4)
-
-**Updated class:** `pt-[120px] md:pt-[144px] pb-[67px] md:pb-[90px]`
-
-Single line change on line 25.
+Single class change on line 48: `mt-8` → `mt-10`.
 
