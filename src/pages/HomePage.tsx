@@ -35,7 +35,7 @@ const HomePage = () => {
                 <span className="font-sans text-[13px] font-semibold text-white/80">Calgary's Funnest Cooking Experience</span>
               </div>
               <h1 className="font-sans text-[32px] md:text-[46px] font-extrabold text-white leading-[1.05] mb-8">
-                Soul food.<br />
+                Soulful food.<br />
                 <span className="text-orange-light">Good times.</span><br />
                 Real skills.
               </h1>
