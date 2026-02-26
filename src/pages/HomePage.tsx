@@ -36,11 +36,11 @@ const HomePage = () => {
               </div>
               <h1 className="font-sans text-[32px] md:text-[46px] font-extrabold text-white leading-[1.05] mb-8">
                 Soulful food.<br />
-                <span className="text-orange-light">Good times.</span><br />
+                <span className="text-green-light">Good times.</span><br />
                 Real skills.
               </h1>
               <div className="flex gap-4 flex-wrap justify-center md:justify-start">
-                <CTAButton variant="orange" size="lg" onClick={() => go("/classes")}>Classes & Events</CTAButton>
+                <CTAButton variant="green" size="lg" onClick={() => go("/classes")}>Classes & Events</CTAButton>
                 <CTAButton variant="ghost" size="lg" onClick={() => go("/teams")}>Teams & Corporate</CTAButton>
               </div>
 

@@ -62,6 +62,10 @@ export default {
           light: "hsl(var(--orange-light))",
           pale: "hsl(var(--orange-pale))",
         },
+        green: {
+          DEFAULT: "hsl(var(--green))",
+          light: "hsl(var(--green-light))",
+        },
         cream: "hsl(var(--cream))",
         sage: {
           DEFAULT: "hsl(var(--sage))",
