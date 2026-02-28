@@ -152,9 +152,9 @@ const HomePage = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
-              { title: "Public Classes", tag: "PUBLIC", category: "BOOKABLE", icon: "📅", desc: "Join a community of foodies. Perfect for solo cooks, couples, or small groups wanting to learn new skills.", link: "/classes", image: publicClassesImg },
-              { title: "Team Building", tag: "FOR TEAMS", category: "BUILDERS", icon: "🏢", desc: "Interactive challenges and collaborative cooking to bring your corporate team closer together.", link: "/teams", image: teamBuildingImg },
-              { title: "Private Classes", tag: "PRIVATE", category: "CUSTOM", icon: "🎉", desc: "Organize your own personalized experience with Chef Joey. Great for friends, events, special occasions, and anything else that calls for fun.", link: "/classes", image: privateClassesImg },
+              { title: "Public Classes", tag: "PUBLIC", category: "BOOKABLE", icon: "📅", desc: "Join a community of foodies. Perfect for solo cooks, couples, or small groups wanting to learn new skills.", link: "/classes", image: publicClassesImg, formats: ["In-Person", "Virtual"] },
+              { title: "Team Building", tag: "FOR TEAMS", category: "BUILDERS", icon: "🏢", desc: "Interactive challenges and collaborative cooking to bring your corporate team closer together.", link: "/teams", image: teamBuildingImg, formats: ["In-Person", "Virtual"] },
+              { title: "Private Events", tag: "PRIVATE", category: "CUSTOM", icon: "🎉", desc: "Birthdays, anniversaries, celebrations—we customize the menu, the vibe, and the whole experience. You show up ready to celebrate.", link: "/classes/private-events", image: privateClassesImg, formats: ["In-Person", "Virtual"] },
             ].map((card) => (
               <div key={card.title} onClick={() => go(card.link)} className="bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border border-border hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
                 <div className="h-[220px] md:h-[280px] bg-gray-light relative flex items-center justify-center">
@@ -167,7 +167,12 @@ const HomePage = () => {
                     <span className="font-sans text-[11px] font-bold text-purple uppercase tracking-[2px]">{card.category}</span>
                   </div>
                   <h3 className="font-sans text-[20px] md:text-[24px] font-bold text-dark mb-3 leading-tight">{card.title}</h3>
-                  <p className="font-sans text-sm text-gray leading-[1.7] mb-6">{card.desc}</p>
+                  <p className="font-sans text-sm text-gray leading-[1.7] mb-4">{card.desc}</p>
+                  <div className="flex gap-2 mb-6">
+                    {card.formats.map((fmt) => (
+                      <span key={fmt} className="bg-gray-light text-dark text-[11px] font-semibold px-2.5 py-1 rounded-full">{fmt}</span>
+                    ))}
+                  </div>
                   <span className="text-purple font-sans text-[13px] font-bold uppercase tracking-[1.5px]">View Details →</span>
                 </div>
               </div>
