@@ -156,12 +156,12 @@ const HomePage = () => {
               { title: "Team Building", tag: "FOR TEAMS", category: "BUILDERS", icon: "🏢", desc: "Interactive challenges and collaborative cooking to bring your corporate team closer together.", link: "/teams", image: teamBuildingImg, formats: ["In-Person", "Virtual"] },
               { title: "Private Events", tag: "PRIVATE", category: "CUSTOM", icon: "🎉", desc: "Birthdays, anniversaries, celebrations—we customize the menu, the vibe, and the whole experience. You show up ready to celebrate.", link: "/classes/private-events", image: privateClassesImg, formats: ["In-Person", "Virtual"] },
             ].map((card) => (
-              <div key={card.title} onClick={() => go(card.link)} className="bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border border-border hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+              <div key={card.title} onClick={() => go(card.link)} className="bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border border-border hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex flex-col">
                 <div className="h-[220px] md:h-[280px] bg-gray-light relative flex items-center justify-center">
                   <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
                   <div className="absolute top-4 right-4 bg-purple text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full tracking-wide font-sans">{card.tag}</div>
                 </div>
-                <div className="p-6 md:p-7">
+                <div className="p-6 md:p-7 flex flex-col flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-sm">{card.icon}</span>
                     <span className="font-sans text-[11px] font-bold text-purple uppercase tracking-[2px]">{card.category}</span>
@@ -172,7 +172,7 @@ const HomePage = () => {
                       <span key={fmt} className="bg-green/10 text-green text-[11px] font-semibold px-2.5 py-1 rounded-full">{fmt}</span>
                     ))}
                   </div>
-                  <p className="font-sans text-sm text-gray leading-[1.7] mb-6">{card.desc}</p>
+                  <p className="font-sans text-sm text-gray leading-[1.7] mb-6 flex-1">{card.desc}</p>
                   <span className="text-purple font-sans text-[13px] font-bold uppercase tracking-[1.5px]">View Details →</span>
                 </div>
               </div>
