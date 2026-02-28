@@ -317,7 +317,7 @@ const ClassesPage = () => {
       </section>
 
       {/* Social Credibility Banner */}
-      <section className="bg-cream py-16 px-6">
+      <section className="bg-[hsla(105,48%,46%,0.08)] py-16 px-6">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {/* Google Reviews */}
           <div className="flex flex-col items-center text-center">
