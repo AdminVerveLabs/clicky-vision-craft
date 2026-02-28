@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Star, Quote, Trophy, Award } from "lucide-react";
 import publicClassesImg from "@/assets/public-classes.png";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
@@ -310,6 +311,44 @@ const ClassesPage = () => {
                   </div>
                 );
               })()}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Credibility Banner */}
+      <section className="bg-cream py-16 px-6">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+          {/* Google Reviews */}
+          <div className="flex flex-col items-center text-center">
+            <div className="flex items-center gap-1 mb-3">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-6 h-6 text-orange fill-orange" />
+              ))}
+            </div>
+            <p className="font-sans text-[42px] font-extrabold text-dark leading-none mb-1">4.9<span className="text-lg font-bold text-gray">/5</span></p>
+            <p className="font-sans text-sm font-semibold text-dark mb-0.5">Google Reviews</p>
+            <p className="font-sans text-[13px] text-gray">120+ verified reviews</p>
+          </div>
+
+          {/* Testimonial */}
+          <div className="flex flex-col items-center text-center px-4">
+            <Quote className="w-8 h-8 text-purple-light mb-3 opacity-60" />
+            <p className="font-sans text-base text-dark italic leading-[1.7] mb-4 max-w-[320px]">
+              "Best date night ever! Joey made the whole experience fun, interactive, and the food was incredible."
+            </p>
+            <p className="font-sans text-sm font-bold text-dark">— Sarah K.</p>
+            <p className="font-sans text-[13px] text-gray">Calgary, AB</p>
+          </div>
+
+          {/* Awards */}
+          <div className="flex flex-col items-center text-center">
+            <Trophy className="w-10 h-10 text-orange mb-3" />
+            <p className="font-sans text-lg font-extrabold text-dark mb-1">Consumer Choice Award</p>
+            <p className="font-sans text-[13px] text-gray mb-3">Winner 2024 & 2025</p>
+            <div className="flex items-center gap-2">
+              <Award className="w-5 h-5 text-purple" />
+              <p className="font-sans text-sm text-dark font-semibold">Top-Rated Experience in Calgary</p>
             </div>
           </div>
         </div>
