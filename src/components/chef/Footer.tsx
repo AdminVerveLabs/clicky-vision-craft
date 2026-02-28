@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import chefJoeyLogo from "@/assets/chef-joey-logo.png";
+import chefJoeyWordmark from "@/assets/chef-joey-wordmark.png";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -39,9 +39,8 @@ const Footer = () => {
     <footer className="bg-dark text-white py-16 md:py-20 px-6">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-12">
         <div>
-          <div className="flex items-center gap-2.5 mb-4">
-            <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
-            <span className="font-sans font-bold text-xl">Chef Joey</span>
+          <div className="mb-4">
+            <img src={chefJoeyWordmark} alt="Chef Joey" className="w-[120px] h-auto" style={{ filter: "brightness(0) invert(1)" }} />
           </div>
           <p className="font-sans text-sm text-white/60 leading-[1.7] max-w-[300px]">
             Bringing creole soul and southern heart to Calgary kitchens. Interactive cooking experiences for foodies,
