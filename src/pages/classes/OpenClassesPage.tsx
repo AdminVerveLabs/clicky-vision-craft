@@ -158,6 +158,12 @@ const OpenClassesPage = () => {
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[28px] opacity-15 pointer-events-none">{dayEmoji}</div>
                           )}
                           {classes.map((cls) => (
+                            cls.private ? (
+                              <div key={cls.id} className="mx-0.5 mb-1 px-2 py-1.5 rounded-lg bg-sage/10 border border-sage/20">
+                                <div className="font-sans text-[10px] font-bold mb-0.5 text-sage">{cls.type}</div>
+                                <div className="font-sans text-[11px] font-medium leading-tight text-sage italic">{cls.title}</div>
+                              </div>
+                            ) : (
                             <div
                               key={cls.id}
                               onClick={() => !isPast && setSelectedClass(cls)}
@@ -172,6 +178,7 @@ const OpenClassesPage = () => {
                                 <div className="font-sans text-[9px] font-bold text-orange mt-0.5">🔥 {cls.spots} spots left</div>
                               )}
                             </div>
+                            )
                           ))}
                         </>
                       )}
@@ -190,6 +197,7 @@ const OpenClassesPage = () => {
               { label: "Couples / Date Night", color: "bg-purple" },
               { label: "Kids", color: "bg-sage" },
               { label: "Signature / Skills", color: "bg-dark" },
+              { label: "Private / Corporate", color: "bg-sage" },
               { label: "Sold Out", color: "bg-gray" },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-1.5">

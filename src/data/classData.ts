@@ -14,6 +14,7 @@ export interface ClassData {
   level: string;
   included: string;
   location: string;
+  private?: boolean;
 }
 
 export const CLASS_DATA: ClassData[] = [
@@ -88,6 +89,36 @@ export const CLASS_DATA: ClassData[] = [
     menu: ["Blackened Fish Tacos", "Creole Slaw", "Chipotle Crema", "Fried Plantains"],
     duration: "2.5 hours", level: "All Levels", included: "All ingredients, equipment, aprons, recipe cards, margarita bar",
     location: "YW Calgary Community Kitchen, Inglewood",
+  },
+  {
+    id: 10, day: 3, time: "", title: "Private Birthday Dinner", type: "Private Event",
+    price: "", spots: 0, soldOut: false, emoji: "🎂",
+    description: "", menu: [], duration: "", level: "", included: "",
+    location: "YW Calgary Community Kitchen, Inglewood", private: true,
+  },
+  {
+    id: 11, day: 10, time: "", title: "Acme Corp Team Building", type: "Corporate",
+    price: "", spots: 0, soldOut: false, emoji: "🏢",
+    description: "", menu: [], duration: "", level: "", included: "",
+    location: "YW Calgary Community Kitchen, Inglewood", private: true,
+  },
+  {
+    id: 12, day: 16, time: "", title: "Private Cooking Party", type: "Private Event",
+    price: "", spots: 0, soldOut: false, emoji: "🎉",
+    description: "", menu: [], duration: "", level: "", included: "",
+    location: "YW Calgary Community Kitchen, Inglewood", private: true,
+  },
+  {
+    id: 13, day: 20, time: "", title: "EnergyCo Client Dinner", type: "Corporate",
+    price: "", spots: 0, soldOut: false, emoji: "💼",
+    description: "", menu: [], duration: "", level: "", included: "",
+    location: "YW Calgary Community Kitchen, Inglewood", private: true,
+  },
+  {
+    id: 14, day: 25, time: "", title: "Anniversary Celebration", type: "Private Event",
+    price: "", spots: 0, soldOut: false, emoji: "💍",
+    description: "", menu: [], duration: "", level: "", included: "",
+    location: "YW Calgary Community Kitchen, Inglewood", private: true,
   },
 ];
 
