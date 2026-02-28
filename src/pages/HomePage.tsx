@@ -167,12 +167,12 @@ const HomePage = () => {
                     <span className="font-sans text-[11px] font-bold text-purple uppercase tracking-[2px]">{card.category}</span>
                   </div>
                   <h3 className="font-sans text-[20px] md:text-[24px] font-bold text-dark mb-3 leading-tight">{card.title}</h3>
-                  <p className="font-sans text-sm text-gray leading-[1.7] mb-4">{card.desc}</p>
-                  <div className="flex gap-2 mb-6">
+                  <div className="flex gap-2 mb-4">
                     {card.formats.map((fmt) => (
-                      <span key={fmt} className="bg-gray-light text-dark text-[11px] font-semibold px-2.5 py-1 rounded-full">{fmt}</span>
+                      <span key={fmt} className="bg-green/10 text-green text-[11px] font-semibold px-2.5 py-1 rounded-full">{fmt}</span>
                     ))}
                   </div>
+                  <p className="font-sans text-sm text-gray leading-[1.7] mb-6">{card.desc}</p>
                   <span className="text-purple font-sans text-[13px] font-bold uppercase tracking-[1.5px]">View Details →</span>
                 </div>
               </div>
