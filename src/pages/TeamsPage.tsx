@@ -1,5 +1,6 @@
 import { useState } from "react";
 import teamHeroImg from "@/assets/chef-joey-116.jpg";
+import chefJoeyKitchen from "@/assets/chef-joey-kitchen.jpg";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
@@ -183,6 +184,60 @@ const TeamsPage = () => {
         </div>
       </section>
 
+      {/* Meet Chef Joey + Flexible Formats */}
+      <section className="py-20 md:py-28 px-6 bg-cream">
+        <div className="max-w-[1200px] mx-auto">
+          {/* Chef Joey Intro */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-20">
+            <div className="aspect-[4/5] rounded-3xl relative overflow-hidden shadow-xl">
+              <img src={chefJoeyKitchen} alt="Chef Joey in the kitchen" className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <SectionTag>Meet Your Host</SectionTag>
+              <h2 className="font-sans text-[28px] md:text-[42px] font-extrabold text-dark mt-4 mb-4 leading-[1.15]">
+                Your team deserves more than <span className="text-orange italic">pizza in the boardroom</span>
+              </h2>
+              <p className="font-sans text-base text-gray leading-[1.8] mb-5">
+                I'm Chef Joey — and I turn corporate events into experiences people actually talk about. Born and raised on creole
+                flavors and southern hospitality, I bring that same energy to every team I work with.
+              </p>
+              <p className="font-sans text-base text-gray leading-[1.8] mb-5">
+                Whether you're onboarding new hires, entertaining clients, or celebrating a big win, I'll design
+                a hands-on cooking experience that gets your people out of their comfort zone — and into the kitchen.
+              </p>
+              <p className="font-sans text-base text-gray leading-[1.8] mb-8">
+                No cooking experience required. Just show up ready for bold spices, big laughs, and zero pretension.
+              </p>
+              <div className="flex gap-4 flex-wrap">
+                <CTAButton variant="primary" size="md" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
+                <CTAButton variant="secondary" size="md" onClick={() => setShowPackages(true)}>View Packages</CTAButton>
+              </div>
+            </div>
+          </div>
+
+          {/* Flexible Formats */}
+          <div className="text-center mb-12">
+            <SectionTag>Flexible Formats</SectionTag>
+            <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-3">Your kitchen or ours</h2>
+            <p className="font-sans text-base text-gray max-w-[500px] mx-auto">Every experience is available in the format that works best for your team.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { icon: "🏠", title: "At Our Kitchen", desc: "Join us at the YW Calgary Community Kitchen in Inglewood. All equipment and ingredients provided.", detail: "Up to 20 people · 2.5 hours" },
+              { icon: "🏢", title: "At Your Location", desc: "We bring the full experience to your office, venue, or chosen space. Chef Joey comes to you.", detail: "Up to 50 people · Flexible timing" },
+              { icon: "💻", title: "Virtual", desc: "Ingredient kits shipped to each participant. Live-streamed cooking with your team from anywhere.", detail: "Unlimited size · 1.5–2 hours" },
+            ].map((f) => (
+              <div key={f.title} className="bg-white rounded-2xl p-8 text-center border border-border transition-all duration-300 hover:border-purple hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)]">
+                <div className="text-5xl mb-4">{f.icon}</div>
+                <h3 className="font-sans text-[22px] font-bold text-dark mb-2">{f.title}</h3>
+                <p className="font-sans text-sm text-gray leading-[1.7] mb-4">{f.desc}</p>
+                <span className="font-sans text-[13px] font-semibold text-purple bg-purple-pale px-3.5 py-1 rounded-full">{f.detail}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Use Cases – Tab Style */}
       <section className="py-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
@@ -306,30 +361,7 @@ const TeamsPage = () => {
         </div>
       </section>
 
-      {/* Format Options */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-16">
-            <SectionTag>Flexible Formats</SectionTag>
-            <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-3">Your kitchen or ours</h2>
-            <p className="font-sans text-base text-gray max-w-[500px] mx-auto">Every experience is available in the format that works best for your team.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { icon: "🏠", title: "At Our Kitchen", desc: "Join us at the YW Calgary Community Kitchen in Inglewood. All equipment and ingredients provided.", detail: "Up to 20 people · 2.5 hours" },
-              { icon: "🏢", title: "At Your Location", desc: "We bring the full experience to your office, venue, or chosen space. Chef Joey comes to you.", detail: "Up to 50 people · Flexible timing" },
-              { icon: "💻", title: "Virtual", desc: "Ingredient kits shipped to each participant. Live-streamed cooking with your team from anywhere.", detail: "Unlimited size · 1.5–2 hours" },
-            ].map((f) => (
-              <div key={f.title} className="bg-cream rounded-2xl p-8 text-center border border-border transition-all duration-300 hover:border-purple">
-                <div className="text-5xl mb-4">{f.icon}</div>
-                <h3 className="font-sans text-[22px] font-bold text-dark mb-2">{f.title}</h3>
-                <p className="font-sans text-sm text-gray leading-[1.7] mb-4">{f.desc}</p>
-                <span className="font-sans text-[13px] font-semibold text-purple bg-purple-pale px-3.5 py-1 rounded-full">{f.detail}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Format Options section removed — merged into Meet Chef Joey above */}
 
       {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-br from-purple to-purple-dark text-center">
