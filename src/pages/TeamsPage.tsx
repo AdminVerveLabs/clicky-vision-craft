@@ -249,9 +249,15 @@ const TeamsPage = () => {
             ))}
           </div>
 
+          <div className="text-center mb-10">
+            <SectionTag>Perfect For</SectionTag>
+            <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
+            <p className="font-sans text-base text-gray mt-3 max-w-[520px] mx-auto">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
+          </div>
+
           <div className="flex gap-10">
             {/* Sidebar */}
-            <nav className="hidden md:block w-[220px] shrink-0 sticky top-32 self-start pt-[180px]">
+            <nav className="hidden md:block w-[220px] shrink-0 sticky top-32 self-start pt-[20px]">
               <p className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gray mb-4">Categories</p>
               <ul className="space-y-1">
                 {occasions.map((o) => (
@@ -277,12 +283,6 @@ const TeamsPage = () => {
                 const o = occasions.find((x) => x.id === activeId)!;
                 return (
                   <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
-                    {/* Section Header */}
-                    <div className="p-8 md:p-10 pb-0">
-                      <SectionTag>Perfect For</SectionTag>
-                      <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
-                      <p className="font-sans text-base text-gray mt-3 max-w-[520px] mb-8">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
-                    </div>
                     {/* Photo Header */}
                     <div className="relative h-[220px] md:h-[260px] overflow-hidden">
                       <img src={o.image} alt={o.title} className="w-full h-full object-cover" />
