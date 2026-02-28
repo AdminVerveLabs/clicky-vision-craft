@@ -1,26 +1,32 @@
 
 
-## Move catalogue section headers above the content cards
+## Add fake private/corporate events to the calendar
 
-Both pages have the same pattern: the tag + title + description sit inside the white card. Move them out above the card, centered, with the sidebar `pt` reduced accordingly.
+**File: `src/data/classData.ts`**
 
-### File: `src/pages/ClassesPage.tsx`
+1. Add an optional `private?: boolean` field to the `ClassData` interface
+2. Add ~4-5 private/corporate entries to `CLASS_DATA` on days that don't already have classes (e.g., days 3, 10, 16, 20, 25), with types like "Private Event" and "Corporate Team Building", `private: true`
 
-1. **Add centered header block** between the mobile pill bar (line ~215) and `<div className="flex gap-10">` (line ~217):
-   - Centered `text-center` block with `SectionTag variant="orange"`, the `h2` "Find your flavor", and the `p` description
-   - Add `mb-10` spacing below
+**File: `src/pages/ClassesPage.tsx`** (calendar rendering, ~lines 401-415)
 
-2. **Remove the header from inside the card** (lines 245-250 — the `div.p-8` with tag/h2/p)
+3. When rendering a class card, check `cls.private` — if true:
+   - Use a distinct muted style (e.g., `bg-sage/10 border border-sage/20`, italic text)
+   - Show label like "Private Event" or "Corporate Booking" instead of time
+   - No `onClick`, no cursor-pointer, no hover effects
+   - No spots/sold-out logic
 
-3. **Reduce sidebar `pt-[180px]`** to ~`pt-[20px]` since the header is no longer inside the card taking up space
+**File: `src/pages/classes/OpenClassesPage.tsx`** (same calendar pattern, ~lines 130-145)
 
-### File: `src/pages/TeamsPage.tsx`
+4. Same rendering treatment for private events
 
-1. **Add centered header block** between the mobile pill bar (line ~250) and `<div className="flex gap-10">` (line ~252):
-   - Centered `text-center` block with `SectionTag`, the `h2` "Pick your occasion", and the `p` description
-   - Add `mb-10` spacing below
+**File: `src/pages/ClassesPage.tsx`** (legend, ~line 428)
 
-2. **Remove the header from inside the card** (lines 280-285 — the `div.p-8` with tag/h2/p)
+5. Add a "Private / Corporate" entry to the legend
 
-3. **Reduce sidebar `pt-[180px]`** to ~`pt-[20px]`
+**Example private events:**
+- Day 3: "Private Birthday Dinner" (Private Event)
+- Day 10: "Acme Corp Team Building" (Corporate)  
+- Day 16: "Private Cooking Party" (Private Event)
+- Day 20: "EnergyCo Client Dinner" (Corporate)
+- Day 25: "Anniversary Celebration" (Private Event)
 
