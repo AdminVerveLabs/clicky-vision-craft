@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import chefJoeyLogo from "@/assets/chef-joey-logo.png";
+import chefJoeyWordmark from "@/assets/chef-joey-wordmark.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import CTAButton from "./CTAButton";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -83,16 +83,15 @@ const Nav = () => {
       }}
     >
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
-        <div onClick={() => go("/")} className="cursor-pointer flex items-center gap-2.5">
-          <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
-          <span
-            className="font-sans font-bold text-[22px] transition-colors duration-300"
+        <div onClick={() => go("/")} className="cursor-pointer">
+          <img
+            src={chefJoeyWordmark}
+            alt="Chef Joey"
+            className="h-10 w-auto transition-all duration-300"
             style={{
-              color: scrolled ? "hsl(var(--dark))" : isHome ? "white" : "hsl(var(--dark))",
+              filter: scrolled || !isHome ? "brightness(0)" : "none",
             }}
-          >
-            Chef Joey
-          </span>
+          />
         </div>
 
         {/* Desktop nav - centered links */}
@@ -180,9 +179,8 @@ const Nav = () => {
         <SheetContent side="right" className="w-[300px] p-0 overflow-y-auto">
           <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           <div className="p-6 pt-8">
-            <div className="flex items-center gap-2.5 mb-8">
-              <img src={chefJoeyLogo} alt="Chef Joey" className="w-10 h-10 rounded-full object-cover" />
-              <span className="font-sans font-bold text-[20px] text-dark">Chef Joey</span>
+            <div className="mb-8">
+              <img src={chefJoeyWordmark} alt="Chef Joey" className="h-10 w-auto" style={{ filter: "brightness(0)" }} />
             </div>
 
             <div className="space-y-1">
