@@ -1,25 +1,13 @@
 
 
-## Update "Choose Your Experience" Cards
+## Update Navbar Logo
 
-### File: `src/pages/HomePage.tsx`
+### File: `src/components/chef/Nav.tsx`
 
-**1. Rename "Private Classes" card to "Private Events" (line 157)**
-- Title: "Private Classes" → "Private Events"
-- Tag: "PRIVATE" (keep)
-- Category: "CUSTOM" (keep)
-- Description: Update to focus on events/celebrations rather than classes
-- Link: update to `/classes/private-events`
-
-**2. Add format badges to each card (lines 158-174)**
-- Add a `formats` array to each card data object: `["In-Person", "Virtual"]`
-- Render as small pills/badges between the description and "View Details" link
-- Style: small rounded pills with subtle background (e.g., `bg-gray-light text-dark text-[11px] font-semibold px-2.5 py-1 rounded-full`)
-
-### Card data changes:
-```
-Public Classes → formats: ["In-Person", "Virtual"]
-Team Building → formats: ["In-Person", "Virtual"]  
-Private Events → title change, desc: "Birthdays, anniversaries, celebrations—we customize the menu, the vibe, and the whole experience. You show up ready to celebrate.", formats: ["In-Person", "Virtual"]
-```
+1. Copy uploaded image to project: `user-uploads://image-24.png` → `src/assets/chef-joey-wordmark.png`
+2. Replace the logo import from `chef-joey-logo.png` to `chef-joey-wordmark.png`
+3. Remove the circular `img` + "Chef Joey" `span` combo and replace with a single `img` tag showing the new wordmark logo
+4. Style the new logo: ~120px wide, auto height, with appropriate sizing for the navbar
+5. Apply the same approach in the mobile sheet header (around line 155)
+6. Adjust color handling: since the logo appears to be a light/cream color, it will be visible on the transparent hero nav but may need a dark version or CSS filter for the scrolled (white background) state — will use `filter: brightness(0)` or similar when `scrolled` is true and page is not home
 
