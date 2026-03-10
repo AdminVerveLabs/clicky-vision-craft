@@ -325,7 +325,7 @@ const TeamsPage = () => {
                           <div className="bg-cream rounded-2xl p-6 border border-border">
                             {o.highlights.map((h, i) => (
                               <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
-                                <div className="w-6 h-6 rounded-full bg-purple-pale flex items-center justify-center text-[11px] font-bold text-purple font-sans shrink-0 mt-0.5">✓</div>
+                                <div className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-[11px] font-bold text-green font-sans shrink-0 mt-0.5">✓</div>
                                 <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
                               </div>
                             ))}
