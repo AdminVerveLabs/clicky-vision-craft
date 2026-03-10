@@ -54,7 +54,7 @@ const PrivateEventPackagesModal = ({ isOpen, onClose, onGetInTouch }: PrivateEve
         <div className="p-6 md:p-8">
           {/* Header */}
           <div className="text-center mb-6">
-            <span className="inline-block font-sans text-xs font-bold tracking-[2px] uppercase text-orange bg-orange-pale px-4 py-1.5 rounded-full mb-2">
+            <span className="inline-block font-sans text-xs font-bold tracking-[2px] uppercase text-purple bg-purple-pale px-4 py-1.5 rounded-full mb-2">
               Packages
             </span>
             <h2 className="font-sans text-[26px] md:text-[30px] font-extrabold text-dark">
@@ -72,12 +72,12 @@ const PrivateEventPackagesModal = ({ isOpen, onClose, onGetInTouch }: PrivateEve
                 key={pkg.name}
                 className={`relative rounded-2xl border p-5 transition-all duration-200 ${
                   pkg.highlight
-                    ? "border-orange border-2 shadow-lg shadow-orange/10"
-                    : "border-border hover:border-orange/40"
+                    ? "border-purple border-2 shadow-lg shadow-purple/10"
+                    : "border-border hover:border-purple/40"
                 }`}
               >
                 {pkg.badge && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 font-sans text-[11px] font-bold text-white bg-orange px-3 py-1 rounded-full whitespace-nowrap">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 font-sans text-[11px] font-bold text-white bg-purple px-3 py-1 rounded-full whitespace-nowrap">
                     {pkg.badge}
                   </span>
                 )}
@@ -89,8 +89,8 @@ const PrivateEventPackagesModal = ({ isOpen, onClose, onGetInTouch }: PrivateEve
                 <ul className="space-y-2">
                   {pkg.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-orange-pale flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-2.5 h-2.5 text-orange" />
+                      <div className="w-4 h-4 rounded-full bg-green/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-2.5 h-2.5 text-green" />
                       </div>
                       <span className="font-sans text-[12px] text-dark leading-snug">{f}</span>
                     </li>
@@ -106,8 +106,8 @@ const PrivateEventPackagesModal = ({ isOpen, onClose, onGetInTouch }: PrivateEve
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {addOns.map((a) => (
                 <div key={a.name} className="bg-cream rounded-xl p-4 border border-border flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-xl bg-orange-pale flex items-center justify-center shrink-0">
-                    <a.icon className="w-5 h-5 text-orange" />
+                  <div className="w-9 h-9 rounded-xl bg-purple-pale flex items-center justify-center shrink-0">
+                    <a.icon className="w-5 h-5 text-purple" />
                   </div>
                   <div>
                     <p className="font-sans text-[14px] font-semibold text-dark">{a.name}</p>
@@ -124,7 +124,7 @@ const PrivateEventPackagesModal = ({ isOpen, onClose, onGetInTouch }: PrivateEve
           <div className="text-center">
             <button
               onClick={onGetInTouch}
-              className="inline-flex items-center gap-2 rounded-full font-semibold font-sans px-8 py-3 text-base bg-orange text-white shadow-[0_4px_14px_hsl(var(--orange)/0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-full font-semibold font-sans px-8 py-3 text-base bg-purple text-white shadow-[0_4px_14px_hsl(var(--purple)/0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 cursor-pointer"
             >
               Plan My Event
             </button>

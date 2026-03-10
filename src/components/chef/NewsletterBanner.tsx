@@ -6,7 +6,7 @@ const NewsletterBanner = () => (
     <div className="absolute -top-20 -right-20 w-[300px] h-[300px] rounded-full bg-white/5" />
     <div className="absolute -bottom-16 -left-16 w-[200px] h-[200px] rounded-full bg-white/[0.03]" />
     <div className="max-w-[600px] mx-auto relative">
-      <SectionTag variant="orange">Stay in the loop</SectionTag>
+      <SectionTag variant="green">Stay in the loop</SectionTag>
       <h2 className="font-sans text-3xl md:text-4xl font-extrabold text-white mt-4 mb-3 leading-tight">
         Get first dibs on new classes
       </h2>
@@ -19,7 +19,7 @@ const NewsletterBanner = () => (
           placeholder="your@email.com"
           className="flex-1 px-5 py-3.5 rounded-full border-none text-[15px] font-sans outline-none"
         />
-        <CTAButton variant="orange">Subscribe</CTAButton>
+        <CTAButton variant="green">Subscribe</CTAButton>
       </div>
     </div>
   </section>

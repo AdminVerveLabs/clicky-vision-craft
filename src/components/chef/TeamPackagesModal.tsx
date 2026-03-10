@@ -96,8 +96,8 @@ const TeamPackagesModal = ({ isOpen, onClose, onGetInTouch }: TeamPackagesModalP
                 <ul className="space-y-2">
                   {pkg.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-purple-pale flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-2.5 h-2.5 text-purple" />
+                      <div className="w-4 h-4 rounded-full bg-green/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-2.5 h-2.5 text-green" />
                       </div>
                       <span className="font-sans text-[12px] text-dark leading-snug">{f}</span>
                     </li>
@@ -131,7 +131,7 @@ const TeamPackagesModal = ({ isOpen, onClose, onGetInTouch }: TeamPackagesModalP
           <div className="text-center">
             <button
               onClick={onGetInTouch}
-              className="inline-flex items-center gap-2 rounded-full font-semibold font-sans px-8 py-3 text-base bg-orange text-white shadow-[0_4px_14px_hsl(var(--orange)/0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-full font-semibold font-sans px-8 py-3 text-base bg-purple text-white shadow-[0_4px_14px_hsl(var(--purple)/0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90 cursor-pointer"
             >
               Get in Touch!
             </button>
