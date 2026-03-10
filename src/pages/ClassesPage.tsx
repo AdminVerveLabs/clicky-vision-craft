@@ -358,7 +358,7 @@ const ClassesPage = () => {
       <section id="class-calendar" className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <SectionTag variant="orange">Schedule</SectionTag>
+            <SectionTag>Schedule</SectionTag>
             <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-2">What's cooking this month</h2>
             <p className="font-sans text-base text-gray max-w-[480px] mx-auto">Click any class to see the full menu, details, and book your spot.</p>
           </div>
