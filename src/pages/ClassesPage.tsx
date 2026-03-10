@@ -343,7 +343,7 @@ const ClassesPage = () => {
 
           {/* Awards */}
           <div className="flex flex-col items-center text-center">
-            <Trophy className="w-10 h-10 text-orange mb-3" />
+            <Trophy className="w-10 h-10 text-purple mb-3" />
             <p className="font-sans text-lg font-extrabold text-dark mb-1">Consumer Choice Award</p>
             <p className="font-sans text-[13px] text-gray mb-3">Winner 2024 & 2025</p>
             <div className="flex items-center gap-2">
