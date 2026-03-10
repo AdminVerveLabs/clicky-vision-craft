@@ -161,7 +161,7 @@ const ClassesPage = () => {
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="text-center md:text-left">
-              <SectionTag variant="orange">Classes & Events</SectionTag>
+              <SectionTag>Classes & Events</SectionTag>
               <h1 className="font-sans text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 Your next great meal starts <span className="text-orange italic">here</span>
               </h1>
