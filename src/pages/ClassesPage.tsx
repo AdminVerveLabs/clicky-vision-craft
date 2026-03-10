@@ -454,7 +454,7 @@ const ClassesPage = () => {
       <section className="py-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
-            <SectionTag variant="orange">How to Join</SectionTag>
+            <SectionTag>How to Join</SectionTag>
             <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4">Cook wherever suits you</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
