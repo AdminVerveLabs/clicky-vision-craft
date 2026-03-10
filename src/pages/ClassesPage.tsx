@@ -255,7 +255,7 @@ const ClassesPage = () => {
                         <div className="absolute bottom-0 left-0 p-8 md:p-10 flex items-end gap-5">
                           <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-4xl shrink-0">{o.icon}</div>
                           <div>
-                            <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-orange/80 px-3 py-1 rounded-full mb-2">{o.tag}</span>
+                            <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-purple/80 px-3 py-1 rounded-full mb-2">{o.tag}</span>
                             <h3 className="font-sans text-[28px] md:text-[32px] font-bold text-white leading-tight drop-shadow-lg">{o.title}</h3>
                           </div>
                         </div>
