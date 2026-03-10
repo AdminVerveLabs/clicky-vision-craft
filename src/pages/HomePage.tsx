@@ -96,7 +96,7 @@ const HomePage = () => {
             <div>
               <SectionTag>Meet the Chef</SectionTag>
               <h2 className="font-sans text-[28px] md:text-[42px] font-extrabold text-dark mt-4 mb-4 leading-[1.15]">
-                Cooking should be fun. <span className="text-orange italic">Be brave</span> and try something new.
+                Cooking should be fun. <span className="text-purple italic">Be brave</span> and try something new.
               </h2>
               <p className="font-sans text-base text-gray leading-[1.8] mb-6">
                 I have a passion for food and I'd love to share that with you. I don't take myself too seriously and
