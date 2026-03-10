@@ -215,7 +215,7 @@ const ClassesPage = () => {
           </div>
 
           <div className="text-center mb-10">
-            <SectionTag variant="orange">Experiences</SectionTag>
+            <SectionTag>Experiences</SectionTag>
             <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Find your flavor</h2>
             <p className="font-sans text-base text-gray mt-3 max-w-[520px] mx-auto">From open enrollment classes to private celebrations, find the perfect culinary experience for you.</p>
           </div>
