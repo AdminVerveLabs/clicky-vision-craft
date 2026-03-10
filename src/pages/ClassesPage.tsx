@@ -205,8 +205,8 @@ const ClassesPage = () => {
                 onClick={() => setActiveExpId(o.id)}
                 className={`whitespace-nowrap px-4 py-2 rounded-full font-sans text-[13px] font-semibold border transition-colors duration-200 shrink-0 ${
                   activeExpId === o.id
-                    ? "bg-orange text-white border-orange"
-                    : "bg-white text-gray border-border hover:border-orange hover:text-orange"
+                    ? "bg-purple text-white border-purple"
+                    : "bg-white text-gray border-border hover:border-purple hover:text-purple"
                 }`}
               >
                 {o.sidebarLabel}
