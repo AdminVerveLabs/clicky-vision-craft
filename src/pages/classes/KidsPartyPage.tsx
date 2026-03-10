@@ -15,11 +15,11 @@ const KidsPartyPage = () => {
           <div className="mb-2">
             <span onClick={() => go("/classes")} className="font-sans text-[13px] text-gray cursor-pointer">Classes & Events</span>
             <span className="text-gray mx-2">›</span>
-            <span className="font-sans text-[13px] text-orange font-semibold">Kids Party</span>
+            <span className="font-sans text-[13px] text-purple font-semibold">Kids Party</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
-              <SectionTag variant="orange">Kids Party</SectionTag>
+              <SectionTag>Kids Party</SectionTag>
               <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 The coolest birthday party <span className="text-orange italic">ever</span>
               </h1>
@@ -28,7 +28,7 @@ const KidsPartyPage = () => {
                 and drop-in sessions that build confidence and creativity.
               </p>
               <div className="flex gap-4 flex-wrap">
-                <CTAButton variant="orange" size="lg">Chat with Joey</CTAButton>
+                <CTAButton variant="primary" size="lg">Chat with Joey</CTAButton>
                 <CTAButton variant="secondary" size="lg">See Classes</CTAButton>
               </div>
             </div>
@@ -45,17 +45,17 @@ const KidsPartyPage = () => {
             <div>
               <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Party Details</h2>
               {[
-                { icon: "⏱️", label: "Duration", value: "1.5 – 2 hours of hands-on fun", color: "orange" as const },
-                { icon: "👧", label: "Ages", value: "4 – 15 years old", color: "purple" as const },
-                { icon: "👥", label: "Group Size", value: "8 – 20 kids", color: "sage" as const },
-                { icon: "📍", label: "Location", value: "Our Kitchen or your home", color: "orange" as const },
+                { icon: "⏱️", label: "Duration", value: "1.5 – 2 hours of hands-on fun", color: "purple" as const },
+                { icon: "👧", label: "Ages", value: "4 – 15 years old", color: "sage" as const },
+                { icon: "👥", label: "Group Size", value: "8 – 20 kids", color: "purple" as const },
+                { icon: "📍", label: "Location", value: "Our Kitchen or your home", color: "sage" as const },
                 { icon: "💰", label: "Price", value: "From $65/kid — all ingredients and supplies included", color: "purple" as const },
                 { icon: "🎂", label: "Includes", value: "Chef-led cooking, aprons, recipes, and party vibes", color: "sage" as const },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : item.color === "orange" ? "bg-orange/10" : "bg-sage/10"}`}>{item.icon}</div>
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
                   <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : item.color === "orange" ? "text-orange" : "text-sage"}`}>{item.label}</p>
+                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
                   </div>
                 </div>
@@ -66,7 +66,7 @@ const KidsPartyPage = () => {
               <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
                 {["They get to cook real food (not just decorate cupcakes)", "Hands-on and interactive — every kid participates", "Safe, supervised kitchen environment", "They eat what they make — and they're proud of it", "Take-home recipe cards to recreate at home"].map((item, i) => (
                   <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-orange/10 flex items-center justify-center text-xs font-bold text-orange font-sans shrink-0">⭐</div>
+                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">⭐</div>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item}</p>
                   </div>
                 ))}
@@ -76,11 +76,11 @@ const KidsPartyPage = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-6 bg-gradient-to-br from-orange to-orange-dark text-center">
+      <section className="py-16 md:py-20 px-6 bg-gradient-to-br from-purple to-purple-dark text-center">
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Give them a party they'll never forget</h2>
           <p className="font-sans text-sm md:text-base text-white/70 mb-8">Book a kids cooking party and watch their faces light up.</p>
-          <CTAButton variant="primary" size="lg">Chat with Joey</CTAButton>
+          <CTAButton variant="green" size="lg">Chat with Joey</CTAButton>
         </div>
       </section>
 

@@ -49,16 +49,16 @@ const OnboardingPage = () => {
               <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Experience Details</h2>
               {[
                 { icon: "⏱️", label: "Duration", value: "2 – 2.5 hours", color: "purple" as const },
-                { icon: "👥", label: "Group Size", value: "5 – 25 people (new hires + buddies)", color: "orange" as const },
-                { icon: "🎯", label: "Focus", value: "Connection, culture, and collaboration", color: "sage" as const },
-                { icon: "📍", label: "Location", value: "Our Kitchen · Your Office · Virtual", color: "purple" as const },
-                { icon: "🔄", label: "Frequency", value: "Monthly, quarterly, or per cohort", color: "orange" as const },
+                { icon: "👥", label: "Group Size", value: "5 – 25 people (new hires + buddies)", color: "sage" as const },
+                { icon: "🎯", label: "Focus", value: "Connection, culture, and collaboration", color: "purple" as const },
+                { icon: "📍", label: "Location", value: "Our Kitchen · Your Office · Virtual", color: "sage" as const },
+                { icon: "🔄", label: "Frequency", value: "Monthly, quarterly, or per cohort", color: "purple" as const },
                 { icon: "📋", label: "Customizable", value: "Integrate your company values and culture themes", color: "sage" as const },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : item.color === "orange" ? "bg-orange/10" : "bg-sage/10"}`}>{item.icon}</div>
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
                   <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : item.color === "orange" ? "text-orange" : "text-sage"}`}>{item.label}</p>
+                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ const OnboardingPage = () => {
               <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
                 {["New hires build relationships before day one at their desk", "Creates a memorable first impression of your culture", "Breaks the ice naturally — no forced small talk", "Builds cross-team connections from the start", "Employees actually look forward to onboarding"].map((item, i) => (
                   <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-purple-pale flex items-center justify-center text-xs font-bold text-purple font-sans shrink-0">✓</div>
+                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">✓</div>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item}</p>
                   </div>
                 ))}
@@ -83,7 +83,7 @@ const OnboardingPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Make onboarding unforgettable</h2>
           <p className="font-sans text-sm md:text-base text-white/70 mb-8">Let's design an onboarding experience that sets the tone for your company culture.</p>
-          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
+          <CTAButton variant="green" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
         </div>
       </section>
 

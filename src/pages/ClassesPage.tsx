@@ -161,7 +161,7 @@ const ClassesPage = () => {
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="text-center md:text-left">
-              <SectionTag variant="orange">Classes & Events</SectionTag>
+              <SectionTag>Classes & Events</SectionTag>
               <h1 className="font-sans text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
                 Your next great meal starts <span className="text-orange italic">here</span>
               </h1>
@@ -169,7 +169,7 @@ const ClassesPage = () => {
                 From open classes to private celebrations, we've got the perfect culinary adventure. No experience needed—just bring your appetite and a sense of fun.
               </p>
               <div className="flex gap-4 justify-center md:justify-start">
-                <CTAButton variant="orange" size="lg" onClick={() => {
+                <CTAButton variant="primary" size="lg" onClick={() => {
                   const el = document.getElementById('class-calendar');
                   if (!el) return;
                   const start = window.scrollY;
@@ -205,8 +205,8 @@ const ClassesPage = () => {
                 onClick={() => setActiveExpId(o.id)}
                 className={`whitespace-nowrap px-4 py-2 rounded-full font-sans text-[13px] font-semibold border transition-colors duration-200 shrink-0 ${
                   activeExpId === o.id
-                    ? "bg-orange text-white border-orange"
-                    : "bg-white text-gray border-border hover:border-orange hover:text-orange"
+                    ? "bg-purple text-white border-purple"
+                    : "bg-white text-gray border-border hover:border-purple hover:text-purple"
                 }`}
               >
                 {o.sidebarLabel}
@@ -215,7 +215,7 @@ const ClassesPage = () => {
           </div>
 
           <div className="text-center mb-10">
-            <SectionTag variant="orange">Experiences</SectionTag>
+            <SectionTag>Experiences</SectionTag>
             <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Find your flavor</h2>
             <p className="font-sans text-base text-gray mt-3 max-w-[520px] mx-auto">From open enrollment classes to private celebrations, find the perfect culinary experience for you.</p>
           </div>
@@ -231,8 +231,8 @@ const ClassesPage = () => {
                       onClick={() => setActiveExpId(o.id)}
                       className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
                         activeExpId === o.id
-                          ? "border-orange text-orange font-semibold"
-                          : "border-transparent text-gray hover:text-orange"
+                          ? "border-purple text-purple font-semibold"
+                          : "border-transparent text-gray hover:text-purple"
                       }`}
                     >
                       {o.sidebarLabel}
@@ -255,7 +255,7 @@ const ClassesPage = () => {
                         <div className="absolute bottom-0 left-0 p-8 md:p-10 flex items-end gap-5">
                           <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-4xl shrink-0">{o.icon}</div>
                           <div>
-                            <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-orange/80 px-3 py-1 rounded-full mb-2">{o.tag}</span>
+                            <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-purple/80 px-3 py-1 rounded-full mb-2">{o.tag}</span>
                             <h3 className="font-sans text-[28px] md:text-[32px] font-bold text-white leading-tight drop-shadow-lg">{o.title}</h3>
                           </div>
                         </div>
@@ -290,7 +290,7 @@ const ClassesPage = () => {
                           <div className="bg-cream rounded-2xl p-6 border border-border">
                             {o.highlights.map((h, i) => (
                               <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
-                                <div className="w-6 h-6 rounded-full bg-orange-pale flex items-center justify-center text-[11px] font-bold text-orange font-sans shrink-0 mt-0.5">✓</div>
+                                <div className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-[11px] font-bold text-green font-sans shrink-0 mt-0.5">✓</div>
                                 <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
                               </div>
                             ))}
@@ -302,8 +302,8 @@ const ClassesPage = () => {
                       <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-border">
                         <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">💰 {o.price}</span>
                         <div className="flex-1" />
-                        <CTAButton variant="orange" size="md">Chat with Joey</CTAButton>
-                        <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-orange hover:underline cursor-pointer">
+                        <CTAButton variant="primary" size="md">Chat with Joey</CTAButton>
+                        <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-purple hover:underline cursor-pointer">
                           Learn More →
                         </button>
                       </div>
@@ -343,7 +343,7 @@ const ClassesPage = () => {
 
           {/* Awards */}
           <div className="flex flex-col items-center text-center">
-            <Trophy className="w-10 h-10 text-orange mb-3" />
+            <Trophy className="w-10 h-10 text-purple mb-3" />
             <p className="font-sans text-lg font-extrabold text-dark mb-1">Consumer Choice Award</p>
             <p className="font-sans text-[13px] text-gray mb-3">Winner 2024 & 2025</p>
             <div className="flex items-center gap-2">
@@ -358,7 +358,7 @@ const ClassesPage = () => {
       <section id="class-calendar" className="py-24 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <SectionTag variant="orange">Schedule</SectionTag>
+            <SectionTag>Schedule</SectionTag>
             <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4 mb-2">What's cooking this month</h2>
             <p className="font-sans text-base text-gray max-w-[480px] mx-auto">Click any class to see the full menu, details, and book your spot.</p>
           </div>
@@ -454,7 +454,7 @@ const ClassesPage = () => {
       <section className="py-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
-            <SectionTag variant="orange">How to Join</SectionTag>
+            <SectionTag>How to Join</SectionTag>
             <h2 className="font-sans text-[28px] md:text-[38px] font-extrabold text-dark mt-4">Cook wherever suits you</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">

@@ -120,9 +120,9 @@ const TeamBookingFormModal = ({ isOpen, onClose }: TeamBookingFormModalProps) =>
                     <div
                       className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 ${
                         isDone
-                          ? "bg-white text-purple"
+                          ? "bg-green text-white"
                           : isActive
-                          ? "bg-white text-purple shadow-lg shadow-white/20"
+                          ? "bg-white text-green shadow-lg shadow-white/20"
                           : "bg-white/15 text-white/50"
                       }`}
                     >
@@ -294,7 +294,7 @@ const TeamBookingFormModal = ({ isOpen, onClose }: TeamBookingFormModalProps) =>
                   Next <ArrowRight className="w-4 h-4" />
                 </button>
               ) : (
-                <button onClick={submit} className="inline-flex items-center gap-2 rounded-full font-sans text-sm font-semibold px-8 py-2.5 bg-orange text-white shadow-[0_4px_14px_hsl(var(--orange)/0.3)] hover:-translate-y-0.5 transition-all cursor-pointer">
+                <button onClick={submit} className="inline-flex items-center gap-2 rounded-full font-sans text-sm font-semibold px-8 py-2.5 bg-purple text-white shadow-[0_4px_14px_hsl(var(--purple)/0.3)] hover:-translate-y-0.5 transition-all cursor-pointer">
                   <MessageSquare className="w-4 h-4" /> Book My Chat
                 </button>
               )}

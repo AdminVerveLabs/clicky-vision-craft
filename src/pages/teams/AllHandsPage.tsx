@@ -49,16 +49,16 @@ const AllHandsPage = () => {
               <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Experience Details</h2>
               {[
                 { icon: "⏱️", label: "Duration", value: "1.5 – 3 hours, flexible to your agenda", color: "purple" as const },
-                { icon: "👥", label: "Group Size", value: "20 – 200+ people", color: "orange" as const },
-                { icon: "💻", label: "Format", value: "In-person, virtual, or hybrid", color: "sage" as const },
-                { icon: "📍", label: "Location", value: "Your office, event venue, or online", color: "purple" as const },
-                { icon: "🎯", label: "Activities", value: "Live demos, cooking challenges, team competitions", color: "orange" as const },
+                { icon: "👥", label: "Group Size", value: "20 – 200+ people", color: "sage" as const },
+                { icon: "💻", label: "Format", value: "In-person, virtual, or hybrid", color: "purple" as const },
+                { icon: "📍", label: "Location", value: "Your office, event venue, or online", color: "sage" as const },
+                { icon: "🎯", label: "Activities", value: "Live demos, cooking challenges, team competitions", color: "purple" as const },
                 { icon: "📦", label: "Virtual Kit", value: "Ingredient kits shipped to each participant", color: "sage" as const },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : item.color === "orange" ? "bg-orange/10" : "bg-sage/10"}`}>{item.icon}</div>
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
                   <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : item.color === "orange" ? "text-orange" : "text-sage"}`}>{item.label}</p>
+                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ const AllHandsPage = () => {
               <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
                 {["Breaks down silos between departments and offices", "Works for both in-person and remote employees", "Interactive format keeps everyone engaged", "Creates shared memories beyond the usual slides", "Scales from 20 to 200+ without losing the magic"].map((item, i) => (
                   <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-purple-pale flex items-center justify-center text-xs font-bold text-purple font-sans shrink-0">✓</div>
+                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">✓</div>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item}</p>
                   </div>
                 ))}
@@ -83,7 +83,7 @@ const AllHandsPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Make your next all-hands one to remember</h2>
           <p className="font-sans text-sm md:text-base text-white/70 mb-8">We'll work with your team to design the perfect experience for your company gathering.</p>
-          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
+          <CTAButton variant="green" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
         </div>
       </section>
 

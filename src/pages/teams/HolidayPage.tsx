@@ -49,16 +49,16 @@ const HolidayPage = () => {
               <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Event Details</h2>
               {[
                 { icon: "⏱️", label: "Duration", value: "2.5 – 3 hours of cooking and celebration", color: "purple" as const },
-                { icon: "👥", label: "Group Size", value: "10 – 50+ people", color: "orange" as const },
-                { icon: "🍽️", label: "Menus", value: "Seasonal and themed menus for every occasion", color: "sage" as const },
-                { icon: "📍", label: "Location", value: "Our Kitchen · Your Venue · Virtual", color: "purple" as const },
-                { icon: "🎄", label: "Themes", value: "Holiday, summer, spring, cultural celebrations", color: "orange" as const },
+                { icon: "👥", label: "Group Size", value: "10 – 50+ people", color: "sage" as const },
+                { icon: "🍽️", label: "Menus", value: "Seasonal and themed menus for every occasion", color: "purple" as const },
+                { icon: "📍", label: "Location", value: "Our Kitchen · Your Venue · Virtual", color: "sage" as const },
+                { icon: "🎄", label: "Themes", value: "Holiday, summer, spring, cultural celebrations", color: "purple" as const },
                 { icon: "🎁", label: "Extras", value: "Décor, music, team competitions, prizes", color: "sage" as const },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : item.color === "orange" ? "bg-orange/10" : "bg-sage/10"}`}>{item.icon}</div>
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
                   <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : item.color === "orange" ? "text-orange" : "text-sage"}`}>{item.label}</p>
+                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ const HolidayPage = () => {
               <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
                 {["Holiday party — festive menus and team competitions", "Summer kickoff — light, fresh, outdoor-friendly", "Year-end celebration — reflect and feast together", "Cultural celebrations — Lunar New Year, Diwali, and more", "Milestone events — anniversaries, launches, achievements"].map((item, i) => (
                   <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-purple-pale flex items-center justify-center text-xs font-bold text-purple font-sans shrink-0">🎉</div>
+                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">🎉</div>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item}</p>
                   </div>
                 ))}
@@ -83,7 +83,7 @@ const HolidayPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Let's make this season unforgettable</h2>
           <p className="font-sans text-sm md:text-base text-white/70 mb-8">Tell us about your celebration and we'll handle the rest.</p>
-          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Start Planning →</CTAButton>
+          <CTAButton variant="green" size="lg" onClick={() => setShowBookingForm(true)}>Start Planning →</CTAButton>
         </div>
       </section>
 

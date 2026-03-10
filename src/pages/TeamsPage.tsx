@@ -325,7 +325,7 @@ const TeamsPage = () => {
                           <div className="bg-cream rounded-2xl p-6 border border-border">
                             {o.highlights.map((h, i) => (
                               <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
-                                <div className="w-6 h-6 rounded-full bg-purple-pale flex items-center justify-center text-[11px] font-bold text-purple font-sans shrink-0 mt-0.5">✓</div>
+                                <div className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-[11px] font-bold text-green font-sans shrink-0 mt-0.5">✓</div>
                                 <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
                               </div>
                             ))}
@@ -339,7 +339,7 @@ const TeamsPage = () => {
                         <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">⏱ {o.duration}</span>
                         <div className="flex-1" />
                         <CTAButton variant="primary" size="md" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
-                        <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-orange hover:underline cursor-pointer">
+                        <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-purple hover:underline cursor-pointer">
                           Learn More →
                         </button>
                       </div>
@@ -360,7 +360,7 @@ const TeamsPage = () => {
           <h2 className="font-sans text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to spice up your next team event?</h2>
           <p className="font-sans text-base text-white/70 mb-8">Book a free 15-minute call. We'll help you pick the perfect experience for your team.</p>
           <div className="flex gap-4 justify-center">
-            <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
+            <CTAButton variant="green" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
             <CTAButton variant="ghost" size="lg">Request a Proposal</CTAButton>
           </div>
         </div>

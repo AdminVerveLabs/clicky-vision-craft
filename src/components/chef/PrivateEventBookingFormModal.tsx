@@ -96,7 +96,7 @@ const PrivateEventBookingFormModal = ({ isOpen, onClose }: PrivateEventBookingFo
   const progress = ((step + 1) / 4) * 100;
 
   const selectClass = (hasError: boolean) =>
-    `w-full h-10 rounded-lg border ${hasError ? "border-destructive" : "border-input"} bg-background px-3 py-2 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2 appearance-none cursor-pointer`;
+    `w-full h-10 rounded-lg border ${hasError ? "border-destructive" : "border-input"} bg-background px-3 py-2 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-purple focus:ring-offset-2 appearance-none cursor-pointer`;
 
   return (
     <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4">
@@ -105,7 +105,7 @@ const PrivateEventBookingFormModal = ({ isOpen, onClose }: PrivateEventBookingFo
         {/* Left Panel */}
         <div className="hidden md:flex w-[38%] relative flex-col justify-between overflow-hidden">
           <img src={chefKitchen} alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-orange-dark/85 via-orange/80 to-orange-dark/90" style={{ background: "linear-gradient(to bottom, hsla(25, 80%, 25%, 0.85), hsla(var(--orange) / 0.8), hsla(25, 80%, 25%, 0.9))" }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-purple-dark/85 via-purple/80 to-purple-dark/90" />
           <div className="relative z-10 p-8 flex-1 flex flex-col">
             <h3 className="font-serif text-xl font-bold text-white mb-8">Your Journey</h3>
             <div className="space-y-1 flex-1">
@@ -118,9 +118,9 @@ const PrivateEventBookingFormModal = ({ isOpen, onClose }: PrivateEventBookingFo
                     <div
                       className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 ${
                         isDone
-                          ? "bg-white text-orange"
+                          ? "bg-green text-white"
                           : isActive
-                          ? "bg-white text-orange shadow-lg shadow-white/20"
+                          ? "bg-white text-green shadow-lg shadow-white/20"
                           : "bg-white/15 text-white/50"
                       }`}
                     >
@@ -269,19 +269,19 @@ const PrivateEventBookingFormModal = ({ isOpen, onClose }: PrivateEventBookingFo
 
           {/* Footer */}
           <div className="px-8 md:px-10 pb-8 space-y-4">
-            <Progress value={progress} className="h-1.5 bg-gray-light [&>div]:bg-orange" />
+            <Progress value={progress} className="h-1.5 bg-gray-light [&>div]:bg-purple" />
             <div className="flex justify-between items-center">
               {step > 0 ? (
-                <button onClick={back} className="inline-flex items-center gap-2 rounded-full font-sans text-sm font-semibold px-6 py-2.5 border-2 border-orange text-orange hover:bg-orange-pale transition-colors cursor-pointer">
+                <button onClick={back} className="inline-flex items-center gap-2 rounded-full font-sans text-sm font-semibold px-6 py-2.5 border-2 border-purple text-purple hover:bg-purple-pale transition-colors cursor-pointer">
                   <ArrowLeft className="w-4 h-4" /> Back
                 </button>
               ) : <div />}
               {step < 3 ? (
-                <button onClick={next} className="inline-flex items-center gap-2 rounded-full font-sans text-sm font-semibold px-8 py-2.5 bg-orange text-white shadow-[0_4px_14px_hsl(var(--orange)/0.3)] hover:-translate-y-0.5 transition-all cursor-pointer">
+                <button onClick={next} className="inline-flex items-center gap-2 rounded-full font-sans text-sm font-semibold px-8 py-2.5 bg-purple text-white shadow-[0_4px_14px_hsl(var(--purple)/0.3)] hover:-translate-y-0.5 transition-all cursor-pointer">
                   Next <ArrowRight className="w-4 h-4" />
                 </button>
               ) : (
-                <button onClick={submit} className="inline-flex items-center gap-2 rounded-full font-sans text-sm font-semibold px-8 py-2.5 bg-orange text-white shadow-[0_4px_14px_hsl(var(--orange)/0.3)] hover:-translate-y-0.5 transition-all cursor-pointer">
+                <button onClick={submit} className="inline-flex items-center gap-2 rounded-full font-sans text-sm font-semibold px-8 py-2.5 bg-purple text-white shadow-[0_4px_14px_hsl(var(--purple)/0.3)] hover:-translate-y-0.5 transition-all cursor-pointer">
                   <MessageSquare className="w-4 h-4" /> Plan My Event
                 </button>
               )}
