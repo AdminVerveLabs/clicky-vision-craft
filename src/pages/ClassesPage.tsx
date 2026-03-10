@@ -169,7 +169,7 @@ const ClassesPage = () => {
                 From open classes to private celebrations, we've got the perfect culinary adventure. No experience needed—just bring your appetite and a sense of fun.
               </p>
               <div className="flex gap-4 justify-center md:justify-start">
-                <CTAButton variant="orange" size="lg" onClick={() => {
+                <CTAButton variant="primary" size="lg" onClick={() => {
                   const el = document.getElementById('class-calendar');
                   if (!el) return;
                   const start = window.scrollY;
