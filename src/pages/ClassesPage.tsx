@@ -302,8 +302,8 @@ const ClassesPage = () => {
                       <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-border">
                         <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">💰 {o.price}</span>
                         <div className="flex-1" />
-                        <CTAButton variant="orange" size="md">Chat with Joey</CTAButton>
-                        <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-orange hover:underline cursor-pointer">
+                        <CTAButton variant="primary" size="md">Chat with Joey</CTAButton>
+                        <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-purple hover:underline cursor-pointer">
                           Learn More →
                         </button>
                       </div>
