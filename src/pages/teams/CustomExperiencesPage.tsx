@@ -49,16 +49,16 @@ const CustomExperiencesPage = () => {
               <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">How It Works</h2>
               {[
                 { icon: "💬", label: "Step 1", value: "Tell us your goals, team, and any special requirements", color: "purple" as const },
-                { icon: "📋", label: "Step 2", value: "We design a custom experience and menu proposal", color: "orange" as const },
-                { icon: "✅", label: "Step 3", value: "Refine together until it's exactly right", color: "sage" as const },
-                { icon: "🍳", label: "Step 4", value: "Show up and have the time of your lives", color: "purple" as const },
-                { icon: "📍", label: "Location", value: "Anywhere — our kitchen, your space, or virtual", color: "orange" as const },
+                { icon: "📋", label: "Step 2", value: "We design a custom experience and menu proposal", color: "sage" as const },
+                { icon: "✅", label: "Step 3", value: "Refine together until it's exactly right", color: "purple" as const },
+                { icon: "🍳", label: "Step 4", value: "Show up and have the time of your lives", color: "sage" as const },
+                { icon: "📍", label: "Location", value: "Anywhere — our kitchen, your space, or virtual", color: "purple" as const },
                 { icon: "👥", label: "Group Size", value: "Any size — from intimate to massive", color: "sage" as const },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : item.color === "orange" ? "bg-orange/10" : "bg-sage/10"}`}>{item.icon}</div>
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
                   <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : item.color === "orange" ? "text-orange" : "text-sage"}`}>{item.label}</p>
+                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ const CustomExperiencesPage = () => {
               <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
                 {["Product launch dinner with themed courses", "Wellness retreat with healthy cooking workshop", "Multi-day conference with daily cooking sessions", "Charity fundraiser with interactive food stations", "Executive retreat with premium dining experience"].map((item, i) => (
                   <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-purple-pale flex items-center justify-center text-xs font-bold text-purple font-sans shrink-0">★</div>
+                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">★</div>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item}</p>
                   </div>
                 ))}
@@ -83,7 +83,7 @@ const CustomExperiencesPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Let's create something unique</h2>
           <p className="font-sans text-sm md:text-base text-white/70 mb-8">Share your vision and we'll bring it to life with food, fun, and flair.</p>
-          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Start the Conversation →</CTAButton>
+          <CTAButton variant="green" size="lg" onClick={() => setShowBookingForm(true)}>Start the Conversation →</CTAButton>
         </div>
       </section>
 

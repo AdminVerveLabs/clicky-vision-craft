@@ -360,7 +360,7 @@ const TeamsPage = () => {
           <h2 className="font-sans text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to spice up your next team event?</h2>
           <p className="font-sans text-base text-white/70 mb-8">Book a free 15-minute call. We'll help you pick the perfect experience for your team.</p>
           <div className="flex gap-4 justify-center">
-            <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
+            <CTAButton variant="green" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
             <CTAButton variant="ghost" size="lg">Request a Proposal</CTAButton>
           </div>
         </div>

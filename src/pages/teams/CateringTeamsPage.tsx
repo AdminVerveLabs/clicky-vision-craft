@@ -49,16 +49,16 @@ const CateringTeamsPage = () => {
               <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Catering Details</h2>
               {[
                 { icon: "👥", label: "Group Size", value: "10 – 500+ people", color: "purple" as const },
-                { icon: "🍽️", label: "Style", value: "Buffet, boxed lunches, food stations, plated", color: "orange" as const },
-                { icon: "📍", label: "Service", value: "Full-service with staff or convenient drop-off", color: "sage" as const },
-                { icon: "🔄", label: "Recurring", value: "Weekly lunch programs and recurring orders available", color: "purple" as const },
-                { icon: "🌾", label: "Dietary", value: "All dietary requirements accommodated", color: "orange" as const },
+                { icon: "🍽️", label: "Style", value: "Buffet, boxed lunches, food stations, plated", color: "sage" as const },
+                { icon: "📍", label: "Service", value: "Full-service with staff or convenient drop-off", color: "purple" as const },
+                { icon: "🔄", label: "Recurring", value: "Weekly lunch programs and recurring orders available", color: "sage" as const },
+                { icon: "🌾", label: "Dietary", value: "All dietary requirements accommodated", color: "purple" as const },
                 { icon: "💰", label: "Pricing", value: "Volume pricing for recurring corporate clients", color: "sage" as const },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : item.color === "orange" ? "bg-orange/10" : "bg-sage/10"}`}>{item.icon}</div>
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
                   <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : item.color === "orange" ? "text-orange" : "text-sage"}`}>{item.label}</p>
+                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
                   </div>
                 </div>
@@ -69,7 +69,7 @@ const CateringTeamsPage = () => {
               <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
                 {["Executive lunch — elevated plated meals for board meetings", "Team lunch buffet — hearty, shareable Creole favorites", "Breakfast & brunch — beignets, shrimp & grits, and more", "Snack stations — afternoon pick-me-ups and energy bites", "Custom menus — designed for your event and preferences"].map((item, i) => (
                   <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-purple-pale flex items-center justify-center text-xs font-bold text-purple font-sans shrink-0">🍴</div>
+                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">🍴</div>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item}</p>
                   </div>
                 ))}
@@ -83,7 +83,7 @@ const CateringTeamsPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Feed your team right</h2>
           <p className="font-sans text-sm md:text-base text-white/70 mb-8">Get a custom quote for your corporate catering needs.</p>
-          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Request a Quote →</CTAButton>
+          <CTAButton variant="green" size="lg" onClick={() => setShowBookingForm(true)}>Request a Quote →</CTAButton>
         </div>
       </section>
 
