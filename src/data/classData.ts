@@ -15,6 +15,7 @@ export interface ClassData {
   included: string;
   location: string;
   private?: boolean;
+  virtual?: boolean;
 }
 
 export const CLASS_DATA: ClassData[] = [
@@ -80,7 +81,7 @@ export const CLASS_DATA: ClassData[] = [
     description: "Master the fundamentals. Proper grip, knife technique, and speed. Then put those skills to work with three 30-minute meals you'll cook forever.",
     menu: ["Knife Technique Workshop", "15-Min Stir Fry", "Quick Pasta Aglio e Olio", "Sheet Pan Chicken"],
     duration: "2.5 hours", level: "Beginner-Friendly", included: "All ingredients, equipment, aprons, recipe cards",
-    location: "YW Calgary Community Kitchen, Inglewood",
+    location: "YW Calgary Community Kitchen, Inglewood", virtual: true,
   },
   {
     id: 9, day: 28, time: "6:30 PM", title: "Taco Night: Creole Edition", type: "Public",
