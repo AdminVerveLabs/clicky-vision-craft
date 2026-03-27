@@ -1,5 +1,6 @@
 import { ClassData } from "@/data/classData";
 import CTAButton from "./CTAButton";
+import BYOBCallout from "./BYOBCallout";
 
 import ywcaKitchen006 from "@/assets/ywca-kitchen-006.jpg";
 import ywcaKitchen014 from "@/assets/ywca-kitchen-014.jpg";
@@ -146,6 +147,9 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
             {cls.included}
           </p>
         </div>
+
+        {/* BYOB Callout */}
+        <BYOBCallout className="mb-4" />
 
         {/* CTA Buttons — right-aligned */}
         <div className="flex justify-end" style={{ gap: "14px" }}>

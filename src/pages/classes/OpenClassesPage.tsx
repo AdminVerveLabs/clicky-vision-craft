@@ -5,6 +5,7 @@ import CTAButton from "@/components/chef/CTAButton";
 import ClassModal from "@/components/chef/ClassModal";
 import Footer from "@/components/chef/Footer";
 import { CLASS_DATA, FOOD_IMAGES, ClassData } from "@/data/classData";
+import BYOBCallout from "@/components/chef/BYOBCallout";
 import heroImg from "@/assets/chef-joey-38.jpg";
 
 const OpenClassesPage = () => {
@@ -91,6 +92,7 @@ const OpenClassesPage = () => {
                   </div>
                 </div>
               ))}
+              <BYOBCallout className="mt-5" />
             </div>
             <div>
               <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">What to Expect</h2>
