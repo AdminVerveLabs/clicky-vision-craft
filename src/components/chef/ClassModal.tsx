@@ -144,10 +144,10 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
             </button>
           ) : (
             <>
-              <div className="w-[40%]">
+              <div className="w-[40%] flex justify-center">
                 <CTAButton variant="secondary" size="lg">Gift This Class</CTAButton>
               </div>
-              <div className="w-[60%]">
+              <div className="w-[60%] flex justify-center">
                 <CTAButton variant="green" size="lg">Get Cooking</CTAButton>
               </div>
             </>
