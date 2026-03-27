@@ -20,7 +20,8 @@ import classImg5 from "@/assets/chef-joey-83.jpg";
 const classExperiences = [
   {
     id: "public-classes", sidebarLabel: "Public Classes", tag: "OPEN", title: "Public Classes",
-    description: "Different cuisines to choose from (we don't have them every week). Food included for in-person classes and shopping lists provided for virtual classes.",
+    description: "Different cuisines to choose from. Food included for in-person classes and shopping lists provided for virtual classes.",
+    hasCalendarLink: true,
     icon: "🍳", path: "/classes/open-classes", price: "From $89/person", image: classImg1,
     details: [
       { icon: "⏱️", label: "Duration", value: "2–3 hours of hands-on cooking", color: "purple" },
@@ -263,7 +264,34 @@ const ClassesPage = () => {
 
                     {/* Body */}
                     <div className="p-8 md:p-10">
-                      <p className="font-sans text-[16px] text-gray leading-[1.7] mb-8 max-w-[560px]">{o.description}</p>
+                      <p className="font-sans text-[16px] text-gray leading-[1.7] mb-8 max-w-[560px]">
+                        {o.description}
+                        {(o as any).hasCalendarLink && (
+                          <>
+                            {" "}
+                            <button
+                              onClick={() => {
+                                const el = document.getElementById('class-calendar');
+                                if (!el) return;
+                                const start = window.scrollY;
+                                const end = el.getBoundingClientRect().top + start;
+                                const duration = 1800;
+                                const startTime = performance.now();
+                                const ease = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                                const animate = (now: number) => {
+                                  const t = Math.min((now - startTime) / duration, 1);
+                                  window.scrollTo(0, start + (end - start) * ease(t));
+                                  if (t < 1) requestAnimationFrame(animate);
+                                };
+                                requestAnimationFrame(animate);
+                              }}
+                              className="text-purple font-semibold underline underline-offset-2 hover:text-purple-dark transition-colors cursor-pointer bg-transparent border-none p-0 font-sans text-[16px]"
+                            >
+                              Checkout our upcoming classes here
+                            </button>
+                          </>
+                        )}
+                      </p>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Details */}
