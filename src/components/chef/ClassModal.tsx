@@ -1,4 +1,5 @@
 import { ClassData } from "@/data/classData";
+import CTAButton from "./CTAButton";
 
 import ywcaKitchen006 from "@/assets/ywca-kitchen-006.jpg";
 import ywcaKitchen014 from "@/assets/ywca-kitchen-014.jpg";
@@ -37,114 +38,85 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
   >
     <div
       onClick={(e) => e.stopPropagation()}
-      className="bg-cream rounded-2xl max-w-[620px] w-full max-h-[90vh] overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden relative shadow-[0_40px_80px_rgba(0,0,0,0.25)]"
+      className="bg-white rounded-2xl max-w-[500px] w-full relative shadow-[0_40px_80px_rgba(0,0,0,0.25)] p-5"
       style={{ animation: "slideUp 0.3s ease" }}
     >
-      {/* Image Hero */}
-      <div className="relative w-full h-[240px] overflow-hidden rounded-t-2xl">
-        <img src={getClassImage(cls.id)} alt={cls.title} className="w-full h-full object-cover" />
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm border-none text-white text-lg cursor-pointer flex items-center justify-center transition-colors hover:bg-black/50"
-        >
-          ✕
-        </button>
-      </div>
+      {/* Close button */}
+      <button
+        onClick={onClose}
+        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-dark/5 border-none text-dark/50 text-sm cursor-pointer flex items-center justify-center transition-colors hover:bg-dark/10 hover:text-dark z-10"
+      >
+        ✕
+      </button>
 
-      {/* Purple Header Bar */}
-      <div className="bg-gradient-to-br from-purple to-purple-dark px-8 pt-6 pb-14 relative overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-[200px] h-[200px] rounded-full bg-white/5" />
-        <div className="absolute -bottom-16 left-[30%] w-[300px] h-[300px] rounded-full bg-white/[0.03]" />
-        <div className="relative">
-          <div className="flex items-center gap-3 mb-3">
-            <span className={`${cls.soldOut ? "bg-white/20" : "bg-green"} text-white text-[11px] font-bold px-3 py-1 rounded-full font-sans tracking-wide`}>
-              {cls.soldOut ? "SOLD OUT" : cls.type.toUpperCase()}
-            </span>
-            {cls.spots > 0 && !cls.soldOut && (
-              <span className="text-white/70 text-[13px] font-sans">🔥 Only {cls.spots} spots left</span>
-            )}
-          </div>
-          <div className="text-4xl mb-2">{cls.emoji}</div>
-          <h2 className="font-sans text-3xl font-extrabold text-white leading-tight mb-1">{cls.title}</h2>
-          <p className="font-sans text-lg text-white/70">February {cls.day}, 2026 · {cls.time}</p>
-        </div>
-      </div>
-
-      {/* White Overlapping Content Card */}
-      <div className="-mt-8 mx-4 mb-4 bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] relative z-10 p-8">
-        <p className="font-sans text-base text-dark leading-[1.8] mb-8">{cls.description}</p>
-
-        {/* Info Grid */}
-        <div className="grid grid-cols-2 gap-4 mb-8">
-          {[
-            { icon: "⏱️", label: "Duration", value: cls.duration, color: "purple" },
-            { icon: "📊", label: "Level", value: cls.level, color: "green" },
-            { icon: "💰", label: "Price", value: `${cls.price} / person`, color: "sage" },
-            { icon: "📍", label: "Location", value: cls.location, color: "purple" },
-          ].map((item, i) => (
-            <div key={i} className="flex items-start gap-3 bg-cream rounded-[14px] px-4 py-3.5">
-              <div className={`w-[38px] h-[38px] rounded-[10px] flex items-center justify-center text-lg shrink-0 ${
-                item.color === "purple" ? "bg-purple/10" : item.color === "green" ? "bg-green/10" : "bg-sage/10"
-              }`}>
-                {item.icon}
-              </div>
-              <div>
-                <p className={`font-sans text-[11px] font-bold uppercase tracking-[1px] mb-0.5 ${
-                  item.color === "purple" ? "text-purple" : item.color === "green" ? "text-green" : "text-sage"
-                }`}>
-                  {item.label}
-                </p>
-                <p className="font-sans text-sm text-dark leading-snug">{item.value}</p>
-              </div>
+      {/* Top section: image + meta */}
+      <div className="flex gap-4 mb-4">
+        <img
+          src={getClassImage(cls.id)}
+          alt={cls.title}
+          className="w-[120px] h-[120px] rounded-xl object-cover shrink-0"
+        />
+        <div className="flex-1 min-w-0">
+          {/* Row 1: badge + spots + price */}
+          <div className="flex items-center justify-between gap-2 mb-1.5">
+            <div className="flex items-center gap-2">
+              <span className={`${cls.soldOut ? "bg-dark/20" : "bg-green"} text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full font-sans tracking-wide`}>
+                {cls.soldOut ? "SOLD OUT" : cls.type.toUpperCase()}
+              </span>
+              {cls.spots > 0 && !cls.soldOut && (
+                <span className="text-orange text-[11px] font-sans font-medium">🔥 {cls.spots} spots</span>
+              )}
             </div>
-          ))}
-        </div>
+            <span className="font-sans text-lg font-extrabold text-dark">{cls.price}<span className="text-[11px] font-normal text-dark/50">/person</span></span>
+          </div>
 
-        {/* Menu */}
-        <div className="bg-cream rounded-2xl p-6 mb-8">
-          <h3 className="font-sans text-xl font-bold text-dark mb-4">On the Menu</h3>
-          <div className="grid grid-cols-2 gap-2.5">
-            {cls.menu.map((item, i) => (
-              <div key={i} className="flex items-center gap-2.5 bg-white rounded-[10px] px-3.5 py-2.5">
-                <div className="w-2 h-2 rounded-full bg-purple shrink-0" />
-                <span className="font-sans text-sm text-dark font-medium">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+          {/* Title */}
+          <h2 className="font-sans text-lg font-medium text-dark leading-snug mb-0.5">{cls.title}</h2>
 
-        {/* Included */}
-        <div className="flex items-start gap-3 mb-8 p-4 bg-green/10 rounded-[14px]">
-          <span className="text-xl">✅</span>
-          <div>
-            <p className="font-sans text-[13px] font-bold text-green uppercase tracking-[1px] mb-1">What's Included</p>
-            <p className="font-sans text-sm text-dark leading-relaxed">{cls.included}</p>
-          </div>
-        </div>
+          {/* Date/time */}
+          <p className="font-sans text-[13px] text-dark/50 mb-0.5">February {cls.day}, 2026 · {cls.time}</p>
 
-        {/* CTA */}
-        <div className="flex gap-3 items-center justify-between pt-6 border-t border-cream">
-          <div>
-            <span className="font-sans text-[28px] font-extrabold text-dark">{cls.price}</span>
-            <span className="font-sans text-sm text-gray ml-1">/ person</span>
-          </div>
-          <div className="flex gap-3">
-            {cls.soldOut ? (
-              <button className="bg-cream text-gray border-none px-8 py-3.5 rounded-full font-semibold text-[15px] cursor-default font-sans">
-                Sold Out — Join Waitlist
-              </button>
-            ) : (
-              <>
-                <button className="bg-transparent text-purple border-2 border-purple px-6 py-3 rounded-full font-semibold text-sm cursor-pointer font-sans">
-                  Gift This Class
-                </button>
-                <button className="bg-purple text-white border-none px-8 py-3.5 rounded-full font-semibold text-[15px] cursor-pointer font-sans shadow-[0_4px_14px_hsl(var(--purple)/0.3)] transition-all hover:-translate-y-0.5">
-                  Get Cooking
-                </button>
-              </>
-            )}
-          </div>
+          {/* Meta line */}
+          <p className="font-sans text-[12px] text-dark/40">{cls.duration} · {cls.level} · {cls.location.split(",")[0]}</p>
         </div>
+      </div>
+
+      {/* Description */}
+      <p className="font-sans text-[13px] text-dark/70 leading-relaxed mb-4">{cls.description}</p>
+
+      {/* Divider + On the Menu */}
+      <div className="border-t border-dark/10 pt-3 mb-4">
+        <p className="font-sans text-[10px] font-bold text-dark/30 uppercase tracking-[1.5px] mb-1.5">On the Menu</p>
+        <p className="font-sans text-[13px] text-dark/60 leading-relaxed">{cls.menu.join(" · ")}</p>
+      </div>
+
+      {/* What's Included */}
+      <div className="flex items-start gap-3 mb-5 p-3.5 bg-green/10 rounded-lg">
+        <div className="w-8 h-8 rounded-lg bg-green/20 flex items-center justify-center text-sm shrink-0">✅</div>
+        <div>
+          <p className="font-sans text-[10px] font-bold text-green uppercase tracking-[1.5px] mb-0.5">What's Included</p>
+          <p className="font-sans text-[12px] text-dark/60 leading-relaxed">{cls.included}</p>
+        </div>
+      </div>
+
+      {/* CTA Buttons */}
+      <div className="flex gap-3">
+        {cls.soldOut ? (
+          <div className="w-full">
+            <button className="w-full bg-dark/5 text-dark/40 border-none px-6 py-3 rounded-xl font-semibold text-[13px] cursor-default font-sans">
+              Sold Out — Join Waitlist
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="w-[40%]">
+              <CTAButton variant="secondary" size="md">Gift This Class</CTAButton>
+            </div>
+            <div className="w-[60%]">
+              <CTAButton variant="green" size="md">Get Cooking</CTAButton>
+            </div>
+          </>
+        )}
       </div>
     </div>
   </div>
