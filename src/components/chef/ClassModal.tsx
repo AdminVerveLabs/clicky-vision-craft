@@ -38,85 +38,83 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
   >
     <div
       onClick={(e) => e.stopPropagation()}
-      className="bg-white rounded-2xl max-w-[500px] w-full relative shadow-[0_40px_80px_rgba(0,0,0,0.25)] p-5"
+      className="bg-white rounded-xl max-w-[440px] w-full relative shadow-[0_40px_80px_rgba(0,0,0,0.25)] overflow-hidden"
       style={{ animation: "slideUp 0.3s ease" }}
     >
-      {/* Close button */}
-      <button
-        onClick={onClose}
-        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-dark/5 border-none text-dark/50 text-sm cursor-pointer flex items-center justify-center transition-colors hover:bg-dark/10 hover:text-dark z-10"
-      >
-        ✕
-      </button>
-
-      {/* Top section: image + meta */}
-      <div className="flex gap-4 mb-4">
+      {/* Banner image */}
+      <div className="relative h-[140px]">
         <img
           src={getClassImage(cls.id)}
           alt={cls.title}
-          className="w-[120px] h-[120px] rounded-xl object-cover shrink-0"
+          className="w-full h-full object-cover"
         />
-        <div className="flex-1 min-w-0">
-          {/* Row 1: badge + spots + price */}
-          <div className="flex items-center justify-between gap-2 mb-1.5">
-            <div className="flex items-center gap-2">
-              <span className={`${cls.soldOut ? "bg-dark/20" : "bg-green"} text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full font-sans tracking-wide`}>
-                {cls.soldOut ? "SOLD OUT" : cls.type.toUpperCase()}
-              </span>
-              {cls.spots > 0 && !cls.soldOut && (
-                <span className="text-orange text-[11px] font-sans font-medium">🔥 {cls.spots} spots</span>
-              )}
-            </div>
-            <span className="font-sans text-lg font-extrabold text-dark">{cls.price}<span className="text-[11px] font-normal text-dark/50">/person</span></span>
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border-none text-white text-sm cursor-pointer flex items-center justify-center transition-colors hover:bg-black/60 z-10"
+        >
+          ✕
+        </button>
+      </div>
+
+      {/* Content area */}
+      <div className="px-5 pb-5 pt-4">
+        {/* Header row: badge + spots | price */}
+        <div className="flex items-center justify-between mb-1.5">
+          <div className="flex items-center gap-2">
+            <span className={`${cls.soldOut ? "bg-dark/20" : "bg-green"} text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full font-sans tracking-wide`}>
+              {cls.soldOut ? "SOLD OUT" : cls.type.toUpperCase()}
+            </span>
+            {cls.spots > 0 && !cls.soldOut && (
+              <span className="text-orange text-[11px] font-sans font-medium">🔥 {cls.spots} spots</span>
+            )}
           </div>
-
-          {/* Title */}
-          <h2 className="font-sans text-lg font-medium text-dark leading-snug mb-0.5">{cls.title}</h2>
-
-          {/* Date/time */}
-          <p className="font-sans text-[13px] text-dark/50 mb-0.5">February {cls.day}, 2026 · {cls.time}</p>
-
-          {/* Meta line */}
-          <p className="font-sans text-[12px] text-dark/40">{cls.duration} · {cls.level} · {cls.location.split(",")[0]}</p>
+          <span className="font-sans text-lg font-extrabold text-dark">
+            {cls.price}<span className="text-[11px] font-normal text-dark/50">/person</span>
+          </span>
         </div>
-      </div>
 
-      {/* Description */}
-      <p className="font-sans text-[13px] text-dark/70 leading-relaxed mb-4">{cls.description}</p>
+        {/* Title */}
+        <h2 className="font-sans text-lg font-medium text-dark leading-snug mb-0.5">{cls.title}</h2>
 
-      {/* Divider + On the Menu */}
-      <div className="border-t border-dark/10 pt-3 mb-4">
-        <p className="font-sans text-[10px] font-bold text-dark/30 uppercase tracking-[1.5px] mb-1.5">On the Menu</p>
-        <p className="font-sans text-[13px] text-dark/60 leading-relaxed">{cls.menu.join(" · ")}</p>
-      </div>
+        {/* Single meta line */}
+        <p className="font-sans text-[12px] text-dark/40 mb-3">
+          February {cls.day}, 2026 · {cls.time} · {cls.duration} · {cls.level}
+        </p>
 
-      {/* What's Included */}
-      <div className="flex items-start gap-3 mb-5 p-3.5 bg-green/10 rounded-lg">
-        <div className="w-8 h-8 rounded-lg bg-green/20 flex items-center justify-center text-sm shrink-0">✅</div>
-        <div>
-          <p className="font-sans text-[10px] font-bold text-green uppercase tracking-[1.5px] mb-0.5">What's Included</p>
-          <p className="font-sans text-[12px] text-dark/60 leading-relaxed">{cls.included}</p>
+        {/* Description */}
+        <p className="font-sans text-[13px] text-dark/70 leading-relaxed mb-4">{cls.description}</p>
+
+        {/* Divider + On the Menu */}
+        <div className="border-t border-dark/10 pt-3 mb-4">
+          <p className="font-sans text-[10px] font-bold text-dark/30 uppercase tracking-[1.5px] mb-1.5">On the Menu</p>
+          <p className="font-sans text-[13px] text-dark/60 leading-relaxed">{cls.menu.join(" · ")}</p>
         </div>
-      </div>
 
-      {/* CTA Buttons */}
-      <div className="flex gap-3">
-        {cls.soldOut ? (
-          <div className="w-full">
-            <button className="w-full bg-dark/5 text-dark/40 border-none px-6 py-3 rounded-xl font-semibold text-[13px] cursor-default font-sans">
-              Sold Out — Join Waitlist
-            </button>
-          </div>
-        ) : (
-          <>
-            <div className="w-[40%]">
-              <CTAButton variant="secondary" size="md">Gift This Class</CTAButton>
+        {/* What's Included — compact single line */}
+        <div className="flex items-center gap-2.5 mb-5 px-3 py-2.5 bg-green/10 rounded-lg">
+          <div className="w-6 h-6 rounded-md bg-green/20 flex items-center justify-center text-xs shrink-0">✅</div>
+          <p className="font-sans text-[12px] text-dark/60">{cls.included}</p>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex gap-3">
+          {cls.soldOut ? (
+            <div className="w-full">
+              <button className="w-full bg-dark/5 text-dark/40 border-none px-6 py-3 rounded-xl font-semibold text-[13px] cursor-default font-sans">
+                Sold Out — Join Waitlist
+              </button>
             </div>
-            <div className="w-[60%]">
-              <CTAButton variant="green" size="md">Get Cooking</CTAButton>
-            </div>
-          </>
-        )}
+          ) : (
+            <>
+              <div className="w-[40%]">
+                <CTAButton variant="secondary" size="md">Gift This Class</CTAButton>
+              </div>
+              <div className="w-[60%]">
+                <CTAButton variant="green" size="md">Get Cooking</CTAButton>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   </div>
