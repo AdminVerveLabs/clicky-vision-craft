@@ -1,32 +1,61 @@
 
 
-## Add fake private/corporate events to the calendar
+## Fix remaining orange accent violations site-wide
 
-**File: `src/data/classData.ts`**
+Many pages still use orange as accent color on light backgrounds where it should be purple (primary) or green (secondary). Orange should only appear as tertiary for italic emphasis text.
 
-1. Add an optional `private?: boolean` field to the `ClassData` interface
-2. Add ~4-5 private/corporate entries to `CLASS_DATA` on days that don't already have classes (e.g., days 3, 10, 16, 20, 25), with types like "Private Event" and "Corporate Team Building", `private: true`
+### Files and specific changes:
 
-**File: `src/pages/ClassesPage.tsx`** (calendar rendering, ~lines 401-415)
+**`src/pages/ClassesPage.tsx`**
+- Line 159: `from-orange-pale` → `from-purple-pale` (hero gradient bg)
+- Line 166: `text-orange italic` on "here" — KEEP (tertiary italic emphasis ✓)
+- Lines 274-280: detail icon `bg-orange/10` → `bg-purple/10`, label `text-orange` → `text-purple`
+- Lines 20-31 data: change `color: "orange"` to `color: "purple"` in classExperiences details
+- Line 437: calendar legend "Public Class" `bg-orange` → `bg-purple`
 
-3. When rendering a class card, check `cls.private` — if true:
-   - Use a distinct muted style (e.g., `bg-sage/10 border border-sage/20`, italic text)
-   - Show label like "Private Event" or "Corporate Booking" instead of time
-   - No `onClick`, no cursor-pointer, no hover effects
-   - No spots/sold-out logic
+**`src/pages/TeamsPage.tsx`**
+- Lines 308-314: detail icon/label color mappings — change `orange` references to `purple`
+- Team experiences data: change `color: "orange"` entries to `color: "purple"`
 
-**File: `src/pages/classes/OpenClassesPage.tsx`** (same calendar pattern, ~lines 130-145)
+**`src/pages/TeamBuildingPage.tsx`**
+- Lines 54,57: `color: "orange"` → `color: "purple"` in details data
+- Lines 62,66: `bg-orange/10` → `bg-purple/10`, `text-orange` → `text-purple`
+- Line 113: CTA on purple bg `variant="orange"` → `variant="green"`
 
-4. Same rendering treatment for private events
+**`src/pages/PublicClassesPage.tsx`**
+- Line 26: breadcrumb `text-orange` → `text-purple`
+- Line 29: `SectionTag variant="orange"` → remove variant (default purple)
+- Line 31: `text-orange italic` on "Eat well." — KEEP (tertiary italic ✓)
+- Line 46: card gradient `from-orange/[0.06]` → `from-purple/[0.06]`
+- Line 49: "Almost Full" badge `bg-orange` → `bg-purple`
+- Line 53: date text `text-orange` → `text-purple`
+- Line 58: button `bg-orange` → `bg-purple`
 
-**File: `src/pages/ClassesPage.tsx`** (legend, ~line 428)
+**`src/pages/BlogPage.tsx`**
+- Line 59: "Featured" badge `bg-orange` → `bg-purple`
 
-5. Add a "Private / Corporate" entry to the legend
+**`src/pages/classes/OpenClassesPage.tsx`**
+- Line 54: `text-orange italic` on "flavors" — KEEP (tertiary italic ✓)
+- Line 196: calendar legend "Public Class" `bg-orange` → `bg-purple`
 
-**Example private events:**
-- Day 3: "Private Birthday Dinner" (Private Event)
-- Day 10: "Acme Corp Team Building" (Corporate)  
-- Day 16: "Private Cooking Party" (Private Event)
-- Day 20: "EnergyCo Client Dinner" (Corporate)
-- Day 25: "Anniversary Celebration" (Private Event)
+**`src/pages/classes/PrivateEventsPage.tsx`**
+- Line 24: `text-orange italic` on "menu" — KEEP (tertiary italic ✓)
+
+**`src/pages/classes/SpecialOccasionsPage.tsx`**
+- Line 24: `text-orange italic` on "unforgettable" — KEEP (tertiary italic ✓)
+
+**`src/pages/classes/CateringPage.tsx`**
+- Line 24: `text-orange italic` on "delivered" — KEEP (tertiary italic ✓)
+
+**`src/pages/classes/KidsPartyPage.tsx`**
+- Line 24: `text-orange italic` on "ever" — KEEP (tertiary italic ✓)
+
+**`src/pages/classes/FriendsPage.tsx`**
+- Line 24: `text-orange italic` on "kitchen" — KEEP (tertiary italic ✓)
+
+**`src/components/chef/ServiceCard.tsx`**
+- Line 14: orange accent variant — change to use purple colors instead
+
+### Summary
+~8 files need edits. All italic emphasis text stays orange (tertiary). All non-italic orange accents (badges, buttons, labels, icons, breadcrumbs, gradients) become purple on light backgrounds, or green on purple backgrounds.
 
