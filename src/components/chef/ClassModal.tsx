@@ -25,6 +25,8 @@ const CLASS_IMAGES: Record<number, string> = {
 
 const getClassImage = (id: number) => CLASS_IMAGES[id] || ywcaKitchen074;
 
+const DISH_EMOJIS = ["🍛", "🥘", "🍜", "🫕", "🥗", "🍣", "🥩", "🧆"];
+
 interface ClassModalProps {
   cls: ClassData;
   onClose: () => void;
@@ -38,7 +40,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
   >
     <div
       onClick={(e) => e.stopPropagation()}
-      className="bg-white w-full max-w-[540px] relative overflow-hidden"
+      className="bg-white w-full max-w-[540px] relative overflow-hidden my-8 max-h-[calc(100vh-64px)] overflow-y-auto"
       style={{
         borderRadius: "16px",
         boxShadow: "0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08)",
@@ -54,7 +56,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
         />
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border-none text-white text-base cursor-pointer flex items-center justify-center transition-colors hover:bg-black/70 z-10"
+          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border-none text-white text-base cursor-pointer flex items-center justify-center transition-colors hover:bg-black/70 z-10"
           aria-label="Close modal"
         >
           ✕
@@ -99,57 +101,65 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
           {cls.description}
         </p>
 
-        {/* On the Menu — with subtle background */}
+        {/* On the Menu — 2×2 grid with dish thumbnails */}
         <div className="bg-secondary mb-5" style={{ borderRadius: "12px", padding: "20px" }}>
           <p
-            className="font-sans font-semibold text-dark/40 uppercase mb-2"
+            className="font-sans font-semibold text-dark/40 uppercase mb-3"
             style={{ fontSize: "12px", letterSpacing: "1px" }}
           >
             On the Menu
           </p>
-          <p className="font-sans text-dark" style={{ fontSize: "16px", lineHeight: 1.6 }}>
-            {cls.menu.join(" · ")}
-          </p>
+          <div className="grid grid-cols-2 gap-3">
+            {cls.menu.map((dish, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div
+                  className="bg-white shrink-0 flex items-center justify-center"
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "8px",
+                    fontSize: "22px",
+                  }}
+                >
+                  {DISH_EMOJIS[i % DISH_EMOJIS.length]}
+                </div>
+                <span className="font-sans font-medium text-dark" style={{ fontSize: "14px" }}>
+                  {dish}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* What's Included callout */}
-        <div className="flex items-start gap-3 bg-green/10 mb-7" style={{ borderRadius: "12px", padding: "18px 20px" }}>
+        {/* What's Included callout — compact single row */}
+        <div
+          className="flex items-center gap-3 bg-green/10 mb-6"
+          style={{ borderRadius: "12px", padding: "16px 18px" }}
+        >
           <div
             className="bg-green/20 flex items-center justify-center shrink-0"
-            style={{ width: "22px", height: "22px", borderRadius: "6px", marginTop: "2px" }}
+            style={{ width: "22px", height: "22px", borderRadius: "6px" }}
           >
             <span style={{ fontSize: "13px" }}>✅</span>
           </div>
-          <div>
-            <p
-              className="font-sans font-semibold text-green uppercase mb-1"
-              style={{ fontSize: "13px" }}
-            >
-              What's Included
-            </p>
-            <p className="font-sans text-green" style={{ fontSize: "15px", lineHeight: 1.5 }}>
-              {cls.included}
-            </p>
-          </div>
+          <p className="font-sans text-green font-medium" style={{ fontSize: "15px", lineHeight: 1.4 }}>
+            {cls.included}
+          </p>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex" style={{ gap: "14px" }}>
+        {/* CTA Buttons — right-aligned */}
+        <div className="flex justify-end" style={{ gap: "14px" }}>
           {cls.soldOut ? (
             <button
-              className="w-full bg-dark/5 text-dark/40 border-none font-semibold cursor-default font-sans"
-              style={{ fontSize: "16px", padding: "16px", borderRadius: "10px" }}
+              className="bg-dark/5 text-dark/40 border-none font-medium cursor-default font-sans"
+              style={{ fontSize: "15px", padding: "14px 32px", borderRadius: "10px" }}
             >
               Sold Out — Join Waitlist
             </button>
           ) : (
             <>
-              <div className="w-[40%] flex justify-center">
-                <CTAButton variant="secondary" size="lg">Gift This Class</CTAButton>
-              </div>
-              <div className="w-[60%] flex justify-center">
-                <CTAButton variant="green" size="lg">Get Cooking</CTAButton>
-              </div>
+              <CTAButton variant="secondary" size="lg">Gift This Class</CTAButton>
+              <CTAButton variant="green" size="lg">Get Cooking</CTAButton>
             </>
           )}
         </div>
