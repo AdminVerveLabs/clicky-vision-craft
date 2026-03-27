@@ -102,23 +102,23 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
         </p>
 
         {/* On the Menu — 2×2 grid with dish thumbnails */}
-        <div className="bg-secondary mb-5" style={{ borderRadius: "12px", padding: "20px" }}>
+        <div className="bg-secondary" style={{ borderRadius: "12px", padding: "16px", marginBottom: "14px" }}>
           <p
-            className="font-sans font-semibold text-dark/40 uppercase mb-3"
-            style={{ fontSize: "12px", letterSpacing: "1px" }}
+            className="font-sans font-semibold text-dark/40 uppercase mb-2"
+            style={{ fontSize: "11px", letterSpacing: "1px" }}
           >
             On the Menu
           </p>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2" style={{ gap: "10px" }}>
             {cls.menu.map((dish, i) => (
               <div key={i} className="flex items-center gap-3">
                 <div
                   className="bg-white shrink-0 flex items-center justify-center"
                   style={{
-                    width: "48px",
-                    height: "48px",
+                    width: "40px",
+                    height: "40px",
                     borderRadius: "8px",
-                    fontSize: "22px",
+                    fontSize: "20px",
                   }}
                 >
                   {DISH_EMOJIS[i % DISH_EMOJIS.length]}
@@ -133,8 +133,8 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
 
         {/* What's Included callout — compact single row */}
         <div
-          className="flex items-center gap-3 bg-green/10 mb-6"
-          style={{ borderRadius: "12px", padding: "16px 18px" }}
+          className="flex items-center gap-3 bg-green/10"
+          style={{ borderRadius: "12px", padding: "12px 14px", marginBottom: "18px" }}
         >
           <div
             className="bg-green/20 flex items-center justify-center shrink-0"
