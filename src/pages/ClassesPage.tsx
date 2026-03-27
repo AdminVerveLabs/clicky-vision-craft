@@ -20,7 +20,7 @@ import classImg5 from "@/assets/chef-joey-83.jpg";
 const classExperiences = [
   {
     id: "public-classes", sidebarLabel: "Public Classes", tag: "OPEN", title: "Public Classes",
-    description: "Join a group of fellow food lovers for a hands-on class. New menus every week. Perfect for date nights, solo adventures, or grabbing a friend.",
+    description: "Different cuisines to choose from (we don't have them every week). Food included for in-person classes and shopping lists provided for virtual classes.",
     icon: "🍳", path: "/classes/open-classes", price: "From $89/person", image: classImg1,
     details: [
       { icon: "⏱️", label: "Duration", value: "2–3 hours of hands-on cooking", color: "purple" },
