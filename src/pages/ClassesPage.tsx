@@ -242,6 +242,24 @@ const ClassesPage = () => {
                   </li>
                 ))}
               </ul>
+
+              <p className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gray mb-4 mt-8">Example Experiences</p>
+              <ul className="space-y-1">
+                {[
+                  { label: "Valentine's Day", path: "/classes/example/valentines-day" },
+                  { label: "Signature Creole", path: "/classes/example/signature-creole" },
+                  { label: "Kids Learn to Bake", path: "/classes/example/kids-bake" },
+                ].map((item) => (
+                  <li key={item.path}>
+                    <button
+                      onClick={() => go(item.path)}
+                      className="w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] border-transparent text-gray hover:text-purple transition-colors duration-200"
+                    >
+                      {item.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </nav>
 
             {/* Content Panel */}

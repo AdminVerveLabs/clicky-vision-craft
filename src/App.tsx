@@ -20,6 +20,9 @@ import SpecialOccasionsPage from "./pages/classes/SpecialOccasionsPage";
 import FriendsPage from "./pages/classes/FriendsPage";
 import KidsPartyPage from "./pages/classes/KidsPartyPage";
 import CateringPage from "./pages/classes/CateringPage";
+import ValentinesDayPage from "./pages/classes/ValentinesDayPage";
+import SignatureCreolePage from "./pages/classes/SignatureCreolePage";
+import KidsBakePage from "./pages/classes/KidsBakePage";
 
 // Teams sub-pages
 import TeamEventsPage from "./pages/teams/TeamEventsPage";
@@ -29,6 +32,8 @@ import ClientEntertainmentPage from "./pages/teams/ClientEntertainmentPage";
 import HolidayPage from "./pages/teams/HolidayPage";
 import CustomExperiencesPage from "./pages/teams/CustomExperiencesPage";
 import CateringTeamsPage from "./pages/teams/CateringTeamsPage";
+import TeamCreolePage from "./pages/teams/TeamCreolePage";
+import HealthyMealPrepPage from "./pages/teams/HealthyMealPrepPage";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +61,9 @@ const App = () => (
             <Route path="/classes/friends" element={<FriendsPage />} />
             <Route path="/classes/kids-party" element={<KidsPartyPage />} />
             <Route path="/classes/catering" element={<CateringPage />} />
+            <Route path="/classes/example/valentines-day" element={<ValentinesDayPage />} />
+            <Route path="/classes/example/signature-creole" element={<SignatureCreolePage />} />
+            <Route path="/classes/example/kids-bake" element={<KidsBakePage />} />
 
             {/* Teams sub-pages */}
             <Route path="/teams/team-events" element={<TeamEventsPage />} />
@@ -65,6 +73,8 @@ const App = () => (
             <Route path="/teams/holiday" element={<HolidayPage />} />
             <Route path="/teams/custom" element={<CustomExperiencesPage />} />
             <Route path="/teams/catering" element={<CateringTeamsPage />} />
+            <Route path="/teams/example/signature-creole" element={<TeamCreolePage />} />
+            <Route path="/teams/example/healthy-meal-prep" element={<HealthyMealPrepPage />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
