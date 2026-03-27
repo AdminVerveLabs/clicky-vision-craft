@@ -1,5 +1,29 @@
 import { ClassData } from "@/data/classData";
 
+import ywcaKitchen006 from "@/assets/ywca-kitchen-006.jpg";
+import ywcaKitchen014 from "@/assets/ywca-kitchen-014.jpg";
+import ywcaKitchen056 from "@/assets/ywca-kitchen-056.jpg";
+import ywcaKitchen074 from "@/assets/ywca-kitchen-074.jpg";
+import ywcaKitchen080 from "@/assets/ywca-kitchen-080.jpg";
+import chefJoey58 from "@/assets/chef-joey-58.jpg";
+import chefJoey66 from "@/assets/chef-joey-66.jpg";
+import chefJoey83 from "@/assets/chef-joey-83.jpg";
+import chefJoey85 from "@/assets/chef-joey-85.jpg";
+
+const CLASS_IMAGES: Record<number, string> = {
+  1: ywcaKitchen074,
+  2: chefJoey58,
+  3: ywcaKitchen006,
+  4: ywcaKitchen056,
+  5: chefJoey66,
+  6: ywcaKitchen014,
+  7: ywcaKitchen080,
+  8: chefJoey83,
+  9: chefJoey85,
+};
+
+const getClassImage = (id: number) => CLASS_IMAGES[id] || ywcaKitchen074;
+
 interface ClassModalProps {
   cls: ClassData;
   onClose: () => void;
@@ -31,16 +55,16 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
             <span className={`${cls.soldOut ? "bg-white/20" : "bg-green"} text-white text-[11px] font-bold px-3 py-1 rounded-full font-sans tracking-wide`}>
               {cls.soldOut ? "SOLD OUT" : cls.type.toUpperCase()}
             </span>
-            {cls.spots > 0 && cls.spots <= 4 && (
-              <span className="bg-white/15 text-white text-[11px] font-semibold px-3 py-1 rounded-full font-sans">
-                🔥 Only {cls.spots} spots left
-              </span>
-            )}
           </div>
           <div className="text-5xl mb-3">{cls.emoji}</div>
           <h2 className="font-sans text-4xl font-extrabold text-white leading-tight mb-2">{cls.title}</h2>
-          <p className="font-sans text-[15px] text-white/70">February {cls.day}, 2026 · {cls.time}</p>
+          <p className="font-sans text-lg text-white/70">February {cls.day}, 2026 · {cls.time}</p>
         </div>
+      </div>
+
+      {/* Photo Strip */}
+      <div className="w-full h-[180px] overflow-hidden">
+        <img src={getClassImage(cls.id)} alt={cls.title} className="w-full h-full object-cover" />
       </div>
 
       {/* Body */}
