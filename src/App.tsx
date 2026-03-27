@@ -20,6 +20,9 @@ import SpecialOccasionsPage from "./pages/classes/SpecialOccasionsPage";
 import FriendsPage from "./pages/classes/FriendsPage";
 import KidsPartyPage from "./pages/classes/KidsPartyPage";
 import CateringPage from "./pages/classes/CateringPage";
+import ValentinesDayPage from "./pages/classes/ValentinesDayPage";
+import SignatureCreolePage from "./pages/classes/SignatureCreolePage";
+import KidsBakePage from "./pages/classes/KidsBakePage";
 
 // Teams sub-pages
 import TeamEventsPage from "./pages/teams/TeamEventsPage";
@@ -29,6 +32,8 @@ import ClientEntertainmentPage from "./pages/teams/ClientEntertainmentPage";
 import HolidayPage from "./pages/teams/HolidayPage";
 import CustomExperiencesPage from "./pages/teams/CustomExperiencesPage";
 import CateringTeamsPage from "./pages/teams/CateringTeamsPage";
+import TeamCreolePage from "./pages/teams/TeamCreolePage";
+import HealthyMealPrepPage from "./pages/teams/HealthyMealPrepPage";
 
 const queryClient = new QueryClient();
 
