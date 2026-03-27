@@ -56,7 +56,7 @@ const BlogPage = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <span className="absolute top-4 left-4 bg-orange text-white text-xs font-bold font-sans px-3 py-1 rounded-full uppercase tracking-wider">
+              <span className="absolute top-4 left-4 bg-purple text-white text-xs font-bold font-sans px-3 py-1 rounded-full uppercase tracking-wider">
                 Featured
               </span>
               <span className="absolute bottom-4 left-4 text-white/80 text-sm font-sans">

@@ -193,7 +193,7 @@ const OpenClassesPage = () => {
           {/* Legend */}
           <div className="flex gap-6 justify-center mt-5 flex-wrap">
             {[
-              { label: "Public Class", color: "bg-orange" },
+              { label: "Public Class", color: "bg-purple" },
               { label: "Couples / Date Night", color: "bg-purple" },
               { label: "Kids", color: "bg-sage" },
               { label: "Signature / Skills", color: "bg-dark" },

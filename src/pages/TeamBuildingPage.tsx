@@ -51,19 +51,19 @@ const TeamBuildingPage = () => {
               <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Experience Details</h2>
               {[
                 { icon: "⏱️", label: "Duration", value: "2.5 – 3 hours of hands-on cooking + dining", color: "purple" as const },
-                { icon: "👥", label: "Group Size", value: "8 – 30 people (larger groups available on request)", color: "orange" as const },
+                { icon: "👥", label: "Group Size", value: "8 – 30 people (larger groups available on request)", color: "purple" as const },
                 { icon: "🍽️", label: "Cuisine", value: "Creole-inspired with customizable menus", color: "sage" as const },
                 { icon: "📍", label: "Location", value: "Our Kitchen · Your Office · Your Venue · Virtual", color: "purple" as const },
-                { icon: "🎒", label: "What's Included", value: "All ingredients, equipment, aprons, recipes to take home", color: "orange" as const },
+                { icon: "🎒", label: "What's Included", value: "All ingredients, equipment, aprons, recipes to take home", color: "purple" as const },
                 { icon: "🌾", label: "Dietary", value: "Fully customizable for allergies and dietary needs", color: "sage" as const },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
                   <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${
-                    item.color === "purple" ? "bg-purple/10" : item.color === "orange" ? "bg-orange/10" : "bg-sage/10"
+                    item.color === "purple" ? "bg-purple/10" : "bg-sage/10"
                   }`}>{item.icon}</div>
                   <div>
                     <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${
-                      item.color === "purple" ? "text-purple" : item.color === "orange" ? "text-orange" : "text-sage"
+                      item.color === "purple" ? "text-purple" : "text-sage"
                     }`}>{item.label}</p>
                     <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
                   </div>
@@ -110,7 +110,7 @@ const TeamBuildingPage = () => {
         <div className="max-w-[600px] mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-white mb-4">Let's cook up something great for your team</h2>
           <p className="font-sans text-sm md:text-base text-white/70 mb-8">Every event is custom. Book a quick call so we can learn about your team and build the perfect experience.</p>
-          <CTAButton variant="orange" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
+          <CTAButton variant="green" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
         </div>
       </section>
 
