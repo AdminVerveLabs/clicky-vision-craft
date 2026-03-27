@@ -125,10 +125,28 @@ const OpenClassesPage = () => {
           </div>
 
           {/* Month Nav */}
-          <div className="flex items-center justify-center gap-8 mb-8">
+          <div className="flex items-center justify-center gap-8 mb-4">
             <button onClick={() => setCalMonth(Math.max(0, calMonth - 1))} className={`w-10 h-10 rounded-full border border-border bg-white flex items-center justify-center text-lg transition-all ${calMonth > 0 ? "cursor-pointer opacity-100" : "cursor-default opacity-30"}`}>‹</button>
             <h3 className="font-serif text-[28px] font-bold text-dark min-w-[220px] text-center">{monthNames[calMonth]} 2026</h3>
             <button onClick={() => setCalMonth(Math.min(2, calMonth + 1))} className={`w-10 h-10 rounded-full border border-border bg-white flex items-center justify-center text-lg transition-all ${calMonth < 2 ? "cursor-pointer opacity-100" : "cursor-default opacity-30"}`}>›</button>
+          </div>
+
+          {/* Legend */}
+          <div className="flex gap-6 justify-center mb-6 flex-wrap">
+            {[
+              { label: "Public Class", color: "bg-purple" },
+              { label: "Couples / Date Night", color: "bg-purple" },
+              { label: "Kids", color: "bg-sage" },
+              { label: "Private / Corporate", color: "bg-sage" },
+              { label: "Sold Out", color: "bg-gray" },
+              { label: "In-Person 📍", color: "bg-orange" },
+              { label: "Virtual 💻", color: "bg-orange" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-1.5">
+                <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
+                <span className="font-sans text-xs text-gray font-medium">{item.label}</span>
+              </div>
+            ))}
           </div>
 
           {/* Calendar Grid */}
@@ -172,7 +190,7 @@ const OpenClassesPage = () => {
                               className={`mx-0.5 mb-1 px-2 py-1.5 rounded-lg transition-all duration-200 ${isPast ? "cursor-default" : "cursor-pointer hover:scale-[1.02] hover:shadow-[0_4px_12px_rgba(107,33,168,0.15)]"} ${cls.soldOut ? "bg-gray-light border border-border" : "border border-purple/20"}`}
                               style={{ background: cls.soldOut ? undefined : "linear-gradient(135deg, hsl(var(--purple) / 0.07), hsl(var(--orange) / 0.03))" }}
                             >
-                              <div className={`font-sans text-[10px] font-bold mb-0.5 ${cls.soldOut ? "text-gray" : "text-purple"}`}>{cls.time}</div>
+                              <div className={`font-sans text-[10px] font-bold mb-0.5 ${cls.soldOut ? "text-gray" : "text-purple"}`}>{cls.time} {cls.virtual ? "💻" : "📍"}</div>
                               <div className={`font-sans text-[11px] font-semibold leading-tight ${cls.soldOut ? "text-gray line-through" : "text-dark"}`}>
                                 {cls.soldOut ? "Sold Out " : ""}{cls.title}
                               </div>
@@ -192,22 +210,6 @@ const OpenClassesPage = () => {
           </div>
           </div>
 
-          {/* Legend */}
-          <div className="flex gap-6 justify-center mt-5 flex-wrap">
-            {[
-              { label: "Public Class", color: "bg-purple" },
-              { label: "Couples / Date Night", color: "bg-purple" },
-              { label: "Kids", color: "bg-sage" },
-              { label: "Signature / Skills", color: "bg-dark" },
-              { label: "Private / Corporate", color: "bg-sage" },
-              { label: "Sold Out", color: "bg-gray" },
-            ].map((item) => (
-              <div key={item.label} className="flex items-center gap-1.5">
-                <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
-                <span className="font-sans text-xs text-gray font-medium">{item.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
