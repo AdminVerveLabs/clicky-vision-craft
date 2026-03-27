@@ -194,7 +194,7 @@ const TeamsPage = () => {
             <div>
               <SectionTag>Meet Your Host</SectionTag>
               <h2 className="font-sans text-[26px] md:text-[36px] font-extrabold text-dark mt-3 mb-3 leading-[1.15]">
-                Your team deserves more than <span className="text-orange italic">pizza in the boardroom</span>
+                Your team deserves more than <span className="text-purple italic">pizza in the boardroom</span>
               </h2>
               <p className="font-sans text-[15px] text-gray leading-[1.8] mb-6">
                 I'm Chef Joey — I turn corporate events into hands-on cooking experiences people actually talk about. Whether you're onboarding new hires, entertaining clients, or celebrating a win, I'll get your team out of their comfort zone and into the kitchen. No experience required.

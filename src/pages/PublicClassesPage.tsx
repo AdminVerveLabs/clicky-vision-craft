@@ -28,7 +28,7 @@ const PublicClassesPage = () => {
           <div className="max-w-[700px]">
             <SectionTag>Public Classes</SectionTag>
             <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
-              Grab a spot. Learn something new. <span className="text-orange italic">Eat well.</span>
+              Grab a spot. Learn something new. <span className="text-purple italic">Eat well.</span>
             </h1>
             <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8">
               Open enrollment classes with rotating menus. No experience necessary. Come solo, bring a date, or rally the

@@ -21,7 +21,7 @@ const KidsPartyPage = () => {
             <div>
               <SectionTag>Kids Party</SectionTag>
               <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
-                The coolest birthday party <span className="text-orange italic">ever</span>
+                The coolest birthday party <span className="text-purple italic">ever</span>
               </h1>
               <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8">
                 Forget bounce houses. Kids ages 4–15 learn real cooking skills in a safe, fun environment. Birthday parties

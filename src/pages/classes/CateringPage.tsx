@@ -21,7 +21,7 @@ const CateringPage = () => {
             <div>
               <SectionTag>Catering</SectionTag>
               <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
-                Creole flavors, <span className="text-orange italic">delivered</span>
+                Creole flavors, <span className="text-purple italic">delivered</span>
               </h1>
               <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8">
                 From intimate dinner parties to large gatherings, Chef Joey's catering brings bold Creole flavors to your

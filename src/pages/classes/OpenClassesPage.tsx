@@ -51,7 +51,7 @@ const OpenClassesPage = () => {
             <div>
               <SectionTag>Open Classes</SectionTag>
               <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
-                Join the table, learn the <span className="text-orange italic">flavors</span>
+                Join the table, learn the <span className="text-purple italic">flavors</span>
               </h1>
               <p className="font-sans text-[17px] text-gray leading-[1.7] mb-8">
                 Our open enrollment classes welcome everyone—solo adventurers, couples on date night, or friends looking
