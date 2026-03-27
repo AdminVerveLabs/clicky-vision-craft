@@ -154,7 +154,7 @@ const HomePage = () => {
             {[
               { title: "Public Classes", tag: "PUBLIC", category: "BOOKABLE", icon: "📅", desc: "Join a community of foodies. Perfect for solo cooks, couples, or small groups wanting to learn new skills.", link: "/classes", image: publicClassesImg, formats: ["In-Person", "Virtual"] },
               { title: "Team Building", tag: "FOR TEAMS", category: "BUILDERS", icon: "🏢", desc: "Interactive challenges and collaborative cooking to bring your corporate team closer together.", link: "/teams", image: teamBuildingImg, formats: ["In-Person", "Virtual"] },
-              { title: "Private Events", tag: "PRIVATE", category: "CUSTOM", icon: "🎉", desc: "Birthdays, anniversaries, celebrations—we customize the menu, the vibe, and the whole experience. You show up ready to celebrate.", link: "/classes/private-events", image: privateClassesImg, formats: ["In-Person", "Virtual"] },
+              { title: "Private Events", tag: "PRIVATE", category: "MEMORIES", icon: "🎉", desc: "Birthdays, anniversaries, celebrations—we customize the menu, the vibe, and the whole experience. You show up ready to celebrate.", link: "/classes/private-events", image: privateClassesImg, formats: ["In-Person", "Virtual"] },
             ].map((card) => (
               <div key={card.title} onClick={() => go(card.link)} className="bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border border-border hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex flex-col">
                 <div className="h-[220px] md:h-[280px] bg-gray-light relative flex items-center justify-center">
