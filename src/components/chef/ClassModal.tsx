@@ -33,16 +33,20 @@ interface ClassModalProps {
 const ClassModal = ({ cls, onClose }: ClassModalProps) => (
   <div
     onClick={onClose}
-    className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-6"
+    className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
     style={{ animation: "fadeIn 0.2s ease" }}
   >
     <div
       onClick={(e) => e.stopPropagation()}
-      className="bg-white rounded-xl max-w-[440px] w-full relative shadow-[0_40px_80px_rgba(0,0,0,0.25)] overflow-hidden"
-      style={{ animation: "slideUp 0.3s ease" }}
+      className="bg-white w-full max-w-[540px] relative overflow-hidden"
+      style={{
+        borderRadius: "16px",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08)",
+        animation: "slideUp 0.3s ease",
+      }}
     >
-      {/* Banner image */}
-      <div className="relative h-[140px]">
+      {/* Banner image — 200px tall */}
+      <div className="relative h-[200px]">
         <img
           src={getClassImage(cls.id)}
           alt={cls.title}
@@ -50,67 +54,101 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
         />
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border-none text-white text-sm cursor-pointer flex items-center justify-center transition-colors hover:bg-black/60 z-10"
+          className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border-none text-white text-base cursor-pointer flex items-center justify-center transition-colors hover:bg-black/70 z-10"
+          aria-label="Close modal"
         >
           ✕
         </button>
       </div>
 
       {/* Content area */}
-      <div className="px-5 pb-5 pt-4">
+      <div style={{ padding: "28px 32px 32px" }}>
         {/* Header row: badge + spots | price */}
-        <div className="flex items-center justify-between mb-1.5">
-          <div className="flex items-center gap-2">
-            <span className={`${cls.soldOut ? "bg-dark/20" : "bg-green"} text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full font-sans tracking-wide`}>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <span
+              className={`${cls.soldOut ? "bg-dark/20" : "bg-green"} text-white font-bold font-sans tracking-wide`}
+              style={{ fontSize: "12px", padding: "5px 12px", borderRadius: "6px" }}
+            >
               {cls.soldOut ? "SOLD OUT" : cls.type.toUpperCase()}
             </span>
             {cls.spots > 0 && !cls.soldOut && (
-              <span className="text-orange text-[11px] font-sans font-medium">🔥 {cls.spots} spots</span>
+              <span className="text-orange font-sans font-bold" style={{ fontSize: "14px" }}>
+                🔥 {cls.spots} spots left
+              </span>
             )}
           </div>
-          <span className="font-sans text-lg font-extrabold text-dark">
-            {cls.price}<span className="text-[11px] font-normal text-dark/50">/person</span>
+          <span className="font-sans font-semibold text-dark" style={{ fontSize: "28px" }}>
+            {cls.price}
+            <span className="font-normal text-dark/50" style={{ fontSize: "15px" }}>/person</span>
           </span>
         </div>
 
         {/* Title */}
-        <h2 className="font-sans text-lg font-medium text-dark leading-snug mb-0.5">{cls.title}</h2>
+        <h2 className="font-sans font-semibold text-dark leading-snug mb-2" style={{ fontSize: "26px" }}>
+          {cls.title}
+        </h2>
 
-        {/* Single meta line */}
-        <p className="font-sans text-[12px] text-dark/40 mb-3">
+        {/* Meta line */}
+        <p className="font-sans text-dark/50 mb-5" style={{ fontSize: "16px" }}>
           February {cls.day}, 2026 · {cls.time} · {cls.duration} · {cls.level}
         </p>
 
         {/* Description */}
-        <p className="font-sans text-[13px] text-dark/70 leading-relaxed mb-4">{cls.description}</p>
+        <p className="font-sans text-dark/70 mb-6" style={{ fontSize: "16px", lineHeight: 1.6 }}>
+          {cls.description}
+        </p>
 
-        {/* Divider + On the Menu */}
-        <div className="border-t border-dark/10 pt-3 mb-4">
-          <p className="font-sans text-[10px] font-bold text-dark/30 uppercase tracking-[1.5px] mb-1.5">On the Menu</p>
-          <p className="font-sans text-[13px] text-dark/60 leading-relaxed">{cls.menu.join(" · ")}</p>
+        {/* On the Menu — with subtle background */}
+        <div className="bg-secondary mb-5" style={{ borderRadius: "12px", padding: "20px" }}>
+          <p
+            className="font-sans font-semibold text-dark/40 uppercase mb-2"
+            style={{ fontSize: "12px", letterSpacing: "1px" }}
+          >
+            On the Menu
+          </p>
+          <p className="font-sans text-dark" style={{ fontSize: "16px", lineHeight: 1.6 }}>
+            {cls.menu.join(" · ")}
+          </p>
         </div>
 
-        {/* What's Included — compact single line */}
-        <div className="flex items-center gap-2.5 mb-5 px-3 py-2.5 bg-green/10 rounded-lg">
-          <div className="w-6 h-6 rounded-md bg-green/20 flex items-center justify-center text-xs shrink-0">✅</div>
-          <p className="font-sans text-[12px] text-dark/60">{cls.included}</p>
+        {/* What's Included callout */}
+        <div className="flex items-start gap-3 bg-green/10 mb-7" style={{ borderRadius: "12px", padding: "18px 20px" }}>
+          <div
+            className="bg-green/20 flex items-center justify-center shrink-0"
+            style={{ width: "22px", height: "22px", borderRadius: "6px", marginTop: "2px" }}
+          >
+            <span style={{ fontSize: "13px" }}>✅</span>
+          </div>
+          <div>
+            <p
+              className="font-sans font-semibold text-green uppercase mb-1"
+              style={{ fontSize: "13px" }}
+            >
+              What's Included
+            </p>
+            <p className="font-sans text-green" style={{ fontSize: "15px", lineHeight: 1.5 }}>
+              {cls.included}
+            </p>
+          </div>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex gap-3">
+        <div className="flex" style={{ gap: "14px" }}>
           {cls.soldOut ? (
-            <div className="w-full">
-              <button className="w-full bg-dark/5 text-dark/40 border-none px-6 py-3 rounded-xl font-semibold text-[13px] cursor-default font-sans">
-                Sold Out — Join Waitlist
-              </button>
-            </div>
+            <button
+              className="w-full bg-dark/5 text-dark/40 border-none font-semibold cursor-default font-sans"
+              style={{ fontSize: "16px", padding: "16px", borderRadius: "10px" }}
+            >
+              Sold Out — Join Waitlist
+            </button>
           ) : (
             <>
               <div className="w-[40%]">
-                <CTAButton variant="secondary" size="md">Gift This Class</CTAButton>
+                <CTAButton variant="secondary" size="lg">Gift This Class</CTAButton>
               </div>
               <div className="w-[60%]">
-                <CTAButton variant="green" size="md">Get Cooking</CTAButton>
+                <CTAButton variant="green" size="lg">Get Cooking</CTAButton>
               </div>
             </>
           )}
