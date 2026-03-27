@@ -136,7 +136,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
                   Gift This Class
                 </button>
                 <button className="bg-purple text-white border-none px-8 py-3.5 rounded-full font-semibold text-[15px] cursor-pointer font-sans shadow-[0_4px_14px_hsl(var(--purple)/0.3)] transition-all hover:-translate-y-0.5">
-                  Chat with Joey
+                  Get Cooking
                 </button>
               </>
             )}
