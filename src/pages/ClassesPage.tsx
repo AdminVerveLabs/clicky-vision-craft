@@ -23,11 +23,11 @@ const classExperiences = [
     description: "Join a group of fellow food lovers for a hands-on class. New menus every week. Perfect for date nights, solo adventures, or grabbing a friend.",
     icon: "🍳", path: "/classes/open-classes", price: "From $89/person", image: classImg1,
     details: [
-      { icon: "⏱️", label: "Duration", value: "2–3 hours of hands-on cooking", color: "orange" },
+      { icon: "⏱️", label: "Duration", value: "2–3 hours of hands-on cooking", color: "purple" },
       { icon: "👥", label: "Group Size", value: "8–16 people per class", color: "sage" },
-      { icon: "🍽️", label: "Cuisine", value: "Creole, Italian, Vietnamese & more", color: "orange" },
+      { icon: "🍽️", label: "Cuisine", value: "Creole, Italian, Vietnamese & more", color: "purple" },
       { icon: "📍", label: "Location", value: "YW Calgary Community Kitchen, Inglewood", color: "sage" },
-      { icon: "🎯", label: "Format", value: "Hands-on cooking with Chef Joey", color: "orange" },
+      { icon: "🎯", label: "Format", value: "Hands-on cooking with Chef Joey", color: "purple" },
       { icon: "✅", label: "Includes", value: "All ingredients, equipment, aprons & recipe cards", color: "sage" },
     ],
     highlights: [
@@ -43,11 +43,11 @@ const classExperiences = [
     description: "Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast.",
     icon: "🎉", path: "/classes/private-events", price: "From $125/person", image: classImg2,
     details: [
-      { icon: "⏱️", label: "Duration", value: "2.5–3 hours, tailored to your event", color: "orange" },
+      { icon: "⏱️", label: "Duration", value: "2.5–3 hours, tailored to your event", color: "purple" },
       { icon: "👥", label: "Group Size", value: "6–30 people", color: "sage" },
-      { icon: "🍽️", label: "Menu", value: "Fully customized to your preferences", color: "orange" },
+      { icon: "🍽️", label: "Menu", value: "Fully customized to your preferences", color: "purple" },
       { icon: "📍", label: "Location", value: "Our Kitchen · Your Place · Any Venue", color: "sage" },
-      { icon: "🎯", label: "Vibe", value: "We match the energy to your celebration", color: "orange" },
+      { icon: "🎯", label: "Vibe", value: "We match the energy to your celebration", color: "purple" },
       { icon: "✅", label: "Includes", value: "Custom menu, décor options, all supplies", color: "sage" },
     ],
     highlights: [
@@ -63,11 +63,11 @@ const classExperiences = [
     description: "Build kitchen confidence and creativity. Kids learn real skills in a safe, fun environment. Birthday parties and drop-in sessions available.",
     icon: "👧", path: "/classes/kids-party", price: "From $65/kid", image: classImg3,
     details: [
-      { icon: "⏱️", label: "Duration", value: "1.5–2 hours of hands-on fun", color: "orange" },
+      { icon: "⏱️", label: "Duration", value: "1.5–2 hours of hands-on fun", color: "purple" },
       { icon: "👥", label: "Group Size", value: "6–20 kids per session", color: "sage" },
-      { icon: "🍽️", label: "Menus", value: "Pizza, pasta, tacos, desserts & more", color: "orange" },
+      { icon: "🍽️", label: "Menus", value: "Pizza, pasta, tacos, desserts & more", color: "purple" },
       { icon: "📍", label: "Location", value: "Our Kitchen · Your Home", color: "sage" },
-      { icon: "🎂", label: "Parties", value: "Birthday party packages available", color: "orange" },
+      { icon: "🎂", label: "Parties", value: "Birthday party packages available", color: "purple" },
       { icon: "✅", label: "Includes", value: "Chef hat, apron, recipe card to keep", color: "sage" },
     ],
     highlights: [
@@ -83,11 +83,11 @@ const classExperiences = [
     description: "Special themed experiences: 'Off to College' survival cooking, 'Basic Skills Bootcamp', 'Date Night: Creole Edition', and seasonal specials.",
     icon: "⭐", path: "/classes/special-occasions", price: "From $99/person", image: classImg4,
     details: [
-      { icon: "⏱️", label: "Duration", value: "2.5–3 hours of immersive cooking", color: "orange" },
+      { icon: "⏱️", label: "Duration", value: "2.5–3 hours of immersive cooking", color: "purple" },
       { icon: "👥", label: "Group Size", value: "8–20 people", color: "sage" },
-      { icon: "🍽️", label: "Themes", value: "Seasonal specials, skill bootcamps, date nights", color: "orange" },
+      { icon: "🍽️", label: "Themes", value: "Seasonal specials, skill bootcamps, date nights", color: "purple" },
       { icon: "📍", label: "Location", value: "YW Calgary Community Kitchen", color: "sage" },
-      { icon: "🔥", label: "Limited", value: "Special editions — book before they sell out", color: "orange" },
+      { icon: "🔥", label: "Limited", value: "Special editions — book before they sell out", color: "purple" },
       { icon: "✅", label: "Includes", value: "All ingredients, wine pairings (adult classes)", color: "sage" },
     ],
     highlights: [
@@ -103,11 +103,11 @@ const classExperiences = [
     description: "Give the gift of a great time. Available for any class or experience. Never expires. Because nobody wants another candle.",
     icon: "🎁", path: "/classes/open-classes", price: "From $65", image: classImg5,
     details: [
-      { icon: "🎫", label: "Options", value: "Any class, any experience, any amount", color: "orange" },
+      { icon: "🎫", label: "Options", value: "Any class, any experience, any amount", color: "purple" },
       { icon: "📧", label: "Delivery", value: "Instant digital or printed gift card", color: "sage" },
-      { icon: "📅", label: "Validity", value: "Never expires — use anytime", color: "orange" },
+      { icon: "📅", label: "Validity", value: "Never expires — use anytime", color: "purple" },
       { icon: "🔄", label: "Flexible", value: "Recipient chooses their own class", color: "sage" },
-      { icon: "💝", label: "Personal", value: "Add a custom message and wrapping", color: "orange" },
+      { icon: "💝", label: "Personal", value: "Add a custom message and wrapping", color: "purple" },
       { icon: "✅", label: "Includes", value: "Full class experience — nothing extra to pay", color: "sage" },
     ],
     highlights: [
@@ -156,7 +156,7 @@ const ClassesPage = () => {
 
       {/* Hero */}
       <section className="pt-[120px] pb-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-b from-orange-pale to-transparent opacity-50" />
+        <div className="absolute top-0 left-0 w-[40%] h-full bg-gradient-to-b from-purple-pale to-transparent opacity-50" />
 
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -272,11 +272,11 @@ const ClassesPage = () => {
                           {o.details.map((d, i) => (
                             <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
                               <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
-                                d.color === "orange" ? "bg-orange/10" : "bg-sage/10"
+                                d.color === "purple" ? "bg-purple/10" : "bg-sage/10"
                               }`}>{d.icon}</div>
                               <div>
                                 <p className={`font-sans text-[12px] font-bold uppercase tracking-[1px] mb-0.5 ${
-                                  d.color === "orange" ? "text-orange" : "text-sage"
+                                  d.color === "purple" ? "text-purple" : "text-sage"
                                 }`}>{d.label}</p>
                                 <p className="font-sans text-[14px] text-dark leading-snug">{d.value}</p>
                               </div>
@@ -434,7 +434,7 @@ const ClassesPage = () => {
           {/* Legend */}
           <div className="flex gap-6 justify-center mt-5 flex-wrap">
             {[
-              { label: "Public Class", color: "bg-orange" },
+              { label: "Public Class", color: "bg-purple" },
               { label: "Couples / Date Night", color: "bg-purple" },
               { label: "Kids", color: "bg-sage" },
               { label: "Signature / Skills", color: "bg-dark" },

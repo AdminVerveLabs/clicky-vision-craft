@@ -11,7 +11,7 @@ interface ServiceCardProps {
 const ServiceCard = ({ title, subtitle, description, price, tag, onClick, accentColor = "purple" }: ServiceCardProps) => {
   const accentClasses = {
     purple: { bg: "from-purple/[0.08] to-purple/[0.04]", text: "text-purple", icon: "bg-purple/20", tagBg: "bg-purple" },
-    orange: { bg: "from-orange/[0.08] to-orange/[0.04]", text: "text-orange", icon: "bg-orange/20", tagBg: "bg-orange" },
+    orange: { bg: "from-purple/[0.08] to-purple/[0.04]", text: "text-purple", icon: "bg-purple/20", tagBg: "bg-purple" },
     sage: { bg: "from-sage/[0.08] to-sage/[0.04]", text: "text-sage", icon: "bg-sage/20", tagBg: "bg-sage" },
   };
   const a = accentClasses[accentColor];

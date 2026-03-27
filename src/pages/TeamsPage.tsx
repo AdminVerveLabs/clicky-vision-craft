@@ -22,10 +22,10 @@ const occasions = [
     groupSize: "8–30 people", duration: "2.5 hours", icon: "👨‍🍳", path: "/teams/team-events", image: teamImg1,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5 hours of hands-on cooking", color: "purple" },
-      { icon: "👥", label: "Group Size", value: "8–30 people per session", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "8–30 people per session", color: "purple" },
       { icon: "🍽️", label: "Cuisine", value: "Creole-inspired collaborative menus", color: "sage" },
       { icon: "📍", label: "Location", value: "Our Kitchen · Your Office · Virtual", color: "purple" },
-      { icon: "🎯", label: "Format", value: "Teams cook together in small groups", color: "orange" },
+      { icon: "🎯", label: "Format", value: "Teams cook together in small groups", color: "purple" },
       { icon: "✅", label: "Includes", value: "All ingredients, equipment, and recipes", color: "sage" },
     ],
     highlights: [
@@ -42,10 +42,10 @@ const occasions = [
     groupSize: "20–200 people", duration: "1.5–2 hours", icon: "🎤", path: "/teams/all-hands", image: teamImg2,
     details: [
       { icon: "⏱️", label: "Duration", value: "1.5–3 hours, flexible to your agenda", color: "purple" },
-      { icon: "👥", label: "Group Size", value: "20–200+ people", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "20–200+ people", color: "purple" },
       { icon: "💻", label: "Format", value: "In-person, virtual, or hybrid", color: "sage" },
       { icon: "📍", label: "Location", value: "Your office, event venue, or online", color: "purple" },
-      { icon: "🎯", label: "Activities", value: "Live demos, cooking challenges, team competitions", color: "orange" },
+      { icon: "🎯", label: "Activities", value: "Live demos, cooking challenges, team competitions", color: "purple" },
       { icon: "📦", label: "Virtual Kit", value: "Ingredient kits shipped to each participant", color: "sage" },
     ],
     highlights: [
@@ -62,10 +62,10 @@ const occasions = [
     groupSize: "5–25 people", duration: "2 hours", icon: "🌱", path: "/teams/onboarding", image: teamImg3,
     details: [
       { icon: "⏱️", label: "Duration", value: "2 hours of team bonding", color: "purple" },
-      { icon: "👥", label: "Group Size", value: "5–25 people", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "5–25 people", color: "purple" },
       { icon: "🎯", label: "Focus", value: "Icebreaking, culture building, connection", color: "sage" },
       { icon: "📍", label: "Location", value: "Our Kitchen · Your Office", color: "purple" },
-      { icon: "🍽️", label: "Menu", value: "Collaborative dishes that require teamwork", color: "orange" },
+      { icon: "🍽️", label: "Menu", value: "Collaborative dishes that require teamwork", color: "purple" },
       { icon: "✅", label: "Includes", value: "Welcome kits, name tags, recipe cards", color: "sage" },
     ],
     highlights: [
@@ -82,10 +82,10 @@ const occasions = [
     groupSize: "6–20 people", duration: "2.5 hours", icon: "🤝", path: "/teams/client-entertainment", image: teamImg4,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5 hours of premium experience", color: "purple" },
-      { icon: "👥", label: "Group Size", value: "6–20 people", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "6–20 people", color: "purple" },
       { icon: "🍷", label: "Add-ons", value: "Wine pairings, cocktail stations available", color: "sage" },
       { icon: "📍", label: "Location", value: "Our Kitchen · Private venues", color: "purple" },
-      { icon: "🎯", label: "Focus", value: "Relationship building in a relaxed setting", color: "orange" },
+      { icon: "🎯", label: "Focus", value: "Relationship building in a relaxed setting", color: "purple" },
       { icon: "✅", label: "Includes", value: "Premium ingredients, personal chef attention", color: "sage" },
     ],
     highlights: [
@@ -102,10 +102,10 @@ const occasions = [
     groupSize: "10–50 people", duration: "2–3 hours", icon: "🎉", path: "/teams/holiday", image: teamImg5,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5–3 hours of cooking and celebration", color: "purple" },
-      { icon: "👥", label: "Group Size", value: "10–50+ people", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "10–50+ people", color: "purple" },
       { icon: "🍽️", label: "Menus", value: "Seasonal and themed menus for every occasion", color: "sage" },
       { icon: "📍", label: "Location", value: "Our Kitchen · Your Venue · Virtual", color: "purple" },
-      { icon: "🎄", label: "Themes", value: "Holiday, summer, spring, cultural celebrations", color: "orange" },
+      { icon: "🎄", label: "Themes", value: "Holiday, summer, spring, cultural celebrations", color: "purple" },
       { icon: "🎁", label: "Extras", value: "Décor, music, team competitions, prizes", color: "sage" },
     ],
     highlights: [
@@ -122,10 +122,10 @@ const occasions = [
     groupSize: "Any size", duration: "Flexible", icon: "✨", path: "/teams/custom", image: teamImg6,
     details: [
       { icon: "⏱️", label: "Duration", value: "Flexible — tailored to your schedule", color: "purple" },
-      { icon: "👥", label: "Group Size", value: "Any size, from 4 to 200+", color: "orange" },
+      { icon: "👥", label: "Group Size", value: "Any size, from 4 to 200+", color: "purple" },
       { icon: "🎯", label: "Goals", value: "Tell us your objectives and we'll design around them", color: "sage" },
       { icon: "📍", label: "Location", value: "Anywhere — we come to you", color: "purple" },
-      { icon: "🍽️", label: "Menu", value: "Fully custom menus and dietary accommodations", color: "orange" },
+      { icon: "🍽️", label: "Menu", value: "Fully custom menus and dietary accommodations", color: "purple" },
       { icon: "✅", label: "Includes", value: "Everything — just show up and cook", color: "sage" },
     ],
     highlights: [
@@ -307,11 +307,11 @@ const TeamsPage = () => {
                           {o.details.map((d, i) => (
                             <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
                               <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
-                                d.color === "purple" ? "bg-purple/10" : d.color === "orange" ? "bg-orange/10" : "bg-sage/10"
+                                d.color === "purple" ? "bg-purple/10" : "bg-sage/10"
                               }`}>{d.icon}</div>
                               <div>
                                 <p className={`font-sans text-[12px] font-bold uppercase tracking-[1px] mb-0.5 ${
-                                  d.color === "purple" ? "text-purple" : d.color === "orange" ? "text-orange" : "text-sage"
+                                  d.color === "purple" ? "text-purple" : "text-sage"
                                 }`}>{d.label}</p>
                                 <p className="font-sans text-[14px] text-dark leading-snug">{d.value}</p>
                               </div>

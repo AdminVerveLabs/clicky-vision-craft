@@ -23,10 +23,10 @@ const PublicClassesPage = () => {
           <div className="mb-2">
             <span onClick={() => go("/classes")} className="font-sans text-[13px] text-gray cursor-pointer">Classes & Events</span>
             <span className="text-gray mx-2">›</span>
-            <span className="font-sans text-[13px] text-orange font-semibold">Public Classes</span>
+            <span className="font-sans text-[13px] text-purple font-semibold">Public Classes</span>
           </div>
           <div className="max-w-[700px]">
-            <SectionTag variant="orange">Public Classes</SectionTag>
+            <SectionTag>Public Classes</SectionTag>
             <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
               Grab a spot. Learn something new. <span className="text-orange italic">Eat well.</span>
             </h1>
@@ -43,19 +43,19 @@ const PublicClassesPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {classes.map((cls) => (
               <div key={cls.date + cls.title} className="bg-cream rounded-2xl overflow-hidden border border-border transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(0,0,0,0.06)]">
-                <div className="h-40 bg-gradient-to-br from-orange/[0.06] to-purple/[0.04] flex items-center justify-center relative">
+                <div className="h-40 bg-gradient-to-br from-purple/[0.06] to-purple/[0.04] flex items-center justify-center relative">
                   <span className="text-5xl">🍲</span>
                   {cls.spots <= 4 && (
-                    <div className="absolute top-3 right-3 bg-orange text-white text-[11px] font-bold px-2.5 py-1 rounded-full font-sans">Almost Full</div>
+                    <div className="absolute top-3 right-3 bg-purple text-white text-[11px] font-bold px-2.5 py-1 rounded-full font-sans">Almost Full</div>
                   )}
                 </div>
                 <div className="p-5 md:p-6">
-                  <div className="font-sans text-xs font-semibold text-orange mb-2 tracking-wide">{cls.date}</div>
+                  <div className="font-sans text-xs font-semibold text-purple mb-2 tracking-wide">{cls.date}</div>
                   <h3 className="font-serif text-lg md:text-xl font-bold text-dark mb-2 leading-tight">{cls.title}</h3>
                   <p className="font-sans text-sm text-gray leading-relaxed mb-4">{cls.desc}</p>
                   <div className="flex justify-between items-center">
                     <span className="font-sans text-xl font-bold text-dark">{cls.price}</span>
-                    <button className="bg-orange text-white border-none px-5 py-2 rounded-full text-[13px] font-semibold cursor-pointer font-sans">Chat with Joey</button>
+                    <button className="bg-purple text-white border-none px-5 py-2 rounded-full text-[13px] font-semibold cursor-pointer font-sans">Chat with Joey</button>
                   </div>
                 </div>
               </div>
