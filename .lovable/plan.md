@@ -1,63 +1,47 @@
 
 
-## Redesign ClassModal — Compact Single-View Layout
+## Redesign ClassModal — Banner Image Layout
 
-Replace the current tall, scrollable overlapping-card modal with a compact, information-dense layout that fits in a single view (~480-500px wide).
+Replace the current compact layout with an Airbnb/ClassPass-style banner image modal.
 
-### New Layout
+### Layout
 
 ```text
-┌─────────────────────────────────────────────┐
-│ [120x120 img]  PUBLIC 🔥3 spots    $89/person│
-│                Creole Comfort Classics       │
-│                Feb 1, 2026 · 10:00 AM        │
-│                2.5 hrs · All levels · YW...  │  ✕
-├─────────────────────────────────────────────┤
-│ Description paragraph text in muted color... │
-├─────────────────────────────────────────────┤
-│ ON THE MENU                                  │
-│ Item 1 · Item 2 · Item 3 · Item 4           │
-├─────────────────────────────────────────────┤
-│ ✅ WHAT'S INCLUDED                           │
-│ All ingredients, equipment, aprons...        │
-├─────────────────────────────────────────────┤
-│ [ Gift This Class ]  [    Get Cooking    ]   │
-└─────────────────────────────────────────────┘
+┌──────────────────────────────────┐
+│  [Banner image - 16:9 ratio]   ✕ │  ~130px tall, rounded top only
+├──────────────────────────────────┤
+│  PUBLIC 🔥3 spots     $89/person │  header row
+│  Creole Comfort Classics         │  title 18px medium
+│  Feb 1 · 10AM · 2.5hrs · All    │  single meta line, muted
+│                                  │
+│  Description text in muted...    │  13px, relaxed line-height
+│──────────────────────────────────│  subtle divider
+│  ON THE MENU                     │
+│  Gumbo · Rice · Cornbread · ...  │
+│                                  │
+│  ✅ All ingredients, equipment…  │  green bg callout, single line
+│                                  │
+│  [ Gift This Class ] [ Get Cooking ] │
+└──────────────────────────────────┘
 ```
 
-### Changes — `src/components/chef/ClassModal.tsx`
+### Changes to `src/components/chef/ClassModal.tsx`
 
-**Remove entirely:**
-- Full-width image hero (240px)
-- Purple gradient header bar with decorative circles
-- White overlapping card wrapper
-- Large emoji display
-- Bottom price display (price moves to top-right)
+**Modal container**: Change to `max-w-[440px]`, `rounded-xl`, `bg-white`, no top padding (image bleeds to edges). Content area gets `px-5 pb-5 pt-4`.
 
-**New structure (top to bottom inside a single white/cream card):**
+**Banner image**: Full-width `img` with `rounded-t-xl`, aspect ratio ~2:1 (`h-[140px]`), `object-cover`. Close button overlaid on image top-right with `bg-black/40 backdrop-blur-sm text-white` circle.
 
-1. **Top section** — Horizontal flex with close button top-right
-   - Left: 120×120px square image (rounded-xl, object-cover), using existing `getClassImage(cls.id)`
-   - Right column:
-     - Row 1: Green pill badge (`cls.type`) + "🔥 X spots left" (if applicable) + price right-aligned (bold, larger)
-     - Title: `text-lg font-medium`
-     - Date/time: muted text
-     - Meta line: `duration · level · location` in muted text
+**Header row**: Flex with justify-between. Left: green pill badge + spots indicator. Right: price (`text-lg font-extrabold`) with `/person` in smaller muted text.
 
-2. **Description** — Full-width paragraph, `text-[13px] text-dark/70 leading-relaxed`
+**Title + meta**: Title as `text-lg font-medium`. Single meta line combining date, time, duration, and level separated by `·` in muted text.
 
-3. **Divider** — Subtle `border-t border-dark/10`
+**Description**: `text-[13px] text-dark/70 leading-relaxed`, compact paragraph.
 
-4. **On the Menu** — Uppercase label, then menu items joined with ` · ` as plain text (not pills/tags)
+**On the Menu**: `border-t border-dark/10` divider, uppercase label in `text-[10px] text-dark/30`, items joined with ` · `.
 
-5. **What's Included** — Light green (`bg-green/10`) rounded box with green checkmark icon, uppercase label, and description text
+**What's Included**: Compact single-line callout — `bg-green/10 rounded-lg px-3 py-2.5` with inline flex: green checkmark icon + text. Keep to one line.
 
-6. **CTA buttons** — Two buttons using the culinary stamp style from CTAButton:
-   - "Gift This Class" — secondary variant (~40% width)
-   - "Get Cooking" — primary/green variant (~60% width)
-   - Sold out state: single disabled button "Sold Out — Join Waitlist"
-
-**Modal container:** `max-w-[500px]`, `rounded-2xl`, `p-5`, `bg-white`, no scroll needed. Keep existing backdrop, animation, and image imports.
+**CTA buttons**: "Gift This Class" secondary ~40%, "Get Cooking" green ~60%, using existing `CTAButton`. Sold-out state: single disabled button.
 
 ### Single file modified
 - `src/components/chef/ClassModal.tsx`
