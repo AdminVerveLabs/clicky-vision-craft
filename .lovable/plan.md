@@ -1,24 +1,42 @@
 
 
-## Update ClassModal for public course modals
+## Redesign ClassModal with overlapping card layout
 
-Three changes to `src/components/chef/ClassModal.tsx`:
+Restructure `src/components/chef/ClassModal.tsx` into a layered design: image hero on top, purple info bar below, white content card overlapping upward.
 
-### 1. Remove "Only X spots left" badge
-Delete lines 34-38 — the conditional `spots` badge in the header.
+### New layout (top to bottom)
 
-### 2. Add a photo to the header
-Instead of overlaying text on an image (readability issue), add a **rounded photo strip below the purple header** — a full-width image band (~180px tall) with rounded bottom corners, sitting between the purple header and the body content. This uses one of the existing kitchen/cooking assets (e.g., `ywca-kitchen-074.jpg`) as a default class image. The `ClassData` interface doesn't have per-class images, so we'll use a mapping from `cls.id` to specific kitchen photos to give visual variety. This approach keeps text legible on the purple background while adding visual warmth.
+```text
+┌──────────────────────────────┐
+│  [Image hero - rounded top]  │  ~240px, full-width photo
+│                              │  Close X button top-right
+├──────────────────────────────┤
+│  Purple header bar           │  Badge, emoji, spots left
+│  Title + date/time           │  ~padding pb-16 to make room
+├──────────────────────────────┤
+│ ┌──────────────────────────┐ │
+│ │  White overlapping card  │ │  -mt-8, mx-4, shadow, rounded-xl
+│ │  Description             │ │
+│ │  Info grid (2x2)         │ │
+│ │  On the Menu             │ │
+│ │  What's Included         │ │
+│ │  CTA bar                 │ │
+│ └──────────────────────────┘ │
+└──────────────────────────────┘
+```
 
-**Image mapping** (in the modal component):
-- Map class IDs to different existing assets (`ywca-kitchen-006.jpg`, `ywca-kitchen-014.jpg`, `ywca-kitchen-056.jpg`, `ywca-kitchen-074.jpg`, `ywca-kitchen-080.jpg`, plus some chef-joey photos) to rotate images across classes.
+### Changes to `src/components/chef/ClassModal.tsx`
 
-### 3. Increase date/time font size
-Line 42: Change `text-[15px]` to `text-lg` (18px) for the date/time paragraph.
+1. **Image hero** — Move the photo strip to the very top. Full-width, ~240px tall, rounded top corners matching the modal. Close X button positioned over the image (white with backdrop blur).
 
-### 4. Rename CTA button
-Line 115: Change "Chat with Joey" to "Get Cooking".
+2. **Purple header bar** — Sits below the image (no rounded top corners). Contains the badge, emoji, spots indicator, title, and date/time. Extra bottom padding (~pb-14) so the white card can overlap into it.
 
-### Files modified
-- `src/components/chef/ClassModal.tsx` — all changes in this single file
+3. **White overlapping content card** — Wrap all body content (description, info grid, menu, included, CTA) in a white card with `-mt-8 mx-4 rounded-xl shadow-lg relative z-10 p-8`. This creates the overlapping depth effect.
+
+4. **Keep existing content** — All info grid, menu, included, and CTA sections stay the same internally. Just wrapped in the new card container.
+
+5. **Spots indicator** — Add back `{cls.spots > 0 && !cls.soldOut && "🔥 Only " + cls.spots + " spots left"}` in the purple header (this is a semantic urgency indicator per accent rules).
+
+### Single file modified
+- `src/components/chef/ClassModal.tsx`
 
