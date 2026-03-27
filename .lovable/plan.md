@@ -1,41 +1,63 @@
 
 
-## Redesign ClassModal with overlapping card layout
+## Redesign ClassModal — Compact Single-View Layout
 
-Restructure `src/components/chef/ClassModal.tsx` into a layered design: image hero on top, purple info bar below, white content card overlapping upward.
+Replace the current tall, scrollable overlapping-card modal with a compact, information-dense layout that fits in a single view (~480-500px wide).
 
-### New layout (top to bottom)
+### New Layout
 
 ```text
-┌──────────────────────────────┐
-│  [Image hero - rounded top]  │  ~240px, full-width photo
-│                              │  Close X button top-right
-├──────────────────────────────┤
-│  Purple header bar           │  Badge, emoji, spots left
-│  Title + date/time           │  ~padding pb-16 to make room
-├──────────────────────────────┤
-│ ┌──────────────────────────┐ │
-│ │  White overlapping card  │ │  -mt-8, mx-4, shadow, rounded-xl
-│ │  Description             │ │
-│ │  Info grid (2x2)         │ │
-│ │  On the Menu             │ │
-│ │  What's Included         │ │
-│ │  CTA bar                 │ │
-│ └──────────────────────────┘ │
-└──────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│ [120x120 img]  PUBLIC 🔥3 spots    $89/person│
+│                Creole Comfort Classics       │
+│                Feb 1, 2026 · 10:00 AM        │
+│                2.5 hrs · All levels · YW...  │  ✕
+├─────────────────────────────────────────────┤
+│ Description paragraph text in muted color... │
+├─────────────────────────────────────────────┤
+│ ON THE MENU                                  │
+│ Item 1 · Item 2 · Item 3 · Item 4           │
+├─────────────────────────────────────────────┤
+│ ✅ WHAT'S INCLUDED                           │
+│ All ingredients, equipment, aprons...        │
+├─────────────────────────────────────────────┤
+│ [ Gift This Class ]  [    Get Cooking    ]   │
+└─────────────────────────────────────────────┘
 ```
 
-### Changes to `src/components/chef/ClassModal.tsx`
+### Changes — `src/components/chef/ClassModal.tsx`
 
-1. **Image hero** — Move the photo strip to the very top. Full-width, ~240px tall, rounded top corners matching the modal. Close X button positioned over the image (white with backdrop blur).
+**Remove entirely:**
+- Full-width image hero (240px)
+- Purple gradient header bar with decorative circles
+- White overlapping card wrapper
+- Large emoji display
+- Bottom price display (price moves to top-right)
 
-2. **Purple header bar** — Sits below the image (no rounded top corners). Contains the badge, emoji, spots indicator, title, and date/time. Extra bottom padding (~pb-14) so the white card can overlap into it.
+**New structure (top to bottom inside a single white/cream card):**
 
-3. **White overlapping content card** — Wrap all body content (description, info grid, menu, included, CTA) in a white card with `-mt-8 mx-4 rounded-xl shadow-lg relative z-10 p-8`. This creates the overlapping depth effect.
+1. **Top section** — Horizontal flex with close button top-right
+   - Left: 120×120px square image (rounded-xl, object-cover), using existing `getClassImage(cls.id)`
+   - Right column:
+     - Row 1: Green pill badge (`cls.type`) + "🔥 X spots left" (if applicable) + price right-aligned (bold, larger)
+     - Title: `text-lg font-medium`
+     - Date/time: muted text
+     - Meta line: `duration · level · location` in muted text
 
-4. **Keep existing content** — All info grid, menu, included, and CTA sections stay the same internally. Just wrapped in the new card container.
+2. **Description** — Full-width paragraph, `text-[13px] text-dark/70 leading-relaxed`
 
-5. **Spots indicator** — Add back `{cls.spots > 0 && !cls.soldOut && "🔥 Only " + cls.spots + " spots left"}` in the purple header (this is a semantic urgency indicator per accent rules).
+3. **Divider** — Subtle `border-t border-dark/10`
+
+4. **On the Menu** — Uppercase label, then menu items joined with ` · ` as plain text (not pills/tags)
+
+5. **What's Included** — Light green (`bg-green/10`) rounded box with green checkmark icon, uppercase label, and description text
+
+6. **CTA buttons** — Two buttons using the culinary stamp style from CTAButton:
+   - "Gift This Class" — secondary variant (~40% width)
+   - "Get Cooking" — primary/green variant (~60% width)
+   - Sold out state: single disabled button "Sold Out — Join Waitlist"
+
+**Modal container:** `max-w-[500px]`, `rounded-2xl`, `p-5`, `bg-white`, no scroll needed. Keep existing backdrop, animation, and image imports.
 
 ### Single file modified
 - `src/components/chef/ClassModal.tsx`
