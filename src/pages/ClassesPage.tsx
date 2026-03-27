@@ -414,11 +414,18 @@ const ClassesPage = () => {
               { label: "Kids", color: "bg-sage" },
               { label: "Private / Corporate", color: "bg-sage" },
               { label: "Sold Out", color: "bg-gray" },
-              { label: "In-Person 📍", color: "bg-orange" },
-              { label: "Virtual 💻", color: "bg-orange" },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-1.5">
                 <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
+                <span className="font-sans text-xs text-gray font-medium">{item.label}</span>
+              </div>
+            ))}
+            {[
+              { label: "In-Person", symbol: "📍" },
+              { label: "Virtual", symbol: "💻" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-1">
+                <span className="text-xs">{item.symbol}</span>
                 <span className="font-sans text-xs text-gray font-medium">{item.label}</span>
               </div>
             ))}
