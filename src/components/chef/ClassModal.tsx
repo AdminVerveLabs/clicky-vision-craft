@@ -37,38 +37,41 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
   >
     <div
       onClick={(e) => e.stopPropagation()}
-      className="bg-white rounded-3xl max-w-[820px] w-full max-h-[90vh] overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden relative shadow-[0_40px_80px_rgba(0,0,0,0.25)]"
+      className="bg-cream rounded-2xl max-w-[620px] w-full max-h-[90vh] overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden relative shadow-[0_40px_80px_rgba(0,0,0,0.25)]"
       style={{ animation: "slideUp 0.3s ease" }}
     >
-      {/* Header */}
-      <div className="bg-gradient-to-br from-purple to-purple-dark px-10 pt-10 pb-12 rounded-t-3xl relative overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-[200px] h-[200px] rounded-full bg-white/5" />
-        <div className="absolute -bottom-16 left-[30%] w-[300px] h-[300px] rounded-full bg-white/[0.03]" />
+      {/* Image Hero */}
+      <div className="relative w-full h-[240px] overflow-hidden rounded-t-2xl">
+        <img src={getClassImage(cls.id)} alt={cls.title} className="w-full h-full object-cover" />
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 border-none text-white text-lg cursor-pointer flex items-center justify-center transition-colors hover:bg-white/25"
+          className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm border-none text-white text-lg cursor-pointer flex items-center justify-center transition-colors hover:bg-black/50"
         >
           ✕
         </button>
+      </div>
+
+      {/* Purple Header Bar */}
+      <div className="bg-gradient-to-br from-purple to-purple-dark px-8 pt-6 pb-14 relative overflow-hidden">
+        <div className="absolute -top-10 -right-10 w-[200px] h-[200px] rounded-full bg-white/5" />
+        <div className="absolute -bottom-16 left-[30%] w-[300px] h-[300px] rounded-full bg-white/[0.03]" />
         <div className="relative">
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-3">
             <span className={`${cls.soldOut ? "bg-white/20" : "bg-green"} text-white text-[11px] font-bold px-3 py-1 rounded-full font-sans tracking-wide`}>
               {cls.soldOut ? "SOLD OUT" : cls.type.toUpperCase()}
             </span>
+            {cls.spots > 0 && !cls.soldOut && (
+              <span className="text-white/70 text-[13px] font-sans">🔥 Only {cls.spots} spots left</span>
+            )}
           </div>
-          <div className="text-5xl mb-3">{cls.emoji}</div>
-          <h2 className="font-sans text-4xl font-extrabold text-white leading-tight mb-2">{cls.title}</h2>
+          <div className="text-4xl mb-2">{cls.emoji}</div>
+          <h2 className="font-sans text-3xl font-extrabold text-white leading-tight mb-1">{cls.title}</h2>
           <p className="font-sans text-lg text-white/70">February {cls.day}, 2026 · {cls.time}</p>
         </div>
       </div>
 
-      {/* Photo Strip */}
-      <div className="w-full h-[180px] overflow-hidden">
-        <img src={getClassImage(cls.id)} alt={cls.title} className="w-full h-full object-cover" />
-      </div>
-
-      {/* Body */}
-      <div className="p-10">
+      {/* White Overlapping Content Card */}
+      <div className="-mt-8 mx-4 mb-4 bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] relative z-10 p-8">
         <p className="font-sans text-base text-dark leading-[1.8] mb-8">{cls.description}</p>
 
         {/* Info Grid */}
@@ -98,7 +101,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
         </div>
 
         {/* Menu */}
-        <div className="bg-gray-light rounded-2xl p-6 mb-8">
+        <div className="bg-cream rounded-2xl p-6 mb-8">
           <h3 className="font-sans text-xl font-bold text-dark mb-4">On the Menu</h3>
           <div className="grid grid-cols-2 gap-2.5">
             {cls.menu.map((item, i) => (
@@ -120,14 +123,14 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
         </div>
 
         {/* CTA */}
-        <div className="flex gap-3 items-center justify-between pt-6 border-t border-gray-light">
+        <div className="flex gap-3 items-center justify-between pt-6 border-t border-cream">
           <div>
             <span className="font-sans text-[28px] font-extrabold text-dark">{cls.price}</span>
             <span className="font-sans text-sm text-gray ml-1">/ person</span>
           </div>
           <div className="flex gap-3">
             {cls.soldOut ? (
-              <button className="bg-gray-light text-gray border-none px-8 py-3.5 rounded-full font-semibold text-[15px] cursor-default font-sans">
+              <button className="bg-cream text-gray border-none px-8 py-3.5 rounded-full font-semibold text-[15px] cursor-default font-sans">
                 Sold Out — Join Waitlist
               </button>
             ) : (
