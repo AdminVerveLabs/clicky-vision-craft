@@ -61,6 +61,9 @@ const App = () => (
             <Route path="/classes/friends" element={<FriendsPage />} />
             <Route path="/classes/kids-party" element={<KidsPartyPage />} />
             <Route path="/classes/catering" element={<CateringPage />} />
+            <Route path="/classes/example/valentines-day" element={<ValentinesDayPage />} />
+            <Route path="/classes/example/signature-creole" element={<SignatureCreolePage />} />
+            <Route path="/classes/example/kids-bake" element={<KidsBakePage />} />
 
             {/* Teams sub-pages */}
             <Route path="/teams/team-events" element={<TeamEventsPage />} />
@@ -70,6 +73,8 @@ const App = () => (
             <Route path="/teams/holiday" element={<HolidayPage />} />
             <Route path="/teams/custom" element={<CustomExperiencesPage />} />
             <Route path="/teams/catering" element={<CateringTeamsPage />} />
+            <Route path="/teams/example/signature-creole" element={<TeamCreolePage />} />
+            <Route path="/teams/example/healthy-meal-prep" element={<HealthyMealPrepPage />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
