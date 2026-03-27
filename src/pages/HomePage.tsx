@@ -101,10 +101,10 @@ const HomePage = () => {
               <p className="font-sans text-base text-gray leading-[1.8] mb-6">
                 I have a passion for food and I'd love to share that with you. I don't take myself too seriously and
                 neither should you. Whether it's a corporate team event or a Saturday night with friends, my goal is
-                simple: good food, good energy, and memories you'll actually remember.
+                simple: good food, good energy, and memories you'll always remember.
               </p>
               <p className="font-sans text-base text-gray leading-[1.8] mb-8">
-                Born and raised on creole flavors and southern hospitality, I bring that warmth to every class. Expect bold
+                I've been lucky enough to learn from some of the best chefs and have taken on the love of cooking from them exploring all kinds of cuisines. Being born and raised on creole flavors and southern hospitality, I bring that warmth to every class. Expect bold
                 spices, big laughs, and zero pretension.
               </p>
               <CTAButton variant="primary" onClick={() => go("/about")}>More About Joey</CTAButton>
