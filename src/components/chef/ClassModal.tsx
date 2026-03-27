@@ -40,7 +40,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
   >
     <div
       onClick={(e) => e.stopPropagation()}
-      className="bg-white w-full max-w-[540px] relative overflow-hidden my-8 max-h-[calc(100vh-64px)] overflow-y-auto"
+      className="bg-white w-full max-w-[540px] relative overflow-hidden"
       style={{
         borderRadius: "16px",
         boxShadow: "0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08)",
@@ -48,7 +48,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
       }}
     >
       {/* Banner image — 200px tall */}
-      <div className="relative h-[200px]">
+      <div className="relative h-[150px]">
         <img
           src={getClassImage(cls.id)}
           alt={cls.title}
@@ -64,9 +64,9 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
       </div>
 
       {/* Content area */}
-      <div style={{ padding: "28px 32px 32px" }}>
+      <div style={{ padding: "20px 24px 24px" }}>
         {/* Header row: badge + spots | price */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
             <span
               className={`${cls.soldOut ? "bg-dark/20" : "bg-green"} text-white font-bold font-sans tracking-wide`}
@@ -87,43 +87,43 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
         </div>
 
         {/* Title */}
-        <h2 className="font-sans font-semibold text-dark leading-snug mb-2" style={{ fontSize: "26px" }}>
+        <h2 className="font-sans font-semibold text-dark leading-snug" style={{ fontSize: "22px", marginBottom: "6px" }}>
           {cls.title}
         </h2>
 
         {/* Meta line */}
-        <p className="font-sans text-dark/50 mb-5" style={{ fontSize: "16px" }}>
+        <p className="font-sans text-dark/50" style={{ fontSize: "14px", marginBottom: "14px" }}>
           February {cls.day}, 2026 · {cls.time} · {cls.duration} · {cls.level}
         </p>
 
         {/* Description */}
-        <p className="font-sans text-dark/70 mb-6" style={{ fontSize: "16px", lineHeight: 1.6 }}>
+        <p className="font-sans text-dark/70" style={{ fontSize: "15px", lineHeight: 1.6, marginBottom: "18px" }}>
           {cls.description}
         </p>
 
         {/* On the Menu — 2×2 grid with dish thumbnails */}
-        <div className="bg-secondary mb-5" style={{ borderRadius: "12px", padding: "20px" }}>
+        <div className="bg-secondary" style={{ borderRadius: "12px", padding: "16px", marginBottom: "14px" }}>
           <p
-            className="font-sans font-semibold text-dark/40 uppercase mb-3"
-            style={{ fontSize: "12px", letterSpacing: "1px" }}
+            className="font-sans font-semibold text-dark/40 uppercase mb-2"
+            style={{ fontSize: "11px", letterSpacing: "1px" }}
           >
             On the Menu
           </p>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2" style={{ gap: "10px" }}>
             {cls.menu.map((dish, i) => (
               <div key={i} className="flex items-center gap-3">
                 <div
                   className="bg-white shrink-0 flex items-center justify-center"
                   style={{
-                    width: "48px",
-                    height: "48px",
+                    width: "40px",
+                    height: "40px",
                     borderRadius: "8px",
-                    fontSize: "22px",
+                    fontSize: "20px",
                   }}
                 >
                   {DISH_EMOJIS[i % DISH_EMOJIS.length]}
                 </div>
-                <span className="font-sans font-medium text-dark" style={{ fontSize: "14px" }}>
+                <span className="font-sans font-medium text-dark" style={{ fontSize: "13px" }}>
                   {dish}
                 </span>
               </div>
@@ -133,8 +133,8 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
 
         {/* What's Included callout — compact single row */}
         <div
-          className="flex items-center gap-3 bg-green/10 mb-6"
-          style={{ borderRadius: "12px", padding: "16px 18px" }}
+          className="flex items-center gap-3 bg-green/10"
+          style={{ borderRadius: "12px", padding: "12px 14px", marginBottom: "18px" }}
         >
           <div
             className="bg-green/20 flex items-center justify-center shrink-0"
@@ -142,7 +142,7 @@ const ClassModal = ({ cls, onClose }: ClassModalProps) => (
           >
             <span style={{ fontSize: "13px" }}>✅</span>
           </div>
-          <p className="font-sans text-green font-medium" style={{ fontSize: "15px", lineHeight: 1.4 }}>
+          <p className="font-sans text-green font-medium" style={{ fontSize: "14px", lineHeight: 1.4 }}>
             {cls.included}
           </p>
         </div>
