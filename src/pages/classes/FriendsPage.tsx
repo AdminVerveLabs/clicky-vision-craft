@@ -21,7 +21,7 @@ const FriendsPage = () => {
             <div>
               <SectionTag>Friends</SectionTag>
               <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
-                The best nights start in the <span className="text-orange italic">kitchen</span>
+                The best nights start in the <span className="text-purple italic">kitchen</span>
               </h1>
               <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8">
                 Grab your crew and cook something amazing together. Way better than another bar night. Perfect for

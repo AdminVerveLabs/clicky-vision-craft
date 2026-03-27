@@ -163,7 +163,7 @@ const ClassesPage = () => {
             <div className="text-center md:text-left">
               <SectionTag>Classes & Events</SectionTag>
               <h1 className="font-sans text-[52px] font-extrabold text-dark leading-[1.1] mt-5 mb-5">
-                Your next great meal starts <span className="text-orange italic">here</span>
+                Your next great meal starts <span className="text-purple italic">here</span>
               </h1>
               <p className="font-sans text-lg text-gray leading-[1.7] mb-8">
                 From open classes to private celebrations, we've got the perfect culinary adventure. No experience needed—just bring your appetite and a sense of fun.

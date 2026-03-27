@@ -21,7 +21,7 @@ const PrivateEventsPage = () => {
             <div>
               <SectionTag>Private Events</SectionTag>
               <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
-                Your party, your <span className="text-orange italic">menu</span>
+                Your party, your <span className="text-purple italic">menu</span>
               </h1>
               <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8">
                 Birthday bash? Anniversary dinner? Just because? We customize everything—the menu, the vibe, the whole

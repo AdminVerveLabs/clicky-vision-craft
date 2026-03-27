@@ -21,7 +21,7 @@ const SpecialOccasionsPage = () => {
             <div>
               <SectionTag>Special Occasions</SectionTag>
               <h1 className="font-serif text-[32px] md:text-5xl font-extrabold text-dark leading-[1.1] mt-5 mb-5">
-                Make it <span className="text-orange italic">unforgettable</span>
+                Make it <span className="text-purple italic">unforgettable</span>
               </h1>
               <p className="font-sans text-[16px] md:text-[17px] text-gray leading-[1.7] mb-8">
                 Signature themed sessions, seasonal specials, and limited-edition experiences. From "Off to College" survival
