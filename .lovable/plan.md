@@ -1,48 +1,37 @@
 
 
-## Redesign ClassModal — Banner Image Layout
+## Plan: Add "BYOB welcome at every event" callout
 
-Replace the current compact layout with an Airbnb/ClassPass-style banner image modal.
+### Summary
+Add a BYOB callout badge/banner to three areas: the Classes & Events catalogue page (all categories except Gift Certificates), each individual class subpage, and the class detail modal.
 
-### Layout
+### Files to modify
 
-```text
-┌──────────────────────────────────┐
-│  [Banner image - 16:9 ratio]   ✕ │  ~130px tall, rounded top only
-├──────────────────────────────────┤
-│  PUBLIC 🔥3 spots     $89/person │  header row
-│  Creole Comfort Classics         │  title 18px medium
-│  Feb 1 · 10AM · 2.5hrs · All    │  single meta line, muted
-│                                  │
-│  Description text in muted...    │  13px, relaxed line-height
-│──────────────────────────────────│  subtle divider
-│  ON THE MENU                     │
-│  Gumbo · Rice · Cornbread · ...  │
-│                                  │
-│  ✅ All ingredients, equipment…  │  green bg callout, single line
-│                                  │
-│  [ Gift This Class ] [ Get Cooking ] │
-└──────────────────────────────────┘
-```
+**1. `src/pages/ClassesPage.tsx`** — Catalogue cards (4 of 5 categories)
+- Add a BYOB callout inside each catalogue card's body section (after the "What to Expect" highlights box or after the description), for all categories except `gift-certificates`
+- Style: a small inline callout with a 🍷 icon, similar to the existing green "What's Included" pattern — light purple or amber background, rounded, compact text like "BYOB welcome at every event"
 
-### Changes to `src/components/chef/ClassModal.tsx`
+**2. `src/pages/classes/OpenClassesPage.tsx`** — Open Classes subpage
+- Add the BYOB callout in the "Class Details" section (left column), either as an additional detail row or as a standalone callout banner below the details list
 
-**Modal container**: Change to `max-w-[440px]`, `rounded-xl`, `bg-white`, no top padding (image bleeds to edges). Content area gets `px-5 pb-5 pt-4`.
+**3. `src/pages/classes/PrivateEventsPage.tsx`** — Private Events subpage
+- Same pattern: add BYOB callout in the details section
 
-**Banner image**: Full-width `img` with `rounded-t-xl`, aspect ratio ~2:1 (`h-[140px]`), `object-cover`. Close button overlaid on image top-right with `bg-black/40 backdrop-blur-sm text-white` circle.
+**4. `src/pages/classes/KidsPartyPage.tsx`** — Kids Party subpage
+- Same pattern: add BYOB callout in the details section
 
-**Header row**: Flex with justify-between. Left: green pill badge + spots indicator. Right: price (`text-lg font-extrabold`) with `/person` in smaller muted text.
+**5. `src/pages/classes/SpecialOccasionsPage.tsx`** — Signature Sessions subpage
+- Same pattern: add BYOB callout in the details section
 
-**Title + meta**: Title as `text-lg font-medium`. Single meta line combining date, time, duration, and level separated by `·` in muted text.
+**6. `src/components/chef/ClassModal.tsx`** — Class detail modal
+- Add a BYOB callout row between the "What's Included" callout and the CTA buttons
+- Style: similar to the existing green included callout but with a wine/amber accent — e.g., light purple or warm background, 🍷 icon, text "BYOB welcome at every event"
+- Keep it compact (single row, ~12px 14px padding) to not break the no-scroll constraint
 
-**Description**: `text-[13px] text-dark/70 leading-relaxed`, compact paragraph.
-
-**On the Menu**: `border-t border-dark/10` divider, uppercase label in `text-[10px] text-dark/30`, items joined with ` · `.
-
-**What's Included**: Compact single-line callout — `bg-green/10 rounded-lg px-3 py-2.5` with inline flex: green checkmark icon + text. Keep to one line.
-
-**CTA buttons**: "Gift This Class" secondary ~40%, "Get Cooking" green ~60%, using existing `CTAButton`. Sold-out state: single disabled button.
-
-### Single file modified
-- `src/components/chef/ClassModal.tsx`
+### Visual style (consistent across all placements)
+- Background: `bg-purple/10` or similar light accent
+- Icon: 🍷 in a small rounded square
+- Text: "BYOB welcome at every event" — 13-14px, medium weight, purple text
+- Border radius: 12px, padding: 12px 14px
+- Compact single-row flex layout matching the existing "What's Included" callout pattern
 
