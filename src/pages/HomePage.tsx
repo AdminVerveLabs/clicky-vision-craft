@@ -122,8 +122,8 @@ const HomePage = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { step: "01", icon: "📞", title: "Pick Your Vibe", desc: "Choose a public class, book a private event, or tell us what your team needs. We'll customize it." },
-              { step: "02", icon: "🔪", title: "Cook Together", desc: "Roll up your sleeves for a hands-on experience. In-person, virtual, or at your location. Your call." },
+              { step: "01", icon: "📞", title: "Pick Your Vibe", desc: "From hosting C-Suite teams to 90th birthday parties to stagettes, we create the vibe you are looking for." },
+              { step: "02", icon: "🔪", title: "Cook Together", desc: "Roll up your sleeves for a hands-on experience or sit back and let us entertain... or enjoy a bit of both. Your call." },
               { step: "03", icon: "🍽️", title: "Feast & Celebrate", desc: "Sit down and enjoy what you've made. Take home skills, recipes, and stories worth sharing." },
             ].map((item) => (
               <div key={item.step} className="text-center">
