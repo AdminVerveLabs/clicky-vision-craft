@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
-import BYOBCallout from "@/components/chef/BYOBCallout";
+
 import heroImg from "@/assets/chef-joey-101.jpg";
 
 const SpecialOccasionsPage = () => {
@@ -61,7 +61,7 @@ const SpecialOccasionsPage = () => {
                   </div>
                 </div>
               ))}
-              <BYOBCallout className="mt-5" />
+              
             </div>
             <div>
               <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Signature Themes</h2>
