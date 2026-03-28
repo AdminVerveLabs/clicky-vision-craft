@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import ClassModal from "@/components/chef/ClassModal";
-import BYOBCallout from "@/components/chef/BYOBCallout";
+
 import PackagesModal from "@/components/chef/PackagesModal";
 import PrivateEventBookingFormModal from "@/components/chef/PrivateEventBookingFormModal";
 import NewsletterBanner from "@/components/chef/NewsletterBanner";
@@ -37,7 +37,7 @@ const classExperiences = [
       "No experience needed — Chef Joey guides every step",
       "Perfect for date nights, solo, or with friends",
       "You eat everything you cook at the end",
-      "BYOB welcome at all evening classes",
+      
     ],
   },
   {
@@ -345,12 +345,6 @@ const ClassesPage = () => {
                         </div>
                       </div>
 
-                      {/* BYOB Callout — all categories except gift certificates */}
-                      {o.id !== "gift-certificates" && (
-                        <div className="mt-6">
-                          <BYOBCallout />
-                        </div>
-                      )}
 
                       {/* Footer */}
                       <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-border">

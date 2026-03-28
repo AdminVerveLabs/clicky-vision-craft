@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
-import BYOBCallout from "@/components/chef/BYOBCallout";
+
 import heroImg from "@/assets/chef-joey-61.jpg";
 
 const FriendsPage = () => {
@@ -51,7 +51,7 @@ const FriendsPage = () => {
                 { icon: "🍽️", label: "Menu", value: "Choose from our menus or customize your own", color: "purple" as const },
                 { icon: "📍", label: "Location", value: "Our Kitchen · Your Home · Any Venue", color: "sage" as const },
                 { icon: "💰", label: "Price", value: "From $95/person — everything included", color: "purple" as const },
-                { icon: "🥂", label: "Add-Ons", value: "BYOB welcome, wine pairings available", color: "sage" as const },
+                { icon: "🥂", label: "Add-Ons", value: "Wine pairings available", color: "sage" as const },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
                   <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
@@ -61,7 +61,7 @@ const FriendsPage = () => {
                   </div>
                 </div>
               ))}
-              <BYOBCallout className="mt-5" />
+              
             </div>
             <div>
               <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Perfect For</h2>
