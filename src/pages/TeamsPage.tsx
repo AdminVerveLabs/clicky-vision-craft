@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
-import TeamPackagesModal from "@/components/chef/TeamPackagesModal";
+import PackagesModal from "@/components/chef/PackagesModal";
 import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
 
 import teamImg1 from "@/assets/chef-joey-41.jpg";
@@ -385,10 +385,11 @@ const TeamsPage = () => {
 
       <Footer />
 
-      <TeamPackagesModal
+      <PackagesModal
+        eventType="corporate"
         isOpen={showPackages}
         onClose={() => setShowPackages(false)}
-        onGetInTouch={() => setShowBookingForm(true)}
+        onSubmit={() => setShowBookingForm(true)}
       />
       <TeamBookingFormModal
         isOpen={showBookingForm}

@@ -6,7 +6,7 @@ import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import ClassModal from "@/components/chef/ClassModal";
 import BYOBCallout from "@/components/chef/BYOBCallout";
-import PrivateEventPackagesModal from "@/components/chef/PrivateEventPackagesModal";
+import PackagesModal from "@/components/chef/PackagesModal";
 import PrivateEventBookingFormModal from "@/components/chef/PrivateEventBookingFormModal";
 import NewsletterBanner from "@/components/chef/NewsletterBanner";
 import Footer from "@/components/chef/Footer";
@@ -536,10 +536,11 @@ const ClassesPage = () => {
         </div>
       </section>
 
-      <PrivateEventPackagesModal
+      <PackagesModal
+        eventType="private"
         isOpen={showPackages}
         onClose={() => setShowPackages(false)}
-        onGetInTouch={() => { setShowPackages(false); setShowBookingForm(true); }}
+        onSubmit={() => { setShowPackages(false); setShowBookingForm(true); }}
       />
       <PrivateEventBookingFormModal
         isOpen={showBookingForm}
