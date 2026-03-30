@@ -16,8 +16,8 @@ const navSegments: NavSegment[] = [
     label: "Classes & Events",
     path: "/classes",
     children: [
-      { label: "Open Classes", path: "/classes/open-classes" },
       { label: "Private Events", path: "/classes/private-events" },
+      { label: "Open Classes", path: "/classes/open-classes" },
       { label: "Special Occasions", path: "/classes/special-occasions" },
       { label: "Friends", path: "/classes/friends" },
       { label: "Kids Party", path: "/classes/kids-party" },
