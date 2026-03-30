@@ -20,6 +20,26 @@ import classImg5 from "@/assets/chef-joey-83.jpg";
 
 const classExperiences = [
   {
+    id: "private-parties", sidebarLabel: "Private Parties", tag: "CELEBRATIONS", title: "Private Parties",
+    description: "Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast.",
+    icon: "🎉", path: "/classes/private-events", price: "From $125/person", image: classImg2,
+    details: [
+      { icon: "⏱️", label: "Duration", value: "2.5–3 hours, tailored to your event", color: "purple" },
+      { icon: "👥", label: "Group Size", value: "6–30 people", color: "sage" },
+      { icon: "🍽️", label: "Menu", value: "Fully customized to your preferences", color: "purple" },
+      { icon: "📍", label: "Location", value: "Our Kitchen · Your Place · Any Venue", color: "sage" },
+      { icon: "🎯", label: "Vibe", value: "We match the energy to your celebration", color: "purple" },
+      { icon: "✅", label: "Includes", value: "Custom menu, décor options, all supplies", color: "sage" },
+    ],
+    highlights: [
+      "Birthdays, anniversaries, bachelorettes & more",
+      "Custom menus designed around your guest of honor",
+      "We handle setup and cleanup — you just celebrate",
+      "Photo-worthy plating and presentation",
+      "Dietary accommodations always included",
+    ],
+  },
+  {
     id: "public-classes", sidebarLabel: "Public Classes", tag: "OPEN", title: "Public Classes",
     description: "Different cuisines to choose from. Food included for in-person classes and shopping lists provided for virtual classes.",
     hasCalendarLink: true,
@@ -38,26 +58,6 @@ const classExperiences = [
       "Perfect for date nights, solo, or with friends",
       "You eat everything you cook at the end",
       
-    ],
-  },
-  {
-    id: "private-parties", sidebarLabel: "Private Parties", tag: "CELEBRATIONS", title: "Private Parties",
-    description: "Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast.",
-    icon: "🎉", path: "/classes/private-events", price: "From $125/person", image: classImg2,
-    details: [
-      { icon: "⏱️", label: "Duration", value: "2.5–3 hours, tailored to your event", color: "purple" },
-      { icon: "👥", label: "Group Size", value: "6–30 people", color: "sage" },
-      { icon: "🍽️", label: "Menu", value: "Fully customized to your preferences", color: "purple" },
-      { icon: "📍", label: "Location", value: "Our Kitchen · Your Place · Any Venue", color: "sage" },
-      { icon: "🎯", label: "Vibe", value: "We match the energy to your celebration", color: "purple" },
-      { icon: "✅", label: "Includes", value: "Custom menu, décor options, all supplies", color: "sage" },
-    ],
-    highlights: [
-      "Birthdays, anniversaries, bachelorettes & more",
-      "Custom menus designed around your guest of honor",
-      "We handle setup and cleanup — you just celebrate",
-      "Photo-worthy plating and presentation",
-      "Dietary accommodations always included",
     ],
   },
   {
