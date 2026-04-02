@@ -23,6 +23,7 @@ import CateringPage from "./pages/classes/CateringPage";
 import ValentinesDayPage from "./pages/classes/ValentinesDayPage";
 import SignatureCreolePage from "./pages/classes/SignatureCreolePage";
 import KidsBakePage from "./pages/classes/KidsBakePage";
+import ClassesGiftCardsPage from "./pages/classes/GiftCardsPage";
 
 // Teams sub-pages
 import TeamEventsPage from "./pages/teams/TeamEventsPage";
@@ -34,6 +35,7 @@ import CustomExperiencesPage from "./pages/teams/CustomExperiencesPage";
 import CateringTeamsPage from "./pages/teams/CateringTeamsPage";
 import TeamCreolePage from "./pages/teams/TeamCreolePage";
 import HealthyMealPrepPage from "./pages/teams/HealthyMealPrepPage";
+import TeamsGiftCardsPage from "./pages/teams/GiftCardsPage";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +66,7 @@ const App = () => (
             <Route path="/classes/example/valentines-day" element={<ValentinesDayPage />} />
             <Route path="/classes/example/signature-creole" element={<SignatureCreolePage />} />
             <Route path="/classes/example/kids-bake" element={<KidsBakePage />} />
+            <Route path="/classes/gift-cards" element={<ClassesGiftCardsPage />} />
 
             {/* Teams sub-pages */}
             <Route path="/teams/team-events" element={<TeamEventsPage />} />
@@ -75,6 +78,7 @@ const App = () => (
             <Route path="/teams/catering" element={<CateringTeamsPage />} />
             <Route path="/teams/example/signature-creole" element={<TeamCreolePage />} />
             <Route path="/teams/example/healthy-meal-prep" element={<HealthyMealPrepPage />} />
+            <Route path="/teams/gift-cards" element={<TeamsGiftCardsPage />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

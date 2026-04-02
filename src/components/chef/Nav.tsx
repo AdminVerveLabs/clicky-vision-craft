@@ -22,6 +22,7 @@ const navSegments: NavSegment[] = [
       { label: "Friends", path: "/classes/friends" },
       { label: "Kids Party", path: "/classes/kids-party" },
       { label: "Catering", path: "/classes/catering" },
+      { label: "Gift Cards", path: "/classes/gift-cards" },
     ],
   },
   {
@@ -35,6 +36,7 @@ const navSegments: NavSegment[] = [
       { label: "Holiday & Celebrations", path: "/teams/holiday" },
       { label: "Custom Experiences", path: "/teams/custom" },
       { label: "Catering", path: "/teams/catering" },
+      { label: "Gift Cards", path: "/teams/gift-cards" },
     ],
   },
   { label: "Blog", path: "/blog" },

@@ -136,6 +136,26 @@ const occasions = [
       "From concept to execution, we handle it all",
     ],
   },
+  {
+    id: "gift-cards", sidebarLabel: "Gift Cards", tag: "PERFECT GIFT", title: "Gift Cards",
+    description: "Give your team the gift of an unforgettable experience. Bulk ordering, corporate branding, and flexible options available.",
+    groupSize: "Any quantity", duration: "Flexible", icon: "🎁", path: "/teams/gift-cards", image: teamImg6,
+    details: [
+      { icon: "🎫", label: "Options", value: "Any team experience, any amount", color: "purple" },
+      { icon: "📦", label: "Bulk Orders", value: "Discounted rates for 10+ gift cards", color: "sage" },
+      { icon: "🏢", label: "Branding", value: "Add your company logo and custom message", color: "purple" },
+      { icon: "📧", label: "Delivery", value: "Digital or premium printed cards", color: "sage" },
+      { icon: "📅", label: "Validity", value: "Never expires — use anytime", color: "purple" },
+      { icon: "✅", label: "Includes", value: "Full team experience — everything covered", color: "sage" },
+    ],
+    highlights: [
+      "Employee appreciation & rewards",
+      "Client thank-you gifts",
+      "Holiday & end-of-year rewards",
+      "Milestone celebrations",
+      "New hire welcome gifts",
+    ],
+  },
 ];
 
 const TeamsPage = () => {
