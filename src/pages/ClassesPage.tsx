@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import ClassModal from "@/components/chef/ClassModal";
+import FormatTabs from "@/components/chef/FormatTabs";
 
 import PackagesModal from "@/components/chef/PackagesModal";
 import PrivateEventBookingFormModal from "@/components/chef/PrivateEventBookingFormModal";
@@ -23,6 +24,7 @@ const classExperiences = [
     id: "private-parties", sidebarLabel: "Private Parties", tag: "CELEBRATIONS", title: "Private Parties",
     description: "Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast.",
     icon: "🎉", path: "/classes/private-events", price: "From $125/person", image: classImg2,
+    hasInPerson: true, hasVirtual: true,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5–3 hours, tailored to your event", color: "purple" },
       { icon: "👥", label: "Group Size", value: "6–30 people", color: "sage" },
@@ -44,6 +46,7 @@ const classExperiences = [
     description: "Different cuisines to choose from. Food included for in-person classes and shopping lists provided for virtual classes.",
     hasCalendarLink: true,
     icon: "🍳", path: "/classes/open-classes", price: "From $89/person", image: classImg1,
+    hasInPerson: true, hasVirtual: true,
     details: [
       { icon: "⏱️", label: "Duration", value: "2–3 hours of hands-on cooking", color: "purple" },
       { icon: "👥", label: "Group Size", value: "8–16 people per class", color: "sage" },
@@ -64,6 +67,7 @@ const classExperiences = [
     id: "kids-cooking", sidebarLabel: "Kids Cooking", tag: "AGES 4–15", title: "Kids Cooking",
     description: "Build kitchen confidence and creativity. Kids learn real skills in a safe, fun environment. Birthday parties and drop-in sessions available.",
     icon: "👧", path: "/classes/kids-party", price: "From $65/kid", image: classImg3,
+    hasInPerson: true, hasVirtual: false,
     details: [
       { icon: "⏱️", label: "Duration", value: "1.5–2 hours of hands-on fun", color: "purple" },
       { icon: "👥", label: "Group Size", value: "6–20 kids per session", color: "sage" },
@@ -84,6 +88,7 @@ const classExperiences = [
     id: "signature-sessions", sidebarLabel: "Signature Sessions", tag: "LIMITED", title: "Signature Sessions",
     description: "Special themed experiences: 'Off to College' survival cooking, 'Basic Skills Bootcamp', 'Date Night: Creole Edition', and seasonal specials.",
     icon: "⭐", path: "/classes/special-occasions", price: "From $99/person", image: classImg4,
+    hasInPerson: true, hasVirtual: true,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5–3 hours of immersive cooking", color: "purple" },
       { icon: "👥", label: "Group Size", value: "8–20 people", color: "sage" },
@@ -104,6 +109,7 @@ const classExperiences = [
     id: "gift-certificates", sidebarLabel: "Gift Certificates", tag: "PERFECT GIFT", title: "Gift Certificates",
     description: "Give the gift of a great time. Available for any class or experience. Never expires. Because nobody wants another candle.",
     icon: "🎁", path: "/classes/gift-cards", price: "From $65", image: classImg5,
+    hasInPerson: false, hasVirtual: false,
     details: [
       { icon: "🎫", label: "Options", value: "Any class, any experience, any amount", color: "purple" },
       { icon: "📧", label: "Delivery", value: "Instant digital or printed gift card", color: "sage" },
@@ -312,38 +318,57 @@ const ClassesPage = () => {
                         )}
                       </p>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* Details */}
-                        <div>
-                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">Experience Details</h4>
-                          {o.details.map((d, i) => (
-                            <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
-                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
-                                d.color === "purple" ? "bg-purple/10" : "bg-sage/10"
-                              }`}>{d.icon}</div>
-                              <div>
-                                <p className={`font-sans text-[12px] font-bold uppercase tracking-[1px] mb-0.5 ${
-                                  d.color === "purple" ? "text-purple" : "text-sage"
-                                }`}>{d.label}</p>
-                                <p className="font-sans text-[14px] text-dark leading-snug">{d.value}</p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Highlights */}
-                        <div>
-                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">What to Expect</h4>
-                          <div className="bg-cream rounded-2xl p-6 border border-border">
-                            {o.highlights.map((h, i) => (
-                              <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
-                                <div className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-[11px] font-bold text-green font-sans shrink-0 mt-0.5">✓</div>
-                                <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
+                      {o.hasInPerson || o.hasVirtual ? (
+                        <FormatTabs
+                          hasInPerson={o.hasInPerson}
+                          hasVirtual={o.hasVirtual}
+                          leftTitle="Experience Details"
+                          inPersonContent={{
+                            details: o.details as any,
+                            rightTitle: "What to Expect",
+                            rightItems: o.highlights.map((h) => ({ icon: "✓", text: h })),
+                          }}
+                          virtualContent={{
+                            details: o.details.map((d) =>
+                              d.label === "Location"
+                                ? { ...d, icon: "💻", label: "Platform", value: "Zoom — ingredient list sent in advance" }
+                                : d
+                            ) as any,
+                            rightTitle: "What to Expect",
+                            rightItems: o.highlights.map((h) => ({ icon: "✓", text: h })),
+                          }}
+                        />
+                      ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          <div>
+                            <h4 className="font-sans text-[20px] font-bold text-dark mb-5">Experience Details</h4>
+                            {o.details.map((d, i) => (
+                              <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
+                                  d.color === "purple" ? "bg-purple/10" : "bg-sage/10"
+                                }`}>{d.icon}</div>
+                                <div>
+                                  <p className={`font-sans text-[12px] font-bold uppercase tracking-[1px] mb-0.5 ${
+                                    d.color === "purple" ? "text-purple" : "text-sage"
+                                  }`}>{d.label}</p>
+                                  <p className="font-sans text-[14px] text-dark leading-snug">{d.value}</p>
+                                </div>
                               </div>
                             ))}
                           </div>
+                          <div>
+                            <h4 className="font-sans text-[20px] font-bold text-dark mb-5">What to Expect</h4>
+                            <div className="bg-cream rounded-2xl p-6 border border-border">
+                              {o.highlights.map((h, i) => (
+                                <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
+                                  <div className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-[11px] font-bold text-green font-sans shrink-0 mt-0.5">✓</div>
+                                  <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      )}
 
 
                       {/* Footer */}
