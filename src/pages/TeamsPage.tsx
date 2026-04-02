@@ -320,7 +320,23 @@ const TeamsPage = () => {
 
             {/* Content Panel */}
             <div className="flex-1">
-              {(() => {
+              {activeExperienceSlug ? (() => {
+                const expData = getExperiencesBySegment("teams").find((e) => e.slug === activeExperienceSlug);
+                if (!expData) return null;
+                return (
+                  <div className="animate-fade-in">
+                    <button
+                      onClick={() => { setActiveExperienceSlug(null); setActiveId(occasions[0].id); }}
+                      className="font-sans text-[14px] text-purple font-medium hover:underline cursor-pointer mb-4 inline-block"
+                    >
+                      ← Back to Categories
+                    </button>
+                    <div className="bg-white rounded-[32px] border border-border overflow-hidden">
+                      <ExperienceContent data={expData} embedded />
+                    </div>
+                  </div>
+                );
+              })() : (() => {
                 const o = occasions.find((x) => x.id === activeId)!;
                 return (
                   <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
