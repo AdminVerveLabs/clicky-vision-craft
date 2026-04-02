@@ -66,6 +66,7 @@ const App = () => (
             <Route path="/classes/example/valentines-day" element={<ValentinesDayPage />} />
             <Route path="/classes/example/signature-creole" element={<SignatureCreolePage />} />
             <Route path="/classes/example/kids-bake" element={<KidsBakePage />} />
+            <Route path="/classes/gift-cards" element={<ClassesGiftCardsPage />} />
 
             {/* Teams sub-pages */}
             <Route path="/teams/team-events" element={<TeamEventsPage />} />
