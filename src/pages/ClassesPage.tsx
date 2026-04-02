@@ -239,7 +239,7 @@ const ClassesPage = () => {
                 {classExperiences.map((o) => (
                   <li key={o.id}>
                     <button
-                      onClick={() => setActiveExpId(o.id)}
+                      onClick={() => { setActiveExpId(o.id); setActiveExperienceSlug(null); }}
                       className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
                         activeExpId === o.id
                           ? "border-purple text-purple font-semibold"
