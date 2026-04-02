@@ -23,6 +23,7 @@ import CateringPage from "./pages/classes/CateringPage";
 import ValentinesDayPage from "./pages/classes/ValentinesDayPage";
 import SignatureCreolePage from "./pages/classes/SignatureCreolePage";
 import KidsBakePage from "./pages/classes/KidsBakePage";
+import ClassesGiftCardsPage from "./pages/classes/GiftCardsPage";
 
 // Teams sub-pages
 import TeamEventsPage from "./pages/teams/TeamEventsPage";
