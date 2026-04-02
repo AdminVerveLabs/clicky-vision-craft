@@ -24,6 +24,7 @@ const classExperiences = [
     id: "private-parties", sidebarLabel: "Private Parties", tag: "CELEBRATIONS", title: "Private Parties",
     description: "Birthday bash? Anniversary dinner? Girls' night? We customize the menu and the vibe. You show up ready to have a blast.",
     icon: "🎉", path: "/classes/private-events", price: "From $125/person", image: classImg2,
+    hasInPerson: true, hasVirtual: true,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5–3 hours, tailored to your event", color: "purple" },
       { icon: "👥", label: "Group Size", value: "6–30 people", color: "sage" },
