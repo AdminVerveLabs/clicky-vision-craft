@@ -78,6 +78,7 @@ const App = () => (
             <Route path="/teams/catering" element={<CateringTeamsPage />} />
             <Route path="/teams/example/signature-creole" element={<TeamCreolePage />} />
             <Route path="/teams/example/healthy-meal-prep" element={<HealthyMealPrepPage />} />
+            <Route path="/teams/gift-cards" element={<TeamsGiftCardsPage />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

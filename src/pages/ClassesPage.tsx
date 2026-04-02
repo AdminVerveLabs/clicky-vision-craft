@@ -103,7 +103,7 @@ const classExperiences = [
   {
     id: "gift-certificates", sidebarLabel: "Gift Certificates", tag: "PERFECT GIFT", title: "Gift Certificates",
     description: "Give the gift of a great time. Available for any class or experience. Never expires. Because nobody wants another candle.",
-    icon: "🎁", path: "/classes/open-classes", price: "From $65", image: classImg5,
+    icon: "🎁", path: "/classes/gift-cards", price: "From $65", image: classImg5,
     details: [
       { icon: "🎫", label: "Options", value: "Any class, any experience, any amount", color: "purple" },
       { icon: "📧", label: "Delivery", value: "Instant digital or printed gift card", color: "sage" },
