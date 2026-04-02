@@ -42,39 +42,34 @@ const KidsPartyPage = () => {
 
       <section className="py-16 md:py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-            <div>
-              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Party Details</h2>
-              {[
-                { icon: "⏱️", label: "Duration", value: "1.5 – 2 hours of hands-on fun", color: "purple" as const },
-                { icon: "👧", label: "Ages", value: "4 – 15 years old", color: "sage" as const },
-                { icon: "👥", label: "Group Size", value: "8 – 20 kids", color: "purple" as const },
-                { icon: "📍", label: "Location", value: "Our Kitchen or your home", color: "sage" as const },
-                { icon: "💰", label: "Price", value: "From $65/kid — all ingredients and supplies included", color: "purple" as const },
-                { icon: "🎂", label: "Includes", value: "Chef-led cooking, aprons, recipes, and party vibes", color: "sage" as const },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
-                  <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
-                    <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
-                  </div>
-                </div>
-              ))}
-              
-            </div>
-            <div>
-              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Why Kids Love It</h2>
-              <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
-                {["They get to cook real food (not just decorate cupcakes)", "Hands-on and interactive — every kid participates", "Safe, supervised kitchen environment", "They eat what they make — and they're proud of it", "Take-home recipe cards to recreate at home"].map((item, i) => (
-                  <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">⭐</div>
-                    <p className="font-sans text-[15px] text-dark leading-snug">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <FormatTabs
+            hasInPerson={true}
+            hasVirtual={false}
+            leftTitle="Party Details"
+            inPersonContent={{
+              details: [
+                { icon: "⏱️", label: "Duration", value: "1.5 – 2 hours of hands-on fun", color: "purple" },
+                { icon: "👧", label: "Ages", value: "4 – 15 years old", color: "sage" },
+                { icon: "👥", label: "Group Size", value: "8 – 20 kids", color: "purple" },
+                { icon: "📍", label: "Location", value: "Our Kitchen or your home", color: "sage" },
+                { icon: "💰", label: "Price", value: "From $65/kid — all ingredients and supplies included", color: "purple" },
+                { icon: "🎂", label: "Includes", value: "Chef-led cooking, aprons, recipes, and party vibes", color: "sage" },
+              ],
+              rightTitle: "Why Kids Love It",
+              rightItems: [
+                { icon: "⭐", text: "They get to cook real food (not just decorate cupcakes)" },
+                { icon: "⭐", text: "Hands-on and interactive — every kid participates" },
+                { icon: "⭐", text: "Safe, supervised kitchen environment" },
+                { icon: "⭐", text: "They eat what they make — and they're proud of it" },
+                { icon: "⭐", text: "Take-home recipe cards to recreate at home" },
+              ],
+            }}
+            virtualContent={{
+              details: [],
+              rightTitle: "",
+              rightItems: [],
+            }}
+          />
         </div>
       </section>
 

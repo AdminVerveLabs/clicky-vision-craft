@@ -42,39 +42,47 @@ const PrivateEventsPage = () => {
 
       <section className="py-16 md:py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-            <div>
-              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Event Details</h2>
-              {[
-                { icon: "⏱️", label: "Duration", value: "2.5 – 3 hours including cooking and dining", color: "purple" as const },
-                { icon: "👥", label: "Group Size", value: "6 – 30 guests", color: "sage" as const },
-                { icon: "🍽️", label: "Menu", value: "Fully customized to your tastes and occasion", color: "purple" as const },
-                { icon: "📍", label: "Location", value: "Our Kitchen · Your Home · Any Venue", color: "sage" as const },
-                { icon: "💰", label: "Price", value: "From $125/person — all-inclusive", color: "purple" as const },
-                { icon: "🎂", label: "Add-Ons", value: "Custom cakes, wine pairings, décor packages available", color: "sage" as const },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
-                  <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
-                    <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
-                  </div>
-                </div>
-              ))}
-              
-            </div>
-            <div>
-              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Popular Occasions</h2>
-              <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
-                {["Birthday celebrations", "Anniversary dinners", "Bachelorette & bachelor parties", "Girls' night out", "Retirement parties"].map((item, i) => (
-                  <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">🎈</div>
-                    <p className="font-sans text-[15px] text-dark leading-snug">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <FormatTabs
+            hasInPerson={true}
+            hasVirtual={true}
+            leftTitle="Event Details"
+            inPersonContent={{
+              details: [
+                { icon: "⏱️", label: "Duration", value: "2.5 – 3 hours including cooking and dining", color: "purple" },
+                { icon: "👥", label: "Group Size", value: "6 – 30 guests", color: "sage" },
+                { icon: "🍽️", label: "Menu", value: "Fully customized to your tastes and occasion", color: "purple" },
+                { icon: "📍", label: "Location", value: "Our Kitchen · Your Home · Any Venue", color: "sage" },
+                { icon: "💰", label: "Price", value: "From $125/person — all-inclusive", color: "purple" },
+                { icon: "🎂", label: "Add-Ons", value: "Custom cakes, wine pairings, décor packages available", color: "sage" },
+              ],
+              rightTitle: "Popular Occasions",
+              rightItems: [
+                { icon: "🎈", text: "Birthday celebrations" },
+                { icon: "🎈", text: "Anniversary dinners" },
+                { icon: "🎈", text: "Bachelorette & bachelor parties" },
+                { icon: "🎈", text: "Girls' night out" },
+                { icon: "🎈", text: "Retirement parties" },
+              ],
+            }}
+            virtualContent={{
+              details: [
+                { icon: "⏱️", label: "Duration", value: "2.5 – 3 hours including cooking and dining", color: "purple" },
+                { icon: "👥", label: "Group Size", value: "6 – 30 guests", color: "sage" },
+                { icon: "🍽️", label: "Menu", value: "Fully customized to your tastes and occasion", color: "purple" },
+                { icon: "💻", label: "Platform", value: "Zoom — ingredient list sent in advance", color: "sage" },
+                { icon: "💰", label: "Price", value: "From $125/person — all-inclusive", color: "purple" },
+                { icon: "🎂", label: "Add-Ons", value: "Custom cakes, wine pairings, décor packages available", color: "sage" },
+              ],
+              rightTitle: "Popular Occasions",
+              rightItems: [
+                { icon: "🎈", text: "Birthday celebrations" },
+                { icon: "🎈", text: "Anniversary dinners" },
+                { icon: "🎈", text: "Bachelorette & bachelor parties" },
+                { icon: "🎈", text: "Girls' night out" },
+                { icon: "🎈", text: "Retirement parties" },
+              ],
+            }}
+          />
         </div>
       </section>
 

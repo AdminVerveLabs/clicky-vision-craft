@@ -42,39 +42,47 @@ const SpecialOccasionsPage = () => {
 
       <section className="py-16 md:py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-            <div>
-              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Experience Details</h2>
-              {[
-                { icon: "⏱️", label: "Duration", value: "2 – 3 hours depending on the experience", color: "purple" as const },
-                { icon: "👥", label: "Group Size", value: "8 – 24 people per session", color: "sage" as const },
-                { icon: "🍽️", label: "Themes", value: "Seasonal menus, life milestones, cultural explorations", color: "purple" as const },
-                { icon: "📍", label: "Location", value: "Our Kitchen or your venue", color: "sage" as const },
-                { icon: "💰", label: "Price", value: "From $99/person", color: "purple" as const },
-                { icon: "🎁", label: "Includes", value: "All ingredients, recipes, aprons, and themed extras", color: "sage" as const },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
-                  <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
-                    <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
-                  </div>
-                </div>
-              ))}
-              
-            </div>
-            <div>
-              <h2 className="font-serif text-[24px] md:text-[32px] font-extrabold text-dark mb-6 md:mb-8">Signature Themes</h2>
-              <div className="bg-white rounded-2xl p-6 md:p-8 border border-border">
-                {["Off to College — survival cooking for new adults", "Date Night: Creole Edition — cook together, dine together", "Basic Skills Bootcamp — knife skills, sauces, and confidence", "Holiday Specials — seasonal menus for every celebration", "Cultural Journey — explore cuisines from around the world"].map((item, i) => (
-                  <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">✦</div>
-                    <p className="font-sans text-[15px] text-dark leading-snug">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <FormatTabs
+            hasInPerson={true}
+            hasVirtual={true}
+            leftTitle="Experience Details"
+            inPersonContent={{
+              details: [
+                { icon: "⏱️", label: "Duration", value: "2 – 3 hours depending on the experience", color: "purple" },
+                { icon: "👥", label: "Group Size", value: "8 – 24 people per session", color: "sage" },
+                { icon: "🍽️", label: "Themes", value: "Seasonal menus, life milestones, cultural explorations", color: "purple" },
+                { icon: "📍", label: "Location", value: "Our Kitchen or your venue", color: "sage" },
+                { icon: "💰", label: "Price", value: "From $99/person", color: "purple" },
+                { icon: "🎁", label: "Includes", value: "All ingredients, recipes, aprons, and themed extras", color: "sage" },
+              ],
+              rightTitle: "Signature Themes",
+              rightItems: [
+                { icon: "✦", text: "Off to College — survival cooking for new adults" },
+                { icon: "✦", text: "Date Night: Creole Edition — cook together, dine together" },
+                { icon: "✦", text: "Basic Skills Bootcamp — knife skills, sauces, and confidence" },
+                { icon: "✦", text: "Holiday Specials — seasonal menus for every celebration" },
+                { icon: "✦", text: "Cultural Journey — explore cuisines from around the world" },
+              ],
+            }}
+            virtualContent={{
+              details: [
+                { icon: "⏱️", label: "Duration", value: "2 – 3 hours depending on the experience", color: "purple" },
+                { icon: "👥", label: "Group Size", value: "8 – 24 people per session", color: "sage" },
+                { icon: "🍽️", label: "Themes", value: "Seasonal menus, life milestones, cultural explorations", color: "purple" },
+                { icon: "💻", label: "Platform", value: "Zoom — ingredient list sent in advance", color: "sage" },
+                { icon: "💰", label: "Price", value: "From $99/person", color: "purple" },
+                { icon: "🎁", label: "Includes", value: "All ingredients, recipes, aprons, and themed extras", color: "sage" },
+              ],
+              rightTitle: "Signature Themes",
+              rightItems: [
+                { icon: "✦", text: "Off to College — survival cooking for new adults" },
+                { icon: "✦", text: "Date Night: Creole Edition — cook together, dine together" },
+                { icon: "✦", text: "Basic Skills Bootcamp — knife skills, sauces, and confidence" },
+                { icon: "✦", text: "Holiday Specials — seasonal menus for every celebration" },
+                { icon: "✦", text: "Cultural Journey — explore cuisines from around the world" },
+              ],
+            }}
+          />
         </div>
       </section>
 

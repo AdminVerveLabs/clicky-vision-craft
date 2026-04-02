@@ -73,45 +73,47 @@ const OpenClassesPage = () => {
       {/* Class Details & What to Expect */}
       <section className="py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-            <div>
-              <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">Class Details</h2>
-              {[
-                { icon: "⏱️", label: "Duration", value: "2 – 2.5 hours of hands-on cooking + dining", color: "purple" as const },
-                { icon: "👥", label: "Group Size", value: "8 – 16 people per class", color: "sage" as const },
-                { icon: "🍽️", label: "Cuisine", value: "Rotating Creole-inspired menus each week", color: "purple" as const },
-                { icon: "📍", label: "Location", value: "YW Calgary Community Kitchen, Inglewood", color: "sage" as const },
-                { icon: "💰", label: "Price", value: "From $89/person — all ingredients included", color: "purple" as const },
-                { icon: "🌾", label: "Dietary", value: "Accommodations available for allergies & dietary needs", color: "sage" as const },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4 py-4 border-b border-border">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${item.color === "purple" ? "bg-purple/10" : "bg-sage/10"}`}>{item.icon}</div>
-                  <div>
-                    <p className={`font-sans text-[13px] font-bold uppercase tracking-[1px] mb-0.5 ${item.color === "purple" ? "text-purple" : "text-sage"}`}>{item.label}</p>
-                    <p className="font-sans text-[15px] text-dark leading-snug">{item.value}</p>
-                  </div>
-                </div>
-              ))}
-              
-            </div>
-            <div>
-              <h2 className="font-serif text-[32px] font-extrabold text-dark mb-8">What to Expect</h2>
-              <div className="bg-white rounded-2xl p-8 border border-border">
-                {[
-                  "Arrive, grab a drink, and meet your fellow cooks",
-                  "Chef Joey introduces the menu and walks through techniques",
-                  "Roll up your sleeves and cook alongside the group",
-                  "Plate your creations like a pro",
-                  "Sit down and feast on what you've made together",
-                ].map((step, i) => (
-                  <div key={i} className={`flex gap-4 items-start py-3 ${i < 4 ? "border-b border-gray-light" : ""}`}>
-                    <div className="w-7 h-7 rounded-full bg-green/10 flex items-center justify-center text-xs font-bold text-green font-sans shrink-0">{i + 1}</div>
-                    <p className="font-sans text-[15px] text-dark leading-snug">{step}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <FormatTabs
+            hasInPerson={true}
+            hasVirtual={true}
+            leftTitle="Class Details"
+            inPersonContent={{
+              details: [
+                { icon: "⏱️", label: "Duration", value: "2 – 2.5 hours of hands-on cooking + dining", color: "purple" },
+                { icon: "👥", label: "Group Size", value: "8 – 16 people per class", color: "sage" },
+                { icon: "🍽️", label: "Cuisine", value: "Rotating Creole-inspired menus each week", color: "purple" },
+                { icon: "📍", label: "Location", value: "YW Calgary Community Kitchen, Inglewood", color: "sage" },
+                { icon: "💰", label: "Price", value: "From $89/person — all ingredients included", color: "purple" },
+                { icon: "🌾", label: "Dietary", value: "Accommodations available for allergies & dietary needs", color: "sage" },
+              ],
+              rightTitle: "What to Expect",
+              rightItems: [
+                { icon: "1", text: "Arrive, grab a drink, and meet your fellow cooks" },
+                { icon: "2", text: "Chef Joey introduces the menu and walks through techniques" },
+                { icon: "3", text: "Roll up your sleeves and cook alongside the group" },
+                { icon: "4", text: "Plate your creations like a pro" },
+                { icon: "5", text: "Sit down and feast on what you've made together" },
+              ],
+            }}
+            virtualContent={{
+              details: [
+                { icon: "⏱️", label: "Duration", value: "2 – 2.5 hours of hands-on cooking + dining", color: "purple" },
+                { icon: "👥", label: "Group Size", value: "8 – 16 people per class", color: "sage" },
+                { icon: "🍽️", label: "Cuisine", value: "Rotating Creole-inspired menus each week", color: "purple" },
+                { icon: "💻", label: "Platform", value: "Zoom — ingredient list sent in advance", color: "sage" },
+                { icon: "💰", label: "Price", value: "From $89/person — all ingredients included", color: "purple" },
+                { icon: "🌾", label: "Dietary", value: "Accommodations available for allergies & dietary needs", color: "sage" },
+              ],
+              rightTitle: "What to Expect",
+              rightItems: [
+                { icon: "1", text: "Arrive, grab a drink, and meet your fellow cooks" },
+                { icon: "2", text: "Chef Joey introduces the menu and walks through techniques" },
+                { icon: "3", text: "Roll up your sleeves and cook alongside the group" },
+                { icon: "4", text: "Plate your creations like a pro" },
+                { icon: "5", text: "Sit down and feast on what you've made together" },
+              ],
+            }}
+          />
         </div>
       </section>
 
