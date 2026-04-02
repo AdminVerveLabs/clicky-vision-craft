@@ -254,17 +254,17 @@ const ClassesPage = () => {
 
               <p className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gray mb-4 mt-8">Example Experiences</p>
               <ul className="space-y-1">
-                {[
-                  { label: "Valentine's Day", path: "/classes/example/valentines-day" },
-                  { label: "Signature Creole", path: "/classes/example/signature-creole" },
-                  { label: "Kids Learn to Bake", path: "/classes/example/kids-bake" },
-                ].map((item) => (
-                  <li key={item.path}>
+                {getExperiencesBySegment("classes").map((exp) => (
+                  <li key={exp.slug}>
                     <button
-                      onClick={() => go(item.path)}
-                      className="w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] border-transparent text-gray hover:text-purple transition-colors duration-200"
+                      onClick={() => { setActiveExperienceSlug(exp.slug); setActiveExpId(""); }}
+                      className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
+                        activeExperienceSlug === exp.slug
+                          ? "border-purple text-purple font-semibold"
+                          : "border-transparent text-gray hover:text-purple"
+                      }`}
                     >
-                      {item.label}
+                      {exp.slug === "valentines-day" ? "Valentine's Day" : exp.slug === "signature-creole" ? "Signature Creole" : "Kids Learn to Bake"}
                     </button>
                   </li>
                 ))}
