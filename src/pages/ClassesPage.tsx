@@ -88,6 +88,7 @@ const classExperiences = [
     id: "signature-sessions", sidebarLabel: "Signature Sessions", tag: "LIMITED", title: "Signature Sessions",
     description: "Special themed experiences: 'Off to College' survival cooking, 'Basic Skills Bootcamp', 'Date Night: Creole Edition', and seasonal specials.",
     icon: "⭐", path: "/classes/special-occasions", price: "From $99/person", image: classImg4,
+    hasInPerson: true, hasVirtual: true,
     details: [
       { icon: "⏱️", label: "Duration", value: "2.5–3 hours of immersive cooking", color: "purple" },
       { icon: "👥", label: "Group Size", value: "8–20 people", color: "sage" },
