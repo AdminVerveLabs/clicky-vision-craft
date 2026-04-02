@@ -135,6 +135,7 @@ const ClassesPage = () => {
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
   const [selectedClass, setSelectedClass] = useState<ClassData | null>(null);
   const [activeExpId, setActiveExpId] = useState(classExperiences[0].id);
+  const [activeExperienceSlug, setActiveExperienceSlug] = useState<string | null>(null);
   const [showPackages, setShowPackages] = useState(false);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [calMonth, setCalMonth] = useState(1);
