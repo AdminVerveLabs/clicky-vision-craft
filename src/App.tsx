@@ -36,6 +36,7 @@ import CateringTeamsPage from "./pages/teams/CateringTeamsPage";
 import TeamCreolePage from "./pages/teams/TeamCreolePage";
 import HealthyMealPrepPage from "./pages/teams/HealthyMealPrepPage";
 import TeamsGiftCardsPage from "./pages/teams/GiftCardsPage";
+import ExperiencePage from "./pages/ExperiencePage";
 
 const queryClient = new QueryClient();
 
