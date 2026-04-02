@@ -1,47 +1,56 @@
 
 
-## Plan: Add Gift Card category and sub-pages for both Classes & Teams
+## Plan: Add In-Person / Virtual Tab Switcher to Class Detail Pages
 
 ### Summary
-Create dedicated Gift Card sub-pages for both "Classes & Events" and "Teams & Corporate", update the catalogue data on both pages, add routes in App.tsx, and add nav links.
+Create a reusable `FormatTabs` component that conditionally renders "In-Person" and "Virtual" tabs above the Experience Details / What to Expect content on class detail sub-pages. Tabs only appear when both formats are available. Content is duplicated for now (virtual copy to be updated later).
 
-### Current state
-- ClassesPage already has a "Gift Certificates" catalogue entry but it links to `/classes/open-classes` (no dedicated page)
-- TeamsPage has no gift card category at all
+### New file
 
-### Files to create
+**`src/components/chef/FormatTabs.tsx`**
+- Props: `{ hasInPerson: boolean; hasVirtual: boolean; inPersonContent: ExperienceContent; virtualContent: ExperienceContent }`
+- `ExperienceContent` type: `{ details: DetailItem[]; rightTitle: string; rightItems: RightItem[] }` where `DetailItem = { icon, label, value, color }` and `RightItem = { icon, text }`
+- If only one format available, render content directly without tabs
+- If both available, render tab row + content area
+- Tab styling per spec: `font-sans text-[15px]`, `py-3 px-6`, bottom border row `border-b border-border`, active tab `border-b-2 border-purple text-purple font-medium`, inactive `text-gray hover:text-dark`, no background
+- Content renders the same two-column grid layout currently used inline (details list left, steps/occasions card right)
+- `useState` defaults to `"in-person"`
+- Optional fade transition via `transition-opacity duration-200`
 
-**`src/pages/classes/GiftCardsPage.tsx`**
-- Standard sub-page layout matching PrivateEventsPage pattern (breadcrumb, hero with SectionTag, details grid, CTA)
-- Title: "Gift Cards" / tagline: "Give the gift of a great time"
-- Hero text about gifting any class or experience, never expires
-- Details section: Options (any class/amount), Delivery (digital or printed), Validity (never expires), Flexible (recipient chooses), Personal (custom message), Includes (full experience)
-- Popular occasions list: birthdays, holidays, thank-yous, corporate gifts, last-minute presents
-- CTA: "Buy a Gift Card" + "Chat with Joey"
-- Footer included
+### Files to modify (8 class detail pages)
 
-**`src/pages/teams/GiftCardsPage.tsx`**
-- Same pattern but for corporate context (breadcrumb → "Teams & Corporate")
-- Title: "Team Gift Cards" / tagline: "Reward your team with an experience"
-- Details: bulk ordering, corporate branding options, any team experience
-- Popular uses: employee appreciation, client gifts, holiday rewards, milestone celebrations, welcome gifts
-- CTA: "Order Gift Cards" + "Chat with Joey"
+Each page's `<section className="... bg-cream">` details section gets replaced with `<FormatTabs>`, passing the existing inline data as `inPersonContent` and duplicating it as `virtualContent`.
 
-### Files to modify
+1. **`src/pages/classes/OpenClassesPage.tsx`** — `hasInPerson: true, hasVirtual: true` (classes mention virtual format). Extract "Class Details" items + "What to Expect" steps into props.
 
-**`src/pages/ClassesPage.tsx`**
-- Update the existing "gift-certificates" category entry: change `path` from `/classes/open-classes` to `/classes/gift-cards`
+2. **`src/pages/classes/PrivateEventsPage.tsx`** — `hasInPerson: true, hasVirtual: true` (private events can be virtual). Extract "Event Details" + "Popular Occasions".
 
-**`src/pages/TeamsPage.tsx`**
-- Add a new "gift-cards" category entry at the end of the `occasions` array with icon 🎁, tag "PERFECT GIFT", title "Gift Cards", path `/teams/gift-cards`, matching the data structure (details array + highlights)
+3. **`src/pages/classes/CateringPage.tsx`** — `hasInPerson: true, hasVirtual: false` (catering is in-person only). No tabs shown, just wraps content.
 
-**`src/App.tsx`**
-- Add import + route for `GiftCardsPage` at `/classes/gift-cards`
-- Add import + route for teams `GiftCardsPage` at `/teams/gift-cards`
+4. **`src/pages/classes/FriendsPage.tsx`** — `hasInPerson: true, hasVirtual: true`. Extract "Experience Details" + "Perfect For".
 
-**`src/components/chef/Nav.tsx`**
-- Add `{ label: "Gift Cards", path: "/classes/gift-cards" }` to "Classes & Events" children
-- Add `{ label: "Gift Cards", path: "/teams/gift-cards" }` to "Teams & Corporate" children
+5. **`src/pages/classes/SpecialOccasionsPage.tsx`** — `hasInPerson: true, hasVirtual: true`.
 
-### Total: 2 files created, 4 files modified
+6. **`src/pages/classes/KidsPartyPage.tsx`** — `hasInPerson: true, hasVirtual: false` (kids in-person only). No tabs.
+
+7. **`src/pages/classes/KidsBakePage.tsx`** — `hasInPerson: true, hasVirtual: false`. No tabs.
+
+8. **`src/pages/classes/SignatureCreolePage.tsx`** — `hasInPerson: true, hasVirtual: true`.
+
+9. **`src/pages/classes/ValentinesDayPage.tsx`** — `hasInPerson: true, hasVirtual: true`.
+
+### Design tokens used
+- Purple: `text-purple`, `border-purple` (#430073)
+- Gray text: `text-gray`
+- Border: `border-border`
+- Font: `font-sans` (DM Sans)
+- Section bg: `bg-cream` (unchanged)
+
+### Technical notes
+- The component handles the conditional rendering internally — pages just pass `hasInPerson`/`hasVirtual` booleans
+- When only one format exists, the tabs row is hidden entirely and content renders directly
+- Both `inPersonContent` and `virtualContent` receive identical data initially; virtual content will be differentiated in a future update
+- Tab state is local to each page via the component's internal `useState`
+
+### Total: 1 file created, up to 9 files modified
 
