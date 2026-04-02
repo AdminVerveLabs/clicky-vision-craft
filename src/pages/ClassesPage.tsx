@@ -318,38 +318,57 @@ const ClassesPage = () => {
                         )}
                       </p>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* Details */}
-                        <div>
-                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">Experience Details</h4>
-                          {o.details.map((d, i) => (
-                            <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
-                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
-                                d.color === "purple" ? "bg-purple/10" : "bg-sage/10"
-                              }`}>{d.icon}</div>
-                              <div>
-                                <p className={`font-sans text-[12px] font-bold uppercase tracking-[1px] mb-0.5 ${
-                                  d.color === "purple" ? "text-purple" : "text-sage"
-                                }`}>{d.label}</p>
-                                <p className="font-sans text-[14px] text-dark leading-snug">{d.value}</p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Highlights */}
-                        <div>
-                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">What to Expect</h4>
-                          <div className="bg-cream rounded-2xl p-6 border border-border">
-                            {o.highlights.map((h, i) => (
-                              <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
-                                <div className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-[11px] font-bold text-green font-sans shrink-0 mt-0.5">✓</div>
-                                <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
+                      {o.hasInPerson || o.hasVirtual ? (
+                        <FormatTabs
+                          hasInPerson={o.hasInPerson}
+                          hasVirtual={o.hasVirtual}
+                          leftTitle="Experience Details"
+                          inPersonContent={{
+                            details: o.details as any,
+                            rightTitle: "What to Expect",
+                            rightItems: o.highlights.map((h) => ({ icon: "✓", text: h })),
+                          }}
+                          virtualContent={{
+                            details: o.details.map((d) =>
+                              d.label === "Location"
+                                ? { ...d, icon: "💻", label: "Platform", value: "Zoom — ingredient list sent in advance" }
+                                : d
+                            ) as any,
+                            rightTitle: "What to Expect",
+                            rightItems: o.highlights.map((h) => ({ icon: "✓", text: h })),
+                          }}
+                        />
+                      ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          <div>
+                            <h4 className="font-sans text-[20px] font-bold text-dark mb-5">Experience Details</h4>
+                            {o.details.map((d, i) => (
+                              <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
+                                  d.color === "purple" ? "bg-purple/10" : "bg-sage/10"
+                                }`}>{d.icon}</div>
+                                <div>
+                                  <p className={`font-sans text-[12px] font-bold uppercase tracking-[1px] mb-0.5 ${
+                                    d.color === "purple" ? "text-purple" : "text-sage"
+                                  }`}>{d.label}</p>
+                                  <p className="font-sans text-[14px] text-dark leading-snug">{d.value}</p>
+                                </div>
                               </div>
                             ))}
                           </div>
+                          <div>
+                            <h4 className="font-sans text-[20px] font-bold text-dark mb-5">What to Expect</h4>
+                            <div className="bg-cream rounded-2xl p-6 border border-border">
+                              {o.highlights.map((h, i) => (
+                                <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
+                                  <div className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-[11px] font-bold text-green font-sans shrink-0 mt-0.5">✓</div>
+                                  <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      )}
 
 
                       {/* Footer */}
