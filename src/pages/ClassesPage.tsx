@@ -67,6 +67,7 @@ const classExperiences = [
     id: "kids-cooking", sidebarLabel: "Kids Cooking", tag: "AGES 4–15", title: "Kids Cooking",
     description: "Build kitchen confidence and creativity. Kids learn real skills in a safe, fun environment. Birthday parties and drop-in sessions available.",
     icon: "👧", path: "/classes/kids-party", price: "From $65/kid", image: classImg3,
+    hasInPerson: true, hasVirtual: false,
     details: [
       { icon: "⏱️", label: "Duration", value: "1.5–2 hours of hands-on fun", color: "purple" },
       { icon: "👥", label: "Group Size", value: "6–20 kids per session", color: "sage" },
