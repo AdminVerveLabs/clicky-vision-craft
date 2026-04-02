@@ -7,6 +7,8 @@ import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
 import PackagesModal from "@/components/chef/PackagesModal";
 import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
+import ExperienceContent from "@/components/chef/ExperienceContent";
+import { getExperiencesBySegment } from "@/data/experienceData";
 
 import teamImg1 from "@/assets/chef-joey-41.jpg";
 import teamImg2 from "@/assets/chef-joey-114.jpg";
