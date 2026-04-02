@@ -7,6 +7,8 @@ import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
 import PackagesModal from "@/components/chef/PackagesModal";
 import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
+import ExperienceContent from "@/components/chef/ExperienceContent";
+import { getExperiencesBySegment } from "@/data/experienceData";
 
 import teamImg1 from "@/assets/chef-joey-41.jpg";
 import teamImg2 from "@/assets/chef-joey-114.jpg";
@@ -162,6 +164,7 @@ const TeamsPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
   const [activeId, setActiveId] = useState(occasions[0].id);
+  const [activeExperienceSlug, setActiveExperienceSlug] = useState<string | null>(null);
   const [showPackages, setShowPackages] = useState(false);
   const [showBookingForm, setShowBookingForm] = useState(false);
   return (
@@ -257,7 +260,7 @@ const TeamsPage = () => {
             {occasions.map((o) => (
               <button
                 key={o.id}
-                onClick={() => setActiveId(o.id)}
+                onClick={() => { setActiveId(o.id); setActiveExperienceSlug(null); }}
                 className={`whitespace-nowrap px-4 py-2 rounded-full font-sans text-[13px] font-semibold border transition-colors duration-200 shrink-0 ${
                   activeId === o.id
                     ? "bg-purple text-white border-purple"
@@ -283,9 +286,9 @@ const TeamsPage = () => {
                 {occasions.map((o) => (
                   <li key={o.id}>
                     <button
-                      onClick={() => setActiveId(o.id)}
+                      onClick={() => { setActiveId(o.id); setActiveExperienceSlug(null); }}
                       className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
-                        activeId === o.id
+                        activeId === o.id && !activeExperienceSlug
                           ? "border-purple text-purple font-semibold"
                           : "border-transparent text-gray hover:text-purple"
                       }`}
@@ -298,16 +301,17 @@ const TeamsPage = () => {
 
               <p className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gray mb-4 mt-8">Example Experiences</p>
               <ul className="space-y-1">
-                {[
-                  { label: "Signature Creole", path: "/teams/example/signature-creole" },
-                  { label: "Healthy Meal Prep", path: "/teams/example/healthy-meal-prep" },
-                ].map((item) => (
-                  <li key={item.path}>
+                {getExperiencesBySegment("teams").map((exp) => (
+                  <li key={exp.slug}>
                     <button
-                      onClick={() => go(item.path)}
-                      className="w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] border-transparent text-gray hover:text-purple transition-colors duration-200"
+                      onClick={() => { setActiveExperienceSlug(exp.slug); setActiveId(""); }}
+                      className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
+                        activeExperienceSlug === exp.slug
+                          ? "border-purple text-purple font-semibold"
+                          : "border-transparent text-gray hover:text-purple"
+                      }`}
                     >
-                      {item.label}
+                      {exp.slug === "team-creole" ? "Signature Creole" : "Healthy Meal Prep"}
                     </button>
                   </li>
                 ))}
@@ -316,7 +320,23 @@ const TeamsPage = () => {
 
             {/* Content Panel */}
             <div className="flex-1">
-              {(() => {
+              {activeExperienceSlug ? (() => {
+                const expData = getExperiencesBySegment("teams").find((e) => e.slug === activeExperienceSlug);
+                if (!expData) return null;
+                return (
+                  <div className="animate-fade-in">
+                    <button
+                      onClick={() => { setActiveExperienceSlug(null); setActiveId(occasions[0].id); }}
+                      className="font-sans text-[14px] text-purple font-medium hover:underline cursor-pointer mb-4 inline-block"
+                    >
+                      ← Back to Categories
+                    </button>
+                    <div className="bg-white rounded-[32px] border border-border overflow-hidden">
+                      <ExperienceContent data={expData} embedded />
+                    </div>
+                  </div>
+                );
+              })() : (() => {
                 const o = occasions.find((x) => x.id === activeId)!;
                 return (
                   <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">

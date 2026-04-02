@@ -6,6 +6,8 @@ import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import ClassModal from "@/components/chef/ClassModal";
 import FormatTabs from "@/components/chef/FormatTabs";
+import ExperienceContent from "@/components/chef/ExperienceContent";
+import { getExperiencesBySegment } from "@/data/experienceData";
 
 import PackagesModal from "@/components/chef/PackagesModal";
 import PrivateEventBookingFormModal from "@/components/chef/PrivateEventBookingFormModal";
@@ -133,6 +135,7 @@ const ClassesPage = () => {
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
   const [selectedClass, setSelectedClass] = useState<ClassData | null>(null);
   const [activeExpId, setActiveExpId] = useState(classExperiences[0].id);
+  const [activeExperienceSlug, setActiveExperienceSlug] = useState<string | null>(null);
   const [showPackages, setShowPackages] = useState(false);
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [calMonth, setCalMonth] = useState(1);
@@ -210,7 +213,7 @@ const ClassesPage = () => {
             {classExperiences.map((o) => (
               <button
                 key={o.id}
-                onClick={() => setActiveExpId(o.id)}
+                onClick={() => { setActiveExpId(o.id); setActiveExperienceSlug(null); }}
                 className={`whitespace-nowrap px-4 py-2 rounded-full font-sans text-[13px] font-semibold border transition-colors duration-200 shrink-0 ${
                   activeExpId === o.id
                     ? "bg-purple text-white border-purple"
@@ -236,9 +239,9 @@ const ClassesPage = () => {
                 {classExperiences.map((o) => (
                   <li key={o.id}>
                     <button
-                      onClick={() => setActiveExpId(o.id)}
+                      onClick={() => { setActiveExpId(o.id); setActiveExperienceSlug(null); }}
                       className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
-                        activeExpId === o.id
+                        activeExpId === o.id && !activeExperienceSlug
                           ? "border-purple text-purple font-semibold"
                           : "border-transparent text-gray hover:text-purple"
                       }`}
@@ -251,17 +254,17 @@ const ClassesPage = () => {
 
               <p className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gray mb-4 mt-8">Example Experiences</p>
               <ul className="space-y-1">
-                {[
-                  { label: "Valentine's Day", path: "/classes/example/valentines-day" },
-                  { label: "Signature Creole", path: "/classes/example/signature-creole" },
-                  { label: "Kids Learn to Bake", path: "/classes/example/kids-bake" },
-                ].map((item) => (
-                  <li key={item.path}>
+                {getExperiencesBySegment("classes").map((exp) => (
+                  <li key={exp.slug}>
                     <button
-                      onClick={() => go(item.path)}
-                      className="w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] border-transparent text-gray hover:text-purple transition-colors duration-200"
+                      onClick={() => { setActiveExperienceSlug(exp.slug); setActiveExpId(""); }}
+                      className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
+                        activeExperienceSlug === exp.slug
+                          ? "border-purple text-purple font-semibold"
+                          : "border-transparent text-gray hover:text-purple"
+                      }`}
                     >
-                      {item.label}
+                      {exp.slug === "valentines-day" ? "Valentine's Day" : exp.slug === "signature-creole" ? "Signature Creole" : "Kids Learn to Bake"}
                     </button>
                   </li>
                 ))}
@@ -270,7 +273,23 @@ const ClassesPage = () => {
 
             {/* Content Panel */}
             <div className="flex-1">
-              {(() => {
+              {activeExperienceSlug ? (() => {
+                const expData = getExperiencesBySegment("classes").find((e) => e.slug === activeExperienceSlug);
+                if (!expData) return null;
+                return (
+                  <div className="animate-fade-in">
+                    <button
+                      onClick={() => { setActiveExperienceSlug(null); setActiveExpId(classExperiences[0].id); }}
+                      className="font-sans text-[14px] text-purple font-medium hover:underline cursor-pointer mb-4 inline-block"
+                    >
+                      ← Back to Categories
+                    </button>
+                    <div className="bg-white rounded-[32px] border border-border overflow-hidden">
+                      <ExperienceContent data={expData} embedded />
+                    </div>
+                  </div>
+                );
+              })() : (() => {
                 const o = classExperiences.find((x) => x.id === activeExpId)!;
                 return (
                     <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
