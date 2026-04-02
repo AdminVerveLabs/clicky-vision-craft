@@ -164,6 +164,7 @@ const TeamsPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
   const [activeId, setActiveId] = useState(occasions[0].id);
+  const [activeExperienceSlug, setActiveExperienceSlug] = useState<string | null>(null);
   const [showPackages, setShowPackages] = useState(false);
   const [showBookingForm, setShowBookingForm] = useState(false);
   return (
