@@ -213,7 +213,7 @@ const ClassesPage = () => {
             {classExperiences.map((o) => (
               <button
                 key={o.id}
-                onClick={() => setActiveExpId(o.id)}
+                onClick={() => { setActiveExpId(o.id); setActiveExperienceSlug(null); }}
                 className={`whitespace-nowrap px-4 py-2 rounded-full font-sans text-[13px] font-semibold border transition-colors duration-200 shrink-0 ${
                   activeExpId === o.id
                     ? "bg-purple text-white border-purple"
