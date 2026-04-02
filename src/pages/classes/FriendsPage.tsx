@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
+import FormatTabs from "@/components/chef/FormatTabs";
 import Footer from "@/components/chef/Footer";
 
 import heroImg from "@/assets/chef-joey-61.jpg";
