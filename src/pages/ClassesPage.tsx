@@ -46,6 +46,7 @@ const classExperiences = [
     description: "Different cuisines to choose from. Food included for in-person classes and shopping lists provided for virtual classes.",
     hasCalendarLink: true,
     icon: "🍳", path: "/classes/open-classes", price: "From $89/person", image: classImg1,
+    hasInPerson: true, hasVirtual: true,
     details: [
       { icon: "⏱️", label: "Duration", value: "2–3 hours of hands-on cooking", color: "purple" },
       { icon: "👥", label: "Group Size", value: "8–16 people per class", color: "sage" },
