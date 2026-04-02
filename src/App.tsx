@@ -81,6 +81,7 @@ const App = () => (
             <Route path="/teams/example/healthy-meal-prep" element={<HealthyMealPrepPage />} />
             <Route path="/teams/gift-cards" element={<TeamsGiftCardsPage />} />
 
+            <Route path="/experiences/:slug" element={<ExperiencePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
