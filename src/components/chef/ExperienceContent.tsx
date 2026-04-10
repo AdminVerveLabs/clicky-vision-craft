@@ -128,7 +128,7 @@ const ExperienceContent = ({ data, embedded = false }: ExperienceContentProps) =
         <div
           ref={scrollRef}
           className="flex gap-3 overflow-x-auto px-8 md:px-12 pb-4 scrollbar-hide"
-          style={{ scrollbarWidth: "thin" }}
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {data.galleryImages.map((img, i) => {
             const widthMap = { small: "w-[200px]", medium: "w-[240px]", large: "w-[280px]" };
