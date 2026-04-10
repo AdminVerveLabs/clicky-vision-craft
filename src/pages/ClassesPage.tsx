@@ -282,12 +282,6 @@ const ClassesPage = () => {
                 if (!expData) return null;
                 return (
                   <div className="animate-fade-in">
-                    <button
-                      onClick={() => { setActiveExperienceSlug(null); setActiveExpId(classExperiences[0].id); }}
-                      className="font-sans text-[14px] text-purple font-medium hover:underline cursor-pointer mb-4 inline-block"
-                    >
-                      ← Back to Categories
-                    </button>
                     <div className="bg-white rounded-[32px] border border-border overflow-hidden">
                       <ExperienceContent data={expData} embedded />
                     </div>
