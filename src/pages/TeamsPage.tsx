@@ -253,7 +253,7 @@ const TeamsPage = () => {
       </section>
 
       {/* Catalogue Header */}
-      <section className="py-16 px-6 bg-cream">
+      <section className="py-16 px-6 bg-[hsla(105,48%,46%,0.08)]">
         <div className="max-w-[1200px] mx-auto text-center">
           <SectionTag>Perfect For</SectionTag>
           <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
