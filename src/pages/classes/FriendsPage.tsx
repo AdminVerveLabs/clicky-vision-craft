@@ -3,6 +3,7 @@ import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import FormatTabs from "@/components/chef/FormatTabs";
 import Footer from "@/components/chef/Footer";
+import VideoThumbnail, { VIDEO_HIGHLIGHTS } from "@/components/chef/VideoThumbnail";
 
 import heroImg from "@/assets/chef-joey-61.jpg";
 
@@ -37,6 +38,20 @@ const FriendsPage = () => {
             <div className="hidden md:block aspect-[4/3] rounded-3xl overflow-hidden">
               <img src={heroImg} alt="Friends" className="w-full h-full object-cover" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Highlights */}
+      <section className="py-10 px-6">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center mb-6">
+            <SectionTag>Fun in the Kitchen!</SectionTag>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {VIDEO_HIGHLIGHTS.map((video) => (
+              <VideoThumbnail key={video.id} title={video.title} videoId={video.id} />
+            ))}
           </div>
         </div>
       </section>
