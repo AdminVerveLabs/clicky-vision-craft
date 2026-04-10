@@ -253,7 +253,7 @@ const ClassesPage = () => {
       <section className="py-10 px-6">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-6">
-            <SectionTag>Highlights</SectionTag>
+            <SectionTag>Fun in the Kitchen!</SectionTag>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
