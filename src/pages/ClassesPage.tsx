@@ -206,7 +206,7 @@ const ClassesPage = () => {
       </section>
 
       {/* Catalogue Header */}
-      <section className="py-16 px-6 bg-[hsla(105,48%,46%,0.08)]">
+      <section className="py-8 px-6 bg-[hsla(105,48%,46%,0.08)]">
         <div className="max-w-[1200px] mx-auto text-center">
           <SectionTag>Experiences</SectionTag>
           <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Find your flavor</h2>
@@ -215,7 +215,7 @@ const ClassesPage = () => {
       </section>
 
       {/* Experience Types – Tab Style */}
-      <section className="py-24 px-6 bg-gray-light">
+      <section className="py-14 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
           {/* Mobile pill bar */}
           <div className="flex md:hidden gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
