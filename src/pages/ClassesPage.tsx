@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Star, Quote, Trophy, Award } from "lucide-react";
 import publicClassesImg from "@/assets/public-classes.png";
 import { useNavigate } from "react-router-dom";
@@ -233,6 +233,25 @@ const ClassesPage = () => {
               </button>
             ))}
           </div>
+
+      {/* Video Highlights */}
+      <section className="py-10 px-6">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center mb-6">
+            <SectionTag>Highlights</SectionTag>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { title: "Louie's Birthday", id: "ASLBrgGHWA0" },
+              { title: "Birthday Extravaganza", id: "YLEKjH1Ee50" },
+              { title: "Mackenzie's Party", id: "2tpxTX9SMdM" },
+              { title: "Jessica's Party", id: "awNOc_qgScM" },
+            ].map((video) => (
+              <VideoThumbnail key={video.id} title={video.title} videoId={video.id} />
+            ))}
+          </div>
+        </div>
+      </section>
 
 
           <div className="flex gap-10">
