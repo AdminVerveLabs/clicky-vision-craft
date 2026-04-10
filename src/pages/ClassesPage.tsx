@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import VideoThumbnail, { VIDEO_HIGHLIGHTS } from "@/components/chef/VideoThumbnail";
 import { Star, Quote, Trophy, Award } from "lucide-react";
 import publicClassesImg from "@/assets/public-classes.png";
 import { useNavigate } from "react-router-dom";
