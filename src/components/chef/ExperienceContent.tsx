@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import type { ExperienceData } from "@/data/experienceData";
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ExperienceContentProps {
   data: ExperienceData;
@@ -121,33 +122,11 @@ const ExperienceContent = ({ data, embedded = false }: ExperienceContentProps) =
       )}
 
       {/* 5. Gallery */}
-      <section className="py-8">
-        <p className="text-[12px] font-bold tracking-[2px] uppercase text-gray mb-5 px-8 md:px-12">
-          {data.gallerySectionTitle || "Moments from the night"}
-        </p>
-        <div
-          ref={scrollRef}
-          className="flex gap-3 overflow-x-auto px-8 md:px-12 pb-4 scrollbar-hide"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {data.galleryImages.map((img, i) => {
-            const widthMap = { small: "w-[200px]", medium: "w-[240px]", large: "w-[280px]" };
-            return (
-              <div
-                key={i}
-                className={`${widthMap[img.width || "medium"]} h-[240px] rounded-xl overflow-hidden shrink-0`}
-              >
-                <img
-                  src={img.url}
-                  alt={img.alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      <GallerySection
+        images={data.galleryImages}
+        title={data.gallerySectionTitle}
+        scrollRef={scrollRef}
+      />
 
       {/* 6. Chef's Notes (conditional) */}
       {data.chefNotes && (
