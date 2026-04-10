@@ -214,12 +214,7 @@ const ClassesPage = () => {
             <SectionTag>Fun in the Kitchen!</SectionTag>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { title: "Louie's Birthday", id: "ASLBrgGHWA0" },
-              { title: "Birthday Extravaganza", id: "YLEKjH1Ee50" },
-              { title: "Mackenzie's Party", id: "2tpxTX9SMdM" },
-              { title: "Jessica's Party", id: "awNOc_qgScM" },
-            ].map((video) => (
+            {VIDEO_HIGHLIGHTS.map((video) => (
               <VideoThumbnail key={video.id} title={video.title} videoId={video.id} />
             ))}
           </div>
