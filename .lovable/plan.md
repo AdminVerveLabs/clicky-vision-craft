@@ -1,25 +1,30 @@
 
 
-## Plan: Fix Experience Content Width to Match Category Cards
+## Plan: Add YouTube Video Between "Meet Your Host" and "Flexible Formats"
 
-### Problem
-The embedded `ExperienceContent` card extends wider than the category cards because flex items default to `min-width: auto`, allowing the horizontal-scrolling gallery inside `ExperienceContent` to push the content panel beyond its allocated space.
+### What changes
+In `src/pages/TeamsPage.tsx`, insert a video section between the "Meet Your Host" content (line 230) and the "Flexible Formats" divider (line 232).
 
-### Fix
+### Implementation
+Add this block after the closing `</div>` of the Meet Your Host grid (line 230):
 
-**`src/pages/ClassesPage.tsx`** — one line change
-
-Add `min-w-0` to the content panel div (line 275) so it respects the flex layout bounds:
-
+```tsx
+{/* Video Section */}
+<div className="mt-10 pt-8 border-t border-border/50">
+  <SectionTag>Enbridge Team with Chef Joey</SectionTag>
+  <div className="mt-4 rounded-2xl overflow-hidden shadow-lg">
+    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+      <iframe
+        className="absolute inset-0 w-full h-full"
+        src="https://www.youtube.com/embed/Q9RCypt9kuQ"
+        title="Enbridge Team with Chef Joey"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
+  </div>
+</div>
 ```
-// Before
-<div className="flex-1">
 
-// After  
-<div className="flex-1 min-w-0">
-```
-
-**`src/pages/TeamsPage.tsx`** — same fix applied to its content panel div for consistency.
-
-### Total: 2 files modified, ~1 line each
+This uses a 16:9 aspect ratio container with rounded corners and shadow to match the page's design language, placed with the same divider style used before "Flexible Formats."
 
