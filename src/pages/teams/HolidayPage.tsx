@@ -4,6 +4,7 @@ import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
 import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
+import EnbridgeVideoBanner from "@/components/chef/EnbridgeVideoBanner";
 import heroImg from "@/assets/chef-joey-114.jpg";
 
 const HolidayPage = () => {
@@ -41,6 +42,8 @@ const HolidayPage = () => {
           </div>
         </div>
       </section>
+
+      <EnbridgeVideoBanner />
 
       <section className="py-16 md:py-24 px-6 bg-cream">
         <div className="max-w-[1200px] mx-auto">
