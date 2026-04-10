@@ -249,6 +249,25 @@ const ClassesPage = () => {
         </div>
       </section>
 
+      {/* Video Highlights */}
+      <section className="py-10 px-6">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center mb-6">
+            <SectionTag>Highlights</SectionTag>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { title: "Louie's Birthday", id: "ASLBrgGHWA0" },
+              { title: "Birthday Extravaganza", id: "YLEKjH1Ee50" },
+              { title: "Mackenzie's Party", id: "2tpxTX9SMdM" },
+              { title: "Jessica's Party", id: "awNOc_qgScM" },
+            ].map((video) => (
+              <VideoThumbnail key={video.id} title={video.title} videoId={video.id} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Catalogue Header */}
       <section className="py-8 px-6 bg-[hsla(105,48%,46%,0.08)]">
         <div className="max-w-[1200px] mx-auto text-center">
@@ -278,24 +297,6 @@ const ClassesPage = () => {
             ))}
           </div>
 
-      {/* Video Highlights */}
-      <section className="py-10 px-6">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-6">
-            <SectionTag>Highlights</SectionTag>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { title: "Louie's Birthday", id: "ASLBrgGHWA0" },
-              { title: "Birthday Extravaganza", id: "YLEKjH1Ee50" },
-              { title: "Mackenzie's Party", id: "2tpxTX9SMdM" },
-              { title: "Jessica's Party", id: "awNOc_qgScM" },
-            ].map((video) => (
-              <VideoThumbnail key={video.id} title={video.title} videoId={video.id} />
-            ))}
-          </div>
-        </div>
-      </section>
 
 
           <div className="flex gap-10">
