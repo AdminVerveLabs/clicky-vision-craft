@@ -252,6 +252,15 @@ const TeamsPage = () => {
         </div>
       </section>
 
+      {/* Catalogue Header */}
+      <section className="py-16 px-6 bg-cream">
+        <div className="max-w-[1200px] mx-auto text-center">
+          <SectionTag>Perfect For</SectionTag>
+          <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
+          <p className="font-sans text-base text-gray mt-3 max-w-[520px] mx-auto">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
+        </div>
+      </section>
+
       {/* Use Cases – Tab Style */}
       <section className="py-24 px-6 bg-gray-light">
         <div className="max-w-[1200px] mx-auto">
@@ -272,11 +281,6 @@ const TeamsPage = () => {
             ))}
           </div>
 
-          <div className="text-center mb-10">
-            <SectionTag>Perfect For</SectionTag>
-            <h2 className="font-sans text-[38px] font-extrabold text-dark mt-4">Pick your occasion</h2>
-            <p className="font-sans text-base text-gray mt-3 max-w-[520px] mx-auto">From intimate team dinners to company-wide celebrations, we have the perfect culinary experience for every occasion.</p>
-          </div>
 
           <div className="flex gap-10">
             {/* Sidebar */}
