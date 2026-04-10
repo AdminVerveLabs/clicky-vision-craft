@@ -319,7 +319,7 @@ const TeamsPage = () => {
             </nav>
 
             {/* Content Panel */}
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               {activeExperienceSlug ? (() => {
                 const expData = getExperiencesBySegment("teams").find((e) => e.slug === activeExperienceSlug);
                 if (!expData) return null;
