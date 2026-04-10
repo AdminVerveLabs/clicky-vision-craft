@@ -398,7 +398,23 @@ const ClassesPage = () => {
                       <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-border">
                         <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">💰 {o.price}</span>
                         <div className="flex-1" />
-                        <CTAButton variant="primary" size="md">
+                        <CTAButton variant="primary" size="md" onClick={() => {
+                          if (["public-classes", "kids-cooking", "signature-sessions"].includes(o.id)) {
+                            const el = document.getElementById('class-calendar');
+                            if (!el) return;
+                            const start = window.scrollY;
+                            const end = el.getBoundingClientRect().top + start;
+                            const duration = 1800;
+                            const ease = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                            const startTime = performance.now();
+                            const animate = (now: number) => {
+                              const t = Math.min((now - startTime) / duration, 1);
+                              window.scrollTo(0, start + (end - start) * ease(t));
+                              if (t < 1) requestAnimationFrame(animate);
+                            };
+                            requestAnimationFrame(animate);
+                          }
+                        }}>
                           {["public-classes", "kids-cooking", "signature-sessions"].includes(o.id) ? "Browse Classes" : "Chat with Joey"}
                         </CTAButton>
                         <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-purple hover:underline cursor-pointer">
