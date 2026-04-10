@@ -8,6 +8,90 @@ interface ExperienceContentProps {
   embedded?: boolean;
 }
 
+/* Gallery with arrow navigation */
+const GallerySection = ({
+  images,
+  title,
+  scrollRef,
+}: {
+  images: ExperienceData["galleryImages"];
+  title?: string;
+  scrollRef: React.RefObject<HTMLDivElement>;
+}) => {
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 2);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
+  }, [scrollRef]);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    return () => el.removeEventListener("scroll", checkScroll);
+  }, [checkScroll, scrollRef]);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "left" ? -280 : 280, behavior: "smooth" });
+  };
+
+  const widthMap = { small: "w-[200px]", medium: "w-[240px]", large: "w-[280px]" };
+
+  return (
+    <section className="py-8 relative group">
+      <p className="text-[12px] font-bold tracking-[2px] uppercase text-gray mb-5 px-8 md:px-12">
+        {title || "Moments from the night"}
+      </p>
+      <div className="relative">
+        {canScrollLeft && (
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/90 shadow-md flex items-center justify-center hover:bg-white transition-colors"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-5 h-5 text-dark" />
+          </button>
+        )}
+        {canScrollRight && (
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/90 shadow-md flex items-center justify-center hover:bg-white transition-colors"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-5 h-5 text-dark" />
+          </button>
+        )}
+        <div
+          ref={scrollRef}
+          className="flex gap-3 overflow-x-auto px-8 md:px-12 pb-4 scrollbar-hide"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {images.map((img, i) => (
+            <div
+              key={i}
+              className={`${widthMap[img.width || "medium"]} h-[240px] rounded-xl overflow-hidden shrink-0`}
+            >
+              <img
+                src={img.url}
+                alt={img.alt}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ExperienceContent = ({ data, embedded = false }: ExperienceContentProps) => {
   const navigate = useNavigate();
   const go = (href: string) => {
