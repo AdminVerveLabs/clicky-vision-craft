@@ -37,7 +37,6 @@ import TeamCreolePage from "./pages/teams/TeamCreolePage";
 import HealthyMealPrepPage from "./pages/teams/HealthyMealPrepPage";
 import TeamsGiftCardsPage from "./pages/teams/GiftCardsPage";
 import ExperiencePage from "./pages/ExperiencePage";
-import EventDetailPage from "./pages/EventDetailPage";
 
 const queryClient = new QueryClient();
 
@@ -83,7 +82,6 @@ const App = () => (
             <Route path="/teams/gift-cards" element={<TeamsGiftCardsPage />} />
 
             <Route path="/experiences/:slug" element={<ExperiencePage />} />
-            <Route path="/events/:slug" element={<EventDetailPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
