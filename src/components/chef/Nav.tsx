@@ -78,10 +78,10 @@ const Nav = () => {
     <nav
       className="fixed top-0 left-0 right-0 z-[1000] transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(255,255,255,0.97)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid hsl(var(--border))" : "1px solid transparent",
-        padding: scrolled ? "12px 0" : "20px 0",
+        background: scrolled || !isHome ? "rgba(255,255,255,0.97)" : "transparent",
+        backdropFilter: scrolled || !isHome ? "blur(12px)" : "none",
+        borderBottom: scrolled || !isHome ? "1px solid hsl(var(--border))" : "1px solid transparent",
+        padding: scrolled || !isHome ? "12px 0" : "20px 0",
       }}
     >
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
