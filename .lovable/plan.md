@@ -1,30 +1,46 @@
 
 
-## Plan: Add YouTube Video Between "Meet Your Host" and "Flexible Formats"
+## Plan: Private/Corporate Event Detail Page Template
 
-### What changes
-In `src/pages/TeamsPage.tsx`, insert a video section between the "Meet Your Host" content (line 230) and the "Flexible Formats" divider (line 232).
+### Overview
+Create a new standalone page at `/events/:eventSlug` that displays all practical event info for booked customers. Includes the site's existing Nav and Footer, using project design tokens (DM Sans, purple/green/dark palette).
 
-### Implementation
-Add this block after the closing `</div>` of the Meet Your Host grid (line 230):
+### Files to Create
 
-```tsx
-{/* Video Section */}
-<div className="mt-10 pt-8 border-t border-border/50">
-  <SectionTag>Enbridge Team with Chef Joey</SectionTag>
-  <div className="mt-4 rounded-2xl overflow-hidden shadow-lg">
-    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-      <iframe
-        className="absolute inset-0 w-full h-full"
-        src="https://www.youtube.com/embed/Q9RCypt9kuQ"
-        title="Enbridge Team with Chef Joey"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-    </div>
-  </div>
-</div>
-```
+**1. `src/data/eventData.ts`** — TypeScript interfaces and sample event data
+- Define `RecipeCard`, `WinePairing`, `Cocktail`, `EventPageData` interfaces matching the spec
+- Export one sample event (e.g., `enbridge-team-cooking`) with all sections populated (including wine pairing and cocktail) so the template is fully demonstrable
+- Export a `getEventBySlug(slug)` lookup function
 
-This uses a 16:9 aspect ratio container with rounded corners and shadow to match the page's design language, placed with the same divider style used before "Flexible Formats."
+**2. `src/pages/EventPage.tsx`** — The full page component
+- Uses `useParams` to get `eventSlug`, looks up data via `getEventBySlug`
+- Returns `NotFound` if no match
+- Renders inside `<main>` with semantic `<article>` and `<section>` tags
+- Includes Footer at bottom (Nav is already global in App.tsx)
+- All 10 sections per the spec:
+  1. **Hero** — full-width div with background image, dark overlay, badge pill, date, title, tagline. `pt-[80px]` to clear fixed nav.
+  2. **Content wrapper** — `max-w-[900px] mx-auto`
+  3. **Location & Duration** — 2-col grid (1-col mobile), gray cards with emoji icons
+  4. **Get Ready** — section label, description, 2-col dark download cards
+  5. **Divider** — `border-t` with `my-14`
+  6. **What We're Cooking** — section label, menu title, 2-col recipe card grid with image areas
+  7. **Divider**
+  8. **Wine Pairing** (conditional) — purple gradient container, avatar + wine list + order button
+  9. **Cocktail** (conditional) — split layout, image left / colored content right
+  10. **Questions/Contact** — gray rounded box, centered CTA
+
+- Responsive: all grids switch to single column below `md:` breakpoint, hero height reduces, padding scales down
+
+### Files to Modify
+
+**3. `src/App.tsx`**
+- Import `EventPage`
+- Add route: `<Route path="/events/:eventSlug" element={<EventPage />} />`
+
+### Technical Notes
+- Uses existing design tokens: `hsl(var(--purple))`, `hsl(var(--dark))`, `font-sans` (DM Sans)
+- CTA button in contact section uses the project's CTAButton component
+- Wine order button uses inline purple styling per spec (#6B5B95)
+- All links open in new tab with `rel="noopener noreferrer"`
+- Font sizes respect 50+ audience minimum (15px+ body text)
 
