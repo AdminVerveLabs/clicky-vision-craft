@@ -83,6 +83,7 @@ const App = () => (
             <Route path="/teams/gift-cards" element={<TeamsGiftCardsPage />} />
 
             <Route path="/experiences/:slug" element={<ExperiencePage />} />
+            <Route path="/events/:slug" element={<EventDetailPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
