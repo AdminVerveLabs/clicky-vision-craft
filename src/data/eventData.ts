@@ -68,6 +68,9 @@ export interface EventPageData {
   contactSubheadline: string;
   contactButtonText: string;
   contactButtonUrl: string;
+
+  welcomeHeading?: string;
+  welcomeMessage?: string;
 }
 
 const events: EventPageData[] = [

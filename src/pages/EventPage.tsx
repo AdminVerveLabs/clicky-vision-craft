@@ -3,6 +3,7 @@ import { getEventBySlug } from "@/data/eventData";
 import Footer from "@/components/chef/Footer";
 import CTAButton from "@/components/chef/CTAButton";
 import NotFound from "./NotFound";
+import chefJoeyKitchen from "@/assets/chef-joey-kitchen.jpg";
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
   <p className="font-sans text-[12px] uppercase tracking-[2px] text-muted-foreground mb-4">
@@ -61,6 +62,47 @@ const EventPage = () => {
 
           {/* 2. Content Area */}
           <div className="max-w-[900px] mx-auto px-6 md:px-10 py-10 md:py-14">
+            {/* Welcome Section */}
+            <section className="mb-14">
+              <SectionLabel>WELCOME</SectionLabel>
+              <h2 className="font-sans text-[26px] font-medium text-foreground mb-3">
+                {data.welcomeHeading || "We're excited to cook with you!"}
+              </h2>
+              <p className="font-sans text-[16px] text-muted-foreground leading-[1.7]">
+                {data.welcomeMessage ||
+                  "You're all set for an unforgettable cooking experience. Below you'll find everything you need to prepare — from ingredients and recipes to event logistics. Get your apron ready and let's make something delicious together."}
+              </p>
+            </section>
+
+            {/* Meet the Chef */}
+            <section className="mb-14">
+              <div className="bg-gray-light rounded-[16px] p-6 md:p-7 flex flex-col sm:flex-row gap-6 items-start">
+                <img
+                  src={chefJoeyKitchen}
+                  alt="Chef Joey in the kitchen"
+                  className="w-[120px] h-[120px] rounded-xl object-cover shrink-0"
+                />
+                <div>
+                  <p className="font-sans text-[12px] uppercase tracking-[2px] text-muted-foreground mb-2">
+                    MEET THE CHEF
+                  </p>
+                  <p className="font-sans text-[20px] font-semibold text-foreground mb-2">
+                    Chef Joey
+                  </p>
+                  <p className="font-sans text-[15px] text-muted-foreground leading-[1.7] mb-3">
+                    Born in Haiti and raised on bold Caribbean flavors, Chef Joey brings warmth, energy, and a whole lot of soul to every kitchen. His hands-on classes blend Creole tradition with modern technique — and a guaranteed good time.
+                  </p>
+                  <a
+                    href="/about"
+                    className="font-sans text-[15px] font-medium hover:underline"
+                    style={{ color: "hsl(var(--purple))" }}
+                  >
+                    More About Joey →
+                  </a>
+                </div>
+              </div>
+            </section>
+
             {/* 3. Location & Duration */}
             <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
               {/* Location Card */}
