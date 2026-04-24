@@ -7,8 +7,6 @@ import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
 import PackagesModal from "@/components/chef/PackagesModal";
 import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
-import ExperienceContent from "@/components/chef/ExperienceContent";
-import { getExperiencesBySegment } from "@/data/experienceData";
 
 import teamImg1 from "@/assets/chef-joey-41.jpg";
 import teamImg2 from "@/assets/chef-joey-114.jpg";
@@ -163,8 +161,6 @@ const occasions = [
 const TeamsPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
-  const [activeId, setActiveId] = useState(occasions[0].id);
-  const [activeExperienceSlug, setActiveExperienceSlug] = useState<string | null>(null);
   const [showPackages, setShowPackages] = useState(false);
   const [showBookingForm, setShowBookingForm] = useState(false);
   return (
@@ -277,153 +273,60 @@ const TeamsPage = () => {
         </div>
       </section>
 
-      {/* Use Cases – Tab Style */}
-      <section className="py-14 px-6 bg-gray-light">
-        <div className="max-w-[1200px] mx-auto">
-          {/* Mobile pill bar */}
-          <div className="flex md:hidden gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+      {/* Use Cases – Card Grid */}
+      <section className="py-14 md:py-20 px-6 bg-cream">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
             {occasions.map((o) => (
               <button
                 key={o.id}
-                onClick={() => { setActiveId(o.id); setActiveExperienceSlug(null); }}
-                className={`whitespace-nowrap px-4 py-2 rounded-full font-sans text-[13px] font-semibold border transition-colors duration-200 shrink-0 ${
-                  activeId === o.id
-                    ? "bg-purple text-white border-purple"
-                    : "bg-white text-gray border-border hover:border-purple hover:text-purple"
-                }`}
+                onClick={() => go(o.path)}
+                className="group bg-white rounded-[20px] overflow-hidden flex flex-col border border-border shadow-[0_2px_12px_rgba(22,24,44,0.04)] hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(22,24,44,0.1)] transition-all duration-200 text-left"
               >
-                {o.sidebarLabel}
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <img src={o.image} alt={o.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <span className="absolute bottom-4 left-4 font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-white/15 backdrop-blur-md border border-white/25 px-3 py-1.5 rounded-full">
+                    {o.title}
+                  </span>
+                </div>
+
+                <div className="p-6 pb-7 flex flex-col flex-1">
+                  <h3 className="font-sans text-[22px] font-bold text-dark leading-[1.2] tracking-[-0.015em] mb-2.5">
+                    {o.title}
+                  </h3>
+                  <p className="font-sans text-[15px] text-gray leading-[1.5] mb-5 flex-1">
+                    {o.description.split(".")[0]}.
+                  </p>
+                  <div className="font-sans text-[13px] font-semibold text-dark bg-cream rounded-[10px] px-3.5 py-2.5 mb-5 flex flex-wrap items-center gap-1">
+                    <span>⏱ {o.duration}</span>
+                    <span className="text-gray opacity-50 mx-1">·</span>
+                    <span>👥 {o.groupSize}</span>
+                  </div>
+                  <span className="self-start inline-flex items-center gap-1.5 font-sans text-[14px] font-bold px-5 py-3 rounded-full border-[1.5px] border-purple text-purple group-hover:bg-purple group-hover:text-white transition-colors">
+                    Learn More →
+                  </span>
+                </div>
               </button>
             ))}
           </div>
 
-
-          <div className="flex gap-10">
-            {/* Sidebar */}
-            <nav className="hidden md:block w-[220px] shrink-0 sticky top-32 self-start pt-[20px]">
-              <p className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gray mb-4">Categories</p>
-              <ul className="space-y-1">
-                {occasions.map((o) => (
-                  <li key={o.id}>
-                    <button
-                      onClick={() => { setActiveId(o.id); setActiveExperienceSlug(null); }}
-                      className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
-                        activeId === o.id && !activeExperienceSlug
-                          ? "border-purple text-purple font-semibold"
-                          : "border-transparent text-gray hover:text-purple"
-                      }`}
-                    >
-                      {o.sidebarLabel}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-
-              <p className="font-sans text-[11px] font-bold tracking-[2px] uppercase text-gray mb-4 mt-8">Example Experiences</p>
-              <ul className="space-y-1">
-                {getExperiencesBySegment("teams").map((exp) => (
-                  <li key={exp.slug}>
-                    <button
-                      onClick={() => { setActiveExperienceSlug(exp.slug); setActiveId(""); }}
-                      className={`w-full text-left px-4 py-2.5 font-sans text-[15px] border-l-[3px] transition-colors duration-200 ${
-                        activeExperienceSlug === exp.slug
-                          ? "border-purple text-purple font-semibold"
-                          : "border-transparent text-gray hover:text-purple"
-                      }`}
-                    >
-                      {exp.slug === "team-creole" ? "Signature Creole" : "Healthy Meal Prep"}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            {/* Content Panel */}
-            <div className="flex-1 min-w-0">
-              {activeExperienceSlug ? (() => {
-                const expData = getExperiencesBySegment("teams").find((e) => e.slug === activeExperienceSlug);
-                if (!expData) return null;
-                return (
-                  <div className="animate-fade-in">
-                    <div className="bg-white rounded-[32px] border border-border overflow-hidden">
-                      <ExperienceContent data={expData} embedded />
-                    </div>
-                  </div>
-                );
-              })() : (() => {
-                const o = occasions.find((x) => x.id === activeId)!;
-                return (
-                  <div key={o.id} className="bg-white rounded-[32px] border border-border overflow-hidden animate-fade-in">
-                    {/* Photo Header */}
-                    <div className="relative h-[220px] md:h-[260px] overflow-hidden">
-                      <img src={o.image} alt={o.title} className="w-full h-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                      <div className="absolute bottom-0 left-0 p-8 md:p-10 flex items-end gap-5">
-                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-4xl shrink-0">{o.icon}</div>
-                        <div>
-                          <span className="inline-block font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-purple/80 px-3 py-1 rounded-full mb-2">{o.tag}</span>
-                          <h3 className="font-sans text-[28px] md:text-[32px] font-bold text-white leading-tight drop-shadow-lg">{o.title}</h3>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Body */}
-                    <div className="p-8 md:p-10">
-                      <p className="font-sans text-[16px] text-gray leading-[1.7] mb-8 max-w-[560px]">{o.description}</p>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* Details */}
-                        <div>
-                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">Experience Details</h4>
-                          {o.details.map((d, i) => (
-                            <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-b-0">
-                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 ${
-                                d.color === "purple" ? "bg-purple/10" : "bg-sage/10"
-                              }`}>{d.icon}</div>
-                              <div>
-                                <p className={`font-sans text-[12px] font-bold uppercase tracking-[1px] mb-0.5 ${
-                                  d.color === "purple" ? "text-purple" : "text-sage"
-                                }`}>{d.label}</p>
-                                <p className="font-sans text-[14px] text-dark leading-snug">{d.value}</p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Highlights */}
-                        <div>
-                          <h4 className="font-sans text-[20px] font-bold text-dark mb-5">What to Expect</h4>
-                          <div className="bg-cream rounded-2xl p-6 border border-border">
-                            {o.highlights.map((h, i) => (
-                              <div key={i} className={`flex gap-3 items-start py-2.5 ${i < o.highlights.length - 1 ? "border-b border-border" : ""}`}>
-                                <div className="w-6 h-6 rounded-full bg-green/10 flex items-center justify-center text-[11px] font-bold text-green font-sans shrink-0 mt-0.5">✓</div>
-                                <p className="font-sans text-[14px] text-dark leading-snug">{h}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Footer */}
-                      <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-border">
-                        <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">👥 {o.groupSize}</span>
-                        <span className="font-sans text-[13px] font-semibold text-dark bg-cream px-3.5 py-1 rounded-full">⏱ {o.duration}</span>
-                        <div className="flex-1" />
-                        <CTAButton variant="primary" size="md" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
-                        <button onClick={() => go(o.path)} className="inline-flex items-center gap-1 font-sans text-[15px] font-semibold text-purple hover:underline cursor-pointer">
-                          Learn More →
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })()}
+          <div className="relative bg-white border border-border rounded-[24px] px-6 py-12 md:px-10 md:py-14 mt-16 md:mt-20 text-center overflow-hidden shadow-[0_4px_32px_rgba(22,24,44,0.06)]">
+            <div className="absolute -top-24 -right-20 w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,_hsl(var(--purple-pale))_0%,_transparent_70%)]" />
+            <div className="absolute -bottom-24 -left-20 w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,_hsla(105,48%,46%,0.1)_0%,_transparent_70%)]" />
+            <div className="relative">
+              <h3 className="font-sans text-[26px] md:text-[32px] font-extrabold text-dark tracking-[-0.02em] leading-[1.15] mb-3">
+                Ready to spice up your team event?
+              </h3>
+              <p className="font-sans text-[15px] md:text-[17px] text-gray max-w-[480px] mx-auto mb-7">
+                Tell Joey a bit about your group and we'll put together something that fits — no generic templates.
+              </p>
+              <CTAButton variant="primary" size="lg" onClick={() => setShowBookingForm(true)}>Chat with Joey</CTAButton>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Format Options section removed — merged into Meet Chef Joey above */}
 
       {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-br from-purple to-purple-dark text-center">
