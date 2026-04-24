@@ -285,10 +285,6 @@ const TeamsPage = () => {
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <img src={o.image} alt={o.title} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                  <span className="absolute bottom-4 left-4 font-sans text-[11px] font-bold tracking-[1.5px] uppercase text-white bg-white/15 backdrop-blur-md border border-white/25 px-3 py-1.5 rounded-full">
-                    {o.title}
-                  </span>
                 </div>
 
                 <div className="p-6 pb-7 flex flex-col flex-1">
