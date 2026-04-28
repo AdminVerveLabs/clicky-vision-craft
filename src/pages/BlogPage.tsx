@@ -2,11 +2,23 @@ import { useState } from "react";
 import SectionTag from "@/components/chef/SectionTag";
 import NewsletterBanner from "@/components/chef/NewsletterBanner";
 import Footer from "@/components/chef/Footer";
+import CTAButton from "@/components/chef/CTAButton";
+import AudienceRouterModal from "@/components/chef/AudienceRouterModal";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
+import PrivateEventBookingFormModal from "@/components/chef/PrivateEventBookingFormModal";
 import { blogPosts, categories, cookingTips } from "@/data/blogData";
 import featuredImg from "@/assets/chef-joey-116.jpg";
 
 const BlogPage = () => {
   const [activeCategory, setActiveCategory] = useState("Recipes");
+  const [showRouter, setShowRouter] = useState(false);
+  const [showTeamForm, setShowTeamForm] = useState(false);
+  const [showPrivateForm, setShowPrivateForm] = useState(false);
+  const handleAudience = (audience: "b2c" | "b2b") => {
+    setShowRouter(false);
+    if (audience === "b2c") setShowPrivateForm(true);
+    else setShowTeamForm(true);
+  };
 
   const featuredPost = blogPosts.find((p) => p.featured);
   const recentPosts = blogPosts.filter((p) => !p.featured);
