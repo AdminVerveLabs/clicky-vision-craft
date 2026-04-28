@@ -20,7 +20,15 @@ import Footer from "@/components/chef/Footer";
 const HomePage = () => {
   const navigate = useNavigate();
   const [showClassModal, setShowClassModal] = useState(false);
+  const [showRouter, setShowRouter] = useState(false);
+  const [showTeamForm, setShowTeamForm] = useState(false);
+  const [showPrivateForm, setShowPrivateForm] = useState(false);
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const handleAudience = (audience: "b2c" | "b2b") => {
+    setShowRouter(false);
+    if (audience === "b2c") setShowPrivateForm(true);
+    else setShowTeamForm(true);
+  };
 
   return (
     <div>
