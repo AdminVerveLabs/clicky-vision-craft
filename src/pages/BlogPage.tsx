@@ -128,6 +128,9 @@ const BlogPage = () => {
 
       <NewsletterBanner />
       <Footer />
+      <AudienceRouterModal isOpen={showRouter} onClose={() => setShowRouter(false)} onSelect={handleAudience} />
+      <TeamBookingFormModal isOpen={showTeamForm} onClose={() => setShowTeamForm(false)} />
+      <PrivateEventBookingFormModal isOpen={showPrivateForm} onClose={() => setShowPrivateForm(false)} />
     </div>
   );
 };
