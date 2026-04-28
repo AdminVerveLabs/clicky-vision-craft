@@ -118,7 +118,10 @@ const HomePage = () => {
                 I've been lucky enough to learn from some of the best chefs and have taken on the love of cooking from them exploring all kinds of cuisines. Being born and raised on creole flavors and southern hospitality, I bring that warmth to every class. Expect bold
                 spices, big laughs, and zero pretension.
               </p>
-              <CTAButton variant="primary" onClick={() => go("/about")}>More About Joey</CTAButton>
+              <div className="flex gap-4 flex-wrap">
+                <CTAButton variant="primary" onClick={() => go("/about")}>More About Joey</CTAButton>
+                <CTAButton variant="secondary" onClick={() => setShowRouter(true)}>Chat with Joey</CTAButton>
+              </div>
             </div>
           </div>
         </div>
