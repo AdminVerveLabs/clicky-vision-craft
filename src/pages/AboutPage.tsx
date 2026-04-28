@@ -1,12 +1,24 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SectionTag from "@/components/chef/SectionTag";
 import CTAButton from "@/components/chef/CTAButton";
 import Footer from "@/components/chef/Footer";
+import AudienceRouterModal from "@/components/chef/AudienceRouterModal";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
+import PrivateEventBookingFormModal from "@/components/chef/PrivateEventBookingFormModal";
 import joeyPortrait from "@/assets/chef-joey-kitchen.jpg";
 
 const AboutPage = () => {
   const navigate = useNavigate();
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const [showRouter, setShowRouter] = useState(false);
+  const [showTeamForm, setShowTeamForm] = useState(false);
+  const [showPrivateForm, setShowPrivateForm] = useState(false);
+  const handleAudience = (audience: "b2c" | "b2b") => {
+    setShowRouter(false);
+    if (audience === "b2c") setShowPrivateForm(true);
+    else setShowTeamForm(true);
+  };
 
   return (
     <div>
@@ -35,8 +47,8 @@ const AboutPage = () => {
                 culture, to families celebrating milestones, to solo foodies who just want to learn something new.
               </p>
               <div className="flex gap-4 flex-wrap">
-                <CTAButton variant="primary" onClick={() => go("/classes")}>Chat with Joey</CTAButton>
-                <CTAButton variant="secondary">Get in Touch</CTAButton>
+                <CTAButton variant="primary" onClick={() => setShowRouter(true)}>Chat with Joey</CTAButton>
+                <CTAButton variant="secondary" onClick={() => setShowRouter(true)}>Get in Touch</CTAButton>
               </div>
             </div>
           </div>
@@ -44,6 +56,9 @@ const AboutPage = () => {
       </section>
 
       <Footer />
+      <AudienceRouterModal isOpen={showRouter} onClose={() => setShowRouter(false)} onSelect={handleAudience} />
+      <TeamBookingFormModal isOpen={showTeamForm} onClose={() => setShowTeamForm(false)} />
+      <PrivateEventBookingFormModal isOpen={showPrivateForm} onClose={() => setShowPrivateForm(false)} />
     </div>
   );
 };

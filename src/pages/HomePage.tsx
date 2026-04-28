@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CLASS_DATA } from "@/data/classData";
 import ClassModal from "@/components/chef/ClassModal";
+import AudienceRouterModal from "@/components/chef/AudienceRouterModal";
+import TeamBookingFormModal from "@/components/chef/TeamBookingFormModal";
+import PrivateEventBookingFormModal from "@/components/chef/PrivateEventBookingFormModal";
 import chefJoey61 from "@/assets/chef-joey-61.jpg";
 import chefJoey106 from "@/assets/chef-joey-106.jpg";
 import publicClassesImg from "@/assets/public-classes.png";
@@ -17,7 +20,15 @@ import Footer from "@/components/chef/Footer";
 const HomePage = () => {
   const navigate = useNavigate();
   const [showClassModal, setShowClassModal] = useState(false);
+  const [showRouter, setShowRouter] = useState(false);
+  const [showTeamForm, setShowTeamForm] = useState(false);
+  const [showPrivateForm, setShowPrivateForm] = useState(false);
   const go = (path: string) => { navigate(path); window.scrollTo({ top: 0, behavior: "smooth" }); };
+  const handleAudience = (audience: "b2c" | "b2b") => {
+    setShowRouter(false);
+    if (audience === "b2c") setShowPrivateForm(true);
+    else setShowTeamForm(true);
+  };
 
   return (
     <div>
@@ -107,7 +118,10 @@ const HomePage = () => {
                 I've been lucky enough to learn from some of the best chefs and have taken on the love of cooking from them exploring all kinds of cuisines. Being born and raised on creole flavors and southern hospitality, I bring that warmth to every class. Expect bold
                 spices, big laughs, and zero pretension.
               </p>
-              <CTAButton variant="primary" onClick={() => go("/about")}>More About Joey</CTAButton>
+              <div className="flex gap-4 flex-wrap">
+                <CTAButton variant="primary" onClick={() => go("/about")}>More About Joey</CTAButton>
+                <CTAButton variant="secondary" onClick={() => setShowRouter(true)}>Chat with Joey</CTAButton>
+              </div>
             </div>
           </div>
         </div>
@@ -201,6 +215,9 @@ const HomePage = () => {
       {showClassModal && (
         <ClassModal cls={CLASS_DATA[0]} onClose={() => setShowClassModal(false)} />
       )}
+      <AudienceRouterModal isOpen={showRouter} onClose={() => setShowRouter(false)} onSelect={handleAudience} />
+      <TeamBookingFormModal isOpen={showTeamForm} onClose={() => setShowTeamForm(false)} />
+      <PrivateEventBookingFormModal isOpen={showPrivateForm} onClose={() => setShowPrivateForm(false)} />
     </div>
   );
 };
