@@ -212,6 +212,9 @@ const HomePage = () => {
       {showClassModal && (
         <ClassModal cls={CLASS_DATA[0]} onClose={() => setShowClassModal(false)} />
       )}
+      <AudienceRouterModal isOpen={showRouter} onClose={() => setShowRouter(false)} onSelect={handleAudience} />
+      <TeamBookingFormModal isOpen={showTeamForm} onClose={() => setShowTeamForm(false)} />
+      <PrivateEventBookingFormModal isOpen={showPrivateForm} onClose={() => setShowPrivateForm(false)} />
     </div>
   );
 };
