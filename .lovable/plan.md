@@ -1,44 +1,65 @@
+## About page additions
 
+Two new sections appended below the existing hero on `src/pages/AboutPage.tsx`. Existing top section stays untouched.
 
-## Plan: Add Welcome & Meet the Chef Sections to Event Page
+### Section 2 — How Chef Joey Came to Be
 
-### Overview
-Add two new sections between the Hero and the Location/Duration cards on the Event page: a generic Welcome/Introduction and a compact "Meet the Chef" block featuring Chef Joey.
+Two-column layout, alternating from the hero (image on the right side this time for rhythm — happy to flip).
 
-### Changes
+```text
++----------------------------+--------------------------+
+|  ABOUT CHEF JOEY (tag)     |                          |
+|  H2: How Chef Joey         |     [supporting image]   |
+|      Came to Be            |                          |
+|                            |                          |
+|  5 paragraphs of body copy |                          |
+|                            |                          |
+|  [press logo strip]        |                          |
++----------------------------+--------------------------+
+```
 
-**1. `src/pages/EventPage.tsx`**
+- Background: `bg-cream` (subtle separation from the white hero above).
+- Section tag: "About Chef Joey".
+- H2: "How Chef Joey Came to Be" — same display treatment as hero H1, slightly smaller.
+- Body: all five paragraphs verbatim from your copy, gray text, 1.8 line-height, max ~65ch for readability.
+- Press strip: placeholder row at the end of the body column with greyed-out logo blocks for Avenue Magazine, Food Network Canada, The Best Calgary, Calgary Inc. Best Place to Work. Real logos can be swapped in later — please send when ready.
+- Image: needs an asset. Options below.
 
-Insert two sections inside the content area (`max-w-[900px]` wrapper), above the Location & Duration grid:
+### Section 3 — Three Things That Set Chef Joey Apart
 
-**Welcome/Introduction Section:**
-- Section label: "WELCOME" (same `SectionLabel` style already in use)
-- Heading: "We're excited to cook with you!" (or similar warm greeting) — 26px, medium weight
-- Short paragraph welcoming the participant and setting expectations — 16px, muted, line-height 1.7
-- Simple, clean — no cards or images, just text
-- `mb-14` spacing below
+Mirrors the reference exactly: centered eyebrow tag, H2, subhead, then a 3-column grid of numbered circles with title + body.
 
-**Meet the Chef Section (compact):**
-- Horizontal flex layout (stacks on mobile): small photo left, text right
-- Photo: Chef Joey kitchen image (import existing `chef-joey-kitchen.jpg` from assets), ~120px wide, rounded-xl, aspect-square, object-cover
-- Text side:
-  - "MEET THE CHEF" section label (12px uppercase, muted)
-  - "Chef Joey" — 20px, semibold
-  - One short paragraph (condensed version of the homepage bio) — 14-15px, muted, 3-4 lines max
-  - "More About Joey →" text link in purple
-- Gray-light background, rounded-[16px], padding 24-28px
-- `mb-14` spacing below
+```text
+            [WHAT MAKES US DIFFERENT]
+       Three Things That Set Chef Joey Apart
+   Hundreds of places claim to teach cooking. Here's
+            what Chef Joey does differently.
 
-**2. `src/data/eventData.ts`**
+       (01)              (02)              (03)
+   Hands-On from    Real Food, Zero    Built for Groups,
+   Minute One       Gatekeeping        Any Size
+   <body copy>      <body copy>        <body copy>
+```
 
-Add two optional fields to `EventPageData`:
-- `welcomeHeading?: string` — defaults to "We're excited to cook with you!"
-- `welcomeMessage?: string` — defaults to a generic message about preparing for the event
+- Background: white.
+- Numbered badges: 48px purple circles, white "01/02/03" inside, DM Sans semibold.
+- Item titles: dark, serif weight, ~22–24px.
+- Body copy: gray, centered, ~16px, 1.7 line-height.
+- Copy used verbatim from your message (subhead updated to your new wording).
+- Stacks to single column on mobile.
 
-No changes needed to the sample event data unless custom text is desired.
+### Technical notes
 
-### Technical Notes
-- Reuses existing `chef-joey-kitchen.jpg` asset already imported on HomePage
-- Follows existing `SectionLabel` pattern in EventPage
-- Meet the Chef section is intentionally smaller than the HomePage version — roughly 40% the size, single short paragraph, no large heading
+- Edit only `src/pages/AboutPage.tsx`. No new components needed — these are page-level sections consistent with how the rest of the site is structured.
+- Reuse `SectionTag` for both eyebrows.
+- No new CTAs added (existing ones in the hero already cover the page).
+- Press logos and the Section 2 image will be placeholders until you supply assets.
 
+### Open items I need from you before/after build
+
+1. **Section 2 image** — pick one:
+   - (a) Reuse `chef-joey-kitchen.jpg` (already in assets) — fastest, but it's already on the page.
+   - (b) You upload a new photo (recommended — a different shot keeps the page visually fresh).
+   - (c) I generate a stylized supporting image.
+2. **Press logos** — when you have them, drop them in and I'll wire them into the strip. Placeholder grey blocks until then.
+3. **Image side preference for Section 2** — image-right (my default) or image-left?
